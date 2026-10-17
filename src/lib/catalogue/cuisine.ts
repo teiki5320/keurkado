@@ -1,0 +1,105 @@
+import type { Produit } from "../types";
+
+export const PRODUITS_CUISINE: Produit[] = [
+  {
+    slug: "service-a-the-plateau-verres",
+    nom: "Service à thé avec plateau et verres",
+    description:
+      "Une théière, des petits verres à thé et un plateau assorti : tout ce qu'il faut pour préparer l'ataya et le servir aux invités. Un cadeau de mariage ou de fête qui trône ensuite au salon.",
+    univers: "cuisine",
+    occasions: ["tabaski", "korite", "mariage", "fete-des-peres"],
+    pour: ["papa", "homme", "maman"],
+    budget: "50-100",
+    voyage: false,
+    recherche: "service a the plateau theiere verres",
+    rayon: "kitchen",
+  },
+  {
+    slug: "theiere-inox-ataya",
+    nom: "Théière en inox pour le thé à la menthe",
+    description:
+      "Une théière en inox qui va directement sur le feu, idéale pour faire mousser l'ataya en trois tournées. Solide, elle voyage sans risque et servira pendant des années.",
+    univers: "cuisine",
+    occasions: ["fete-des-peres", "tabaski", "korite"],
+    pour: ["papa", "homme"],
+    budget: "20-50",
+    voyage: true,
+    recherche: "theiere inox orientale",
+    rayon: "kitchen",
+  },
+  {
+    slug: "the-vert-gunpowder",
+    nom: "Thé vert gunpowder",
+    description:
+      "Le thé vert en perles roulées, celui de l'ataya sénégalais et du thé à la menthe. Un petit cadeau gourmand et pratique, à offrir avec des verres ou à glisser dans un colis.",
+    univers: "cuisine",
+    occasions: ["tabaski", "korite", "fete-des-peres", "noel"],
+    pour: ["papa", "collegue", "homme"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "the vert gunpowder chine",
+  },
+  {
+    slug: "plateau-service-dore",
+    nom: "Plateau de service doré",
+    description:
+      "Un grand plateau en métal doré pour servir le thé, les jus ou les douceurs aux invités. Les mamans qui aiment recevoir le sortent à chaque grande fête.",
+    univers: "cuisine",
+    occasions: ["tabaski", "korite", "mariage", "fete-des-meres"],
+    pour: ["maman", "femme"],
+    budget: "20-50",
+    voyage: true,
+    recherche: "plateau service dore oriental",
+    rayon: "kitchen",
+  },
+  {
+    slug: "coffret-epices-africaines",
+    nom: "Coffret d'épices africaines",
+    description:
+      "Un assortiment d'épices pour les plats d'Afrique : poivre de Selim, piment, soumbala, mélanges pour le poulet ou le poisson. Un cadeau parfait pour un collègue gourmand ou une amie qui aime cuisiner.",
+    univers: "cuisine",
+    occasions: ["noel", "anniversaire", "fete-des-meres"],
+    pour: ["collegue", "maman", "homme"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "coffret epices africaines",
+  },
+  {
+    slug: "fleurs-hibiscus-bissap",
+    nom: "Fleurs d'hibiscus séchées pour le bissap",
+    description:
+      "Des fleurs d'hibiscus séchées pour préparer le bissap maison, la boisson rouge et fraîche des jours de fête. Un petit cadeau à offrir avec une recette écrite à la main.",
+    univers: "cuisine",
+    occasions: ["korite", "tabaski", "noel"],
+    pour: ["collegue", "maman"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "fleurs hibiscus sechees bissap",
+  },
+  {
+    slug: "livre-recettes-africaines",
+    nom: "Livre de recettes africaines",
+    description:
+      "Un livre de cuisine qui rassemble les grands classiques : thiéboudienne, mafé, yassa, alloco et bien d'autres. Pour celles et ceux qui veulent retrouver les saveurs de la maison, ou les faire découvrir.",
+    univers: "cuisine",
+    occasions: ["noel", "fete-des-meres", "anniversaire", "mariage"],
+    pour: ["maman", "femme", "collegue", "homme"],
+    budget: "20-50",
+    voyage: true,
+    recherche: "livre recettes cuisine africaine",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "mortier-pilon-bois",
+    nom: "Mortier et pilon en bois",
+    description:
+      "Un mortier en bois massif et son pilon pour écraser l'ail, le piment et les épices comme à la maison. Un ustensile solide et beau, qui fait un cadeau utile pour un jeune foyer.",
+    univers: "cuisine",
+    occasions: ["mariage", "fete-des-meres"],
+    pour: ["maman", "femme"],
+    budget: "20-50",
+    voyage: true,
+    recherche: "mortier pilon bois cuisine",
+    rayon: "kitchen",
+  },
+];

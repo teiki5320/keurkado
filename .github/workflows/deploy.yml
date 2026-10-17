@@ -1,0 +1,77 @@
+# Vérifie, construit et publie le site statique sur GitHub Pages (teiki5320.github.io/keurkado).
+# Se lance à chaque push sur main, chaque lundi (articles « Conseils » programmés, calendrier à jour)
+# et à la main (onglet Actions).
+# Quand keurkado.com sera acheté : passer à Cloudflare Pages comme Keurbook (voir docs/DEPLOIEMENT.md).
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # Chaque lundi à 0 h 15 (heure de Paris en hiver, 1 h 15 en été).
+  schedule:
+    - cron: "15 23 * * 0"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Une seule publication à la fois ; on ne coupe pas une publication en cours.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # Adresse publique et sous-dossier : réglables dans Settings › Secrets and variables › Actions › Variables.
+  NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || 'https://teiki5320.github.io/keurkado' }}
+  NEXT_PUBLIC_BASE_PATH: ${{ vars.BASE_PATH || '/keurkado' }}
+  # Vide tant que le site est sur GitHub Pages (AdSense n'accepte que les sites sur leur propre domaine).
+  NEXT_PUBLIC_ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+  NEXT_PUBLIC_PINTEREST_VERIFY: ${{ vars.PINTEREST_VERIFY }}
+  NEXT_TELEMETRY_DISABLED: 1
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérifier le code (lint + types)
+        run: |
+          npm run lint
+          npm run typecheck
+
+      - name: Lancer les tests
+        run: npm test
+
+      # Génère aussi les épingles Pinterest (public/epingles/) et l'image de partage.
+      - name: Construire le site statique (dossier out/)
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: out
+
+  publier:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/*
+ * Design « Wax » : fond crème chaud, couleurs vives du wax (orange, jaune soleil, vert, indigo, fuchsia),
+ * titres en Fraunces, texte en Source Sans 3. Mobile d'abord.
+ * Les couleurs de texte sont choisies pour un contraste d'au moins 4,5:1 sur le fond crème.
+ */
+@theme {
+  --color-paper: #fff7ec;
+  --color-sand: #f6e7d0;
+  --color-ink: #2a1810;
+  --color-muted: #6b5242;
+  --color-faint: #85695a;
+  --color-line: #ead7be;
+  --color-line-strong: #d9bf9c;
+  --color-white: #ffffff;
+  /* Couleurs du wax. */
+  --color-orange: #c2410c;
+  --color-orange-soft: #fde4d3;
+  --color-soleil: #f2a900;
+  --color-soleil-soft: #fff0c2;
+  --color-vert: #1e7a4e;
+  --color-vert-soft: #d8efe2;
+  --color-indigo: #1f3a8a;
+  --color-indigo-soft: #dfe6fa;
+  --color-fuchsia: #b5245e;
+  --color-fuchsia-soft: #fadbe7;
+  --color-accent: #c2410c;
+  --font-sans: var(--font-source-sans), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-soleil);
+  color: var(--color-ink);
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[15px] font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo;
+}
+@utility btn-primary {
+  @apply btn bg-orange text-white shadow-sm hover:bg-ink;
+}
+@utility btn-secondary {
+  @apply btn border-2 border-ink/80 bg-transparent text-ink hover:bg-ink hover:text-paper;
+}
+@utility btn-amazon {
+  @apply btn bg-soleil px-4 py-2.5 text-sm text-ink hover:bg-ink hover:text-paper;
+}
+@utility tag {
+  @apply inline-flex items-center rounded-full border border-line-strong bg-white px-3.5 py-1.5 text-[14px] text-ink/85 hover:border-ink hover:text-ink;
+}
+@utility section-title {
+  @apply font-serif text-[28px] leading-tight font-semibold sm:text-4xl;
+}
+@utility eyebrow {
+  @apply text-[12px] font-semibold tracking-[0.12em] text-orange uppercase;
+}
+
+@utility prose-text {
+  @apply max-w-3xl text-[17px] leading-[1.7] text-ink/90;
+  & h2 {
+    @apply mt-10 mb-3 scroll-mt-24 font-serif text-[26px] leading-tight font-semibold text-ink sm:text-[30px];
+  }
+  & h3 {
+    @apply mt-8 mb-2 font-serif text-[22px] leading-tight font-semibold text-ink;
+  }
+  & p,
+  & ul,
+  & ol {
+    @apply mb-4;
+  }
+  & ul {
+    @apply list-disc pl-6;
+  }
+  & ol {
+    @apply list-decimal pl-6;
+  }
+  & li {
+    @apply mb-1.5;
+  }
+  & a {
+    @apply font-semibold text-orange underline underline-offset-2 hover:text-ink;
+  }
+  & strong {
+    @apply font-semibold text-ink;
+  }
+  & blockquote {
+    @apply my-6 border-l-4 border-soleil pl-5 font-serif text-xl text-ink italic;
+  }
+}
+
+/*
+ * Motif wax : cercles concentriques et losanges, en tuile SVG de 80 px.
+ * .wax-band : bandeau fin (haut de page, séparations) ; .wax-bg : grand aplat (accueil, quiz).
+ */
+.wax-band,
+.wax-bg {
+  background-color: var(--color-orange);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23c2410c'/%3E%3Ccircle cx='20' cy='20' r='17' fill='%23f2a900'/%3E%3Ccircle cx='20' cy='20' r='11' fill='%231e7a4e'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23fff7ec'/%3E%3Ccircle cx='60' cy='60' r='17' fill='%231f3a8a'/%3E%3Ccircle cx='60' cy='60' r='11' fill='%23f2a900'/%3E%3Ccircle cx='60' cy='60' r='5' fill='%23b5245e'/%3E%3Cpath d='M60 3l9 17-9 17-9-17z' fill='%23fff7ec'/%3E%3Cpath d='M20 43l9 17-9 17-9-17z' fill='%23b5245e'/%3E%3Ccircle cx='60' cy='20' r='3' fill='%23c2410c'/%3E%3Ccircle cx='20' cy='60' r='3' fill='%23fff7ec'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+.wax-band {
+  height: 12px;
+  background-size: 24px 24px;
+}
+
+/* Carte produit : légère rotation au survol, comme un paquet cadeau qu'on soulève. */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .carte-cadeau {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .carte-cadeau:hover {
+    transform: translateY(-3px) rotate(-0.4deg);
+    box-shadow: 0 14px 30px -18px rgb(42 24 16 / 0.45);
+  }
+}
+
+/* Quiz : apparition douce de chaque étape. */
+@media (prefers-reduced-motion: no-preference) {
+  .etape {
+    animation: etape 0.35s ease-out both;
+  }
+}
+@keyframes etape {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Visiteurs qui ont demandé moins d'animations : transitions et animations coupées. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Emplacements d'annonces AdSense (composant AdSlot) : cadre neutre, mention « Publicité » toujours visible,
+   affiché seulement quand Google a placé une annonce. Volontairement différent des boutons Amazon. */
+.ad-slot {
+  margin-block: 3rem;
+  border-block: 1px solid var(--color-line);
+  padding-block: 0.75rem;
+}
+.ad-slot-label {
+  margin-bottom: 0.5rem;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+/* Replié tant que Google n'a pas placé d'annonce : jamais de case vide (pas de display: none, Google doit mesurer la largeur). */
+.ad-slot:not(:has(ins.adsbygoogle[data-ad-status="filled"])) {
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}

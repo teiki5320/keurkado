@@ -1,0 +1,60 @@
+# Keur Kado — les idées cadeaux africains
+
+Site en français d'**idées cadeaux africains pour la diaspora africaine en France** : par occasion (Tabaski, Korité, Noël, mariage, baptême…), par destinataire, par budget et par univers (wax, bijoux, beauté afro, déco, jeux), avec un quiz « Trouve le cadeau », des Top 10, une rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien : les boutons « Voir sur Amazon » mènent à Amazon.fr (programme Partenaires, tag `keurkado-21`).
+
+- **Site** : https://teiki5320.github.io/keurkado (GitHub Pages), puis keurkado.com.
+- **Dépôt** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
+- **Base technique** : reprise de [Keurbook](https://github.com/teiki5320/keurbook) ; épingles Pinterest à la manière de Keur Déco.
+
+**Stack** : Next.js 16 (App Router, export statique) · React 19 · TypeScript · Tailwind CSS 4 · Marked (articles Markdown) · sharp (épingles). 100 % statique : pas de serveur, pas de base de données.
+
+## Démarrer
+
+```bash
+npm install
+npm run epingles   # épingles Pinterest et image de partage (public/epingles/), utiles aussi en développement
+npm run dev        # http://localhost:3000
+npm run build      # épingles + site statique dans out/
+npm test           # cohérence des contenus
+```
+
+## Pages
+
+| Page | Adresse |
+| --- | --- |
+| Accueil | `/` |
+| Quiz « Trouve le cadeau » (occasion → personne → budget) | `/quiz` (`?occasion=…&pour=…&budget=…&voyage=1`) |
+| Par occasion, destinataire, budget, univers | `/occasion/<slug>`, `/pour/<slug>`, `/budget/<slug>`, `/univers/<slug>` |
+| Livres et cuisine (renvoi vers Keurbook et Keur Cook) | `/univers/livres`, `/univers/cuisine` |
+| Cadeaux à envoyer au pays | `/envoyer-au-pays` |
+| Top 10 (+ épingle Pinterest) | `/top`, `/top/<slug>` |
+| Conseils | `/conseils`, `/conseils/<slug>` |
+| Calendrier des fêtes africaines | `/calendrier` |
+| Pages légales | `/mentions-legales`, `/confidentialite`, `/conditions` |
+
+## Où sont les contenus
+
+| Contenu | Fichier |
+| --- | --- |
+| Occasions, destinataires, budgets, univers | `src/lib/taxonomie.ts` |
+| Catalogue des idées cadeaux | `src/lib/catalogue/<univers>.ts` |
+| Top 10 | `src/lib/tops/<slug>.ts` (liste et ordre : `src/lib/tops/index.ts`) |
+| Articles Conseils | `content/conseils/<slug>.md` |
+| Calendrier des fêtes | `src/lib/calendrier.ts` |
+
+Règles de rédaction : [`docs/REDACTION.md`](docs/REDACTION.md). Pinterest : [`docs/PINTEREST.md`](docs/PINTEREST.md). Déploiement : [`docs/DEPLOIEMENT.md`](docs/DEPLOIEMENT.md).
+
+## Amazon Partenaires
+
+- Liens construits par `src/lib/amazon.ts` avec le tag `keurkado-21` (`NEXT_PUBLIC_AMAZON_TAG` pour le changer).
+- Si `amazonAsin` est rempli (ASIN vérifié sur Amazon.fr), le bouton mène à la fiche ; sinon à une **recherche Amazon** (champ `recherche`, rayon `rayon`).
+- `priceCents` : prix relevé à la main, affiché seulement s'il est rempli ; sinon on affiche la tranche de budget.
+- Mention obligatoire dans le pied de page et les pages légales.
+
+## Publicité et cookies
+
+Même fonctionnement que Keurbook : code AdSense et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. **Coupé tant que le site est sur GitHub Pages** (AdSense n'accepte que les sites sur leur propre domaine) : à activer avec keurkado.com (voir `docs/DEPLOIEMENT.md`).
+
+## Logo
+
+Logo provisoire (emblème « paquet cadeau » en SVG, `src/components/layout/Logo.tsx`, repris dans les épingles). À remplacer par le logo définitif.

@@ -1,0 +1,95 @@
+import type { Produit } from "../types";
+
+export const PRODUITS_LIVRES: Produit[] = [
+  {
+    slug: "recueil-contes-africains-illustre",
+    nom: "Recueil de contes africains illustré",
+    description:
+      "Un recueil de contes traditionnels d'Afrique, joliment illustré, à lire le soir avant de dormir. Leuk le lièvre, l'araignée Anansi ou le baobab : ces histoires transmettent la sagesse des anciens aux plus petits.",
+    univers: "livres",
+    occasions: ["noel", "anniversaire", "bapteme", "korite"],
+    pour: ["enfant"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "contes africains illustres enfant",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "album-jeunesse-heroine-noire",
+    nom: "Album jeunesse avec une héroïne noire",
+    description:
+      "Un album illustré dont l'héroïne est une petite fille noire, ses cheveux, sa famille, ses aventures. Se reconnaître dans un livre aide les enfants à grandir avec confiance.",
+    univers: "livres",
+    occasions: ["noel", "anniversaire", "bapteme", "tabaski"],
+    pour: ["enfant"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "album jeunesse heroine noire cheveux",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "imagier-bilingue-langue-africaine",
+    nom: "Imagier bilingue en langue africaine",
+    description:
+      "Un imagier français et wolof, lingala, bambara ou autre langue du continent, pour apprendre les premiers mots dans les deux langues. Un beau cadeau de baptême pour transmettre la langue des grands-parents.",
+    univers: "livres",
+    occasions: ["bapteme", "noel", "anniversaire"],
+    pour: ["enfant"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "imagier bilingue wolof francais",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "beau-livre-photo-afrique",
+    nom: "Beau livre photo sur l'Afrique",
+    description:
+      "Un grand livre de photographies sur les paysages, les visages et les villes du continent. Il se feuillette sur la table du salon et fait voyager toute la famille sans bouger.",
+    univers: "livres",
+    occasions: ["noel", "fete-des-peres", "anniversaire"],
+    pour: ["papa", "homme", "collegue"],
+    budget: "20-50",
+    voyage: true,
+    recherche: "beau livre photographie afrique",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "livre-histoire-afrique",
+    nom: "Livre illustré sur l'histoire de l'Afrique",
+    description:
+      "Un ouvrage illustré qui raconte l'histoire du continent, des grands empires aux indépendances. Un cadeau passionnant pour un papa curieux ou un ado qui veut mieux connaître ses racines.",
+    univers: "livres",
+    occasions: ["noel", "fete-des-peres", "anniversaire"],
+    pour: ["papa", "homme", "ado"],
+    budget: "20-50",
+    voyage: true,
+    recherche: "livre histoire afrique illustre",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "coloriage-motifs-africains",
+    nom: "Livre de coloriage aux motifs africains",
+    description:
+      "Un livre de coloriage pour adultes et ados, rempli de motifs wax, de masques et de portraits. Un petit cadeau détente qui plaît au bureau comme à la maison.",
+    univers: "livres",
+    occasions: ["noel", "anniversaire"],
+    pour: ["collegue", "ado", "femme"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "coloriage adulte motifs africains",
+    rayon: "stripbooks",
+  },
+  {
+    slug: "recueil-proverbes-africains",
+    nom: "Recueil de proverbes africains",
+    description:
+      "Un recueil de proverbes venus de tout le continent, pleins de sagesse et souvent d'humour. Un petit livre à garder sur la table de chevet, que papa citera à toutes les occasions.",
+    univers: "livres",
+    occasions: ["fete-des-peres", "noel", "korite"],
+    pour: ["papa", "collegue", "homme", "maman"],
+    budget: "moins-de-20",
+    voyage: true,
+    recherche: "recueil proverbes africains",
+    rayon: "stripbooks",
+  },
+];
