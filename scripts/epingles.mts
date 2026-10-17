@@ -223,7 +223,7 @@ async function main() {
       titre: top.titre,
       description: descriptionEpingle(top),
       alt: `${top.titre} : ${top.accroche}. Épingle Keur Kado aux couleurs du wax.`,
-      lien: `${SITE_URL}/top/${top.slug}`,
+      lien: `${SITE_URL}/top/${top.slug}/`,
       tableau: TABLEAUX[top.rubrique.split("/")[0]] ?? TABLEAUX.occasion,
       publie_le: top.date,
     });

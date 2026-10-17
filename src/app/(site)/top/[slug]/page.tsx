@@ -42,7 +42,7 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
     const p = getProduit(it.produit);
     return p ? [{ carte: toCarte(p), pourquoi: it.pourquoi }] : [];
   });
-  const url = `${siteConfig.url}/top/${top.slug}`;
+  const url = `${siteConfig.url}/top/${top.slug}/`;
   const image = `${siteConfig.url}/epingles/${top.slug}.jpg`;
   const pinterest = `https://www.pinterest.fr/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(image)}&description=${encodeURIComponent(`${top.titre} — ${top.description}`)}`;
   const autres = TOPS.filter((t) => t.slug !== top.slug).slice(0, 4);

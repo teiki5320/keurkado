@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const day = (d: string) => new Date(`${d}T00:00:00Z`);
   const conseils = getConseils();
   const page = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly" = "monthly", d = MISE_A_JOUR) => ({
-    url: `${base}${path}`,
+    url: `${base}${path}/`,
     lastModified: day(d),
     changeFrequency,
     priority,
