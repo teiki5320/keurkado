@@ -2,7 +2,7 @@
 // Usage : npm run epingles (module ESM : extension .mts)
 //
 // Pour chaque Top 10, une image JPG 1000 × 1500 px (format conseillé par Pinterest) :
-// motif wax + « TOP 10 » + titre + accroche + signature Keur Kado. Quatre gabarits alternent
+// motif wax + « TOP 10 » + titre + accroche + signature (paquet cadeau du logo + Keur Kado). Quatre gabarits alternent
 // (bandeau haut, cadre, split, bandeau bas), comme sur Keur Déco. Uniquement nos propres visuels :
 // jamais de photo de produit Amazon.
 //
@@ -46,8 +46,9 @@ function motifWax(id: string, taille = 120): string {
   </pattern>`;
 }
 
-/** Emblème « paquet cadeau » (le même que le logo provisoire du site). */
-const EMBLEME = `<rect x="4" y="14" width="32" height="22" rx="4" fill="${C.orange}"/><rect x="2" y="9" width="36" height="8" rx="3" fill="${C.soleil}"/><rect x="17" y="9" width="6" height="27" fill="${C.indigo}"/><circle cx="11" cy="26" r="4" fill="${C.soleil}"/><circle cx="11" cy="26" r="1.8" fill="${C.vert}"/><circle cx="29" cy="26" r="4" fill="${C.fuchsia}"/><circle cx="29" cy="26" r="1.8" fill="${C.creme}"/><path d="M20 9c-3-6-11-6-9-1 1 2 5 1 9 1zm0 0c3-6 11-6 9-1-1 2-5 1-9 1z" fill="${C.vert}"/>`;
+/** Le paquet cadeau du logo (assets/marque/embleme.png, produit par npm run visuels-marque). */
+const EMBLEME = resolve(RACINE, "assets/marque/embleme.png");
+const LOGO = resolve(RACINE, "docs/brand/keurkado-logo-transparent.png");
 
 const svg = (largeur: number, hauteur: number, corps: string) =>
   Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${largeur}" height="${hauteur}" viewBox="0 0 ${largeur} ${hauteur}">${corps}</svg>`);
@@ -99,7 +100,7 @@ const dix = (couleur: string) => textePng("10", { police: "titre", couleur, larg
 
 /** Signature en bas d'épingle : emblème + « Keur Kado · keurkado.com ». */
 async function signature(couleur: string): Promise<Buffer> {
-  const logo = await sharp(svg(64, 64, `<g transform="scale(1.6)">${EMBLEME}</g>`)).png().toBuffer();
+  const logo = await sharp(EMBLEME).resize({ width: 64, height: 64, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();
   const texte = await sharp({
     text: { text: `<span foreground="${couleur}">Keur Kado · ${echapper(SITE_URL.replace(/^https?:\/\//, ""))}</span>`, font: "Source Sans 3 SemiBold 34", fontfile: POLICE_TEXTE, rgba: true, dpi: 72 },
   })
@@ -151,20 +152,15 @@ export async function composerEpingle(top: Pick<Top, "titre" | "accroche">, gaba
   return sharp(fond).composite(calques).jpeg({ quality: 86, mozjpeg: true }).toBuffer();
 }
 
-/** Image de partage par défaut (Open Graph, 1200 × 630) : motif wax, carte crème, nom et devise. */
+/** Image de partage par défaut (Open Graph, 1200 × 630) : motif wax et logo complet sur une carte crème. */
 async function imagePartage(): Promise<Buffer> {
-  const fond = await sharp(svg(1200, 630, `<defs>${motifWax("wax", 100)}</defs><rect width="1200" height="630" fill="url(#wax)"/><rect x="150" y="135" width="900" height="360" rx="40" fill="${C.creme}"/><g transform="translate(540 165) scale(3)">${EMBLEME}</g>`))
+  const fond = await sharp(svg(1200, 630, `<defs>${motifWax("wax", 100)}</defs><rect width="1200" height="630" fill="url(#wax)"/><rect x="300" y="45" width="600" height="540" rx="44" fill="${C.creme}"/>`))
     .png()
     .toBuffer();
-  const nom = await textePng("Keur Kado", { police: "titre", couleur: C.encre, largeur: 820, hauteurMax: 120, tailleMax: 104, tailleMin: 60 });
-  const devise = await textePng("Les idées cadeaux africains", { police: "texte", couleur: C.orange, largeur: 820, hauteurMax: 60, tailleMax: 44, tailleMin: 30 });
-  const n = await taille(nom);
-  const dv = await taille(devise);
+  const logo = await sharp(LOGO).trim({ threshold: 10 }).resize({ width: 500, height: 470, fit: "inside" }).png().toBuffer();
+  const l = await taille(logo);
   return sharp(fond)
-    .composite([
-      { input: nom, left: Math.round((1200 - n.l) / 2), top: 300 },
-      { input: devise, left: Math.round((1200 - dv.l) / 2), top: 300 + n.h + 8 },
-    ])
+    .composite([{ input: logo, left: Math.round((1200 - l.l) / 2), top: Math.round((630 - l.h) / 2) }])
     .jpeg({ quality: 86, mozjpeg: true })
     .toBuffer();
 }

@@ -26,6 +26,8 @@
   --color-fuchsia: #b5245e;
   --color-fuchsia-soft: #fadbe7;
   --color-accent: #c2410c;
+  /* Rouge du logo (« Kado »). */
+  --color-rouge: #d1020a;
   --font-sans: var(--font-source-sans), system-ui, sans-serif;
   --font-serif: var(--font-fraunces), Georgia, serif;
 }

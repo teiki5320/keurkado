@@ -3,7 +3,7 @@ import { CookieSettingsLink } from "@/components/ads/CookieSettingsLink";
 import { AMAZON_DISCLOSURE } from "@/lib/amazon";
 import { siteConfig } from "@/lib/config";
 import { FAMILLES } from "@/lib/taxonomie";
-import { Logo } from "./Logo";
+import { LogoComplet } from "./Logo";
 import { NAV } from "./nav";
 
 export function Footer() {
@@ -12,7 +12,7 @@ export function Footer() {
       <div className="wax-band" aria-hidden />
       <div className="container-page grid gap-10 py-12 text-[15px] sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo />
+          <LogoComplet />
           <p className="mt-3 max-w-xs text-muted">{siteConfig.tagline}, pour la diaspora et pour tous ceux qui aiment l&apos;Afrique.</p>
           <Link href="/quiz" className="btn-primary mt-5">
             Trouve le cadeau

@@ -59,7 +59,7 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
       image,
       url,
       author: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
-      publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+      publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url, logo: `${siteConfig.url}/brand/keurkado-logo.png` },
     },
     {
       "@context": "https://schema.org",

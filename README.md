@@ -57,4 +57,6 @@ Même fonctionnement que Keurbook : code AdSense et bandeau de consentement de G
 
 ## Logo
 
-Logo provisoire (emblème « paquet cadeau » en SVG, `src/components/layout/Logo.tsx`, repris dans les épingles). À remplacer par le logo définitif.
+- Originaux : `docs/brand/` — `keurkado-logo-fond-blanc.png`, `keurkado-logo-transparent.png` (et la planche des propositions).
+- `npm run visuels-marque` en tire toutes les versions du site (versionnées) : logo du pied de page et des données structurées (`public/brand/keurkado-logo.*`), paquet cadeau seul de l'en-tête (`public/brand/keurkado-embleme.webp`) et des épingles (`assets/marque/embleme.png`), icônes `src/app/icon.png` et `src/app/apple-icon.png`.
+- L'image de partage (`public/brand/keurkado-partage.jpg`) et les épingles sont refaites à chaque build.

@@ -8,7 +8,8 @@
     "build": "PANGOCAIRO_BACKEND=fc FONTCONFIG_FILE=\"$PWD/assets/polices/fonts.conf\" tsx scripts/epingles.mts && next build",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts",
+    "visuels-marque": "tsx scripts/visuels-marque.mts"
   },
   "engines": {
     "node": ">=20.9.0"

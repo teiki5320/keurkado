@@ -58,7 +58,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
       image: `${siteConfig.url}${conseil.image ?? "/brand/keurkado-partage.jpg"}`,
       author: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
       url,
-      publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+      publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url, logo: `${siteConfig.url}/brand/keurkado-logo.png` },
     },
     breadcrumbLd([
       { name: "Accueil", url: siteConfig.url },
