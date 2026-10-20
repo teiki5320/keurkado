@@ -72,7 +72,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
       <article className="container-page max-w-3xl">
         <div className="flex justify-between pt-5 text-[14px]">
-          <Link href="/conseils" className="font-semibold text-ink/85 hover:text-orange">
+          <Link href="/conseils" className="font-semibold text-ink/85 hover:text-terre-texte">
             ← Conseils
           </Link>
           <time dateTime={conseil.date} className="text-muted">
@@ -91,7 +91,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
             <img src={withBase(conseil.image)} alt={`Illustration de l'article « ${conseil.title} »`} width={1200} height={800} fetchPriority="high" className="aspect-[3/2] w-full rounded-2xl object-cover" />
           </figure>
         )}
-        <p className="mt-8 rounded-2xl bg-soleil-soft p-5 text-[17px] leading-relaxed">
+        <p className="bulle mt-8 rounded-[40px_40px_40px_8px] px-7 py-5 font-serif text-[20px] leading-relaxed font-medium">
           <strong className="font-semibold">En bref : </strong>
           {conseil.resume}
         </p>
@@ -101,8 +101,8 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
             <ol className="mt-2 border-b border-line">
               {sections.map((s, i) => (
                 <li key={s.id} className="border-t border-line">
-                  <a href={`#${s.id}`} className="flex gap-3 py-2.5 hover:text-orange">
-                    <span className="font-semibold text-orange">{i + 1}</span>
+                  <a href={`#${s.id}`} className="flex gap-3 py-2.5 hover:text-terre-texte">
+                    <span className="font-semibold text-terre-texte">{i + 1}</span>
                     {s.title}
                   </a>
                 </li>

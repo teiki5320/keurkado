@@ -8,8 +8,11 @@ import { NAV } from "./nav";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-sand">
-      <div className="wax-band" aria-hidden />
+    <footer className="mt-24">
+      {/* Cordon de bois qui sépare la page du pied de page. */}
+      <div className="container-page">
+        <div className="cordon" aria-hidden />
+      </div>
       <div className="container-page grid gap-10 py-12 text-[15px] sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <LogoComplet />
@@ -18,9 +21,9 @@ export function Footer() {
             Trouve le cadeau
           </Link>
         </div>
-        <nav aria-label="Rubriques" className="flex flex-col gap-2.5">
+        <nav aria-label="Rubriques" className="flex flex-col gap-3">
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href} className="font-serif text-xl leading-none font-semibold hover:text-orange">
+            <Link key={n.href} href={n.href} className="font-serif text-[24px] leading-none font-semibold hover:text-terre-texte">
               {n.label}
             </Link>
           ))}
@@ -36,18 +39,18 @@ export function Footer() {
           </nav>
         ))}
       </div>
-      <div className="container-page flex flex-wrap gap-x-5 gap-y-2 border-t border-line-strong/60 py-5 text-sm text-muted">
+      <div className="container-page flex flex-wrap gap-x-5 gap-y-2 border-t border-ink/20 py-5 text-sm text-muted">
         <Link href="/mentions-legales" className="hover:text-ink">Mentions légales</Link>
         <Link href="/confidentialite" className="hover:text-ink">Confidentialité</Link>
         <Link href="/conditions" className="hover:text-ink">Conditions d&apos;utilisation</Link>
         <CookieSettingsLink className="hover:text-ink" />
         <a href={`mailto:${siteConfig.contactEmail}`} className="hover:text-ink">{siteConfig.contactEmail}</a>
       </div>
-      <div className="container-page space-y-2 pb-8 text-xs leading-relaxed text-muted">
+      <div className="container-page space-y-2 pb-10 text-xs leading-relaxed text-muted">
         <p>{AMAZON_DISCLOSURE}</p>
         <p>
           Un site{" "}
-          <a href="https://toakeur.com" className="font-semibold text-ink hover:text-orange">TOA KEUR</a>
+          <a href="https://toakeur.com" className="font-bold text-ink hover:text-terre-texte">TOA KEUR</a>
         </p>
       </div>
     </footer>

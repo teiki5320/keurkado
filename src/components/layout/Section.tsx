@@ -6,7 +6,7 @@ export function Section({ title, href, linkLabel = "Tout voir", children, id }: 
       <div className="mb-6 flex items-baseline justify-between gap-4">
         <h2 className="section-title">{title}</h2>
         {href && (
-          <Link href={href} className="text-[14px] font-semibold whitespace-nowrap text-orange hover:text-ink">
+          <Link href={href} className="text-[14px] font-semibold whitespace-nowrap text-terre-texte hover:text-ink">
             {linkLabel} →
           </Link>
         )}
@@ -20,7 +20,7 @@ export function PageHeader({ title, intro, eyebrow, children }: { title: string;
   return (
     <header className="container-page pt-6 pb-6">
       {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
-      <h1 className="font-serif text-[38px] leading-[1.05] font-semibold text-balance sm:text-6xl">{title}</h1>
+      <h1 className="font-serif text-[44px] leading-[1.02] font-semibold text-balance sm:text-7xl">{title}</h1>
       {intro && <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-muted">{intro}</p>}
       {children}
     </header>
@@ -55,7 +55,7 @@ export function EntryText({ title, children }: { title: string; children: React.
   return (
     <section className="container-page mt-20 max-w-3xl">
       <h2 className="section-title">{title}</h2>
-      <div className="mt-5 space-y-4 text-[16px] leading-relaxed text-muted [&_a]:font-semibold [&_a]:text-ink [&_a]:underline [&_a]:decoration-line-strong [&_a]:underline-offset-4 [&_a:hover]:text-orange">
+      <div className="mt-5 space-y-4 text-[16px] leading-relaxed text-muted [&_a]:font-semibold [&_a]:text-ink [&_a]:underline [&_a]:decoration-line-strong [&_a]:underline-offset-4 [&_a:hover]:text-terre-texte">
         {children}
       </div>
     </section>

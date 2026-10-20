@@ -7,7 +7,7 @@ import { FAMILLES } from "@/lib/taxonomie";
 import { Logo } from "./Logo";
 import { NAV } from "./nav";
 
-/** En-tête : bandeau wax, liens en ligne sur grand écran, menu plein écran sur mobile (avec toutes les rubriques). */
+/** En-tête « Perles de bois » : perle-logo, liens en ligne sur grand écran, menu plein écran sur mobile (avec toutes les rubriques). */
 export function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
@@ -27,49 +27,48 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur">
-        <div className="wax-band" aria-hidden />
-        <div className="container-page flex h-16 items-center gap-6">
-          <Link href="/" onClick={close} aria-label={`${siteConfig.name}, accueil`}>
+      <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur-md">
+        <div className="container-page flex items-center gap-4 border-b border-ink/25 py-3.5">
+          <Link href="/" onClick={close} aria-label={`${siteConfig.name}, accueil`} className="min-w-0 hover:text-ink">
             <Logo />
           </Link>
-          <nav aria-label="Menu principal" className="hidden gap-5 text-[15px] font-semibold text-ink/80 lg:flex">
+          <nav aria-label="Menu principal" className="ml-auto hidden items-center gap-6 text-[14px] font-bold lg:flex">
             {NAV.map((n) => (
-              <Link key={n.href} href={n.href} className="hover:text-orange">
+              <Link key={n.href} href={n.href} className="hover:text-terre-texte">
                 {n.label}
               </Link>
             ))}
+            <Link href="/quiz" className="btn-primary py-2.5">
+              Trouve le cadeau
+            </Link>
           </nav>
-          <Link href="/quiz" className="btn-primary ml-auto hidden py-2 lg:inline-flex">
-            Trouve le cadeau
-          </Link>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="menu-mobile"
-            className={`ml-auto rounded-full border-2 px-4 py-1.5 text-sm font-semibold lg:hidden ${open ? "border-orange text-orange" : "border-ink/70"}`}
+            className={`btn ml-auto shrink-0 px-4 py-2 text-[13px] lg:hidden ${open ? "bg-ink text-creme" : "bg-transparent"}`}
           >
             {open ? "Fermer" : "Menu"}
           </button>
         </div>
       </header>
       {open && (
-        <div id="menu-mobile" className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-paper px-4 pt-24 pb-8 lg:hidden">
-          <Link href="/quiz" onClick={close} className="btn-primary py-4 text-lg">
-            Trouve le cadeau en 3 questions
+        <div id="menu-mobile" className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-paper px-4 pt-28 pb-8 lg:hidden">
+          <Link href="/quiz" onClick={close} className="btn-primary py-4 text-[16px]">
+            Trouve le cadeau avec Tonton Kado
           </Link>
           <nav aria-label="Menu mobile" className="mt-6 flex flex-col">
             {NAV.map((n) => (
-              <Link key={n.href} href={n.href} onClick={close} className="border-b border-line py-3 font-serif text-[30px] leading-none font-semibold hover:text-orange">
+              <Link key={n.href} href={n.href} onClick={close} className="border-b border-ink/20 py-3 font-serif text-[32px] leading-none font-semibold hover:text-terre-texte">
                 {n.label}
               </Link>
             ))}
           </nav>
           {Object.entries(FAMILLES).map(([cle, f]) => (
-            <nav key={cle} aria-label={f.nom} className="mt-6">
+            <nav key={cle} aria-label={f.nom} className="mt-7">
               <p className="eyebrow">{f.nom}</p>
-              <ul className="mt-2 flex flex-wrap gap-2">
+              <ul className="mt-3 flex flex-wrap gap-2.5">
                 {f.liste.map((r) => (
                   <li key={r.slug}>
                     <Link href={`${f.chemin}/${r.slug}`} onClick={close} className="tag">

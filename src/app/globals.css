@@ -1,35 +1,34 @@
 @import "tailwindcss";
 
 /*
- * Design « Wax » : fond crème chaud, couleurs vives du wax (orange, jaune soleil, vert, indigo, fuchsia),
- * titres en Fraunces, texte en Source Sans 3. Mobile d'abord.
- * Les couleurs de texte sont choisies pour un contraste d'au moins 4,5:1 sur le fond crème.
+ * Design « Perles de bois » : fond sable, encre brun-noir, terre cuite, bois clair et foncé.
+ * Titres en Cormorant Garamond, texte en Plus Jakarta Sans. Bulles de conversation au double liseré,
+ * ombre décalée couleur bois, cadeaux présentés comme des perles enfilées sur un cordon. Mobile d'abord.
+ * Couleurs de texte choisies pour un contraste d'au moins 4,5:1 sur le sable et sur la crème.
  */
 @theme {
-  --color-paper: #fff7ec;
-  --color-sand: #f6e7d0;
-  --color-ink: #2a1810;
-  --color-muted: #6b5242;
-  --color-faint: #85695a;
-  --color-line: #ead7be;
-  --color-line-strong: #d9bf9c;
+  --color-paper: #e6d8bf;
+  --color-creme: #fdf7ea;
+  --color-creme-2: #f4e9d2;
+  --color-ink: #2b1d14;
+  --color-muted: #634632;
+  --color-faint: #7a5a40;
+  --color-line: #c9b694;
+  --color-line-strong: #a88c66;
   --color-white: #ffffff;
-  /* Couleurs du wax. */
-  --color-orange: #c2410c;
-  --color-orange-soft: #fde4d3;
-  --color-soleil: #f2a900;
-  --color-soleil-soft: #fff0c2;
-  --color-vert: #1e7a4e;
-  --color-vert-soft: #d8efe2;
-  --color-indigo: #1f3a8a;
-  --color-indigo-soft: #dfe6fa;
-  --color-fuchsia: #b5245e;
-  --color-fuchsia-soft: #fadbe7;
-  --color-accent: #c2410c;
-  /* Rouge du logo (« Kado »). */
-  --color-rouge: #d1020a;
-  --font-sans: var(--font-source-sans), system-ui, sans-serif;
-  --font-serif: var(--font-fraunces), Georgia, serif;
+  /* Terre cuite : aplats (boutons, bulles de réponse) ; « terre-texte » pour le texte, plus foncé. */
+  --color-terre: #b84a2a;
+  --color-terre-texte: #9c3a1c;
+  --color-terre-soft: #f3d9c9;
+  /* Bois : cordon, perles, ombres décalées. */
+  --color-bois: #8a6436;
+  --color-bois-clair: #d9a76a;
+  --color-bois-fonce: #5a3516;
+  --color-ombre: #9c7a4a;
+  --color-or: #e8b86a;
+  --color-accent: #b84a2a;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
 }
 
 html {
@@ -41,45 +40,55 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-soleil);
-  color: var(--color-ink);
+  background: var(--color-terre);
+  color: var(--color-creme);
 }
 
 @utility container-page {
   @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
 }
+
+/* Boutons : pilule bordée d'encre, ombre décalée couleur bois ; au survol, terre cuite et léger basculement. */
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[15px] font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] border-ink px-5 py-3 text-[15px] font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terre;
 }
 @utility btn-primary {
-  @apply btn bg-orange text-white shadow-sm hover:bg-ink;
+  @apply btn bg-ink text-creme shadow-[0_10px_20px_-10px_rgba(43,29,20,0.8)] hover:-translate-y-0.5 hover:bg-terre hover:text-white;
 }
 @utility btn-secondary {
-  @apply btn border-2 border-ink/80 bg-transparent text-ink hover:bg-ink hover:text-paper;
+  @apply btn bg-transparent text-ink hover:bg-ink hover:text-creme;
 }
 @utility btn-amazon {
-  @apply btn bg-soleil px-4 py-2.5 text-sm text-ink hover:bg-ink hover:text-paper;
+  @apply btn border-ink bg-ink px-4 py-2.5 text-sm text-creme hover:-translate-y-0.5 hover:bg-terre hover:text-white;
 }
+/* Pastille de choix (rubriques, catégories) : bulle crème à ombre décalée. */
 @utility tag {
-  @apply inline-flex items-center rounded-full border border-line-strong bg-white px-3.5 py-1.5 text-[14px] text-ink/85 hover:border-ink hover:text-ink;
+  @apply inline-flex min-h-11 items-center rounded-[40px_40px_40px_8px] border-[1.5px] border-ink bg-linear-[160deg] from-creme to-creme-2 px-4 py-2 text-[14px] font-bold text-ink shadow-[3px_3px_0_var(--color-ombre)] transition hover:-rotate-2 hover:bg-terre hover:from-terre hover:to-terre hover:text-white hover:shadow-[4px_5px_0_var(--color-ink)];
 }
 @utility section-title {
-  @apply font-serif text-[28px] leading-tight font-semibold sm:text-4xl;
+  @apply font-serif text-[32px] leading-tight font-semibold sm:text-[42px];
 }
 @utility eyebrow {
-  @apply text-[12px] font-semibold tracking-[0.12em] text-orange uppercase;
+  @apply text-[11.5px] font-bold tracking-[0.16em] text-muted uppercase;
+}
+
+/* Bulle crème au double liseré (le cadre de base du design) : bordure encre, liseré bois intérieur, ombre décalée. */
+@utility bulle {
+  @apply border-[1.5px] border-ink bg-linear-[160deg] from-creme to-creme-2 shadow-[inset_0_0_0_4px_var(--color-creme),inset_0_0_0_5px_rgba(138,100,54,0.5),5px_6px_0_var(--color-ombre)];
 }
 
 @utility prose-text {
-  @apply max-w-3xl text-[17px] leading-[1.7] text-ink/90;
+  @apply max-w-3xl text-[17px] leading-[1.75] text-ink/90;
   & h2 {
-    @apply mt-10 mb-3 scroll-mt-24 font-serif text-[26px] leading-tight font-semibold text-ink sm:text-[30px];
+    @apply mt-10 mb-3 scroll-mt-24 font-serif text-[30px] leading-tight font-semibold text-ink sm:text-[34px];
   }
   & h3 {
-    @apply mt-8 mb-2 font-serif text-[22px] leading-tight font-semibold text-ink;
+    @apply mt-8 mb-2 font-serif text-[24px] leading-tight font-semibold text-ink;
   }
   & p,
   & ul,
@@ -96,32 +105,82 @@ body {
     @apply mb-1.5;
   }
   & a {
-    @apply font-semibold text-orange underline underline-offset-2 hover:text-ink;
+    @apply font-semibold text-terre-texte underline underline-offset-2 hover:text-ink;
   }
   & strong {
     @apply font-semibold text-ink;
   }
   & blockquote {
-    @apply my-6 border-l-4 border-soleil pl-5 font-serif text-xl text-ink italic;
+    @apply my-6 border-l-2 border-bois pl-5 font-serif text-[22px] text-ink italic;
   }
 }
 
-/*
- * Motif wax : cercles concentriques et losanges, en tuile SVG de 80 px.
- * .wax-band : bandeau fin (haut de page, séparations) ; .wax-bg : grand aplat (accueil, quiz).
- */
-.wax-band,
-.wax-bg {
-  background-color: var(--color-orange);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23c2410c'/%3E%3Ccircle cx='20' cy='20' r='17' fill='%23f2a900'/%3E%3Ccircle cx='20' cy='20' r='11' fill='%231e7a4e'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23fff7ec'/%3E%3Ccircle cx='60' cy='60' r='17' fill='%231f3a8a'/%3E%3Ccircle cx='60' cy='60' r='11' fill='%23f2a900'/%3E%3Ccircle cx='60' cy='60' r='5' fill='%23b5245e'/%3E%3Cpath d='M60 3l9 17-9 17-9-17z' fill='%23fff7ec'/%3E%3Cpath d='M20 43l9 17-9 17-9-17z' fill='%23b5245e'/%3E%3Ccircle cx='60' cy='20' r='3' fill='%23c2410c'/%3E%3Ccircle cx='20' cy='60' r='3' fill='%23fff7ec'/%3E%3C/svg%3E");
-  background-size: 80px 80px;
-}
-.wax-band {
-  height: 12px;
-  background-size: 24px 24px;
+/* Classes du design, dans la couche « components » : les utilitaires Tailwind (absolute, size-…) passent devant. */
+@layer components {
+  /* Perle de bois : anneau en dégradé de bois (trois essences qui alternent), cœur crème. */
+  .perle {
+    position: relative;
+    border-radius: 9999px;
+    border: 9px solid transparent;
+    background-image: linear-gradient(var(--color-creme), var(--color-creme)), var(--anneau, radial-gradient(circle at 35% 28%, #d9a76a 0%, #9a6230 45%, #5a3516 80%, #3a2010 100%));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow:
+      inset 0 0 0 2px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 3px rgba(255, 230, 190, 0.35),
+      0 20px 28px -12px rgba(43, 29, 20, 0.65);
+  }
+  .perle-ebene {
+    --anneau: radial-gradient(circle at 35% 28%, #5a4a40, #2a1d16 45%, #120c08 100%);
+  }
+  .perle-acacia {
+    --anneau: radial-gradient(circle at 35% 28%, #efcf8a, #b07a3c 50%, #6a401c 100%);
+  }
+  /* Perle pleine (logo, puces) : bois massif avec reflet. */
+  .perle-pleine {
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 28%, #d9a76a 0%, #9a6230 45%, #5a3516 80%, #3a2010 100%);
+    box-shadow:
+      inset 0 -8px 14px rgba(0, 0, 0, 0.35),
+      inset 0 6px 10px rgba(255, 220, 170, 0.35),
+      0 14px 24px -10px rgba(43, 29, 20, 0.7);
+  }
+  /* Anneau en pointillés qui tourne lentement autour d'une perle. */
+  .anneau-pointille {
+    position: absolute;
+    border-radius: 9999px;
+    border: 1.5px dashed rgba(138, 100, 54, 0.75);
+    pointer-events: none;
+  }
+  /* Cordon horizontal sur lequel les perles sont enfilées. */
+  .cordon {
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(#d8b67e, #8a6436 45%, #5a3a18 55%, #b8945e);
+    box-shadow: 0 2px 0 rgba(255, 240, 210, 0.5);
+  }
+  /* Séparateur « trait · perle · trait ». */
+  .separateur {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .separateur::before,
+  .separateur::after {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: var(--color-bois);
+  }
+  .separateur > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: var(--color-bois);
+  }
 }
 
-/* Carte produit : légère rotation au survol, comme un paquet cadeau qu'on soulève. */
+/* Carte qu'on soulève au survol. */
 @media (prefers-reduced-motion: no-preference) and (hover: hover) {
   .carte-cadeau {
     transition:
@@ -129,25 +188,165 @@ body {
       box-shadow 0.25s ease;
   }
   .carte-cadeau:hover {
-    transform: translateY(-3px) rotate(-0.4deg);
-    box-shadow: 0 14px 30px -18px rgb(42 24 16 / 0.45);
+    transform: translateY(-3px) rotate(-0.6deg);
   }
 }
 
-/* Quiz : apparition douce de chaque étape. */
+/* Animations du design (seulement si le visiteur n'a pas demandé moins d'animations). */
 @media (prefers-reduced-motion: no-preference) {
+  .anim-chute {
+    animation: kk-drop 0.8s cubic-bezier(0.34, 1.3, 0.64, 1) both;
+  }
+  .anim-balance {
+    animation: kk-sway 7s 1s ease-in-out infinite;
+  }
+  .anim-perle {
+    animation: kk-bead 3.8s ease-in-out infinite;
+  }
+  .anim-bascule {
+    animation: kk-swing 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .anim-tourne {
+    animation: kk-ringspin 30s linear infinite;
+  }
+  .anim-respire {
+    animation: kk-breathe 5s ease-in-out infinite;
+  }
+  .anim-points {
+    animation: kk-dots 1s infinite;
+  }
+  .anim-trace {
+    animation: kk-dash 6s ease-out forwards;
+  }
+  .lumiere-1 {
+    animation: kk-light1 26s ease-in-out infinite;
+  }
+  .lumiere-2 {
+    animation: kk-light2 34s ease-in-out infinite;
+  }
+  .poussiere {
+    animation: kk-mote 22s linear infinite;
+  }
   .etape {
-    animation: etape 0.35s ease-out both;
+    animation: kk-drop 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) both;
   }
 }
-@keyframes etape {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
+/* Sans animation, les traits « dessinés » restent visibles. */
+@media (prefers-reduced-motion: reduce) {
+  .anim-trace {
+    stroke-dashoffset: 0 !important;
   }
-  to {
+}
+
+@keyframes kk-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(-6deg);
+  }
+  55% {
     opacity: 1;
-    transform: none;
+    transform: translateY(8px) rotate(2deg);
+  }
+  80% {
+    transform: translateY(-3px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes kk-sway {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+@keyframes kk-bead {
+  0%,
+  100% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(3deg);
+  }
+}
+@keyframes kk-swing {
+  0% {
+    opacity: 0;
+    transform: rotate(-14deg) scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(5deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+@keyframes kk-dots {
+  0%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes kk-light1 {
+  0%,
+  100% {
+    transform: translate(-10%, -6%) scale(1);
+  }
+  50% {
+    transform: translate(12%, 8%) scale(1.15);
+  }
+}
+@keyframes kk-light2 {
+  0%,
+  100% {
+    transform: translate(8%, 10%) scale(1.1);
+  }
+  50% {
+    transform: translate(-12%, -8%) scale(0.95);
+  }
+}
+@keyframes kk-mote {
+  0% {
+    transform: translate(0, 110vh) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(40px, -10vh) scale(1.1);
+    opacity: 0;
+  }
+}
+@keyframes kk-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes kk-ringspin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes kk-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
   }
 }
 

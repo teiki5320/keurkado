@@ -47,8 +47,8 @@ export default function EnvoyerPage() {
       <section className="container-page">
         <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {REGLES.map((r) => (
-            <li key={r.titre} className="rounded-2xl bg-vert-soft p-4">
-              <p className="font-serif text-xl font-semibold text-vert">{r.titre}</p>
+            <li key={r.titre} className="bulle rounded-[32px_32px_32px_8px] p-5">
+              <p className="font-serif text-[24px] leading-none font-bold text-terre-texte">{r.titre}</p>
               <p className="mt-1 text-[15px] leading-snug">{r.texte}</p>
             </li>
           ))}

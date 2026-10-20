@@ -2,8 +2,8 @@
 // Usage : npm run epingles (module ESM : extension .mts)
 //
 // Pour chaque Top 10, une image JPG 1000 × 1500 px (format conseillé par Pinterest) :
-// motif wax + « TOP 10 » + titre + accroche + signature (paquet cadeau du logo + Keur Kado). Quatre gabarits alternent
-// (bandeau haut, cadre, split, bandeau bas), comme sur Keur Déco. Uniquement nos propres visuels :
+// décor « Perles de bois » + perle « TOP 10 » + titre + accroche + signature (paquet cadeau du logo + Keur Kado).
+// Quatre gabarits alternent (arche, bulle, ébène, cordon), comme sur Keur Déco. Uniquement nos propres visuels :
 // jamais de photo de produit Amazon.
 //
 // Sorties (non versionnées, refaites à chaque build) :
@@ -26,25 +26,38 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://keurkado.com").re
 
 export const LARGEUR = 1000;
 export const HAUTEUR = 1500;
-export const GABARITS = ["bandeau-haut", "cadre", "split", "bandeau-bas"] as const;
+export const GABARITS = ["arche", "bulle", "ebene", "cordon"] as const;
 export type Gabarit = (typeof GABARITS)[number];
 
-// Palette « Wax » (src/app/globals.css).
-const C = { creme: "#FFF7EC", encre: "#2A1810", orange: "#C2410C", soleil: "#F2A900", vert: "#1E7A4E", indigo: "#1F3A8A", fuchsia: "#B5245E" };
+// Palette « Perles de bois » (src/app/globals.css).
+const C = { sable: "#E6D8BF", creme: "#FDF7EA", creme2: "#F4E9D2", encre: "#2B1D14", terre: "#B84A2A", terreTexte: "#9C3A1C", bois: "#8A6436", boisFonce: "#5A3516", ombre: "#9C7A4A", or: "#E8B86A" };
 
-/** Tuile du motif wax (la même que .wax-bg sur le site), en motif SVG répété. */
-function motifWax(id: string, taille = 120): string {
-  const k = taille / 80;
-  return `<pattern id="${id}" width="${taille}" height="${taille}" patternUnits="userSpaceOnUse">
-    <g transform="scale(${k})">
-      <rect width="80" height="80" fill="${C.orange}"/>
-      <circle cx="20" cy="20" r="17" fill="${C.soleil}"/><circle cx="20" cy="20" r="11" fill="${C.vert}"/><circle cx="20" cy="20" r="5" fill="${C.creme}"/>
-      <circle cx="60" cy="60" r="17" fill="${C.indigo}"/><circle cx="60" cy="60" r="11" fill="${C.soleil}"/><circle cx="60" cy="60" r="5" fill="${C.fuchsia}"/>
-      <path d="M60 3l9 17-9 17-9-17z" fill="${C.creme}"/><path d="M20 43l9 17-9 17-9-17z" fill="${C.fuchsia}"/>
-      <circle cx="60" cy="20" r="3" fill="${C.orange}"/><circle cx="20" cy="60" r="3" fill="${C.creme}"/>
-    </g>
-  </pattern>`;
-}
+/** Dégradés des trois essences de perles (bois clair, ébène, acacia) et halos de lumière. */
+const DEFS = `
+  <radialGradient id="bois" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#d9a76a"/><stop offset=".45" stop-color="#9a6230"/><stop offset=".8" stop-color="#5a3516"/><stop offset="1" stop-color="#3a2010"/></radialGradient>
+  <radialGradient id="ebene" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#5a4a40"/><stop offset=".45" stop-color="#2a1d16"/><stop offset="1" stop-color="#120c08"/></radialGradient>
+  <radialGradient id="acacia" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#efcf8a"/><stop offset=".5" stop-color="#b07a3c"/><stop offset="1" stop-color="#6a401c"/></radialGradient>
+  <linearGradient id="cordon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8b67e"/><stop offset=".45" stop-color="#8a6436"/><stop offset=".55" stop-color="#5a3a18"/><stop offset="1" stop-color="#b8945e"/></linearGradient>
+  <radialGradient id="halo1"><stop offset="0" stop-color="rgb(255,236,196)" stop-opacity=".9"/><stop offset=".65" stop-color="rgb(255,236,196)" stop-opacity="0"/></radialGradient>
+  <radialGradient id="halo2"><stop offset="0" stop-color="rgb(184,74,42)" stop-opacity=".25"/><stop offset=".65" stop-color="rgb(184,74,42)" stop-opacity="0"/></radialGradient>`;
+
+/** Fond d'atelier : sable, halos de lumière, trois fils tracés à la main. */
+const FOND_ATELIER = `<rect width="1000" height="1500" fill="${C.sable}"/>
+  <circle cx="150" cy="120" r="620" fill="url(#halo1)"/><circle cx="900" cy="1380" r="700" fill="url(#halo2)"/>
+  <g fill="none" opacity=".4"><path d="M-40 260 C 200 160, 320 420, 560 330 S 900 160, 1040 280" stroke="${C.bois}" stroke-width="3"/>
+  <path d="M-40 980 C 180 880, 420 1120, 640 1000 S 900 860, 1040 1000" stroke="${C.terre}" stroke-width="2.4"/>
+  <path d="M-40 1400 C 260 1330, 400 1480, 700 1390 S 900 1300, 1040 1370" stroke="${C.encre}" stroke-width="2"/></g>`;
+
+/** Perle de bois (anneau d'essence, cœur crème) centrée en (cx, cy). */
+const perle = (cx: number, cy: number, r: number, essence = "bois") =>
+  `<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${essence})"/><circle cx="${cx}" cy="${cy}" r="${r * 0.72}" fill="${C.creme}"/><circle cx="${cx}" cy="${cy}" r="${r * 0.72}" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>`;
+
+/** Cordon horizontal avec ses perles. */
+const cordon = (y: number) => `<rect x="0" y="${y - 6}" width="1000" height="12" rx="6" fill="url(#cordon)"/>`;
+
+/** Bulle crème au double liseré et à l'ombre décalée (le cadre du design). */
+const bulle = (x: number, y: number, l: number, h: number, rx: number, fond = C.creme) =>
+  `<rect x="${x + 12}" y="${y + 14}" width="${l}" height="${h}" rx="${rx}" fill="${C.ombre}"/><rect x="${x}" y="${y}" width="${l}" height="${h}" rx="${rx}" fill="${fond}" stroke="${C.encre}" stroke-width="3.5"/><rect x="${x + 11}" y="${y + 11}" width="${l - 22}" height="${h - 22}" rx="${Math.max(rx - 11, 4)}" fill="none" stroke="rgba(138,100,54,.55)" stroke-width="2"/>`;
 
 /** Le paquet cadeau du logo (assets/marque/embleme.png, produit par npm run visuels-marque). */
 const EMBLEME = resolve(RACINE, "assets/marque/embleme.png");
@@ -85,18 +98,18 @@ const taille = async (png: Buffer) => {
   return { l: m.width ?? 0, h: m.height ?? 0 };
 };
 
-/** Pastille « TOP 10 » ronde. */
-function pastille(fond: string, texte: string): Buffer {
+/** Pastille « TOP 10 » : grosse perle de bois au cœur crème, suspendue à son attache. */
+function pastille(essence: string, texte: string): Buffer {
   return svg(
     220,
-    220,
-    `<circle cx="110" cy="110" r="104" fill="${fond}" stroke="${C.creme}" stroke-width="8"/>` +
-      `<text x="110" y="78" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="34" letter-spacing="6" fill="${texte}">TOP</text>`,
+    250,
+    `<defs>${DEFS}</defs><path d="M98 6 q12 -10 24 0 l0 24" fill="none" stroke="${C.bois}" stroke-width="6"/>${perle(110, 140, 104, essence)}` +
+      `<text x="110" y="${108}" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="28" letter-spacing="6" fill="${texte}">TOP</text>`,
   );
 }
 
-/** Le « 10 » de la pastille, en Fraunces (la police du site). */
-const dix = (couleur: string) => textePng("10", { police: "titre", couleur, largeur: 200, hauteurMax: 140, tailleMax: 120, tailleMin: 80 });
+/** Le « 10 » de la pastille. */
+const dix = (couleur: string) => textePng("10", { police: "titre", couleur, largeur: 200, hauteurMax: 120, tailleMax: 104, tailleMin: 70 });
 
 /** Signature en bas d'épingle : emblème + « Keur Kado · keurkado.com ». */
 async function signature(couleur: string): Promise<Buffer> {
@@ -122,39 +135,47 @@ export const gabaritPour = (index: number): Gabarit => GABARITS[index % GABARITS
 /** Compose une épingle 1000 × 1500 selon le gabarit. */
 export async function composerEpingle(top: Pick<Top, "titre" | "accroche">, gabarit: Gabarit): Promise<Buffer> {
   const titre = top.titre.replace(/^10 /, "");
-  // Zone de texte (carte claire ou aplat de couleur) et couleurs selon le gabarit.
+  // Décor, zone de texte, couleurs et position de la perle « TOP 10 » selon le gabarit.
   const g = {
-    "bandeau-haut": { fond: `<rect width="1000" height="1500" fill="url(#wax)"/><rect x="60" y="560" width="880" height="860" rx="44" fill="${C.creme}"/>`, zone: { x: 110, y: 700, l: 780, h: 520 }, titre: C.encre, accroche: C.orange, sig: C.encre, pastille: { x: 390, y: 450, fond: C.indigo, texte: C.creme } },
-    cadre: { fond: `<rect width="1000" height="1500" fill="url(#wax)"/><rect x="56" y="56" width="888" height="1388" rx="36" fill="${C.creme}"/>`, zone: { x: 120, y: 470, l: 760, h: 620 }, titre: C.encre, accroche: C.vert, sig: C.encre, pastille: { x: 390, y: 170, fond: C.orange, texte: C.creme } },
-    split: { fond: `<rect width="1000" height="1500" fill="${C.indigo}"/><rect width="1000" height="560" fill="url(#wax)"/>`, zone: { x: 100, y: 700, l: 800, h: 520 }, titre: C.creme, accroche: C.soleil, sig: C.creme, pastille: { x: 390, y: 450, fond: C.soleil, texte: C.encre } },
-    "bandeau-bas": { fond: `<rect width="1000" height="1500" fill="${C.orange}"/><rect y="1180" width="1000" height="320" fill="url(#wax)"/><rect x="0" y="1160" width="1000" height="20" fill="${C.soleil}"/>`, zone: { x: 100, y: 400, l: 800, h: 600 }, titre: C.creme, accroche: C.soleil, sig: C.creme, pastille: { x: 390, y: 120, fond: C.creme, texte: C.orange } },
+    // Arche crème sous une perle de bois.
+    arche: { decor: `${FOND_ATELIER}<path d="M90 1420 L90 640 Q90 330 500 330 Q910 330 910 640 L910 1420 Z" fill="${C.ombre}" transform="translate(12 14)"/><path d="M90 1420 L90 640 Q90 330 500 330 Q910 330 910 640 L910 1420 Z" fill="${C.creme}" stroke="${C.encre}" stroke-width="3.5"/>`, zone: { x: 150, y: 560, l: 700, h: 600 }, titre: C.encre, accroche: C.terreTexte, sig: C.encre, ySig: 1300, pastille: { x: 390, y: 205, essence: "bois", texte: C.encre } },
+    // Bulle de Tonton Kado, perles enfilées au-dessus.
+    bulle: { decor: `${FOND_ATELIER}${cordon(250)}${perle(170, 250, 62, "ebene")}${perle(830, 250, 62, "acacia")}${bulle(80, 420, 840, 820, 110)}<path d="M150 1230 l-40 90 l120 -90 z" fill="${C.creme}" stroke="${C.encre}" stroke-width="3.5"/>`, zone: { x: 140, y: 560, l: 720, h: 560 }, titre: C.encre, accroche: C.terreTexte, sig: C.encre, ySig: 1380, pastille: { x: 390, y: 130, essence: "bois", texte: C.encre } },
+    // Aplat d'ébène, cordon doré.
+    ebene: { decor: `<rect width="1000" height="1500" fill="${C.encre}"/><rect x="40" y="40" width="920" height="1420" rx="60" fill="none" stroke="rgba(232,184,106,.5)" stroke-width="3"/>${cordon(330)}${perle(190, 330, 58, "acacia")}${perle(810, 330, 58, "bois")}`, zone: { x: 110, y: 560, l: 780, h: 620 }, titre: C.creme, accroche: C.or, sig: C.creme, ySig: 1330, pastille: { x: 390, y: 205, essence: "acacia", texte: C.encre } },
+    // Sable, grand cordon de perles en bas.
+    cordon: { decor: `${FOND_ATELIER}${bulle(70, 380, 860, 760, 60)}${cordon(1290)}${perle(150, 1290, 56, "ebene")}${perle(380, 1290, 56, "bois")}${perle(620, 1290, 56, "acacia")}${perle(850, 1290, 56, "ebene")}`, zone: { x: 130, y: 470, l: 740, h: 560 }, titre: C.encre, accroche: C.terreTexte, sig: C.encre, ySig: 1060, pastille: { x: 390, y: 150, essence: "ebene", texte: C.encre } },
   }[gabarit];
 
-  const fond = await sharp(svg(LARGEUR, HAUTEUR, `<defs>${motifWax("wax")}</defs>${g.fond}`)).png().toBuffer();
-  const titrePng = await textePng(titre.charAt(0).toUpperCase() + titre.slice(1), { police: "titre", couleur: g.titre, largeur: g.zone.l, hauteurMax: g.zone.h - 130, tailleMax: 104, tailleMin: 56 });
-  const accrochePng = await textePng(top.accroche, { police: "texte", couleur: g.accroche, largeur: g.zone.l, hauteurMax: 110, tailleMax: 44, tailleMin: 28 });
+  const fond = await sharp(svg(LARGEUR, HAUTEUR, `<defs>${DEFS}</defs>${g.decor}`)).png().toBuffer();
+  const titrePng = await textePng(titre.charAt(0).toUpperCase() + titre.slice(1), { police: "titre", couleur: g.titre, largeur: g.zone.l, hauteurMax: g.zone.h - 140, tailleMax: 100, tailleMin: 56 });
+  const accrochePng = await textePng(top.accroche, { police: "texte", couleur: g.accroche, largeur: g.zone.l, hauteurMax: 110, tailleMax: 42, tailleMin: 28 });
   const t = await taille(titrePng);
   const a = await taille(accrochePng);
-  const yTitre = g.zone.y + Math.round((g.zone.h - t.h - 30 - a.h) / 2);
-  const sig = await signature(gabarit === "bandeau-bas" ? C.creme : g.sig);
+  // Séparateur « trait · perle · trait » entre le titre et l'accroche.
+  const sep = svg(160, 20, `<rect x="0" y="9" width="60" height="2" fill="${gabarit === "ebene" ? C.or : C.bois}"/><circle cx="80" cy="10" r="6" fill="${gabarit === "ebene" ? C.or : C.bois}"/><rect x="100" y="9" width="60" height="2" fill="${gabarit === "ebene" ? C.or : C.bois}"/>`);
+  const yTitre = g.zone.y + Math.round((g.zone.h - t.h - 60 - a.h) / 2);
+  const sig = await signature(g.sig);
   const s = await taille(sig);
-  const ySig = gabarit === "bandeau-haut" ? 1320 : gabarit === "cadre" ? 1330 : gabarit === "split" ? 1370 : 1060;
   const dixPng = await dix(g.pastille.texte);
   const d = await taille(dixPng);
 
   const calques: OverlayOptions[] = [
-    { input: pastille(g.pastille.fond, g.pastille.texte), left: g.pastille.x, top: g.pastille.y },
-    { input: dixPng, left: g.pastille.x + Math.round((220 - d.l) / 2), top: g.pastille.y + 98 },
+    { input: pastille(g.pastille.essence, g.pastille.texte), left: g.pastille.x, top: g.pastille.y },
+    { input: dixPng, left: g.pastille.x + Math.round((220 - d.l) / 2), top: g.pastille.y + 116 },
     { input: titrePng, left: Math.round((LARGEUR - t.l) / 2), top: yTitre },
-    { input: accrochePng, left: Math.round((LARGEUR - a.l) / 2), top: yTitre + t.h + 30 },
-    { input: sig, left: Math.round((LARGEUR - s.l) / 2), top: ySig },
+    { input: sep, left: 420, top: yTitre + t.h + 20 },
+    { input: accrochePng, left: Math.round((LARGEUR - a.l) / 2), top: yTitre + t.h + 60 },
+    { input: sig, left: Math.round((LARGEUR - s.l) / 2), top: g.ySig },
   ];
   return sharp(fond).composite(calques).jpeg({ quality: 86, mozjpeg: true }).toBuffer();
 }
 
-/** Image de partage par défaut (Open Graph, 1200 × 630) : motif wax et logo complet sur une carte crème. */
+/** Image de partage par défaut (Open Graph, 1200 × 630) : cordon de perles et logo complet dans une bulle crème. */
 async function imagePartage(): Promise<Buffer> {
-  const fond = await sharp(svg(1200, 630, `<defs>${motifWax("wax", 100)}</defs><rect width="1200" height="630" fill="url(#wax)"/><rect x="300" y="45" width="600" height="540" rx="44" fill="${C.creme}"/>`))
+  const fond = await sharp(
+    svg(1200, 630, `<defs>${DEFS}</defs><rect width="1200" height="630" fill="${C.sable}"/><circle cx="150" cy="80" r="520" fill="url(#halo1)"/><circle cx="1100" cy="600" r="560" fill="url(#halo2)"/>${cordon(315).replace('width="1000"', 'width="1200"')}${perle(130, 315, 60, "ebene")}${perle(1070, 315, 60, "acacia")}${bulle(300, 45, 600, 540, 60)}`),
+  )
     .png()
     .toBuffer();
   const logo = await sharp(LOGO).trim({ threshold: 10 }).resize({ width: 500, height: 470, fit: "inside" }).png().toBuffer();
@@ -218,7 +239,7 @@ async function main() {
       image: `${SITE_URL}/epingles/${top.slug}.jpg`,
       titre: top.titre,
       description: descriptionEpingle(top),
-      alt: `${top.titre} : ${top.accroche}. Épingle Keur Kado aux couleurs du wax.`,
+      alt: `${top.titre} : ${top.accroche}. Épingle Keur Kado, perles de bois sur fond sable.`,
       lien: `${SITE_URL}/top/${top.slug}/`,
       tableau: TABLEAUX[top.rubrique.split("/")[0]] ?? TABLEAUX.occasion,
       publie_le: top.date,

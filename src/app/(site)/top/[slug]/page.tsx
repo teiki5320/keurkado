@@ -93,13 +93,13 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
             <p className="mt-3 text-sm text-muted">
               Mis à jour le <time dateTime={top.date}>{formatDate(top.date)}</time>
             </p>
-            <p className="mt-5 max-w-2xl border-l-4 border-soleil pl-4 text-[18px] leading-relaxed">{top.intro}</p>
+            <p className="mt-5 max-w-2xl border-l-4 border-bois pl-4 text-[18px] leading-relaxed">{top.intro}</p>
             <nav aria-label="Les 10 cadeaux" className="mt-6 max-w-2xl">
               <ol className="grid gap-x-6 gap-y-1 text-[15px] sm:grid-cols-2">
                 {items.map((it, i) => (
                   <li key={it.carte.slug}>
-                    <a href={`#cadeau-${i + 1}`} className="flex gap-2 py-1 hover:text-orange">
-                      <span className="font-semibold text-orange">{i + 1}.</span> {it.carte.nom}
+                    <a href={`#cadeau-${i + 1}`} className="flex gap-2 py-1 hover:text-terre-texte">
+                      <span className="font-semibold text-terre-texte">{i + 1}.</span> {it.carte.nom}
                     </a>
                   </li>
                 ))}
@@ -108,7 +108,7 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
           </div>
           <figure className="mx-auto w-48 md:w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={withBase(`/epingles/${top.slug}.jpg`)} alt={`Épingle Pinterest : ${top.titre}`} width={1000} height={1500} className="aspect-[2/3] w-full rounded-2xl shadow-xl" />
+            <img src={withBase(`/epingles/${top.slug}.jpg`)} alt={`Épingle Pinterest : ${top.titre}`} width={1000} height={1500} className="aspect-[2/3] w-full rounded-[110px_110px_18px_18px/70px_70px_18px_18px] border-[1.5px] border-ink shadow-[5px_6px_0_var(--color-ombre)] shadow-xl" />
             <a href={pinterest} target="_blank" rel="noopener noreferrer" className="btn mt-3 w-full bg-[#bd081c] py-2.5 text-sm text-white hover:bg-ink">
               Épingler sur Pinterest
             </a>
@@ -123,15 +123,14 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
                 <AdSlot placement="top" />
               </div>
             )}
-            <ol start={m * 5 + 1} className="container-page mt-10 grid gap-5 md:grid-cols-2">
+            <ol start={m * 5 + 1} className="container-page mt-10 grid gap-x-6 gap-y-10 md:grid-cols-2">
               {moitie.map((it, j) => {
                 const rang = m * 5 + j + 1;
                 return (
                   <li key={it.carte.slug} id={`cadeau-${rang}`} className="scroll-mt-24">
                     <ProduitCard produit={it.carte} rang={rang}>
-                      <p className="mt-3 rounded-xl bg-paper p-3 text-[15px] leading-relaxed">
-                        <strong className="font-semibold">Pourquoi on l&apos;aime : </strong>
-                        {it.pourquoi}
+                      <p className="mt-1 font-serif text-[19px] leading-[1.45] font-medium text-pretty italic">
+                        <span className="sr-only">Pourquoi on l&apos;aime : </span>« {it.pourquoi} »
                       </p>
                     </ProduitCard>
                   </li>
@@ -152,11 +151,11 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
 
         <section className="container-page mt-12 max-w-3xl">
           <h2 className="section-title">Questions fréquentes</h2>
-          <div className="mt-4 divide-y divide-line rounded-2xl border border-line bg-white">
+          <div className="bulle mt-4 divide-y divide-ink/15 rounded-[32px_32px_32px_8px] px-2">
             {top.faq.map((f) => (
               <details key={f.question} className="group p-4">
                 <summary className="cursor-pointer list-none font-semibold marker:hidden">
-                  <span className="mr-2 inline-block text-orange transition group-open:rotate-45">+</span>
+                  <span aria-hidden className="mr-2 inline-block font-bold text-terre-texte transition group-open:rotate-45">+</span>
                   {f.question}
                 </summary>
                 <p className="mt-2 text-[16px] leading-relaxed text-muted">{f.reponse}</p>

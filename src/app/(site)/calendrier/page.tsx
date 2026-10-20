@@ -61,21 +61,21 @@ export default function CalendrierPage() {
             </h2>
             <ul className="mt-4 grid gap-4 md:grid-cols-2">
               {fs.map((f) => (
-                <li key={f.slug} className="flex gap-4 rounded-2xl border border-line bg-white p-4">
-                  <div className="grid w-16 shrink-0 place-items-center self-start rounded-xl bg-orange py-2 text-center text-white">
-                    <span className="font-serif text-3xl leading-none font-bold">{Number(f.date.slice(8, 10))}</span>
-                    <span className="text-[12px] uppercase">{moisCourt.format(new Date(`${f.date}T12:00:00Z`))}</span>
+                <li key={f.slug} className="bulle flex gap-4 rounded-[40px_40px_40px_8px] p-5">
+                  <div className="perle-pleine grid size-16 shrink-0 place-content-center self-start text-center text-creme">
+                    <span className="font-serif text-[26px] leading-none font-bold">{Number(f.date.slice(8, 10))}</span>
+                    <span className="text-[10.5px] font-bold uppercase">{moisCourt.format(new Date(`${f.date}T12:00:00Z`))}</span>
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-serif text-[20px] leading-tight font-semibold">{f.nom}</h3>
+                    <h3 className="font-serif text-[24px] leading-tight font-semibold">{f.nom}</h3>
                     <p className="mt-1 text-sm text-muted">
                       {formatDate(f.date)}
-                      {f.estimee && <span className="ml-2 rounded-full bg-soleil-soft px-2 py-0.5 text-[12px] font-semibold text-[#8a5a00]">date estimée</span>}
-                      <Compteur date={f.date} className="ml-2 font-semibold text-vert" />
+                      {f.estimee && <span className="ml-2 rounded-full border border-bois px-2 py-0.5 text-[12px] font-semibold text-bois-fonce">date estimée</span>}
+                      <Compteur date={f.date} className="ml-2 font-semibold text-bois-fonce" />
                     </p>
                     <p className="mt-2 text-[15px] leading-relaxed">{f.texte}</p>
                     {f.lien && (
-                      <Link href={f.lien.href} className="mt-2 inline-block font-semibold text-orange hover:text-ink">
+                      <Link href={f.lien.href} className="mt-2 inline-block font-semibold text-terre-texte hover:text-ink">
                         {f.lien.label} →
                       </Link>
                     )}

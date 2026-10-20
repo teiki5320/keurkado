@@ -1,6 +1,6 @@
 import { amazonUrl } from "@/lib/amazon";
 import { PRODUITS } from "@/lib/catalogue";
-import { BUDGETS, FAMILLES, UNIVERS, type Famille } from "@/lib/taxonomie";
+import { BUDGETS, DESTINATAIRES, FAMILLES, UNIVERS, type Famille } from "@/lib/taxonomie";
 import type { Produit } from "@/lib/types";
 
 /** Produit prêt à afficher (carte, quiz) : uniquement des données simples, transmissibles au navigateur. */
@@ -14,6 +14,8 @@ export interface CarteProduit {
   budgetNom: string;
   occasions: string[];
   pour: string[];
+  /** Destinataires en toutes lettres (« maman, femme »). */
+  pourNoms: string;
   voyage: boolean;
   url: string;
   prix: number | null;
@@ -21,6 +23,7 @@ export interface CarteProduit {
 
 const UNIVERS_NOM = new Map<string, string>(UNIVERS.map((u) => [u.slug, u.nom]));
 const BUDGET_NOM = new Map<string, string>(BUDGETS.map((b) => [b.slug, b.nom]));
+const POUR_NOM = new Map<string, string>(DESTINATAIRES.map((d) => [d.slug, d.nom.toLowerCase()]));
 const PAR_SLUG = new Map(PRODUITS.map((p) => [p.slug, p]));
 
 export function getProduits(): Produit[] {
@@ -42,6 +45,7 @@ export function toCarte(p: Produit): CarteProduit {
     budgetNom: BUDGET_NOM.get(p.budget) ?? p.budget,
     occasions: [...p.occasions],
     pour: [...p.pour],
+    pourNoms: p.pour.map((x) => POUR_NOM.get(x) ?? x).join(", "),
     voyage: p.voyage,
     url: amazonUrl(p),
     prix: p.priceCents ?? null,

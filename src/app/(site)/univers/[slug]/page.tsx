@@ -36,8 +36,8 @@ function PasserelleFrere({ rubrique, cle }: { rubrique: Rubrique; cle: keyof typ
       <Breadcrumb items={[{ name: "Accueil", href: "/" }, { name: "Par univers" }, { name: rubrique.nom }]} />
       <PageHeader eyebrow="Par univers" title={rubrique.titre} intro={rubrique.intro} />
       <section className="container-page">
-        <a href={site.url} className="carte-cadeau block rounded-3xl bg-indigo p-6 text-white sm:p-10">
-          <p className="text-[13px] font-semibold tracking-[0.12em] text-soleil uppercase">Notre site frère</p>
+        <a href={site.url} className="carte-cadeau block rounded-[60px_60px_60px_10px] border-[1.5px] border-ink bg-ink p-7 text-creme shadow-[inset_0_0_0_5px_var(--color-ink),inset_0_0_0_6px_rgba(232,184,106,0.45),8px_8px_0_var(--color-ombre)] hover:text-creme sm:p-12">
+          <p className="text-[13px] font-semibold tracking-[0.12em] text-or uppercase">Notre site frère</p>
           <p className="mt-2 font-serif text-[34px] leading-none font-semibold sm:text-5xl">{site.nom}</p>
           <p className="mt-3 max-w-xl text-[17px] text-white/85">{site.accroche}</p>
           <div className="mt-4 max-w-2xl space-y-3 text-[16px] text-white/85">
@@ -45,7 +45,7 @@ function PasserelleFrere({ rubrique, cle }: { rubrique: Rubrique; cle: keyof typ
               <p key={i}>{p}</p>
             ))}
           </div>
-          <span className="btn mt-6 bg-soleil text-ink">Aller sur {site.nom} →</span>
+          <span className="btn mt-6 border-or bg-or text-ink">Aller sur {site.nom} →</span>
         </a>
       </section>
       {produits.length > 0 && (

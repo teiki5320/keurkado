@@ -1,64 +1,88 @@
-import { BookOpen, CookingPot, Gem, Palette, Plane, Puzzle, Shirt, Sparkles, type LucideIcon } from "lucide-react";
+import { BookOpen, CookingPot, Gem, Palette, Puzzle, Shirt, Sparkles, type LucideProps } from "lucide-react";
 import { AMAZON_REL } from "@/lib/amazon";
 import type { CarteProduit } from "@/lib/data/produits";
 import { formatPrice } from "@/lib/format";
 
-/** Couleur et pictogramme de chaque univers (étiquette en haut de la carte). */
-const STYLE_UNIVERS: Record<string, { icone: LucideIcon; fond: string; texte: string }> = {
-  "wax-et-mode": { icone: Shirt, fond: "bg-orange-soft", texte: "text-orange" },
-  bijoux: { icone: Gem, fond: "bg-soleil-soft", texte: "text-[#8a5a00]" },
-  "beaute-afro": { icone: Sparkles, fond: "bg-fuchsia-soft", texte: "text-fuchsia" },
-  "art-et-deco": { icone: Palette, fond: "bg-indigo-soft", texte: "text-indigo" },
-  "jeux-et-jouets": { icone: Puzzle, fond: "bg-vert-soft", texte: "text-vert" },
-  livres: { icone: BookOpen, fond: "bg-indigo-soft", texte: "text-indigo" },
-  cuisine: { icone: CookingPot, fond: "bg-vert-soft", texte: "text-vert" },
-};
+/** Pictogramme de chaque univers, gravé au cœur de la perle (pas de photo : les images Amazon passent par leurs outils). */
+export function IconeUnivers({ slug, ...props }: { slug: string } & LucideProps) {
+  switch (slug) {
+    case "wax-et-mode":
+      return <Shirt {...props} />;
+    case "beaute-afro":
+      return <Sparkles {...props} />;
+    case "art-et-deco":
+      return <Palette {...props} />;
+    case "jeux-et-jouets":
+      return <Puzzle {...props} />;
+    case "livres":
+      return <BookOpen {...props} />;
+    case "cuisine":
+      return <CookingPot {...props} />;
+    default:
+      return <Gem {...props} />;
+  }
+}
 
-export function styleUnivers(slug: string) {
-  return STYLE_UNIVERS[slug] ?? STYLE_UNIVERS["wax-et-mode"];
+/** Les trois essences de bois des perles, qui alternent : bois clair, ébène, acacia. */
+const ESSENCES = ["", "perle-ebene", "perle-acacia"] as const;
+export const essence = (i: number) => ESSENCES[((i % 3) + 3) % 3];
+
+/** 1 € = 655,957 FCFA (parité fixe) : affiché seulement quand un vrai prix a été relevé. */
+export const enFcfa = (cents: number) => (Math.round((cents / 100) * 655.957 / 100) * 100).toLocaleString("fr-FR");
+
+/** Perle de bois avec le pictogramme de l'univers et l'étiquette de budget suspendue dessous. */
+export function Perle({ produit, index = 0, taille = 110, etiquette = true }: { produit: CarteProduit; index?: number; taille?: number; etiquette?: boolean }) {
+  return (
+    <span className="relative inline-block shrink-0" style={{ width: taille, height: taille }}>
+      {/* Attache de la perle au cordon. */}
+      <span aria-hidden className="absolute -top-4 left-1/2 h-[18px] w-3.5 -translate-x-1/2 rounded-[50%_50%_40%_40%] border-[2.5px] border-bois border-b-transparent" />
+      <span aria-hidden className="anneau-pointille anim-tourne -inset-[7px] border-ink/40" style={{ animationDelay: `${-index * 0.45}s`, animationDuration: "18s" }} />
+      <span className={`perle ${essence(index)} absolute inset-0 grid place-items-center`} style={{ borderWidth: Math.max(7, Math.round(taille / 12)) }}>
+        <IconeUnivers slug={produit.univers} aria-hidden className="text-bois-fonce" style={{ width: taille * 0.34, height: taille * 0.34 }} strokeWidth={1.6} />
+      </span>
+      {etiquette && (
+        <span className="absolute -bottom-3.5 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-[4px_14px_14px_4px] bg-ink py-1 pr-3 pl-2 text-[12px] font-bold whitespace-nowrap text-creme shadow-[0_6px_10px_-6px_rgba(0,0,0,0.6)]">
+          <span aria-hidden className="size-[5px] rounded-full bg-paper" />
+          {produit.prix ? formatPrice(produit.prix) : produit.budgetNom}
+        </span>
+      )}
+    </span>
+  );
 }
 
 /**
- * Carte d'un cadeau : univers, nom, description, budget indicatif et bouton Amazon.
- * Pas de photo : les images des produits Amazon ne peuvent être affichées que via les outils Amazon Partenaires.
- * Utilisable côté serveur comme dans le quiz (navigateur).
+ * Carte d'un cadeau, en arche sous sa perle (la fiche « détail » du design) : univers, nom, budget,
+ * description, destinataires, envoi et bouton Amazon. `children` reçoit le « pourquoi » d'un Top 10.
+ * Utilisable côté serveur comme dans l'atelier (navigateur).
  */
-export function ProduitCard({ produit, rang, children }: { produit: CarteProduit; rang?: number; children?: React.ReactNode }) {
-  const s = styleUnivers(produit.univers);
-  const Icone = s.icone;
+export function ProduitCard({ produit, rang, index = 0, children }: { produit: CarteProduit; rang?: number; index?: number; children?: React.ReactNode }) {
   return (
-    <article className="carte-cadeau flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white">
-      <div className={`flex items-center gap-2 px-4 py-2.5 ${s.fond} ${s.texte}`}>
-        {rang ? (
-          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-white font-serif text-lg font-bold text-ink">{rang}</span>
-        ) : (
-          <Icone aria-hidden className="size-5 shrink-0" />
+    <article className="carte-cadeau relative flex h-full flex-col items-center">
+      <span className="relative z-10 mt-4">
+        <Perle produit={produit} index={index} taille={104} etiquette={false} />
+        {rang && (
+          <span className="perle-pleine absolute -top-1 -right-3 grid size-10 place-items-center text-[17px] font-extrabold text-creme">{rang}</span>
         )}
-        <span className="text-[13px] font-semibold tracking-wide uppercase">{produit.universNom}</span>
-        {produit.voyage && (
-          <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5 text-[12px] font-semibold text-vert" title="Léger et solide : idéal pour un colis au pays">
-            <Plane aria-hidden className="size-3.5" /> Voyage bien
-          </span>
-        )}
-      </div>
-      <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-serif text-[21px] leading-tight font-semibold">{produit.nom}</h3>
-        <p className="mt-2 text-[15px] leading-relaxed text-muted">{produit.description}</p>
+      </span>
+      <div className="bulle -mt-12 flex w-full flex-1 flex-col items-center gap-2.5 rounded-[200px_200px_40px_40px/120px_120px_40px_40px] px-5 pt-16 pb-6 text-center sm:px-7">
+        <p className="text-[11px] font-bold tracking-[0.18em] text-terre-texte uppercase">{produit.universNom}</p>
+        <h3 className="font-serif text-[26px] leading-[1.1] font-bold text-balance">{produit.nom}</h3>
+        <div className="separateur" aria-hidden>
+          <span />
+        </div>
+        <p className="text-[18px] font-extrabold text-terre-texte">
+          {produit.prix ? formatPrice(produit.prix) : produit.budgetNom}
+          {produit.prix && <span className="ml-1.5 text-[12.5px] font-semibold text-faint">≈ {enFcfa(produit.prix)} FCFA</span>}
+        </p>
+        <p className="text-[15px] leading-relaxed text-muted">{produit.description}</p>
         {children}
-        <div className="mt-auto flex items-center justify-between gap-3 pt-4">
-          <span className="text-sm text-muted">
-            {produit.prix ? (
-              <>
-                Environ <strong className="text-ink">{formatPrice(produit.prix)}</strong>
-              </>
-            ) : (
-              <>
-                Budget : <strong className="text-ink">{produit.budgetNom}</strong>
-              </>
-            )}
-          </span>
-          <a href={produit.url} target="_blank" rel={AMAZON_REL} className="btn-amazon shrink-0">
-            Voir sur Amazon
+        <div className="flex flex-wrap justify-center gap-2 text-[12px] font-semibold">
+          <span className="rounded-full border border-ink/35 px-3 py-1.5">Pour {produit.pourNoms}</span>
+          <span className="rounded-full border border-ink/35 px-3 py-1.5">{produit.voyage ? "Voyage bien dans un colis" : "À offrir en main propre"}</span>
+        </div>
+        <div className="mt-auto pt-3">
+          <a href={produit.url} target="_blank" rel={AMAZON_REL} className="btn-amazon px-7 py-3.5 text-[15px]">
+            Voir sur Amazon.fr
           </a>
         </div>
       </div>
@@ -68,10 +92,10 @@ export function ProduitCard({ produit, rang, children }: { produit: CarteProduit
 
 export function ProduitGrid({ produits }: { produits: CarteProduit[] }) {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {produits.map((p) => (
+    <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      {produits.map((p, i) => (
         <li key={p.slug}>
-          <ProduitCard produit={p} />
+          <ProduitCard produit={p} index={i} />
         </li>
       ))}
     </ul>

@@ -13,7 +13,7 @@ export function Chips({ famille, actif, titre }: { famille: Famille; actif?: str
             <Link
               href={`${f.chemin}/${r.slug}`}
               aria-current={r.slug === actif ? "page" : undefined}
-              className={r.slug === actif ? "tag border-orange bg-orange text-white hover:text-white" : "tag"}
+              className={r.slug === actif ? "tag border-terre bg-terre text-white hover:text-white" : "tag"}
             >
               {r.nom}
             </Link>
