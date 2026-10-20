@@ -3,11 +3,13 @@ import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Breadcrumb, EntryText, PageHeader, Section } from "@/components/layout/Section";
 import { ProduitGrid } from "@/components/produit/ProduitCard";
+import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig } from "@/lib/config";
 import { produitsVoyage, toCarte } from "@/lib/data/produits";
 import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { UNIVERS } from "@/lib/taxonomie";
+import { topsDe } from "@/lib/tops";
 
 export const metadata: Metadata = pageMetadata({
   title: "Cadeaux à envoyer au pays : ceux qui voyagent bien",
@@ -25,6 +27,7 @@ const REGLES = [
 
 export default function EnvoyerPage() {
   const produits = produitsVoyage().map(toCarte);
+  const tops = topsDe("page/envoyer-au-pays");
   const parUnivers = UNIVERS.map((u) => ({ u, liste: produits.filter((p) => p.univers === u.slug) })).filter((g) => g.liste.length > 0);
   const ld = breadcrumbLd([
     { name: "Accueil", url: siteConfig.url },
@@ -54,6 +57,12 @@ export default function EnvoyerPage() {
           ))}
         </ul>
       </section>
+
+      {tops.length > 0 && (
+        <Section title="Notre sélection">
+          <TopGrid tops={tops} />
+        </Section>
+      )}
 
       {parUnivers.map(({ u, liste }, i) => (
         <div key={u.slug}>

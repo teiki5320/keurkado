@@ -35,7 +35,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     description:
       "Un coffret qui réunit beurre, savon et crème au karité, joliment présenté. Un cadeau prêt à offrir pour une maman, une amie ou une collègue, qui fait toujours plaisir.",
     univers: "beaute-afro",
-    occasions: ["fete-des-meres", "noel", "mariage", "korite", "bapteme"],
+    occasions: ["fete-des-meres", "noel", "mariage", "korite", "bapteme", "saint-valentin"],
     pour: ["maman", "femme", "collegue"],
     budget: "20-50",
     voyage: false,
@@ -174,7 +174,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     description:
       "Huile, baume, brosse et peigne réunis dans une boîte : tout ce qu'il faut pour une barbe nette et douce. Un cadeau pratique pour un papa ou un mari qui soigne sa barbe.",
     univers: "beaute-afro",
-    occasions: ["fete-des-peres", "noel", "anniversaire"],
+    occasions: ["fete-des-peres", "noel", "anniversaire", "saint-valentin"],
     pour: ["homme", "papa"],
     budget: "20-50",
     voyage: false,
@@ -188,7 +188,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     description:
       "Un parfum aux notes boisées de oud, très apprécié pour se faire beau le jour de la prière. Un cadeau élégant pour un papa ou un mari à l'approche de la Tabaski ou de la Korité.",
     univers: "beaute-afro",
-    occasions: ["tabaski", "korite", "fete-des-peres", "noel"],
+    occasions: ["tabaski", "korite", "fete-des-peres", "noel", "saint-valentin"],
     pour: ["homme", "papa"],
     budget: "20-50",
     voyage: false,

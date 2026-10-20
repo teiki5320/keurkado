@@ -19,7 +19,7 @@ export const FETES: Fete[] = [
     nom: "Saint-Valentin",
     date: "2027-02-14",
     texte: "La fête des amoureux : un bijou, un parfum ou un accessoire en wax pour dire je t'aime avec un peu de nos couleurs.",
-    lien: { href: "/univers/bijoux", label: "Bijoux africains à offrir" },
+    lien: { href: "/occasion/saint-valentin", label: "Idées cadeaux pour la Saint-Valentin" },
   },
   {
     slug: "korite-2027",

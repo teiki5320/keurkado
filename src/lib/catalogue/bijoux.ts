@@ -7,7 +7,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Des boucles d'oreilles en forme de carte d'Afrique, en métal doré, légères à porter toute la journée. Une façon discrète et élégante d'emporter le continent avec soi.",
     univers: "bijoux",
-    occasions: ["anniversaire", "noel", "fete-des-meres", "korite"],
+    occasions: ["anniversaire", "noel", "fete-des-meres", "korite", "saint-valentin"],
     pour: ["femme", "ado", "maman"],
     budget: "moins-de-20",
     voyage: true,
@@ -21,7 +21,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Une chaîne avec un pendentif en forme de carte d'Afrique, en acier doré ou argenté. Il se porte aussi bien par un homme que par une femme, et rappelle d'où l'on vient à chaque regard dans le miroir.",
     univers: "bijoux",
-    occasions: ["noel", "anniversaire", "fete-des-peres"],
+    occasions: ["noel", "anniversaire", "fete-des-peres", "saint-valentin"],
     pour: ["homme", "femme", "ado"],
     budget: "moins-de-20",
     voyage: true,
@@ -35,7 +35,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "La version précieuse du pendentif carte d'Afrique, en or 18 carats. Un bijou qui se garde toute une vie et se transmet, à offrir pour un mariage, un grand anniversaire ou pour remercier une maman.",
     univers: "bijoux",
-    occasions: ["mariage", "anniversaire", "fete-des-meres", "tabaski"],
+    occasions: ["mariage", "anniversaire", "fete-des-meres", "tabaski", "saint-valentin"],
     pour: ["femme", "maman"],
     budget: "plus-de-100",
     voyage: true,
@@ -48,7 +48,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "De belles créoles en or jaune, le bijou que l'on offre traditionnellement à la mariée ou à une maman pour un grand jour. Intemporelles, elles accompagnent toutes les tenues, du pagne au tailleur.",
     univers: "bijoux",
-    occasions: ["mariage", "tabaski", "fete-des-meres", "bapteme"],
+    occasions: ["mariage", "tabaski", "fete-des-meres", "bapteme", "saint-valentin"],
     pour: ["femme", "maman"],
     budget: "plus-de-100",
     voyage: true,
@@ -62,7 +62,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Un bracelet élastique en perles de bois, de pierre ou de verre aux couleurs de l'Afrique. Facile à porter avec une montre, il plaît aux hommes qui aiment les bijoux discrets.",
     univers: "bijoux",
-    occasions: ["noel", "anniversaire", "fete-des-peres"],
+    occasions: ["noel", "anniversaire", "fete-des-peres", "saint-valentin"],
     pour: ["homme", "papa", "ado", "collegue"],
     budget: "moins-de-20",
     voyage: true,
@@ -75,7 +75,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Le cauri, ce petit coquillage qui servait autrefois de monnaie, orne ce bracelet tressé. Un bijou porte-bonheur, simple et chargé d'histoire, à offrir sans occasion particulière.",
     univers: "bijoux",
-    occasions: ["noel", "anniversaire", "korite"],
+    occasions: ["noel", "anniversaire", "korite", "saint-valentin"],
     pour: ["femme", "ado", "collegue"],
     budget: "moins-de-20",
     voyage: true,
@@ -88,7 +88,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Les perles de taille, ou bine-bine, se portent sous les vêtements depuis des générations en Afrique de l'Ouest. Un cadeau intime et féminin, souvent offert à la future mariée.",
     univers: "bijoux",
-    occasions: ["mariage", "anniversaire"],
+    occasions: ["mariage", "anniversaire", "saint-valentin"],
     pour: ["femme"],
     budget: "moins-de-20",
     voyage: true,
@@ -143,7 +143,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Un collier large en perles colorées, inspiré des parures massaïs d'Afrique de l'Est. Il suffit à lui seul à habiller une robe unie ou un haut noir pour une soirée.",
     univers: "bijoux",
-    occasions: ["anniversaire", "noel", "mariage"],
+    occasions: ["anniversaire", "noel", "mariage", "saint-valentin"],
     pour: ["femme", "maman"],
     budget: "20-50",
     voyage: true,
@@ -157,7 +157,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Des boucles d'oreilles légères recouvertes de tissu wax, rondes ou en goutte. Un petit bijou coloré, facile à assortir à un foulard, qui fait un joli cadeau pour une collègue ou une amie.",
     univers: "bijoux",
-    occasions: ["anniversaire", "noel", "fete-des-meres"],
+    occasions: ["anniversaire", "noel", "fete-des-meres", "saint-valentin"],
     pour: ["femme", "ado", "collegue"],
     budget: "moins-de-20",
     voyage: true,
@@ -183,7 +183,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     description:
       "Une montre au boîtier en bois naturel, légère et chaleureuse au poignet. Un cadeau original pour un papa ou un mari, qui change des montres en métal et se remarque.",
     univers: "bijoux",
-    occasions: ["fete-des-peres", "noel", "anniversaire", "tabaski"],
+    occasions: ["fete-des-peres", "noel", "anniversaire", "tabaski", "saint-valentin"],
     pour: ["homme", "papa"],
     budget: "50-100",
     voyage: true,

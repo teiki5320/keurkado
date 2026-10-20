@@ -75,12 +75,14 @@ test("Top 10 : 10 produits existants, de la bonne rubrique, sans doublon", () =>
     assert.equal(t.items.length, 10, `${t.slug} : ${t.items.length} produits`);
     assert.equal(new Set(t.items.map((i) => i.produit)).size, 10, `${t.slug} : produit en double`);
     assert.ok(t.conseils.length >= 2 && t.faq.length >= 3, `${t.slug} : conseils ou FAQ incomplets`);
-    const [famille, slug] = t.rubrique.split("/") as [Famille, string];
-    assert.ok(ADRESSES.has(`${FAMILLES[famille]?.chemin}/${slug}`), `${t.slug} : rubrique inconnue ${t.rubrique}`);
+    const [famille, slug] = t.rubrique.split("/") as [Famille | "page", string];
+    // Top rattaché à une page (« page/envoyer-au-pays ») : ses produits doivent voyager bien.
+    const page = famille === "page";
+    assert.ok(page ? ADRESSES.has(`/${slug}`) : ADRESSES.has(`${FAMILLES[famille]?.chemin}/${slug}`), `${t.slug} : rubrique inconnue ${t.rubrique}`);
     for (const it of t.items) {
       const p = produits.get(it.produit);
       assert.ok(p, `${t.slug} : produit inconnu ${it.produit}`);
-      assert.ok(porte(p, famille, slug), `${t.slug} : ${it.produit} n'a pas l'étiquette ${t.rubrique}`);
+      assert.ok(famille === "page" ? p.voyage : porte(p, famille, slug), `${t.slug} : ${it.produit} n'a pas l'étiquette ${t.rubrique}`);
       assert.ok(it.pourquoi.length >= 80, `${t.slug} : « pourquoi » trop court pour ${it.produit}`);
     }
   }

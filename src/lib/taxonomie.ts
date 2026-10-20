@@ -52,6 +52,17 @@ export const OCCASIONS = [
     ],
   },
   {
+    slug: "saint-valentin",
+    nom: "Saint-Valentin",
+    titre: "Idées cadeaux africains pour la Saint-Valentin",
+    description: "Cadeaux africains pour la Saint-Valentin : bijoux, wax, parfums, soins au karité et objets à partager pour dire je t'aime avec un peu de chez nous.",
+    intro: "Le 14 février, on dit je t'aime avec un cadeau qui a du sens : un bijou, un parfum, un soin, ou un objet à partager à deux.",
+    texte: [
+      "La Saint-Valentin se fête en France comme dans beaucoup de grandes villes d'Afrique, d'Abidjan à Dakar. Un bijou inspiré du continent, un parfum, un coffret de soins au karité ou une tenue en wax font des cadeaux qui sortent de l'ordinaire.",
+      "Pensez aussi aux cadeaux à partager : un service à thé pour les longues soirées, un jeu d'awalé pour deux, un livre de recettes pour cuisiner ensemble. L'attention compte plus que le prix.",
+    ],
+  },
+  {
     slug: "mariage",
     nom: "Mariage",
     titre: "Idées cadeaux de mariage africain",

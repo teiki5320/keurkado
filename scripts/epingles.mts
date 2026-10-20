@@ -211,6 +211,7 @@ export const TABLEAUX: Record<string, string> = {
   pour: "Cadeaux africains pour elle, pour lui, pour les enfants",
   budget: "Cadeaux africains petits prix",
   univers: "Wax, bijoux et beauté afro",
+  page: "Cadeaux à envoyer au pays",
 };
 
 /** Fichier d'import en lot pour Pinterest : colonnes du modèle Pinterest, une épingle programmée par jour. */

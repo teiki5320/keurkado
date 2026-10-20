@@ -7,7 +7,7 @@ export const PRODUITS_JEUX: Produit[] = [
     description:
       "L'awalé, jeu de semailles joué dans toute l'Afrique, avec son plateau en bois et ses graines. Les règles s'apprennent en cinq minutes, et les parties entre grands-parents et petits-enfants peuvent durer des heures.",
     univers: "jeux-et-jouets",
-    occasions: ["noel", "anniversaire", "fete-des-peres", "korite"],
+    occasions: ["noel", "anniversaire", "fete-des-peres", "korite", "saint-valentin"],
     pour: ["enfant", "papa", "homme", "collegue"],
     budget: "20-50",
     voyage: true,

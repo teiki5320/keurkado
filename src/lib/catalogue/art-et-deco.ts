@@ -73,7 +73,7 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
     description:
       "Une statuette représentant un couple enlacé, en bois ou en résine façon bois sculpté. Un cadeau symbolique pour des jeunes mariés, qui trouvera sa place sur une console ou une étagère.",
     univers: "art-et-deco",
-    occasions: ["mariage", "noel", "anniversaire"],
+    occasions: ["mariage", "noel", "anniversaire", "saint-valentin"],
     pour: ["maman", "papa", "femme", "homme"],
     budget: "20-50",
     voyage: false,

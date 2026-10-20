@@ -10,6 +10,6 @@
 ## À faire à la main
 
 1. Créer le compte professionnel **Keur Kado** (adresse dédiée, par exemple keurkado@toakeur.com).
-2. Créer les tableaux (noms dans `TABLEAUX`, `scripts/epingles.mts`) : « Idées cadeaux africains par occasion », « Cadeaux africains pour elle, pour lui, pour les enfants », « Cadeaux africains petits prix », « Wax, bijoux et beauté afro ».
+2. Créer les tableaux (noms dans `TABLEAUX`, `scripts/epingles.mts`) : « Idées cadeaux africains par occasion », « Cadeaux africains pour elle, pour lui, pour les enfants », « Cadeaux africains petits prix », « Wax, bijoux et beauté afro », « Cadeaux à envoyer au pays ».
 3. Importer `epingles-pinterest.csv` (après publication du site), ou épingler depuis chaque page Top 10.
 4. Quand keurkado.com sera en ligne : revendiquer le domaine (balise HTML, variable `PINTEREST_VERIFY`), puis brancher la publication automatique par l'API (reprendre `scripts/pinterest-publier.mjs` et `.github/workflows/pinterest.yml` de Keur Déco).

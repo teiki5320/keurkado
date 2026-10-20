@@ -20,7 +20,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     description:
       "Un turban déjà noué, qui s'enfile en une seconde et tient toute la journée. Pratique pour celles qui n'ont pas le temps de nouer un foulard le matin, et joli sur les cheveux tressés comme sur les cheveux courts.",
     univers: "wax-et-mode",
-    occasions: ["anniversaire", "noel", "fete-des-meres", "korite"],
+    occasions: ["anniversaire", "noel", "fete-des-meres", "korite", "saint-valentin"],
     pour: ["femme", "ado", "maman"],
     budget: "moins-de-20",
     voyage: true,
@@ -34,7 +34,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     description:
       "Une chemise à manches courtes ou longues taillée dans un wax aux couleurs franches. Elle se porte avec un pantalon uni pour une fête, une cérémonie ou un déjeuner du dimanche. Pensez à vérifier le guide des tailles.",
     univers: "wax-et-mode",
-    occasions: ["tabaski", "korite", "fete-des-peres", "anniversaire", "mariage"],
+    occasions: ["tabaski", "korite", "fete-des-peres", "anniversaire", "mariage", "saint-valentin"],
     pour: ["homme", "papa"],
     budget: "20-50",
     voyage: true,
@@ -73,7 +73,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     description:
       "Une robe en wax, coupe évasée ou ajustée, qui se porte aussi bien à une fête de famille qu'au bureau avec une veste. Choisissez des motifs qui lui ressemblent et vérifiez le guide des tailles sur la fiche.",
     univers: "wax-et-mode",
-    occasions: ["tabaski", "korite", "mariage", "anniversaire", "fete-des-meres"],
+    occasions: ["tabaski", "korite", "mariage", "anniversaire", "fete-des-meres", "saint-valentin"],
     pour: ["femme", "maman"],
     budget: "20-50",
     voyage: true,
@@ -216,7 +216,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     description:
       "Un sac à main qui associe le cuir et le tissu wax, pour une pièce à la fois chic et colorée. Un bel accessoire qu'elle gardera longtemps et sortira pour les grandes occasions.",
     univers: "wax-et-mode",
-    occasions: ["fete-des-meres", "anniversaire", "noel", "tabaski"],
+    occasions: ["fete-des-meres", "anniversaire", "noel", "tabaski", "saint-valentin"],
     pour: ["femme", "maman"],
     budget: "50-100",
     voyage: true,
@@ -229,7 +229,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     description:
       "Une pochette en wax, parfois rehaussée de perles ou d'un fermoir doré, qui complète une tenue de cérémonie. Juste la place pour le téléphone et le rouge à lèvres, le soir d'un mariage.",
     univers: "wax-et-mode",
-    occasions: ["mariage", "fete-des-meres", "tabaski", "korite"],
+    occasions: ["mariage", "fete-des-meres", "tabaski", "korite", "saint-valentin"],
     pour: ["femme", "maman"],
     budget: "20-50",
     voyage: true,

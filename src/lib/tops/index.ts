@@ -15,9 +15,36 @@ import ado from "./cadeaux-africains-ado";
 import collegue from "./cadeaux-africains-collegue";
 import feteDesMeres from "./idees-cadeaux-fete-des-meres";
 import feteDesPeres from "./idees-cadeaux-fete-des-peres";
+import anniversaire from "./idees-cadeaux-anniversaire";
+import envoyer from "./cadeaux-a-envoyer-au-pays";
+import femme from "./cadeaux-africains-femme";
+import papa from "./cadeaux-africains-papa";
+import saintValentin from "./idees-cadeaux-saint-valentin";
 
 /** Toutes les pages « Top 10 », dans l'ordre d'affichage : la prochaine fête d'abord, puis les recherches les plus fréquentes. */
-export const TOPS: Top[] = [noel, maman, homme, wax, bijoux, beaute, moinsDe20, enfant, ado, collegue, korite, tabaski, feteDesMeres, feteDesPeres, mariage, bapteme];
+export const TOPS: Top[] = [
+  noel,
+  saintValentin,
+  maman,
+  femme,
+  homme,
+  papa,
+  envoyer,
+  wax,
+  bijoux,
+  beaute,
+  moinsDe20,
+  enfant,
+  ado,
+  collegue,
+  anniversaire,
+  korite,
+  tabaski,
+  feteDesMeres,
+  feteDesPeres,
+  mariage,
+  bapteme,
+];
 
 export function getTop(slug: string): Top | undefined {
   return TOPS.find((t) => t.slug === slug);

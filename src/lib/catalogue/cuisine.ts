@@ -7,7 +7,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     description:
       "Une théière, des petits verres à thé et un plateau assorti : tout ce qu'il faut pour préparer l'ataya et le servir aux invités. Un cadeau de mariage ou de fête qui trône ensuite au salon.",
     univers: "cuisine",
-    occasions: ["tabaski", "korite", "mariage", "fete-des-peres"],
+    occasions: ["tabaski", "korite", "mariage", "fete-des-peres", "saint-valentin"],
     pour: ["papa", "homme", "maman"],
     budget: "50-100",
     voyage: false,
@@ -86,7 +86,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     description:
       "Un livre de cuisine qui rassemble les grands classiques : thiéboudienne, mafé, yassa, alloco et bien d'autres. Pour celles et ceux qui veulent retrouver les saveurs de la maison, ou les faire découvrir.",
     univers: "cuisine",
-    occasions: ["noel", "fete-des-meres", "anniversaire", "mariage"],
+    occasions: ["noel", "fete-des-meres", "anniversaire", "mariage", "saint-valentin"],
     pour: ["maman", "femme", "collegue", "homme"],
     budget: "20-50",
     voyage: true,
