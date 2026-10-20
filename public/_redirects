@@ -1,3 +1,3 @@
-# Redirections servies par Cloudflare Pages.
+# Redirections servies par Cloudflare (Worker de fichiers statiques).
 /favicon.ico /icon.png 301
 /cgv /conditions 301

@@ -2,7 +2,7 @@
  * Configuration générale du site.
  * Les valeurs propres à l'entreprise se règlent via les variables d'environnement (voir .env.example).
  */
-/** Hébergeur du site : Cloudflare Pages (keurkado.com), comme Keurbook. */
+/** Hébergeur du site : Cloudflare (Worker de fichiers statiques, keurkado.com), comme Keur Foot. */
 const defaultHost = { name: "Cloudflare", full: "Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis — cloudflare.com" };
 
 /**

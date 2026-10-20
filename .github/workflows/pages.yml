@@ -1,0 +1,62 @@
+# Ancienne adresse du site (https://teiki5320.github.io/keurkado/) : depuis le passage à keurkado.com,
+# on n'y publie plus qu'une page qui renvoie chaque visiteur vers la même page sur keurkado.com.
+# Se relance seulement quand ce fichier change, ou à la main (onglet Actions).
+name: Rediriger l'ancienne adresse vers keurkado.com
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/pages.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Écrire la page de redirection (accueil et toutes les autres adresses)
+        run: |
+          mkdir -p redirection
+          cat > redirection/index.html <<'HTML'
+          <!doctype html>
+          <html lang="fr">
+          <head>
+          <meta charset="utf-8">
+          <meta name="robots" content="noindex">
+          <meta http-equiv="refresh" content="0; url=https://keurkado.com/">
+          <link rel="canonical" href="https://keurkado.com/">
+          <title>Keur Kado a déménagé sur keurkado.com</title>
+          <script>
+            var chemin = location.pathname.replace(/^\/keurkado/, "").replace(/\.html$/, "") || "/";
+            location.replace("https://keurkado.com" + chemin + location.search + location.hash);
+          </script>
+          </head>
+          <body>
+          <p>Keur Kado a déménagé : <a href="https://keurkado.com/">keurkado.com</a>.</p>
+          </body>
+          </html>
+          HTML
+          cp redirection/index.html redirection/404.html
+          touch redirection/.nojekyll
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: redirection
+
+  publier:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

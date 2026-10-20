@@ -1,4 +1,4 @@
-# Vérifie, construit et publie le site statique sur Cloudflare Pages (projet « keurkado », keurkado.com), comme Keurbook.
+# Vérifie, construit et publie le site statique sur Cloudflare (Worker de fichiers statiques « keurkado », keurkado.com), comme Keur Foot.
 # Se lance à chaque push sur main, chaque lundi (articles « Conseils » programmés, calendrier à jour)
 # et à la main (onglet Actions).
 name: Publier le site
@@ -70,17 +70,16 @@ jobs:
             echo "::warning::Ajoutez les secrets CLOUDFLARE_API_TOKEN et CLOUDFLARE_ACCOUNT_ID pour publier le site."
           fi
 
-      - name: Publier sur Cloudflare Pages
+      - name: Publier sur Cloudflare (keurkado.com)
         if: steps.secrets.outputs.ok == 'true'
         env:
           # Réglés par le propriétaire dans Settings → Secrets and variables → Actions.
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          # wrangler est figé dans package-lock.json (installé par npm ci).
-          # Crée le projet « keurkado » à la première publication (sans effet s'il existe déjà).
-          npx wrangler pages project create keurkado --production-branch=main || true
-          npx wrangler pages deploy out --project-name=keurkado --branch=main --commit-dirty=true
+          # wrangler est figé dans package-lock.json (installé par npm ci) ; configuration dans wrangler.jsonc.
+          # Ne pas utiliser « wrangler pages … » : la commande convertit le projet en application OpenNext.
+          npx wrangler deploy
 
       # GitHub coupe les tâches programmées d'un dépôt public après 60 jours sans activité :
       # chaque publication programmée réactive la tâche, pour que les articles continuent de paraître.

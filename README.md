@@ -2,7 +2,7 @@
 
 Site en français d'**idées cadeaux africains pour la diaspora africaine en France** : par occasion (Tabaski, Korité, Noël, mariage, baptême…), par destinataire, par budget et par univers (wax, bijoux, beauté afro, déco, jeux), avec un quiz « Trouve le cadeau », des Top 10, une rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien : les boutons « Voir sur Amazon » mènent à Amazon.fr (programme Partenaires, tag `keurkado-21`).
 
-- **Site** : https://keurkado.com — Cloudflare Pages (projet `keurkado`), comme Keurbook.
+- **Site** : https://keurkado.com — Worker de fichiers statiques Cloudflare « keurkado » (`wrangler.jsonc`), comme Keur Foot. Voir `docs/DEPLOIEMENT.md`.
 - **Dépôt** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
 - **Base technique** : reprise de [Keurbook](https://github.com/teiki5320/keurbook) ; épingles Pinterest à la manière de Keur Déco.
 
