@@ -1,6 +1,6 @@
 # Keur Kado — les idées cadeaux africains
 
-Site en français d'**idées cadeaux africains pour la diaspora africaine en France** : par occasion (Tabaski, Korité, Noël, mariage, baptême…), par destinataire, par budget et par univers (wax, bijoux, beauté afro, déco, jeux), avec un quiz « Trouve le cadeau », des Top 10, une rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien : les boutons « Voir sur Amazon » mènent à Amazon.fr (programme Partenaires, tag `keurkado-21`).
+Site en français d'**idées cadeaux africains pour la diaspora africaine en France** : par occasion (Tabaski, Korité, Noël, mariage, baptême…), par destinataire, par budget et par univers (wax, bijoux, beauté afro, déco, jeux), avec un quiz « Trouve le cadeau », des Top 10, une rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien : les boutons « Voir sur Amazon » mènent à Amazon.fr (programme Partenaires, tag `keurkadofr-21`).
 
 - **Site** : https://keurkado.com — Worker de fichiers statiques Cloudflare « keurkado » (`wrangler.jsonc`), comme Keur Foot. Voir `docs/DEPLOIEMENT.md`.
 - **Dépôt** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
@@ -46,7 +46,7 @@ Règles de rédaction : [`docs/REDACTION.md`](docs/REDACTION.md). Pinterest : [`
 
 ## Amazon Partenaires
 
-- Liens construits par `src/lib/amazon.ts` avec le tag `keurkado-21` (`NEXT_PUBLIC_AMAZON_TAG` pour le changer).
+- Liens construits par `src/lib/amazon.ts` avec le tag `keurkadofr-21` (`NEXT_PUBLIC_AMAZON_TAG` pour le changer).
 - Si `amazonAsin` est rempli (ASIN vérifié sur Amazon.fr), le bouton mène à la fiche ; sinon à une **recherche Amazon** (champ `recherche`, rayon `rayon`).
 - `amazonAsin` : relevé à la main sur Amazon.fr (produit non sponsorisé, bien noté, fidèle à la description et à la tranche de budget). 49 produits en ont un au 20 octobre 2026 ; les autres mènent à une recherche.
 - `priceCents` : **jamais saisi à la main** (règle du programme Partenaires : un prix affiché doit venir de l'API Amazon et être rafraîchi toutes les 24 h). Tant qu'il est vide, on affiche la tranche de budget ; la conversion en FCFA n'apparaît qu'avec un vrai prix.
