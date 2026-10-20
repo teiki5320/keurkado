@@ -38,7 +38,7 @@ const top: Top = {
     {
       produit: "ensemble-boubou-homme-3-pieces",
       pourquoi:
-        "Tunique longue, pantalon et chemise assortis : cet ensemble complet lui donne tout de suite une allure soignée pour la prière de l'Aïd ou une cérémonie familiale. Il se porte facilement, ce que les papas apprécient. Offrez-le quelques semaines avant la fête, pour qu'il ait le temps de faire reprendre un ourlet si besoin.",
+        "Grand boubou brodé, chemise et pantalon assortis : cet ensemble complet lui donne tout de suite une allure soignée pour la prière de l'Aïd ou une cérémonie familiale. Il se porte facilement, ce que les papas apprécient. Offrez-le quelques semaines avant la fête, pour qu'il ait le temps de faire reprendre un ourlet si besoin.",
     },
     {
       produit: "jeu-de-dames-bois",

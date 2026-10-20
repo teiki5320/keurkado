@@ -59,13 +59,14 @@ export const PRODUITS_LIVRES: Produit[] = [
     slug: "livre-histoire-afrique",
     nom: "Livre illustré sur l'histoire de l'Afrique",
     description:
-      "Un ouvrage illustré qui raconte l'histoire du continent, des grands empires aux indépendances. Un cadeau passionnant pour un papa curieux ou un ado qui veut mieux connaître ses racines.",
+      "Un beau livre illustré qui raconte l'Afrique ancienne, des premières civilisations aux grands empires et aux royaumes d'avant le XVIIe siècle. Un cadeau passionnant pour un papa curieux ou un ado passionné d'histoire qui veut mieux connaître ses racines.",
     univers: "livres",
     occasions: ["noel", "fete-des-peres", "anniversaire"],
     pour: ["papa", "homme", "ado"],
     budget: "20-50",
     voyage: true,
     recherche: "livre histoire afrique illustre",
+    amazonAsin: "2701198364",
     rayon: "stripbooks",
   },
   {

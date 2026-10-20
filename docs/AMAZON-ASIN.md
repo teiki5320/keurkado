@@ -55,3 +55,9 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `peigne-afro-brosse-demelante` | [B0C1GBL9VK](https://www.amazon.fr/dp/B0C1GBL9VK) | Lot de 3 brosses démêlantes pour cheveux afro 3a à 4c (4,4 ; 922 avis) |
 | `serviette-microfibre-cheveux` | [B0D7HVMC5Q](https://www.amazon.fr/dp/B0D7HVMC5Q) | Freatech 2 grandes serviettes microfibre pour cheveux bouclés (4,6 ; 754 avis) |
 | `suspension-panier-tresse` | [B07Z23Z14B](https://www.amazon.fr/dp/B07Z23Z14B) | Atmosphera suspension Liby en bambou tressé (4,7 ; 2,4 k avis) — prix ~38 € : budget 50-100 → 20-50 |
+| `grand-boubou-brode-femme` | [B0FJRRGMGJ](https://www.amazon.fr/dp/B0FJRRGMGJ) | HD boubou femme ample brodé, manches cloches (4,0 ; 42 avis) — polyester, taille unique |
+| `grand-boubou-bazin-homme` | [B09L176VLK](https://www.amazon.fr/dp/B09L176VLK) | HD agbada homme 3 pièces en bazin brodé (4,0 ; 415 avis) |
+| `ensemble-boubou-homme-3-pieces` | [B0BYN6YV5D](https://www.amazon.fr/dp/B0BYN6YV5D) | HD agbada brodé 3 pièces : boubou, chemise et pantalon (4,1 ; 233 avis) — prix ~102 € : budget 50-100 → plus-de-100 |
+| `livre-histoire-afrique` | [2701198364](https://www.amazon.fr/dp/2701198364) | *L'Afrique ancienne, de l'Acacus au Zimbabwe*, F.-X. Fauvelle (dir.), Belin (4,6 ; 97 avis) — s'arrête au XVIIe siècle, description ajustée |
+
+Deuxième relevé (20 octobre 2026, 26 produits sans lien) : seuls les 4 articles ci-dessus ont été retenus. Écartés : foulard de tête (imprimé, pas du vrai wax), beau livre photo (6 avis), service à thé (7 avis, expédié du Royaume-Uni), kit durag (un seul en stock, kit de 11 pièces), poupée (cheveux bouclés et non crépus). Aucun article fidèle et noté pour le reste : tissus wax et bazin, vêtements et accessoires en wax, tabouret sculpté, carte murale en bois, coffret d'épices, puzzle carte d'Afrique, bracelet en cauris.

@@ -91,6 +91,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     budget: "50-100",
     voyage: true,
     recherche: "grand boubou brode femme africain",
+    amazonAsin: "B0FJRRGMGJ",
     rayon: "fashion",
   },
   {
@@ -130,19 +131,21 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     budget: "plus-de-100",
     voyage: true,
     recherche: "grand boubou bazin homme brode",
+    amazonAsin: "B09L176VLK",
     rayon: "fashion",
   },
   {
     slug: "ensemble-boubou-homme-3-pieces",
     nom: "Ensemble boubou homme 3 pièces",
     description:
-      "Tunique longue, pantalon et chemise assortis : un ensemble complet et élégant pour la prière de l'Aïd ou une cérémonie familiale. Il se porte facilement et donne tout de suite une allure soignée.",
+      "Grand boubou brodé, chemise et pantalon assortis : un ensemble complet et élégant pour la prière de l'Aïd ou une cérémonie familiale. Il se porte facilement et donne tout de suite une allure soignée.",
     univers: "wax-et-mode",
     occasions: ["tabaski", "korite", "mariage", "bapteme"],
     pour: ["homme", "papa"],
-    budget: "50-100",
+    budget: "plus-de-100",
     voyage: true,
     recherche: "ensemble boubou homme 3 pieces",
+    amazonAsin: "B0BYN6YV5D",
     rayon: "fashion",
   },
   {

@@ -48,7 +48,7 @@ const top: Top = {
     {
       produit: "livre-histoire-afrique",
       pourquoi:
-        "Beaucoup d'ados ont envie d'en savoir plus sur le continent que ce qu'ils apprennent en cours. Ce livre illustré raconte l'histoire de l'Afrique, des grands empires aux indépendances, de façon accessible. Feuilletez-le avant de l'offrir : il deviendra un bon sujet de conversation à table.",
+        "Beaucoup d'ados ont envie d'en savoir plus sur le continent que ce qu'ils apprennent en cours. Ce beau livre illustré raconte l'Afrique ancienne, des premières civilisations aux grands empires, pour un ado qui aime vraiment l'histoire. Feuilletez-le avant de l'offrir : il deviendra un bon sujet de conversation à table.",
     },
     {
       produit: "kalimba",
