@@ -90,6 +90,12 @@ export default function LegalNoticePage() {
           sans autorisation est interdite.
         </li>
         <li>
+          Les images des cadeaux sont des <strong>illustrations créées par intelligence artificielle</strong> pour{" "}
+          {siteConfig.name}, à partir de nos propres descriptions. Ce ne sont pas des photos des articles vendus : l&apos;article
+          proposé sur Amazon peut différer (forme, couleurs, contenu). Seule la fiche Amazon fait foi, et chaque carte le
+          rappelle.
+        </li>
+        <li>
           Le site n&apos;affiche aucune photo de produit Amazon : les noms de marques et de produits éventuellement cités
           appartiennent à leurs propriétaires.
         </li>

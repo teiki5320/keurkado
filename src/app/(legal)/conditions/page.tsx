@@ -45,7 +45,9 @@ export default function TermsPage() {
 
       <h2>Article 4 — Sélections et conseils</h2>
       <p>
-        Les sélections, conseils et dates du calendrier reflètent l&apos;avis et les recherches de la rédaction. Les dates des
+        Les sélections, conseils et dates du calendrier reflètent l&apos;avis et les recherches de la rédaction. Les images
+        des cadeaux sont des illustrations créées par intelligence artificielle, et non des photos des articles vendus sur
+        Amazon, qui peuvent différer. Les dates des
         fêtes lunaires sont des estimations. Les marques et noms de produits éventuellement cités appartiennent à leurs
         propriétaires.
       </p>

@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { amazonUrl } from "@/lib/amazon";
 import { PRODUITS } from "@/lib/catalogue";
 import { BUDGETS, DESTINATAIRES, FAMILLES, UNIVERS, type Famille } from "@/lib/taxonomie";
@@ -19,7 +21,12 @@ export interface CarteProduit {
   voyage: boolean;
   url: string;
   prix: number | null;
+  /** Illustration du produit créée par IA (public/produits/<slug>.webp), si elle existe. */
+  image: string | null;
 }
+
+/** Dossier des illustrations des produits (créées par IA, voir docs/IMAGES.md). */
+const DOSSIER_IMAGES = join(process.cwd(), "public", "produits");
 
 const UNIVERS_NOM = new Map<string, string>(UNIVERS.map((u) => [u.slug, u.nom]));
 const BUDGET_NOM = new Map<string, string>(BUDGETS.map((b) => [b.slug, b.nom]));
@@ -49,6 +56,7 @@ export function toCarte(p: Produit): CarteProduit {
     voyage: p.voyage,
     url: amazonUrl(p),
     prix: p.priceCents ?? null,
+    image: existsSync(join(DOSSIER_IMAGES, `${p.slug}.webp`)) ? `/produits/${p.slug}.webp` : null,
   };
 }
 
