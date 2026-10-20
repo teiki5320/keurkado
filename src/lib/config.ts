@@ -2,11 +2,11 @@
  * Configuration générale du site.
  * Les valeurs propres à l'entreprise se règlent via les variables d'environnement (voir .env.example).
  */
-/** Hébergeur du site : GitHub Pages tant que keurkado.com n'est pas acheté, puis Cloudflare Pages (comme Keurbook). */
-const defaultHost = { name: "GitHub", full: "GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis — github.com" };
+/** Hébergeur du site : Cloudflare Pages (keurkado.com), comme Keurbook. */
+const defaultHost = { name: "Cloudflare", full: "Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis — cloudflare.com" };
 
 /**
- * Sous-dossier du site : « /keurkado » sur GitHub Pages (teiki5320.github.io/keurkado), vide sur keurkado.com.
+ * Sous-dossier éventuel du site (vide sur keurkado.com ; « /keurkado » servait pour l'ancienne version GitHub Pages).
  * next/link l'ajoute tout seul ; pour les images et le HTML des articles, passer par withBase().
  */
 export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
@@ -26,12 +26,10 @@ export const siteConfig = {
 };
 
 /**
- * Google AdSense : identifiant d'éditeur (le même que Keurbook, public par conception).
- * Vide = aucune publicité ni script Google sur le site. Coupé tant que le site est sur GitHub Pages :
- * AdSense n'accepte que les sites sur leur propre domaine. À activer avec keurkado.com
- * (variable NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-2680784147246798 dans le workflow de publication).
+ * Google AdSense : identifiant d'éditeur (le même que Keurbook, public par conception : il figure dans ads.txt).
+ * Vide = aucune publicité ni script Google sur le site.
  */
-export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "";
+export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-2680784147246798";
 
 /**
  * Identifiants des blocs d'annonces AdSense (à créer dans AdSense : blocs « Keur Kado - … »).

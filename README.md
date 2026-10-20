@@ -2,7 +2,7 @@
 
 Site en français d'**idées cadeaux africains pour la diaspora africaine en France** : par occasion (Tabaski, Korité, Noël, mariage, baptême…), par destinataire, par budget et par univers (wax, bijoux, beauté afro, déco, jeux), avec un quiz « Trouve le cadeau », des Top 10, une rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien : les boutons « Voir sur Amazon » mènent à Amazon.fr (programme Partenaires, tag `keurkado-21`).
 
-- **Site** : https://teiki5320.github.io/keurkado (GitHub Pages), puis keurkado.com.
+- **Site** : https://keurkado.com — Cloudflare Pages (projet `keurkado`), comme Keurbook.
 - **Dépôt** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
 - **Base technique** : reprise de [Keurbook](https://github.com/teiki5320/keurbook) ; épingles Pinterest à la manière de Keur Déco.
 
@@ -54,7 +54,7 @@ Règles de rédaction : [`docs/REDACTION.md`](docs/REDACTION.md). Pinterest : [`
 
 ## Publicité et cookies
 
-Même fonctionnement que Keurbook : code AdSense et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. **Coupé tant que le site est sur GitHub Pages** (AdSense n'accepte que les sites sur leur propre domaine) : à activer avec keurkado.com (voir `docs/DEPLOIEMENT.md`).
+Même fonctionnement que Keurbook : code AdSense (même identifiant d'éditeur, `public/ads.txt`) et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. Les blocs d'annonces restent à créer dans AdSense (voir `docs/DEPLOIEMENT.md`).
 
 ## Logo
 

@@ -1,7 +1,6 @@
-# Vérifie, construit et publie le site statique sur GitHub Pages (teiki5320.github.io/keurkado).
+# Vérifie, construit et publie le site statique sur Cloudflare Pages (projet « keurkado », keurkado.com), comme Keurbook.
 # Se lance à chaque push sur main, chaque lundi (articles « Conseils » programmés, calendrier à jour)
 # et à la main (onglet Actions).
-# Quand keurkado.com sera acheté : passer à Cloudflare Pages comme Keurbook (voir docs/DEPLOIEMENT.md).
 name: Publier le site
 
 on:
@@ -14,30 +13,22 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  # Pour réactiver la tâche programmée (voir la dernière étape).
+  actions: write
 
 # Une seule publication à la fois ; on ne coupe pas une publication en cours.
 concurrency:
-  group: pages
+  group: publication
   cancel-in-progress: false
 
-env:
-  # Adresse publique et sous-dossier : réglables dans Settings › Secrets and variables › Actions › Variables.
-  NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || 'https://teiki5320.github.io/keurkado' }}
-  NEXT_PUBLIC_BASE_PATH: ${{ vars.BASE_PATH || '/keurkado' }}
-  # Vide tant que le site est sur GitHub Pages (AdSense n'accepte que les sites sur leur propre domaine).
-  NEXT_PUBLIC_ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
-  NEXT_PUBLIC_PINTEREST_VERIFY: ${{ vars.PINTEREST_VERIFY }}
-  NEXT_TELEMETRY_DISABLED: 1
-
 jobs:
-  construire:
+  publier:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le code
+      - name: Récupérer le code (dernière version de main)
         uses: actions/checkout@v5
         with:
+          ref: main
           persist-credentials: false
 
       - name: Installer Node.js
@@ -60,18 +51,41 @@ jobs:
       # Génère aussi les épingles Pinterest (public/epingles/) et l'image de partage.
       - name: Construire le site statique (dossier out/)
         run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://keurkado.com
+          NEXT_PUBLIC_PINTEREST_VERIFY: ${{ vars.PINTEREST_VERIFY }}
+          NEXT_TELEMETRY_DISABLED: 1
 
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: out
+      # Les secrets ne sont donnés qu'aux étapes qui en ont besoin (pas à l'installation ni au build).
+      - name: Vérifier la présence des secrets Cloudflare
+        id: secrets
+        env:
+          HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+          HAS_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+        run: |
+          if [ "$HAS_TOKEN" = "true" ] && [ "$HAS_ACCOUNT" = "true" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Ajoutez les secrets CLOUDFLARE_API_TOKEN et CLOUDFLARE_ACCOUNT_ID pour publier le site."
+          fi
 
-  publier:
-    needs: construire
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploiement.outputs.page_url }}
-    steps:
-      - id: deploiement
-        uses: actions/deploy-pages@v4
+      - name: Publier sur Cloudflare Pages
+        if: steps.secrets.outputs.ok == 'true'
+        env:
+          # Réglés par le propriétaire dans Settings → Secrets and variables → Actions.
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # wrangler est figé dans package-lock.json (installé par npm ci).
+          # Crée le projet « keurkado » à la première publication (sans effet s'il existe déjà).
+          npx wrangler pages project create keurkado --production-branch=main || true
+          npx wrangler pages deploy out --project-name=keurkado --branch=main --commit-dirty=true
+
+      # GitHub coupe les tâches programmées d'un dépôt public après 60 jours sans activité :
+      # chaque publication programmée réactive la tâche, pour que les articles continuent de paraître.
+      - name: Garder la publication programmée active
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/deploy.yml/enable"
