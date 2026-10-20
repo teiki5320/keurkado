@@ -8,7 +8,7 @@ const top: Top = {
   date: "2026-10-20",
   rubrique: "pour/ado",
   intro:
-    "À l'adolescence, on cherche son style et l'on se pose des questions sur ses racines, surtout quand on grandit entre deux cultures. Voici dix cadeaux africains pour un ado, fille ou garçon, autour du style, des cheveux naturels, de la déco de chambre et de la culture. Des cadeaux qu'il ou elle aura envie de montrer, pas de ranger au fond d'un tiroir.",
+    "Dix cadeaux africains pour un ado, fille ou garçon, autour de son style, de ses cheveux, de sa chambre et de sa culture. Nous les avons classés du cadeau qu'il ou elle adoptera le plus facilement, dès le lendemain, à celui qui demande le plus d'envie et de temps. La Casquette en wax arrive en tête : elle se porte tous les jours, affiche ses couleurs sans en faire trop et règle la question de la taille grâce à sa bride réglable. C'est notre classement, pas un palmarès officiel.",
   items: [
     {
       produit: "casquette-wax",
@@ -21,9 +21,9 @@ const top: Top = {
         "Un pendentif carte d'Afrique, c'est une façon discrète de dire d'où l'on vient, au collège comme au lycée. Il se porte par les filles comme par les garçons, sur un tee-shirt ou sous une chemise. Regardez les bijoux qu'il ou elle porte déjà pour choisir entre le doré et l'argenté.",
     },
     {
-      produit: "durag-satin-brosse-vagues",
+      produit: "chemise-dashiki",
       pourquoi:
-        "Pour les garçons qui soignent leurs ondulations, les fameuses « waves », le duo durag et brosse est un cadeau d'initié. Le durag protège la coiffure la nuit, la brosse la travaille le matin. Prévoyez-en deux de couleurs différentes : un durag se perd ou se prête vite entre copains.",
+        "La chemise dashiki, avec son plastron imprimé, est ample et confortable : les ados la portent aux fêtes de famille comme aux sorties entre amis. Elle permet d'adopter un vêtement africain sans avoir l'impression d'être déguisé. Prenez une taille au-dessus : elle se porte large, et un ado grandit vite.",
     },
     {
       produit: "bijoux-tresses-locks",
@@ -31,19 +31,19 @@ const top: Top = {
         "Après des heures chez la coiffeuse, des bijoux pour tresses ou locks donnent la touche finale à une coiffure fraîchement faite. Anneaux, spirales et manchettes se glissent et se retirent facilement. Offrez-les juste avant un rendez-vous coiffure, pour qu'ils soient essayés tout de suite.",
     },
     {
-      produit: "chemise-dashiki",
+      produit: "durag-satin-brosse-vagues",
       pourquoi:
-        "La chemise dashiki, avec son plastron imprimé, est ample et confortable : les ados la portent aux fêtes de famille comme aux sorties entre amis. Elle permet d'adopter un vêtement africain sans avoir l'impression d'être déguisé. Prenez une taille au-dessus : elle se porte large, et un ado grandit vite.",
-    },
-    {
-      produit: "seche-cheveux-diffuseur",
-      pourquoi:
-        "Pour une ado qui assume ses cheveux naturels, un sèche-cheveux avec diffuseur change la routine du matin : les boucles sèchent sans frisotter. C'est un cadeau utile, qui montre que vous prenez sa démarche au sérieux. Laissez-la choisir le modèle avec vous si elle suit déjà des comptes consacrés aux cheveux bouclés.",
+        "Pour les garçons qui soignent leurs ondulations, les fameuses « waves », le duo durag et brosse est un cadeau d'initié. Le durag protège la coiffure la nuit, la brosse la travaille le matin. Prévoyez-en deux de couleurs différentes : un durag se perd ou se prête vite entre copains.",
     },
     {
       produit: "carte-afrique-murale-bois",
       pourquoi:
         "Une carte d'Afrique en bois au-dessus du bureau, c'est une déco de chambre qui fait parler les copains. Si elle montre le contour des pays, votre ado pourra désigner d'où vient la famille. Proposez-lui de l'accrocher ensemble, et profitez-en pour lui raconter l'histoire de votre ville ou de votre village.",
+    },
+    {
+      produit: "seche-cheveux-diffuseur",
+      pourquoi:
+        "Pour une ado qui assume ses cheveux naturels, un sèche-cheveux avec diffuseur change la routine du matin : les boucles sèchent sans frisotter. C'est un cadeau utile, qui montre que vous prenez sa démarche au sérieux. Laissez-la choisir le modèle avec vous si elle suit déjà des comptes consacrés aux cheveux bouclés.",
     },
     {
       produit: "livre-histoire-afrique",
@@ -66,6 +66,8 @@ const top: Top = {
     "Les cheveux comptent beaucoup pour de nombreux ados afrodescendants, filles comme garçons. Durag, bonnet en satin ou bijoux pour tresses : ces accessoires montrent que vous respectez leur façon de se coiffer. Si vous ne savez pas comment il ou elle entretient ses cheveux, choisissez un accessoire plutôt qu'un produit de soin, qui dépend des habitudes de chacun.",
     "Les cadeaux de culture, comme un livre d'histoire ou un instrument, gagnent à être accompagnés. Proposez de lire le même livre, d'aller ensemble à un concert ou à une exposition, ou racontez vos propres souvenirs du pays. Un ado a souvent plus envie de connaître ses racines qu'il ne le montre.",
   ],
+  commencer:
+    "Pour un petit cadeau sûr, la Casquette en wax ou le Collier pendentif carte d'Afrique, qui plaisent aux filles comme aux garçons et se glissent dans un colis pour le pays. Pour un ado curieux de ses racines, le Livre illustré sur l'histoire de l'Afrique. Pour faire sensation, le Djembé en bois sculpté.",
   faq: [
     {
       question: "Quel cadeau africain offrir à un ado ?",

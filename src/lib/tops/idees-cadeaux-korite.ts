@@ -4,11 +4,11 @@ const top: Top = {
   slug: "idees-cadeaux-korite",
   titre: "10 idées cadeaux pour la Korité",
   description:
-    "10 idées cadeaux pour la Korité (Aïd el-Fitr) : boubous, robes en wax, parfum, encens, chapelet et cadeaux pour enfants pour fêter la fin du ramadan.",
+    "10 idées cadeaux pour la Korité (Aïd el-Fitr) : boubous, chemise dashiki, parfum au oud, encens, chapelet et jeu de dames pour fêter la fin du ramadan.",
   date: "2026-10-17",
   rubrique: "occasion/korite",
   intro:
-    "La Korité, c'est la joie de la fin du ramadan : la prière du matin en habits neufs, les visites chez les proches, le pardon que l'on se demande et les enfants qui passent de maison en maison. Voici dix idées cadeaux pour honorer ce jour, des tenues de fête aux petites attentions qui parfument la maison. De quoi faire plaisir à toute la famille, ici ou au pays.",
+    "Dix idées cadeaux pour la Korité, la fête de la fin du ramadan : des tenues pour la prière du matin, des attentions qui parfument la maison et de quoi passer l'après-midi en famille. Nous les avons classées de la plus ancrée dans la tradition de ce jour à la plus originale. Notre n° 1, « Ensemble boubou homme 3 pièces », s'impose : on se rend à la prière de l'Aïd en habits neufs, et cet ensemble complet est prêt à porter. C'est notre classement, pas un palmarès officiel.",
   items: [
     {
       produit: "ensemble-boubou-homme-3-pieces",
@@ -21,9 +21,9 @@ const top: Top = {
         "Pour une maman, le grand boubou brodé est la tenue qui fait honneur le jour des visites. Sa coupe ample évite les soucis de taille, ce qui rassure quand on l'achète à distance. Choisissez une couleur lumineuse et associez-le à un foulard de tête assorti.",
     },
     {
-      produit: "robe-wax-fille",
+      produit: "chemise-dashiki",
       pourquoi:
-        "À la Korité, les enfants aussi veulent être beaux pour aller saluer les voisins. Une robe en wax fait la fierté des petites filles toute la journée. Prenez une taille au-dessus si vous hésitez : elle servira encore pour la Tabaski.",
+        "À la Korité, les plus jeunes aussi veulent étrenner des habits neufs pour aller saluer la famille et les voisins. La chemise dashiki, avec son plastron imprimé, plaît autant aux ados qu'à leurs aînés, et sa coupe ample reste confortable pendant toute une journée de visites. Commandez-la dès le début du ramadan pour avoir le temps de vérifier la taille.",
     },
     {
       produit: "eau-de-parfum-oud-homme",
@@ -41,24 +41,24 @@ const top: Top = {
         "Après un mois de prière et de jeûne, un chapelet est un cadeau plein de sens. Il se glisse dans une poche, se garde longtemps et convient aussi bien à un papa qu'à une maman. Léger et incassable, il voyage très bien dans un colis.",
     },
     {
-      produit: "turban-pre-noue-wax",
-      pourquoi:
-        "Le jour de la fête, les matinées sont chargées entre la cuisine, les enfants et les premières visites. Un turban déjà noué s'enfile en une seconde et reste impeccable toute la journée. Un petit cadeau parfait pour une sœur, une cousine ou une amie.",
-    },
-    {
       produit: "fleurs-hibiscus-bissap",
       pourquoi:
         "Le bissap bien frais accompagne souvent les visites de la Korité. Offrir les fleurs d'hibiscus avec votre recette, c'est un cadeau gourmand et généreux pour un tout petit budget. Ajoutez un sachet de menthe ou de vanille selon la façon dont on le prépare chez vous.",
     },
     {
-      produit: "jeu-de-dames-bois",
+      produit: "turban-pre-noue-wax",
       pourquoi:
-        "L'après-midi de la Korité, une fois le repas terminé, on reste ensemble et on prend le temps. Un jeu de dames en bois réunit les oncles, les cousins et les enfants autour de la même table. C'est un cadeau pour toute la famille, qui servira à chaque réunion.",
+        "Le jour de la fête, les matinées sont chargées entre la cuisine, les enfants et les premières visites. Un turban déjà noué s'enfile en une seconde et reste impeccable toute la journée. Un petit cadeau parfait pour une sœur, une cousine ou une amie.",
     },
     {
       produit: "bijoux-tresses-locks",
       pourquoi:
         "Avant la fête, on se fait souvent tresser pour être belle le jour J. Des bijoux de tresses subliment la coiffure fraîchement faite, chez les ados comme chez les grandes. Un petit cadeau original, à offrir quelques jours avant pour qu'ils soient posés à temps.",
+    },
+    {
+      produit: "jeu-de-dames-bois",
+      pourquoi:
+        "L'après-midi de la Korité, une fois le repas terminé, on reste ensemble et on prend le temps. Un jeu de dames en bois réunit les oncles, les cousins et les enfants autour de la même table. C'est un cadeau pour toute la famille, qui servira à chaque réunion.",
     },
   ],
   conseils: [
@@ -66,6 +66,8 @@ const top: Top = {
     "La Korité est une fête de partage et de pardon, plus que de gros cadeaux. Les petites attentions comptent : un parfum, de l'encens, une douceur à partager avec les invités, une tenue neuve pour les enfants. Avant la prière, on s'acquitte aussi de l'aumône de la fin du ramadan, et beaucoup de familles pensent à ceux qui ont moins. Un cadeau simple, offert avec le cœur, est donc parfaitement à sa place.",
     "Si vos proches vivent au pays, envoyez votre colis bien avant la fin du ramadan, car les délais s'allongent à l'approche des fêtes. Choisissez des cadeaux légers et solides : tenues, chapelet, jeu en bois, fleurs d'hibiscus séchées. Gardez les parfums et les objets fragiles pour les offrir en main propre lors d'un prochain voyage.",
   ],
+  commencer:
+    "Pour un petit cadeau à glisser dans un colis pour le pays, le « Chapelet tasbih 99 perles » ou les « Fleurs d'hibiscus séchées pour le bissap », légers et solides. Pour faire honneur à une maman le jour des visites, le « Grand boubou brodé pour femme ».",
   faq: [
     {
       question: "Que offrir pour la Korité ?",

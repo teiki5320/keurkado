@@ -75,6 +75,8 @@ test("Top 10 : 10 produits existants, de la bonne rubrique, sans doublon", () =>
     assert.equal(t.items.length, 10, `${t.slug} : ${t.items.length} produits`);
     assert.equal(new Set(t.items.map((i) => i.produit)).size, 10, `${t.slug} : produit en double`);
     assert.ok(t.conseils.length >= 2 && t.faq.length >= 3, `${t.slug} : conseils ou FAQ incomplets`);
+    assert.ok(t.commencer.length >= 80, `${t.slug} : « Par où commencer » manquant ou trop court`);
+    assert.match(t.intro, /pas un palmarès officiel/, `${t.slug} : le chapô doit expliquer le classement (modèle Keurbook)`);
     const [famille, slug] = t.rubrique.split("/") as [Famille | "page", string];
     // Top rattaché à une page (« page/envoyer-au-pays ») : ses produits doivent voyager bien.
     const page = famille === "page";

@@ -8,7 +8,7 @@ const top: Top = {
   date: "2026-10-17",
   rubrique: "pour/maman",
   intro:
-    "Une maman africaine, c'est souvent celle qui reçoit tout le monde, qui s'habille avec soin pour les grandes occasions et qui pense aux autres avant elle. Voici dix cadeaux africains pour une maman, pour l'honorer à la mesure de ce qu'elle donne. Il y en a pour tous les budgets, et plusieurs voyagent très bien jusqu'au pays.",
+    "Dix cadeaux africains pour honorer une maman : tenue et bijoux pour les grandes fêtes, objets pour recevoir, soins naturels et déco tressée. Nous les avons classés du cadeau qu'on offre traditionnellement à une maman au plus inattendu. Le foulard de tête en wax arrive en tête : chaque maman en porte, chacune le noue à sa façon, et on n'en a jamais trop. C'est notre classement, pas un palmarès officiel.",
   items: [
     {
       produit: "foulard-de-tete-wax",
@@ -21,9 +21,14 @@ const top: Top = {
         "Le grand boubou brodé est le cadeau qui la fera se sentir belle aux baptêmes, aux mariages et aux grandes fêtes. Sa coupe ample évite le casse-tête des tailles, ce qui le rend rassurant à offrir. Si vous hésitez, choisissez une couleur unie et lumineuse : les broderies feront le reste.",
     },
     {
-      produit: "pendentif-carte-afrique-or",
+      produit: "creoles-or-18-carats",
       pourquoi:
-        "Pour un grand anniversaire ou simplement pour lui dire merci, un pendentif en or 18 carats est un bijou qu'elle gardera toute sa vie, et qu'elle transmettra peut-être un jour. La carte d'Afrique lui rappelle d'où elle vient chaque fois qu'elle le porte. Vérifiez sur la fiche si la chaîne est fournie ; sinon, prévoyez-en une.",
+        "Des créoles en or jaune, c'est le bijou que l'on offre traditionnellement à une maman pour un grand jour. Intemporelles, elles accompagnent toutes ses tenues, du pagne au tailleur, et elle les gardera toute sa vie. Pour un grand anniversaire, regroupez-vous entre frères et sœurs et joignez une carte signée par tous.",
+    },
+    {
+      produit: "lot-bracelets-joncs-dores",
+      pourquoi:
+        "Une série de joncs dorés qui tintent joliment au poignet : c'est la touche finale d'un grand boubou ou d'une tenue en wax les jours de fête. Ce petit cadeau complète très bien un tissu ou un boubou offert pour la même occasion. Les joncs sont légers et se glissent sans souci dans une valise si elle vit au pays.",
     },
     {
       produit: "plateau-service-dore",
@@ -31,19 +36,14 @@ const top: Top = {
         "Les mamans qui aiment recevoir sortent leur plus beau plateau dès qu'une visite s'annonce. Un grand plateau doré lui servira pour le thé, les jus et les douceurs à chaque fête. Il est solide et plat : il se range bien dans une valise si elle vit au pays.",
     },
     {
+      produit: "brule-encens-bakhoor",
+      pourquoi:
+        "Pour une maman qui aime recevoir, le parfum du bakhoor qui embaume la maison fait partie de la fête. Ce brûle-encens lui servira à chaque Tabaski, chaque Korité et chaque visite importante. Attention, le bakhoor se trouve à part : pensez à en ajouter un sachet, pour qu'elle puisse l'utiliser dès le premier jour.",
+    },
+    {
       produit: "huile-de-baobab",
       pourquoi:
         "L'huile de baobab, c'est un petit morceau du pays dans sa salle de bain. Légère, elle s'utilise sur la peau comme sur les cheveux, au rythme de ses habitudes. Comme c'est un liquide, offrez-la plutôt en main propre, avec un savon noir pour composer un petit panier de soins.",
-    },
-    {
-      produit: "sets-de-table-wax",
-      pourquoi:
-        "Pour une maman qui dresse la table pour toute la famille chaque dimanche, des sets de table en wax changent le décor sans effort. C'est un cadeau utile et coloré, qui sert toute l'année. Prenez un lot assez grand pour sa tablée et vérifiez sur la fiche s'ils passent en machine.",
-    },
-    {
-      produit: "panier-tresse-bolga",
-      pourquoi:
-        "Un panier tressé à la main, à la manière de ceux de Bolgatanga au Ghana, sert pour le marché, le linge ou les plaids du salon. Il est solide et dure des années, ce que les mamans apprécient. C'est un beau cadeau pour celle qui fait encore ses courses au marché, panier au bras.",
     },
     {
       produit: "mortier-pilon-bois",
@@ -51,21 +51,23 @@ const top: Top = {
         "Le mortier et son pilon, c'est la cuisine de nos mères : on y écrase l'ail, le piment et les épices comme à la maison. Si le sien s'est fendu avec les années, ou si elle est arrivée en France sans le sien, ce cadeau lui fera vraiment plaisir. Pour une cuisine d'appartement, une taille moyenne suffit.",
     },
     {
+      produit: "panier-tresse-bolga",
+      pourquoi:
+        "Un panier tressé à la main, à la manière de ceux de Bolgatanga au Ghana, sert pour le marché, le linge ou les plaids du salon. Il est solide et dure des années, ce que les mamans apprécient. C'est un beau cadeau pour celle qui fait encore ses courses au marché, panier au bras.",
+    },
+    {
       produit: "paniers-muraux-decoratifs",
       pourquoi:
         "Pour la maman qui aime que sa maison soit belle, un lot de paniers muraux habille un mur d'entrée ou de salon en quelques minutes. Ils sont légers et faciles à poser. Proposez-lui de les accrocher ensemble le jour où vous les offrez : c'est un moment à partager.",
     },
-    {
-      produit: "recueil-proverbes-africains",
-      pourquoi:
-        "Le cadeau le plus inattendu, et peut-être le plus touchant : un recueil de proverbes africains, pour celle qui en a toujours un au bout des lèvres. Elle y retrouvera ceux de son enfance et en découvrira d'autres, venus de tout le continent. Glissez-y un marque-page avec le proverbe qu'elle vous répétait le plus souvent.",
-    },
   ],
   conseils: [
-    "Partez de ce qu'elle aime vraiment. Une maman qui reçoit beaucoup sera ravie d'un plateau ou de sets de table ; une maman coquette, d'un foulard, d'un boubou ou d'un bijou. Pour les vêtements, privilégiez les coupes amples et les accessoires, qui évitent les soucis de taille. Et si vous hésitez, demandez discrètement conseil à une sœur ou à une tante.",
-    "Le budget compte moins que l'attention. Un foulard en wax ou un recueil de proverbes, à moins de 20 €, peut toucher autant qu'un bijou en or si le choix lui ressemble. Pour un grand cadeau, comme un bijou précieux ou un boubou brodé, n'hésitez pas à vous regrouper entre frères et sœurs. Ajoutez toujours un petit mot écrit à la main : c'est souvent ce qu'elle gardera le plus longtemps.",
+    "Partez de ce qu'elle aime vraiment. Une maman qui reçoit beaucoup sera ravie d'un plateau ou d'un brûle-encens ; une maman coquette, d'un foulard, d'un boubou ou d'un bijou. Pour les vêtements, privilégiez les coupes amples et les accessoires, qui évitent les soucis de taille. Et si vous hésitez, demandez discrètement conseil à une sœur ou à une tante.",
+    "Le budget compte moins que l'attention. Un foulard en wax ou un lot de joncs dorés, à moins de 20 €, peut toucher autant qu'un bijou en or si le choix lui ressemble. Pour un grand cadeau, comme un bijou précieux ou un boubou brodé, n'hésitez pas à vous regrouper entre frères et sœurs. Ajoutez toujours un petit mot écrit à la main : c'est souvent ce qu'elle gardera le plus longtemps.",
     "Si elle vit au pays, choisissez des cadeaux légers et solides : tissus, foulards, bijoux, plateau, paniers. Évitez les huiles et les produits liquides dans un colis, et confiez-les plutôt à quelqu'un qui part en voyage. Envoyez votre paquet plusieurs semaines avant la date visée, car les délais varient beaucoup d'un pays à l'autre.",
   ],
+  commencer:
+    "Pour un petit budget, le foulard de tête en wax fait toujours plaisir. Si elle vit au pays, le plateau de service doré voyage bien et servira à chaque fête. Pour un grand cadeau commun entre frères et sœurs, offrez-lui les créoles en or 18 carats.",
   faq: [
     {
       question: "Quel cadeau offrir à une maman africaine ?",
@@ -80,7 +82,7 @@ const top: Top = {
     {
       question: "Quel cadeau pour une maman qui a déjà tout ?",
       reponse:
-        "Misez sur un cadeau qui a du sens plutôt que sur un objet de plus : un recueil de proverbes avec un mot de votre main, un bijou qui se transmet, ou un moment partagé autour du cadeau, comme accrocher ensemble une déco. Les mamans qui disent n'avoir besoin de rien sont souvent plus touchées par l'attention que par la valeur.",
+        "Misez sur un cadeau qui a du sens plutôt que sur un objet de plus : un brûle-encens pour parfumer la maison les jours de fête, un bijou qui se transmet, ou un moment partagé autour du cadeau, comme accrocher ensemble une déco. Les mamans qui disent n'avoir besoin de rien sont souvent plus touchées par l'attention que par la valeur.",
     },
     {
       question: "Quelle taille choisir pour un grand boubou ?",

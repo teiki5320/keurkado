@@ -8,7 +8,7 @@ const top: Top = {
   date: "2026-10-17",
   rubrique: "univers/beaute-afro",
   intro:
-    "Des soins pensés pour nos cheveux et nos peaux, c'est un cadeau utile et plein d'attention. Voici dix cadeaux beauté afro, des grands classiques hérités de nos mères, comme le karité et le savon noir, aux accessoires qui facilitent les routines capillaires. Pour elle comme pour lui, et à tous les budgets.",
+    "Dix cadeaux beauté afro pour nos peaux et nos cheveux, des soins hérités de nos mères, comme le karité et le savon noir, aux accessoires et appareils des routines capillaires. Nous les avons classés du cadeau qui plaît au plus grand nombre au plus pointu, pensé pour une routine déjà bien installée. Le Coffret de soins au karité arrive en tête : joliment présenté, il se donne tel quel et fait plaisir même si l'on connaît mal les habitudes de la personne. C'est notre classement, pas un palmarès officiel.",
   items: [
     {
       produit: "coffret-soins-karite",
@@ -36,19 +36,19 @@ const top: Top = {
         "Pour celle qui n'arrive pas à dormir avec un bonnet, la taie d'oreiller en satin est la bonne alternative : elle limite les frottements sur les cheveux. Elle est en plus très agréable au toucher. Vérifiez les dimensions sur la fiche pour qu'elle corresponde à son oreiller, carré ou rectangulaire.",
     },
     {
-      produit: "huile-de-ricin-noire",
-      pourquoi:
-        "L'huile de ricin noire est un classique des routines capillaires afro, utilisée en bain d'huile sur les cheveux et le cuir chevelu. Épaisse, elle s'utilise en petite quantité, si bien qu'un flacon dure longtemps. Associez-la au bonnet en satin pour un cadeau complet, à offrir en main propre puisqu'il s'agit d'un liquide.",
-    },
-    {
-      produit: "durag-satin-brosse-vagues",
-      pourquoi:
-        "Les hommes aussi ont leurs rituels : ce duo brosse et durag en satin est fait pour les garçons qui soignent leurs vagues, les fameuses « waves ». C'est un cadeau très apprécié des ados et des jeunes hommes, à petit prix. Pour la couleur du durag, le noir va avec tout, les couleurs vives se remarquent.",
-    },
-    {
       produit: "bijoux-tresses-locks",
       pourquoi:
         "Après des heures passées chez la coiffeuse, de petits bijoux pour tresses ou locks subliment une coiffure fraîchement faite. Anneaux, spirales et manchettes se glissent en un geste et s'enlèvent aussi facilement. Un cadeau parfait à offrir juste avant une fête, quand elle a rendez-vous pour se faire coiffer.",
+    },
+    {
+      produit: "kit-entretien-barbe",
+      pourquoi:
+        "Les hommes aussi ont leurs rituels de soin : ce kit réunit huile, baume, brosse et peigne dans une boîte, tout ce qu'il faut pour une barbe nette et douce. C'est un cadeau pratique et prêt à offrir pour un papa ou un mari qui soigne sa barbe. Comme il contient de l'huile, offrez-le en main propre plutôt que dans un colis pour le pays.",
+    },
+    {
+      produit: "huile-de-ricin-noire",
+      pourquoi:
+        "L'huile de ricin noire est un classique des routines capillaires afro, utilisée en bain d'huile sur les cheveux et le cuir chevelu. Épaisse, elle s'utilise en petite quantité, si bien qu'un flacon dure longtemps. Associez-la au bonnet en satin pour un cadeau complet, à offrir en main propre puisqu'il s'agit d'un liquide.",
     },
     {
       produit: "seche-cheveux-diffuseur",
@@ -66,6 +66,8 @@ const top: Top = {
     "Lisez la composition. Préférez des produits simples, à la liste d'ingrédients courte, surtout si la personne a la peau sensible ou des allergies connues. Conseillez de faire un essai sur une petite zone avant la première utilisation. Ces soins restent des cosmétiques : pour un problème de peau ou de cuir chevelu, c'est un professionnel de santé qui doit conseiller.",
     "Pour un envoi au pays, choisissez les beurres, les savons et les accessoires en tissu, qui voyagent bien. Les huiles, les crèmes et les appareils électriques se transportent moins facilement : glissez-les plutôt dans la valise de quelqu'un qui part, en soute. Pour un appareil, vérifiez aussi que la prise et la tension conviennent au pays de destination.",
   ],
+  commencer:
+    "Pour un petit budget, le Beurre de karité brut non raffiné et le Savon noir africain en pain, qui voyagent sans souci dans un colis pour le pays. Pour celle qui porte ses cheveux naturels, le Bonnet en satin pour cheveux fait plaisir à coup sûr, même en double. Pour un papa ou un mari barbu, le Kit d'entretien de barbe.",
   faq: [
     {
       question: "Quel cadeau offrir à une femme aux cheveux crépus ?",
@@ -80,7 +82,7 @@ const top: Top = {
     {
       question: "Quel cadeau beauté pour un homme noir ?",
       reponse:
-        "Le duo brosse et durag en satin plaît beaucoup aux jeunes hommes qui soignent leurs « waves ». Pour un homme barbu, un kit d'entretien de barbe est un cadeau pratique. Le savon noir africain, simple et sans chichi, convient aussi très bien aux hommes.",
+        "Pour un homme barbu, un kit d'entretien de barbe est le cadeau le plus pratique : huile, baume, brosse et peigne sont réunis dans une boîte. Le savon noir africain, simple et sans chichi, convient aussi très bien aux hommes, tout comme le beurre de karité brut.",
     },
     {
       question: "Quelle différence entre savon noir africain et savon noir marocain ?",

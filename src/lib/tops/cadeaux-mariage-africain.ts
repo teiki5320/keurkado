@@ -8,7 +8,7 @@ const top: Top = {
   date: "2026-10-17",
   rubrique: "occasion/mariage",
   intro:
-    "Un mariage africain unit deux familles autant que deux personnes, et la fête se vit souvent en plusieurs temps. Voici dix cadeaux pour honorer les mariés : des pagnes et des bijoux pour la cérémonie, des objets beaux et utiles pour leur futur foyer. Des idées pour la famille proche, les amis et les collègues, du petit budget au cadeau commun.",
+    "Dix cadeaux pour honorer les mariés : des pagnes et des bijoux pour la cérémonie, des objets beaux et utiles pour leur futur foyer, du petit budget au cadeau commun. Nous les avons classés du cadeau le plus ancré dans la tradition au plus moderne. Notre n° 1, « Coupon de tissu wax 6 yards », s'impose : les pagnes comptent parmi les présents les plus offerts, notamment au moment de la dot. C'est notre classement, pas un palmarès officiel.",
   items: [
     {
       produit: "coupon-tissu-wax-6-yards",
@@ -16,39 +16,29 @@ const top: Top = {
         "Les pagnes font partie des cadeaux de mariage les plus traditionnels, notamment au moment de la dot. Un coupon de 6 yards permet à la mariée ou à sa mère de faire coudre la tenue de son choix. Offrez-en plusieurs, de motifs différents, si vous êtes de la famille proche.",
     },
     {
-      produit: "pendentif-carte-afrique-or",
+      produit: "creoles-or-18-carats",
       pourquoi:
-        "Un bijou en or se garde toute une vie, et c'est souvent ce que l'on transmet ensuite à ses enfants. Ce pendentif carte d'Afrique rappelle les racines du couple à chaque fois qu'il est porté. Un très beau cadeau commun entre frères et sœurs pour la mariée.",
+        "Des créoles en or jaune, c'est le bijou que l'on offre traditionnellement à la mariée, et qu'elle gardera toute sa vie. Intemporelles, elles accompagnent la tenue de la cérémonie comme celles des fêtes suivantes. C'est un très beau cadeau commun entre frères et sœurs ou entre tantes.",
     },
     {
-      produit: "parure-bijoux-dores-mariee",
+      produit: "lot-bracelets-joncs-dores",
       pourquoi:
-        "Collier et boucles d'oreilles assortis, la parure complète la tenue de la mariée le jour J. Elle servira ensuite pour toutes les grandes fêtes de la famille. Renseignez-vous discrètement sur la couleur de la tenue pour choisir un style qui s'accorde.",
+        "Une série de joncs dorés qui tintent au poignet, c'est le détail qui complète la tenue de la mariée ou de ses sœurs le jour de la cérémonie. Ils accompagnent parfaitement un grand boubou ou une tenue en wax, et ressortiront à chaque fête de famille. Renseignez-vous discrètement sur la couleur de la tenue pour un ensemble harmonieux.",
     },
     {
-      produit: "sets-de-table-wax",
+      produit: "henne-naturel-poudre",
       pourquoi:
-        "Un jeune couple qui s'installe a besoin de tout, et des sets de table colorés rendent chaque repas plus joyeux. C'est un cadeau utile, facile à offrir entre collègues ou entre amis. Associez-les à une nappe unie ou à des serviettes pour un ensemble complet.",
+        "Dans beaucoup de familles, au Sénégal, au Mali ou au Niger, la future mariée se fait dessiner au henné avant le mariage, entourée de ses sœurs et de ses cousines. Offrir du henné naturel en poudre, c'est offrir ce moment partagé. Faites un essai sur une petite zone de peau quelques jours avant, et vérifiez qu'il s'agit bien de henné naturel.",
     },
     {
-      produit: "statuette-couple-africain",
+      produit: "perles-de-taille",
       pourquoi:
-        "Un couple enlacé, sculpté : le symbole est parlant et touche souvent les mariés. Cette statuette trouve facilement sa place sur une étagère ou un meuble d'entrée. Joignez une carte avec un proverbe sur l'union pour accompagner le cadeau.",
+        "Les perles de taille, ou bine-bine, sont un cadeau intime, que l'on offre surtout entre femmes proches. Les sœurs, les cousines ou les meilleures amies les donnent souvent à la future mariée avant le grand jour. Réservez ce cadeau à une personne avec qui vous êtes très proche, et remettez-le en privé.",
     },
     {
-      produit: "panier-tresse-bolga",
+      produit: "plateau-service-dore",
       pourquoi:
-        "Un panier tressé à la main, solide et beau, sert pendant des années : au marché, pour le linge ou les plaids. C'est un cadeau qui rappelle l'artisanat du Ghana dans la maison d'un couple. Remplissez-le de petites douceurs ou de linge de maison pour un cadeau encore plus généreux.",
-    },
-    {
-      produit: "grand-tableau-africain-peint-main",
-      pourquoi:
-        "Pour un cadeau commun entre amis ou collègues, une grande toile peinte à la main habille tout un salon. Le couple la regardera chaque jour en pensant à vous. Vérifiez le format sur la fiche, et demandez-vous si le logement des mariés a la place de l'accueillir.",
-    },
-    {
-      produit: "noeud-papillon-wax",
-      pourquoi:
-        "Le petit cadeau idéal pour le marié, ses témoins ou les garçons d'honneur. Assortis dans le même wax, les nœuds papillon donnent de l'unité aux photos du cortège. Aucun souci de taille, et un prix qui permet d'en commander plusieurs.",
+        "Un jeune couple reçoit beaucoup dans les premiers mois : la famille, les amis, les voisins qui viennent féliciter. Un grand plateau en métal doré pour servir le thé, les jus ou les douceurs leur sera utile à chaque visite. C'est un cadeau facile à offrir entre amis ou collègues, qui voyage bien en valise s'il est bien protégé.",
     },
     {
       produit: "mortier-pilon-bois",
@@ -56,16 +46,28 @@ const top: Top = {
         "Le mortier et son pilon ont leur place dans de nombreuses cuisines africaines. Un mortier en bois massif servira chaque jour pour l'ail, le piment et les épices. Un cadeau utile pour un jeune foyer, qui plaira à un couple qui aime cuisiner les plats de la maison.",
     },
     {
-      produit: "perles-de-taille",
+      produit: "panier-tresse-bolga",
       pourquoi:
-        "Les perles de taille, ou bine-bine, sont un cadeau intime, que l'on offre surtout entre femmes proches. Les sœurs, les cousines ou les meilleures amies les donnent souvent à la future mariée avant le grand jour. Réservez ce cadeau à une personne avec qui vous êtes très proche, et remettez-le en privé.",
+        "Un panier tressé à la main, solide et beau, sert pendant des années : au marché, pour le linge ou les plaids. C'est un cadeau qui rappelle l'artisanat du Ghana dans la maison d'un couple. Remplissez-le de petites douceurs ou de linge de maison pour un cadeau encore plus généreux.",
+    },
+    {
+      produit: "paniers-muraux-decoratifs",
+      pourquoi:
+        "Pour la déco du nouveau foyer, un lot de corbeilles plates tressées compose en quelques minutes un mur chaleureux, dans l'entrée ou le salon. Légères et faciles à poser, elles s'adaptent à beaucoup d'intérieurs. Un bon cadeau commun entre collègues, à accompagner d'une carte signée par tous.",
+    },
+    {
+      produit: "suspension-panier-tresse",
+      pourquoi:
+        "Un abat-jour en fibres tressées diffuse une lumière douce et dessine de jolies ombres au plafond : un beau cadeau pour l'intérieur d'un jeune couple. Il apporte une touche d'artisanat au salon ou à la chambre, sans en faire trop. Il est encombrant : offrez-le pour la fête organisée en France plutôt que de l'emporter dans une valise.",
     },
   ],
   conseils: [
     "Selon les pays et les familles, le mariage se déroule en plusieurs étapes : la dot ou le mariage coutumier, la cérémonie religieuse, le mariage civil et la grande fête. Les cadeaux ne sont pas les mêmes à chaque moment. Pour la dot, la famille du marié apporte souvent des pagnes, des bijoux et des présents fixés selon les usages. Pour la fête, amis et collègues offrent plutôt des objets pour la maison ou une enveloppe.",
-    "Adaptez votre cadeau à votre place auprès des mariés. La famille proche se tourne vers les pagnes, les bijoux en or ou un bel ensemble pour la mariée. Les amis et collègues choisiront plutôt un objet pour le foyer, et peuvent se regrouper pour un cadeau commun plus généreux, comme un grand tableau. Si les mariés ont une liste, respectez-la : c'est la meilleure façon de leur faire plaisir.",
-    "Si le mariage a lieu au pays, privilégiez des cadeaux faciles à transporter : tissus, bijoux, sets de table, nœuds papillon et paniers voyagent bien en valise. Les objets lourds ou fragiles, comme les grandes toiles ou les statuettes, sont plus simples à offrir pour la fête organisée en France. Commandez au moins trois semaines avant votre départ pour avoir le temps de vérifier les produits.",
+    "Adaptez votre cadeau à votre place auprès des mariés. La famille proche se tourne vers les pagnes, les bijoux en or ou un bel ensemble pour la mariée. Les amis et collègues choisiront plutôt un objet pour le foyer, et peuvent se regrouper pour un cadeau commun plus généreux, comme une suspension tressée pour leur salon. Si les mariés ont une liste, respectez-la : c'est la meilleure façon de leur faire plaisir.",
+    "Si le mariage a lieu au pays, privilégiez des cadeaux faciles à transporter : tissus, bijoux, henné, plateau et paniers tressés voyagent bien en valise. Les objets encombrants ou fragiles, comme la suspension en panier tressé, sont plus simples à offrir pour la fête organisée en France. Commandez au moins trois semaines avant votre départ pour avoir le temps de vérifier les produits.",
   ],
+  commencer:
+    "Pour la famille proche, le « Coupon de tissu wax 6 yards » ou, à plusieurs, les « Créoles en or 18 carats ». Entre amis ou collègues, choisissez un objet pour le foyer, comme le « Plateau de service doré ».",
   faq: [
     {
       question: "Que offrir pour un mariage africain ?",
@@ -80,12 +82,12 @@ const top: Top = {
     {
       question: "Quel cadeau de mariage entre collègues ?",
       reponse:
-        "Un cadeau commun permet d'offrir quelque chose de marquant, comme une grande toile peinte, un panier tressé ou un ensemble pour la table. Choisissez un objet pour la maison plutôt qu'un vêtement, dont la taille est incertaine. Une carte signée par tous accompagne très bien le cadeau.",
+        "Un cadeau commun permet d'offrir quelque chose de marquant, comme des paniers muraux décoratifs, un panier tressé ou un plateau de service. Choisissez un objet pour la maison plutôt qu'un vêtement, dont la taille est incertaine. Une carte signée par tous accompagne très bien le cadeau.",
     },
     {
       question: "Quel cadeau offrir à la future mariée ?",
       reponse:
-        "Une parure de bijoux pour le jour J, un coupon de wax à faire coudre ou un bijou en or à garder toute sa vie sont de beaux choix. Entre femmes très proches, les perles de taille sont un cadeau traditionnel en Afrique de l'Ouest. Renseignez-vous sur sa tenue pour choisir des bijoux assortis.",
+        "Des joncs dorés pour le jour J, un coupon de wax à faire coudre ou des créoles en or à garder toute sa vie sont de beaux choix. Entre femmes très proches, les perles de taille sont un cadeau traditionnel en Afrique de l'Ouest. Renseignez-vous sur sa tenue pour choisir des bijoux assortis.",
     },
   ],
   accroche: "Honorer les mariés et leur foyer",

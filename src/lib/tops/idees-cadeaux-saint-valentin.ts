@@ -8,7 +8,7 @@ const top: Top = {
   date: "2026-10-20",
   rubrique: "occasion/saint-valentin",
   intro:
-    "Le 14 février, on peut dire je t'aime avec un cadeau qui raconte aussi d'où l'on vient. Voici dix idées cadeaux africains pour la Saint-Valentin, pour elle, pour lui, et quelques-unes à partager à deux. Que vous soyez mariés, fiancés ou ensemble depuis peu, il y en a pour tous les budgets.",
+    "Dix cadeaux africains pour dire je t'aime le 14 février : des bijoux, des soins, un parfum, une robe en wax et des idées à partager à deux. Nous les avons classés du cadeau qui convient au plus grand nombre de couples au plus original. Le collier pendentif carte d'Afrique arrive en tête, parce qu'il se porte aussi bien par un homme que par une femme et qu'il convient à un amour tout neuf comme à un couple de longue date. C'est notre classement, pas un palmarès officiel.",
   items: [
     {
       produit: "collier-pendentif-carte-afrique",
@@ -16,19 +16,19 @@ const top: Top = {
         "Un pendentif carte d'Afrique se porte aussi bien par un homme que par une femme : c'est le cadeau qui convient à tous les couples. Il rappelle à l'autre ses racines, ou celles que vous partagez. Petite idée : prenez-en deux, un doré et un argenté, et portez chacun le vôtre.",
     },
     {
+      produit: "coffret-soins-karite",
+      pourquoi:
+        "Un coffret de beurre, savon et crème au karité, joliment présenté, c'est une invitation à prendre soin de soi. Il est prêt à offrir, pratique si le 14 février vous prend de court. Proposez une soirée de détente à deux le soir même : le cadeau n'en sera que plus doux.",
+    },
+    {
+      produit: "jeu-awale-bois",
+      pourquoi:
+        "Pour une Saint-Valentin à la maison, l'awalé est le jeu parfait à deux : les règles s'apprennent en cinq minutes, et les parties peuvent durer toute la soirée. Si l'un de vous y jouait enfant, il aura le plaisir d'apprendre les règles à l'autre. Ajoutez une petite mise : le perdant prépare le dîner du lendemain.",
+    },
+    {
       produit: "eau-de-parfum-oud-homme",
       pourquoi:
         "Pour lui, un parfum aux notes boisées de oud est un cadeau élégant, qu'il portera pour vos sorties comme pour les grandes occasions. Le oud a ses amateurs fidèles : si vous connaissez déjà son parfum habituel, comparez les notes sur la fiche avant de choisir. Offrez-le en main propre le soir du 14, avec un mot de votre main.",
-    },
-    {
-      produit: "pendentif-carte-afrique-or",
-      pourquoi:
-        "Pour une première Saint-Valentin mariés ou un anniversaire de rencontre, le pendentif carte d'Afrique en or 18 carats est un bijou qui se garde toute une vie. C'est la version précieuse d'un symbole qu'elle portera chaque jour. Vérifiez sur la fiche si la chaîne est fournie ; sinon, prévoyez-en une assortie.",
-    },
-    {
-      produit: "robe-wax-femme",
-      pourquoi:
-        "Une robe en wax, c'est l'invitation toute trouvée à un dîner en tête-à-tête : offrez-la quelques jours avant, pour qu'elle la porte le soir du 14. Coupe évasée ou ajustée, elle se porte ensuite au bureau avec une veste. Pour la taille, jetez un œil discret à l'étiquette d'une robe qu'elle aime et comparez avec le guide de la fiche.",
     },
     {
       produit: "montre-bois-homme",
@@ -36,24 +36,24 @@ const top: Top = {
         "Une montre au boîtier en bois naturel change des montres en métal et se remarque au poignet. C'est un cadeau qu'il portera tous les jours, et qui lui rappellera votre attention à chaque coup d'œil sur l'heure. Regardez sur la fiche comment ajuster le bracelet, pour qu'elle soit à son poignet dès le premier jour.",
     },
     {
-      produit: "coffret-soins-karite",
+      produit: "kit-entretien-barbe",
       pourquoi:
-        "Un coffret de beurre, savon et crème au karité, joliment présenté, c'est une invitation à prendre soin de soi. Il est prêt à offrir, pratique si le 14 février vous prend de court. Proposez une soirée de détente à deux le soir même : le cadeau n'en sera que plus doux.",
+        "Pour l'homme qui soigne sa barbe, ce kit réunit dans une boîte l'huile, le baume, la brosse et le peigne. C'est un cadeau attentionné, qui montre que vous remarquez le soin qu'il prend de lui chaque matin. Glissez un mot doux sous le couvercle : il le trouvera en ouvrant la boîte.",
+    },
+    {
+      produit: "robe-wax-femme",
+      pourquoi:
+        "Une robe en wax, c'est l'invitation toute trouvée à un dîner en tête-à-tête : offrez-la quelques jours avant, pour qu'elle la porte le soir du 14. Coupe évasée ou ajustée, elle se porte ensuite au bureau avec une veste. Pour la taille, jetez un œil discret à l'étiquette d'une robe qu'elle aime et comparez avec le guide de la fiche.",
+    },
+    {
+      produit: "creoles-or-18-carats",
+      pourquoi:
+        "Pour une première Saint-Valentin mariés ou un anniversaire de rencontre, des créoles en or jaune sont le bijou qui se garde toute une vie. Intemporelles, elles accompagnent toutes ses tenues, du pagne au tailleur. Gardez-les pour le moment du dessert, en tête-à-tête : c'est le cadeau des grandes déclarations.",
     },
     {
       produit: "perles-de-taille",
       pourquoi:
         "Les perles de taille, ou bine-bine, se portent sous les vêtements depuis des générations en Afrique de l'Ouest. C'est un cadeau intime et féminin, souvent offert à la future mariée, qui a toute sa place un soir de Saint-Valentin. Choisissez des couleurs qu'elle aime, et offrez-les en tête-à-tête plutôt qu'en public.",
-    },
-    {
-      produit: "statuette-couple-africain",
-      pourquoi:
-        "Une statuette de couple enlacé, en bois ou en résine façon bois sculpté, dit votre histoire sans un mot. Elle trouvera sa place sur une console ou une étagère de votre salon. C'est un joli cadeau pour une première Saint-Valentin dans un logement commun, à choisir ensemble ou à offrir en surprise.",
-    },
-    {
-      produit: "jeu-awale-bois",
-      pourquoi:
-        "Pour une Saint-Valentin à la maison, l'awalé est le jeu parfait à deux : les règles s'apprennent en cinq minutes, et les parties peuvent durer toute la soirée. Si l'un de vous y jouait enfant, il aura le plaisir d'apprendre les règles à l'autre. Ajoutez une petite mise : le perdant prépare le dîner du lendemain.",
     },
     {
       produit: "livre-recettes-africaines",
@@ -66,11 +66,13 @@ const top: Top = {
     "Le prix compte moins que l'attention. Un pendentif à petit prix, offert avec un mot écrit de votre main, peut toucher davantage qu'un bijou précieux choisi à la hâte. Réservez les cadeaux intimes, comme les perles de taille, à un moment en tête-à-tête. Pour l'emballage, un morceau de tissu wax noué autour du paquet remplace joliment le papier cadeau.",
     "Commandez une à deux semaines avant le 14 février : les livraisons s'allongent à l'approche de la fête. Si votre moitié vit au pays ou dans une autre ville, choisissez un cadeau léger et solide, comme un bijou, et gardez les parfums et les soins pour une remise en main propre. Un appel vidéo au moment où le paquet est ouvert rapproche les distances.",
   ],
+  commencer:
+    "Si vous êtes ensemble depuis peu, le collier pendentif carte d'Afrique est un cadeau simple, qui ne met pas de pression. Pour une soirée à la maison, le livre de recettes africaines transforme le 14 février en dîner à deux. Pour marquer une grande étape, misez sur les créoles en or 18 carats.",
   faq: [
     {
       question: "Quel cadeau offrir à sa femme pour la Saint-Valentin ?",
       reponse:
-        "Un bijou reste un classique : un pendentif carte d'Afrique, en acier ou en or, ou des perles de taille pour un cadeau plus intime. Une robe en wax ou un coffret de soins au karité font aussi très plaisir. Partez de son style et de ce qu'elle porte déjà pour viser juste.",
+        "Un bijou reste un classique : un pendentif carte d'Afrique, des créoles en or ou des perles de taille pour un cadeau plus intime. Une robe en wax ou un coffret de soins au karité font aussi très plaisir. Partez de son style et de ce qu'elle porte déjà pour viser juste.",
     },
     {
       question: "Quel cadeau offrir à un homme pour la Saint-Valentin ?",
@@ -85,7 +87,7 @@ const top: Top = {
     {
       question: "Quel cadeau à partager pour la Saint-Valentin ?",
       reponse:
-        "Un cadeau à partager crée un souvenir commun : un jeu d'awalé pour les soirées à deux, un livre de recettes africaines pour cuisiner ensemble, ou une statuette de couple pour votre salon. Ces idées conviennent à tous les couples, mariés ou non, ensemble depuis peu ou depuis longtemps.",
+        "Un cadeau à partager crée un souvenir commun : un jeu d'awalé pour les soirées à deux, ou un livre de recettes africaines pour cuisiner ensemble. Ces idées conviennent à tous les couples, mariés ou non, ensemble depuis peu ou depuis longtemps.",
     },
   ],
   accroche: "Un je t'aime aux couleurs du pays",

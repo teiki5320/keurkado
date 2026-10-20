@@ -50,12 +50,17 @@ export interface Top {
   date: string;
   /** Page de rattachement, pour le fil d'Ariane et les liens « Voir aussi » (« occasion/tabaski »). */
   rubrique: string;
-  /** Chapô : 2 à 4 phrases. */
+  /**
+   * Chapô : 2 à 4 phrases, au modèle Keurbook : le critère de classement, le n° 1 nommé,
+   * et « C'est notre classement, pas un palmarès officiel. »
+   */
   intro: string;
   /** Exactement 10 produits. */
   items: TopItem[];
   /** Conseils pour bien choisir : 2 ou 3 paragraphes. */
   conseils: string[];
+  /** « Par où commencer » : 2 ou 3 phrases qui orientent vers 2 ou 3 cadeaux de la liste selon la personne ou le budget. */
+  commencer: string;
   /** Questions fréquentes (données structurées FAQPage). */
   faq: Array<{ question: string; reponse: string }>;
   /** Phrase d'accroche de l'épingle, sous le titre (40 caractères environ). */

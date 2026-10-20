@@ -45,7 +45,9 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
   const url = `${siteConfig.url}/top/${top.slug}/`;
   const image = `${siteConfig.url}/epingles/${top.slug}.jpg`;
   const pinterest = `https://www.pinterest.fr/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(image)}&description=${encodeURIComponent(`${top.titre} — ${top.description}`)}`;
-  const autres = TOPS.filter((t) => t.slug !== top.slug).slice(0, 4);
+  // « Voir aussi » : les 3 sélections qui suivent dans l'ordre de la liste (on repart du début après la dernière), comme Keurbook.
+  const i = TOPS.findIndex((t) => t.slug === top.slug);
+  const voirAussi = [1, 2, 3].map((k) => TOPS[(i + k) % TOPS.length]);
 
   const structuredData = [
     {
@@ -140,6 +142,11 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
           </Fragment>
         ))}
 
+        <section className="container-page mt-14 max-w-3xl" aria-labelledby="commencer">
+          <h2 id="commencer" className="section-title">Par où commencer</h2>
+          <p className="bulle mt-4 rounded-[40px_40px_40px_8px] px-7 py-5 font-serif text-[20px] leading-relaxed font-medium">{top.commencer}</p>
+        </section>
+
         <section className="container-page mt-14 max-w-3xl">
           <h2 className="section-title">Nos conseils pour bien choisir</h2>
           <div className="prose-text mt-4">
@@ -176,11 +183,9 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
         )}
       </section>
 
-      {autres.length > 0 && (
-        <Section title="Autres sélections" href="/top" linkLabel="Tous les Top 10">
-          <TopGrid tops={autres} />
-        </Section>
-      )}
+      <Section title="Voir aussi" href="/top" linkLabel="Tous les Top 10">
+        <TopGrid tops={voirAussi} />
+      </Section>
 
       {/* Publicité : en fin de page, loin des boutons Amazon. */}
       <div className="container-page">
