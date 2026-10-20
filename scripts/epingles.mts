@@ -208,7 +208,7 @@ export function descriptionEpingle(top: Top): string {
 /** Tableau Pinterest de chaque famille de rubrique (à créer sous ces noms, voir docs/PINTEREST.md). */
 export const TABLEAUX: Record<string, string> = {
   occasion: "Idées cadeaux africains par occasion",
-  pour: "Cadeaux africains pour elle, pour lui, pour les enfants",
+  pour: "Cadeaux africains pour elle, lui et les enfants",
   budget: "Cadeaux africains petits prix",
   univers: "Wax, bijoux et beauté afro",
   page: "Cadeaux à envoyer au pays",
