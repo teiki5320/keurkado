@@ -1,7 +1,7 @@
 import type { Produit } from "./types";
 
 /** Programme Partenaires Amazon : identifiant ajouté à tous les liens vers Amazon.fr. */
-export const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG || "keurkado-21";
+export const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG || "keurkadofr-21";
 
 /**
  * Lien d'achat d'un produit : la fiche Amazon.fr si l'ASIN est connu (vérifié à la main),
