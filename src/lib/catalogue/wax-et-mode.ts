@@ -25,6 +25,7 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "turban pre noue wax femme",
+    amazonAsin: "B0D8PZJ53H",
     rayon: "fashion",
   },
   {
@@ -152,9 +153,10 @@ export const PRODUITS_WAX_ET_MODE: Produit[] = [
     univers: "wax-et-mode",
     occasions: ["anniversaire", "noel", "korite"],
     pour: ["homme", "ado"],
-    budget: "moins-de-20",
+    budget: "20-50",
     voyage: true,
     recherche: "chemise dashiki homme",
+    amazonAsin: "B07FFTXPSQ",
     rayon: "fashion",
   },
   {

@@ -12,6 +12,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "beurre karite brut non raffine",
+    amazonAsin: "B072MMS86H",
     rayon: "beauty",
   },
   {
@@ -25,6 +26,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "savon noir africain black soap",
+    amazonAsin: "B06WGSH8S8",
     rayon: "beauty",
   },
   {
@@ -38,6 +40,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "20-50",
     voyage: false,
     recherche: "coffret soins karite femme",
+    amazonAsin: "B0CLVFMXSV",
     rayon: "beauty",
   },
   {
@@ -51,6 +54,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "bonnet satin cheveux nuit",
+    amazonAsin: "B0BX2GZ2G4",
     rayon: "beauty",
   },
   {
@@ -64,6 +68,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "taie oreiller satin cheveux",
+    amazonAsin: "B0BMWZBZF4",
     rayon: "home",
   },
   {
@@ -103,6 +108,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "bijoux tresses locks anneaux",
+    amazonAsin: "B0CF5833R7",
     rayon: "beauty",
   },
   {
@@ -129,6 +135,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "henne naturel poudre mains",
+    amazonAsin: "B09B7JPB17",
     rayon: "beauty",
   },
   {
@@ -142,6 +149,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: false,
     recherche: "huile ricin noire cheveux",
+    amazonAsin: "B08C7TYGS1",
     rayon: "beauty",
   },
   {
@@ -155,6 +163,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: false,
     recherche: "huile baobab vierge bio",
+    amazonAsin: "B086R1642L",
     rayon: "beauty",
   },
   {
@@ -168,6 +177,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "20-50",
     voyage: false,
     recherche: "kit entretien barbe coffret homme",
+    amazonAsin: "B08GYDSD72",
     rayon: "beauty",
   },
   {
@@ -181,6 +191,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "20-50",
     voyage: false,
     recherche: "eau de parfum oud homme",
+    amazonAsin: "B09FTPLYK3",
     rayon: "beauty",
   },
   {
@@ -194,19 +205,21 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "20-50",
     voyage: false,
     recherche: "seche cheveux diffuseur cheveux boucles",
+    amazonAsin: "B07W4X74JC",
     rayon: "beauty",
   },
   {
     slug: "casque-vapeur-cheveux",
-    nom: "Casque à vapeur pour cheveux",
+    nom: "Casque chauffant pour soins capillaires",
     description:
-      "Un casque à vapeur pour faire pénétrer les masques et les soins dans les cheveux, comme au salon. Un beau cadeau pour celle qui consacre son dimanche à sa routine capillaire.",
+      "Un bonnet chauffant pour faire pénétrer les masques et les soins dans les cheveux, comme au salon. Un beau cadeau pour celle qui consacre son dimanche à sa routine capillaire.",
     univers: "beaute-afro",
     occasions: ["fete-des-meres", "noel", "anniversaire"],
     pour: ["femme", "maman"],
-    budget: "50-100",
+    budget: "20-50",
     voyage: false,
     recherche: "casque vapeur cheveux soin",
+    amazonAsin: "B0C2HQ7WFT",
     rayon: "beauty",
   },
 ];

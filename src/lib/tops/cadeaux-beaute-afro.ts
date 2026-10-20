@@ -58,7 +58,7 @@ const top: Top = {
     {
       produit: "casque-vapeur-cheveux",
       pourquoi:
-        "Le cadeau le plus généreux de la liste : un casque à vapeur, pour faire ses soins et ses masques à la maison, comme au salon. Il fera plaisir à celle qui consacre son dimanche à sa routine capillaire. C'est un appareil assez encombrant : faites-le livrer directement chez elle.",
+        "Un bonnet chauffant, pour faire ses soins et ses masques à la maison, comme au salon. Il fera plaisir à celle qui consacre son dimanche à sa routine capillaire. Léger et peu encombrant, il se range facilement dans un placard de salle de bain.",
     },
   ],
   conseils: [
@@ -70,7 +70,7 @@ const top: Top = {
     {
       question: "Quel cadeau offrir à une femme aux cheveux crépus ?",
       reponse:
-        "Les accessoires sont les cadeaux les plus sûrs : bonnet ou taie d'oreiller en satin, bijoux pour tresses, sèche-cheveux avec diffuseur ou casque à vapeur pour un plus gros budget. Les soins, eux, dépendent beaucoup des habitudes de chacune. Si vous tenez à offrir un produit, le beurre de karité brut est un classique qui plaît largement.",
+        "Les accessoires sont les cadeaux les plus sûrs : bonnet ou taie d'oreiller en satin, bijoux pour tresses, sèche-cheveux avec diffuseur ou bonnet chauffant. Les soins, eux, dépendent beaucoup des habitudes de chacune. Si vous tenez à offrir un produit, le beurre de karité brut est un classique qui plaît largement.",
     },
     {
       question: "Peut-on mettre du beurre de karité dans un bagage cabine ?",

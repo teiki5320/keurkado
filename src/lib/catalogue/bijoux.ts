@@ -12,6 +12,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "boucles oreilles carte afrique dorees",
+    amazonAsin: "B08L94JH42",
     rayon: "jewelry",
   },
   {
@@ -25,6 +26,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "collier pendentif carte afrique",
+    amazonAsin: "B0881L2RSL",
     rayon: "jewelry",
   },
   {
@@ -51,6 +53,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "plus-de-100",
     voyage: true,
     recherche: "creoles or jaune 18 carats femme",
+    amazonAsin: "B07NNVY26G",
     rayon: "jewelry",
   },
   {
@@ -90,6 +93,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "perles de taille africaines waist beads",
+    amazonAsin: "B09CGRQW3B",
     rayon: "jewelry",
   },
   {
@@ -103,6 +107,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "lot bracelets joncs dores femme",
+    amazonAsin: "B0DXPF84CT",
     rayon: "jewelry",
   },
   {
@@ -129,6 +134,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "gourmette bebe argent gravure",
+    amazonAsin: "B07BXN363S",
     rayon: "jewelry",
   },
   {
@@ -142,6 +148,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "collier perles massai africain",
+    amazonAsin: "B07ZTRWFWG",
     rayon: "jewelry",
   },
   {
@@ -168,6 +175,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "chapelet tasbih 99 perles",
+    amazonAsin: "B0CSB1J2C8",
   },
   {
     slug: "montre-bois-homme",
@@ -180,6 +188,7 @@ export const PRODUITS_BIJOUX: Produit[] = [
     budget: "50-100",
     voyage: true,
     recherche: "montre bois homme",
+    amazonAsin: "B0DXV954KS",
     rayon: "fashion",
   },
 ];

@@ -12,6 +12,7 @@ export const PRODUITS_LIVRES: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "contes africains illustres enfant",
+    amazonAsin: "2408020921",
     rayon: "stripbooks",
   },
   {
@@ -38,6 +39,7 @@ export const PRODUITS_LIVRES: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "imagier bilingue wolof francais",
+    amazonAsin: "2958560600",
     rayon: "stripbooks",
   },
   {

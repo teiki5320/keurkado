@@ -22,9 +22,10 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
     univers: "art-et-deco",
     occasions: ["mariage", "noel", "fete-des-meres"],
     pour: ["maman", "femme"],
-    budget: "50-100",
+    budget: "20-50",
     voyage: true,
     recherche: "panier bolga tresse ghana",
+    amazonAsin: "B0041CZMX8",
   },
   {
     slug: "paniers-muraux-decoratifs",
@@ -37,6 +38,7 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "paniers muraux decoratifs osier tresse",
+    amazonAsin: "B0BW6S6MCL",
     rayon: "home",
   },
   {
@@ -119,15 +121,16 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
   },
   {
     slug: "brule-encens-bakhoor",
-    nom: "Brûle-encens et bakhoor",
+    nom: "Brûle-encens pour bakhoor",
     description:
-      "Un brûle-encens accompagné de bakhoor, ces copeaux de bois parfumés qui embaument la maison les jours de fête. Un cadeau très apprécié des mamans pour recevoir à la Tabaski ou à la Korité.",
+      "Un brûle-encens pour le bakhoor, ces copeaux de bois parfumés qui embaument la maison les jours de fête (le bakhoor se trouve à part). Un cadeau très apprécié des mamans pour recevoir à la Tabaski ou à la Korité.",
     univers: "art-et-deco",
     occasions: ["tabaski", "korite", "mariage", "fete-des-meres"],
     pour: ["maman", "femme"],
     budget: "20-50",
     voyage: false,
     recherche: "brule encens bakhoor",
+    amazonAsin: "B0DSZRJBKD",
     rayon: "home",
   },
   {
@@ -180,6 +183,7 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "tapis de priere musulman",
+    amazonAsin: "B0FP9DDMDL",
   },
   {
     slug: "djembe-bois-sculpte",
@@ -192,6 +196,7 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
     budget: "plus-de-100",
     voyage: false,
     recherche: "djembe professionnel bois sculpte",
+    amazonAsin: "B0746HY3TM",
   },
   {
     slug: "suspension-panier-tresse",

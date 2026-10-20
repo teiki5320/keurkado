@@ -12,6 +12,7 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "jeu awale bois africain",
+    amazonAsin: "B07KKF8YNT",
     rayon: "toys",
   },
   {
@@ -22,9 +23,10 @@ export const PRODUITS_JEUX: Produit[] = [
     univers: "jeux-et-jouets",
     occasions: ["noel", "fete-des-peres", "anniversaire", "korite"],
     pour: ["papa", "homme", "enfant", "ado"],
-    budget: "20-50",
+    budget: "50-100",
     voyage: true,
     recherche: "jeu de dames bois 100 cases",
+    amazonAsin: "B071ZD4WG6",
     rayon: "toys",
   },
   {
@@ -51,6 +53,7 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "poupee chiffon noire bebe",
+    amazonAsin: "B0D7LY6NX1",
     rayon: "toys",
   },
   {
@@ -64,6 +67,7 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "tete a coiffer poupee noire afro",
+    amazonAsin: "B0CV77GGJS",
     rayon: "toys",
   },
   {
@@ -90,6 +94,7 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "20-50",
     voyage: false,
     recherche: "djembe enfant bois percussion",
+    amazonAsin: "B005SQKG5U",
     rayon: "toys",
   },
   {
@@ -103,6 +108,7 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "kalimba piano a pouces 17 touches",
+    amazonAsin: "B07Q38FWFJ",
     rayon: "toys",
   },
   {
@@ -120,15 +126,16 @@ export const PRODUITS_JEUX: Produit[] = [
   },
   {
     slug: "peluche-lion",
-    nom: "Peluche lion",
+    nom: "Doudou lion",
     description:
-      "Une grosse peluche lion à câliner, le roi de la savane version tout doux. Un cadeau de naissance ou de baptême qui accompagnera l'enfant pendant des années.",
+      "Un doudou lion tout doux, le roi de la savane version câlin. Un cadeau de naissance ou de baptême qui accompagnera l'enfant pendant des années.",
     univers: "jeux-et-jouets",
     occasions: ["bapteme", "noel", "anniversaire"],
     pour: ["enfant"],
     budget: "moins-de-20",
     voyage: true,
     recherche: "peluche lion bebe",
+    amazonAsin: "B0CTKLZDGT",
     rayon: "toys",
   },
   {
@@ -142,19 +149,21 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "hochet bois bebe naturel",
+    amazonAsin: "B07B6B6PGC",
     rayon: "toys",
   },
   {
     slug: "tapis-eveil-savane",
     nom: "Tapis d'éveil animaux de la savane",
     description:
-      "Un tapis d'éveil avec arche et jouets suspendus aux couleurs de la savane africaine. Bébé y passe de longs moments à observer, toucher et gazouiller : un cadeau de naissance très utile.",
+      "Un grand tapis d'éveil réversible aux motifs de la savane, où bébé joue, roule et apprend à se retourner en sécurité. Un cadeau de naissance très utile, qui sert pendant des mois.",
     univers: "jeux-et-jouets",
     occasions: ["bapteme", "noel"],
     pour: ["enfant"],
     budget: "20-50",
     voyage: true,
     recherche: "tapis eveil bebe animaux savane",
+    amazonAsin: "B0BHXCTT7G",
     rayon: "toys",
   },
 ];

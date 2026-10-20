@@ -5,7 +5,7 @@
 ## Règles générales
 
 1. Tout est en **français**, ton chaleureux et concret, vouvoiement. On s'adresse à la diaspora africaine en France et à tous ceux qui cherchent un cadeau africain.
-2. **Jamais inventés** : ASIN, prix, marques, chiffres. `amazonAsin` et `priceCents` restent vides tant qu'ils n'ont pas été relevés à la main sur Amazon.fr.
+2. **Jamais inventés** : ASIN, prix, marques, chiffres. `amazonAsin` : seulement après vérification sur Amazon.fr (produit non sponsorisé, bien noté, conforme à la description ; adapter la description si besoin). `priceCents` : jamais à la main, seulement via l'API Amazon.
 3. **Écrit par nous** : descriptions et sélections originales, jamais recopiées d'une fiche Amazon ou d'un autre site.
 4. **Justesse culturelle** : parler de familles et de pays précis (Sénégal, Mali, Côte d'Ivoire, Cameroun…), jamais « des Africains » en général. Pas de cliché.
 5. **Cosmétiques** : aucune promesse de santé (« soigne », « guérit »).

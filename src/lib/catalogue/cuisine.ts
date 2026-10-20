@@ -25,6 +25,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "theiere inox orientale",
+    amazonAsin: "B09GYRZQRM",
     rayon: "kitchen",
   },
   {
@@ -38,6 +39,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "the vert gunpowder chine",
+    amazonAsin: "B09W1JV9RN",
   },
   {
     slug: "plateau-service-dore",
@@ -50,6 +52,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "plateau service dore oriental",
+    amazonAsin: "B08V1J45Z4",
     rayon: "kitchen",
   },
   {
@@ -75,6 +78,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "fleurs hibiscus sechees bissap",
+    amazonAsin: "B082BBD7XF",
   },
   {
     slug: "livre-recettes-africaines",
@@ -87,6 +91,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "livre recettes cuisine africaine",
+    amazonAsin: "2317022158",
     rayon: "stripbooks",
   },
   {
@@ -100,6 +105,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "mortier pilon bois cuisine",
+    amazonAsin: "B0972M8VRF",
     rayon: "kitchen",
   },
 ];

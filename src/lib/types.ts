@@ -25,7 +25,10 @@ export interface Produit {
   rayon?: string;
   /** ASIN vérifié à la main sur Amazon.fr (jamais inventé) : le bouton mène alors à la fiche du produit. */
   amazonAsin?: string;
-  /** Prix relevé à la main sur Amazon.fr, en centimes (jamais inventé) ; affiché seulement s'il est rempli. */
+  /**
+   * Prix en centimes, affiché seulement s'il est rempli. Règle du programme Partenaires : uniquement un prix fourni
+   * par l'API Amazon (Product Advertising API) et rafraîchi toutes les 24 h — jamais un prix recopié à la main.
+   */
   priceCents?: number;
 }
 
