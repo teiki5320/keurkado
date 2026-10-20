@@ -52,3 +52,6 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `peluche-lion` | [B0CTKLZDGT](https://www.amazon.fr/dp/B0CTKLZDGT) | Kaloo Les Amis, mini doudou lion (4,6 ; 236 avis) |
 | `hochet-bois-bebe` | [B07B6B6PGC](https://www.amazon.fr/dp/B07B6B6PGC) | Selecta Girali, hochet girafe en bois (4,4 ; 495 avis) |
 | `imagier-bilingue-langue-africaine` | [2958560600](https://www.amazon.fr/dp/2958560600) | Mon imagier bilingue, mes émotions, wolof-français (4,3 ; 10 avis) |
+| `peigne-afro-brosse-demelante` | [B0C1GBL9VK](https://www.amazon.fr/dp/B0C1GBL9VK) | Lot de 3 brosses démêlantes pour cheveux afro 3a à 4c (4,4 ; 922 avis) |
+| `serviette-microfibre-cheveux` | [B0D7HVMC5Q](https://www.amazon.fr/dp/B0D7HVMC5Q) | Freatech 2 grandes serviettes microfibre pour cheveux bouclés (4,6 ; 754 avis) |
+| `suspension-panier-tresse` | [B07Z23Z14B](https://www.amazon.fr/dp/B07Z23Z14B) | Atmosphera suspension Liby en bambou tressé (4,7 ; 2,4 k avis) — prix ~38 € : budget 50-100 → 20-50 |

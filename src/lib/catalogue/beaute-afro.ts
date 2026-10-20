@@ -86,15 +86,16 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
   },
   {
     slug: "peigne-afro-brosse-demelante",
-    nom: "Peigne afro et brosse démêlante",
+    nom: "Brosses démêlantes pour cheveux crépus",
     description:
-      "Un peigne afro à longues dents et une brosse démêlante adaptée aux cheveux crépus. Pratiques pour les cheveux des enfants, qu'on démêle ainsi sans larmes.",
+      "Des brosses démêlantes pensées pour les cheveux crépus et bouclés, des types 3a à 4c. Pratiques pour les cheveux des enfants, qu'on démêle ainsi sans larmes.",
     univers: "beaute-afro",
     occasions: ["noel", "anniversaire"],
     pour: ["enfant", "ado", "homme"],
     budget: "moins-de-20",
     voyage: true,
     recherche: "peigne afro brosse demelante cheveux crepus",
+    amazonAsin: "B0C1GBL9VK",
     rayon: "beauty",
   },
   {
@@ -122,6 +123,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "serviette microfibre cheveux boucles",
+    amazonAsin: "B0D7HVMC5Q",
     rayon: "beauty",
   },
   {

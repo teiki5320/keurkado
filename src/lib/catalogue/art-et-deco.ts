@@ -206,9 +206,10 @@ export const PRODUITS_ART_ET_DECO: Produit[] = [
     univers: "art-et-deco",
     occasions: ["mariage", "noel"],
     pour: ["maman", "femme"],
-    budget: "50-100",
+    budget: "20-50",
     voyage: false,
     recherche: "suspension panier tresse luminaire",
+    amazonAsin: "B07Z23Z14B",
     rayon: "home",
   },
 ];
