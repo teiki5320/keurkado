@@ -48,13 +48,13 @@ Règles de rédaction : [`docs/REDACTION.md`](docs/REDACTION.md). Pinterest : [`
 
 - Liens construits par `src/lib/amazon.ts` avec le tag `keurkadofr-21` (`NEXT_PUBLIC_AMAZON_TAG` pour le changer).
 - Si `amazonAsin` est rempli (ASIN vérifié sur Amazon.fr), le bouton mène à la fiche ; sinon à une **recherche Amazon** (champ `recherche`, rayon `rayon`).
-- `amazonAsin` : relevé à la main sur Amazon.fr (produit non sponsorisé, bien noté, fidèle à la description et à la tranche de budget). 49 produits en ont un au 20 octobre 2026 ; les autres mènent à une recherche.
+- `amazonAsin` : relevé à la main sur Amazon.fr (produit non sponsorisé, bien noté, fidèle à la description et à la tranche de budget). 53 produits sur 95 en ont un au 21 octobre 2026 ; les autres mènent volontairement à une recherche.
 - `priceCents` : **jamais saisi à la main** (règle du programme Partenaires : un prix affiché doit venir de l'API Amazon et être rafraîchi toutes les 24 h). Tant qu'il est vide, on affiche la tranche de budget ; la conversion en FCFA n'apparaît qu'avec un vrai prix.
 - Mention obligatoire dans le pied de page et les pages légales.
 
 ## Publicité et cookies
 
-Même fonctionnement que Keurbook : code AdSense (même identifiant d'éditeur, `public/ads.txt`) et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. Les blocs d'annonces restent à créer dans AdSense (voir `docs/DEPLOIEMENT.md`).
+Même fonctionnement que Keurbook : code AdSense (même identifiant d'éditeur, `public/ads.txt`) et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. Examen du site par AdSense demandé le 20 octobre 2026 : aucune annonce affichée pour l'instant, et les blocs d'annonces restent à créer (voir `docs/DEPLOIEMENT.md`).
 
 ## Logo
 

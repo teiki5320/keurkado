@@ -2,8 +2,9 @@ import type { NextConfig } from "next";
 
 /**
  * Site 100 % statique (dossier out/).
- * Publié sur GitHub Pages (sous-dossier /keurkado) par .github/workflows/deploy.yml,
- * puis sur Cloudflare Pages quand keurkado.com sera acheté (NEXT_PUBLIC_BASE_PATH vide).
+ * Publié sur keurkado.com (en ligne) par un Worker de fichiers statiques Cloudflare
+ * (wrangler.jsonc, .github/workflows/deploy.yml), avec NEXT_PUBLIC_BASE_PATH vide.
+ * L'ancienne adresse GitHub Pages (sous-dossier /keurkado) ne fait plus que rediriger.
  */
 const nextConfig: NextConfig = {
   output: "export",

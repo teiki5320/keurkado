@@ -14,6 +14,6 @@
 ## Après la mise en service de keurkado.com
 
 1. Ancienne adresse teiki5320.github.io/keurkado : `.github/workflows/pages.yml` n'y publie plus qu'une page qui redirige vers la même page sur keurkado.com (fait le 20 octobre 2026).
-2. AdSense : ajouter le site keurkado.com, créer les blocs « Keur Kado - top / rubrique / article » et renseigner leurs identifiants (`ADSENSE_SLOTS`, `src/lib/config.ts`).
+2. AdSense : site keurkado.com ajouté, examen demandé le 20 octobre 2026 (aucune annonce affichée pour l'instant). Reste à faire : créer les blocs « Keur Kado - top / rubrique / article » et renseigner leurs identifiants (`ADSENSE_SLOTS`, `src/lib/config.ts`).
 3. Amazon Partenaires : déclarer keurkado.com dans la liste des sites du compte.
 4. Mettre à jour le lien de la carte Keur Kado sur toakeur.com.
