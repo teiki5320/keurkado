@@ -27,22 +27,12 @@ export default function CalendrierPage() {
     const cle = mois.format(new Date(`${f.date}T12:00:00Z`));
     parMois.set(cle, [...(parMois.get(cle) ?? []), f]);
   }
-  const ld = [
-    breadcrumbLd([
-      { name: "Accueil", url: siteConfig.url },
-      { name: "Calendrier des fêtes", url: `${siteConfig.url}/calendrier` },
-    ]),
-    ...liste.map((f) => ({
-      "@context": "https://schema.org",
-      "@type": "Event",
-      name: f.nom,
-      startDate: f.date,
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      eventStatus: "https://schema.org/EventScheduled",
-      description: f.texte,
-      location: { "@type": "Place", name: "Afrique et diaspora", address: "Afrique et France" },
-    })),
-  ];
+  // Pas de balisage « Event » : une fête (Noël, Tabaski…) n'a ni organisateur, ni artiste, ni billet,
+  // et Google réserve ce format aux vrais événements (signalé par la Search Console le 21/10/2026).
+  const ld = breadcrumbLd([
+    { name: "Accueil", url: siteConfig.url },
+    { name: "Calendrier des fêtes", url: `${siteConfig.url}/calendrier` },
+  ]);
 
   return (
     <>
