@@ -96,5 +96,5 @@ uniquement des noms de variables et de consoles.
   s'affiche tant que les blocs ne sont pas créés.
 - **Consentement** : bandeau « Confidentialité et messages » d'AdSense, lien « Gérer mes cookies »
   en pied de page.
-- **Validation du site** : à vérifier dans la console.
+- **Validation du site** : examen demandé le 20 octobre 2026, réponse à vérifier dans la console.
 - **Console** : https://adsense.google.com (compte AdSense de Jean).

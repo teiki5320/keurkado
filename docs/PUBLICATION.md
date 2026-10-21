@@ -28,9 +28,9 @@
 2. ✅ **Ancienne adresse** : teiki5320.github.io/keurkado renvoie vers keurkado.com.
 3. ✅ **Search Console** : propriété keurkado.com, sitemap envoyé le 20 octobre 2026.
 4. **Amazon Partenaires** : déclarer keurkado.com dans les sites du compte (à vérifier dans la console).
-5. **Publicité** : ajouter le site dans AdSense, créer les blocs d'annonces et attendre la validation.
+5. **Publicité** : site ajouté dans AdSense, examen demandé le 20 octobre 2026 ; créer les blocs d'annonces et attendre la validation.
 6. **Indexation complète** : faire entrer dans Google les 52 pages encore absentes.
-7. **Pinterest** : créer le compte Keur Kado, revendiquer le domaine et importer les épingles.
+7. ✅ **Pinterest** : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest (une par jour à partir du 21 octobre 2026).
 8. **Carte sur toakeur.com** : mettre à jour le lien de la carte Keur Kado (à vérifier).
 
 ## Web · Production
@@ -61,8 +61,8 @@
 - **Google Search Console** : propriété de domaine `keurkado.com`, sitemap envoyé et lu le
   20 octobre 2026, sans erreur. Au 21 octobre 2026 : 9 pages indexées sur 61, 52 pas encore
   (34 inconnues de Google, 18 détectées mais non explorées).
-- **Pinterest** : balise de revendication du domaine publiée sur le site ; compte et
-  revendication à vérifier dans la console.
+- **Pinterest** : compte Keur Kado créé, domaine revendiqué (balise publiée sur le site) ;
+  21 épingles programmées dans Pinterest, une par jour à partir du 21 octobre 2026.
 - **Mesure d'audience** : aucune (la page Confidentialité l'indique).
 - **Publicité** : script AdSense chargé, `https://keurkado.com/ads.txt` répond ; aucun bloc
-  d'annonce créé, validation du site à vérifier dans la console.
+  d'annonce créé ; examen du site demandé le 20 octobre 2026, aucune annonce affichée pour l'instant.

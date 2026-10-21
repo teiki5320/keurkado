@@ -16,7 +16,7 @@ publications réelles, ou routine qui publie).
 ## Rémunération par phases
 
 - [fait] **Aujourd'hui** : affiliation Amazon Partenaires (tag `keurkadofr-21`) ; le site ne vend rien.
-- [en cours] **Publicité AdSense** : script et ads.txt en ligne, blocs d'annonces à créer et site à faire valider.
+- [en cours] **Publicité AdSense** : script et ads.txt en ligne, examen du site demandé le 20 octobre 2026, blocs d'annonces à créer.
 - **Liens Amazon directs** : 53 cadeaux sur 95 mènent à leur fiche ; étendre les ASIN vérifiés aux autres.
 - **Saison des fêtes** : Noël et colis de fin d'année, période où l'affiliation rapporte le plus.
 - **Partenariats** : mises en avant payées par des créateurs ou boutiques africaines, une fois l'audience mesurée.
@@ -33,8 +33,8 @@ publications réelles, ou routine qui publie).
 - ✅ Référencement naturel : propriété `keurkado.com` dans Google Search Console, sitemap envoyé le
   20 octobre 2026 ; 12 articles Conseils, dont 4 publiés et 8 programmés jusqu'au 14 décembre,
   republiés chaque lundi.
-- ⬜ Pinterest : épingles, manifeste et fichier d'import prêts sur le site, balise de revendication
-  du domaine publiée ; aucun compte Keur Kado branché au Studio, aucune épingle publiée constatée.
+- ⬜ Pinterest : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest
+  (une par jour à partir du 21 octobre 2026) ; pas encore branché au Planning du Studio.
 - ⬜ TikTok, Instagram, YouTube : aucun compte Keur Kado.
 - ⬜ Newsletter : aucune.
 - ⬜ Mesure d'audience : aucune sur le site.
@@ -51,10 +51,9 @@ publications réelles, ou routine qui publie).
 
 ## Les 3 priorités
 
-- Ouvrir le compte Pinterest Keur Kado, y importer `epingles-pinterest.csv` et revendiquer le
-  domaine, puis le brancher au Planning du Studio : c'est le canal naturel des idées cadeaux, à
-  lancer avant Noël.
-- Ajouter keurkado.com dans AdSense, créer les trois blocs « Keur Kado - top / rubrique / article »
+- Pinterest Keur Kado : compte ouvert, domaine revendiqué et 21 épingles programmées ; reste à le
+  brancher au Planning du Studio, canal naturel des idées cadeaux avant Noël.
+- AdSense : examen de keurkado.com demandé le 20 octobre 2026 ; créer les trois blocs « Keur Kado - top / rubrique / article »
   et renseigner leurs identifiants, pour que les annonces s'affichent.
 - Faire indexer par Google les 52 pages qui ne le sont pas encore (Top 10, pages occasion et
   univers, articles) avant la saison des fêtes.
