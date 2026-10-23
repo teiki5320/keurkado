@@ -30,7 +30,7 @@
 4. **Amazon Partenaires** : déclarer keurkado.com dans les sites du compte (à vérifier dans la console).
 5. **Publicité** : site ajouté dans AdSense, examen demandé le 20 octobre 2026 ; créer les blocs d'annonces et attendre la validation.
 6. **Indexation complète** : faire entrer dans Google les 52 pages encore absentes.
-7. ✅ **Pinterest** : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest (une par jour à partir du 21 octobre 2026).
+7. ✅ **Pinterest** : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest (une par jour à partir du 21 octobre 2026). Publication automatique par l'API en place depuis le 23 octobre 2026, en attente de la clé du compte (`docs/PINTEREST.md`).
 8. **Carte sur toakeur.com** : mettre à jour le lien de la carte Keur Kado (à vérifier).
 
 ## Web · Production
@@ -62,7 +62,9 @@
   20 octobre 2026, sans erreur. Au 21 octobre 2026 : 9 pages indexées sur 61, 52 pas encore
   (34 inconnues de Google, 18 détectées mais non explorées).
 - **Pinterest** : compte Keur Kado créé, domaine revendiqué (balise publiée sur le site) ;
-  21 épingles programmées dans Pinterest, une par jour à partir du 21 octobre 2026.
+  21 épingles programmées dans Pinterest, une par jour à partir du 21 octobre 2026. Publication
+  automatique (`.github/workflows/pinterest.yml`, chaque jour à 4 h 17 UTC, 5 épingles au plus) en
+  place depuis le 23 octobre 2026 ; rien ne part tant que les secrets `PINTEREST_*` n'existent pas.
 - **Mesure d'audience** : aucune (la page Confidentialité l'indique).
 - **Publicité** : script AdSense chargé, `https://keurkado.com/ads.txt` répond ; aucun bloc
   d'annonce créé ; examen du site demandé le 20 octobre 2026, aucune annonce affichée pour l'instant.

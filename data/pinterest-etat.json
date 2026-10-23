@@ -1,0 +1,152 @@
+{
+  "_aide": "Épingles déjà publiées ou programmées (scripts/pinterest-publier.mjs ne les reprend pas). Les 21 premières ont été programmées à la main dans Pinterest le 20 octobre 2026 (import du fichier epingles-pinterest.csv), une par jour à partir du 21 octobre ; publie_le = date programmée.",
+  "publiees": [
+    {
+      "id": "idees-cadeaux-noel-africain-1",
+      "slug": "idees-cadeaux-noel-africain",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-21"
+    },
+    {
+      "id": "idees-cadeaux-saint-valentin-1",
+      "slug": "idees-cadeaux-saint-valentin",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-22"
+    },
+    {
+      "id": "cadeaux-africains-maman-1",
+      "slug": "cadeaux-africains-maman",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-23"
+    },
+    {
+      "id": "cadeaux-africains-femme-1",
+      "slug": "cadeaux-africains-femme",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-24"
+    },
+    {
+      "id": "cadeaux-africains-homme-1",
+      "slug": "cadeaux-africains-homme",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-25"
+    },
+    {
+      "id": "cadeaux-africains-papa-1",
+      "slug": "cadeaux-africains-papa",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-26"
+    },
+    {
+      "id": "cadeaux-a-envoyer-au-pays-1",
+      "slug": "cadeaux-a-envoyer-au-pays",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-27"
+    },
+    {
+      "id": "cadeaux-wax-1",
+      "slug": "cadeaux-wax",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-28"
+    },
+    {
+      "id": "bijoux-africains-a-offrir-1",
+      "slug": "bijoux-africains-a-offrir",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-29"
+    },
+    {
+      "id": "cadeaux-beaute-afro-1",
+      "slug": "cadeaux-beaute-afro",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-30"
+    },
+    {
+      "id": "cadeaux-africains-moins-de-20-euros-1",
+      "slug": "cadeaux-africains-moins-de-20-euros",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-10-31"
+    },
+    {
+      "id": "cadeaux-africains-enfant-1",
+      "slug": "cadeaux-africains-enfant",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-01"
+    },
+    {
+      "id": "cadeaux-africains-ado-1",
+      "slug": "cadeaux-africains-ado",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-02"
+    },
+    {
+      "id": "cadeaux-africains-collegue-1",
+      "slug": "cadeaux-africains-collegue",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-03"
+    },
+    {
+      "id": "idees-cadeaux-anniversaire-1",
+      "slug": "idees-cadeaux-anniversaire",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-04"
+    },
+    {
+      "id": "idees-cadeaux-korite-1",
+      "slug": "idees-cadeaux-korite",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-05"
+    },
+    {
+      "id": "idees-cadeaux-tabaski-1",
+      "slug": "idees-cadeaux-tabaski",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-06"
+    },
+    {
+      "id": "idees-cadeaux-fete-des-meres-1",
+      "slug": "idees-cadeaux-fete-des-meres",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-07"
+    },
+    {
+      "id": "idees-cadeaux-fete-des-peres-1",
+      "slug": "idees-cadeaux-fete-des-peres",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-08"
+    },
+    {
+      "id": "cadeaux-mariage-africain-1",
+      "slug": "cadeaux-mariage-africain",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-09"
+    },
+    {
+      "id": "cadeaux-bapteme-africain-1",
+      "slug": "cadeaux-bapteme-africain",
+      "pin_id": null,
+      "mode": "programmee-a-la-main",
+      "publie_le": "2026-11-10"
+    }
+  ]
+}

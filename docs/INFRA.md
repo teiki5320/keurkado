@@ -38,18 +38,26 @@ uniquement des noms de variables et de consoles.
   « Illustration créée par IA ». Détail : `docs/IMAGES.md`.
 - **Particularités** : tests de cohérence des contenus dans `tests/` ; épingles Pinterest
   (une par Top 10), manifeste `/epingles.json` et fichier d'import `/epingles-pinterest.csv`
-  générés à chaque build par `scripts/epingles.mts`.
+  générés à chaque build par `scripts/epingles.mts` ; publication automatique par l'API Pinterest
+  (même système que Keur Déco) depuis le 23 octobre 2026, voir GitHub ci-dessous.
 
 ## GitHub
 
-- **Rôle** : dépôt du code et des contenus, et deux workflows :
+- **Rôle** : dépôt du code et des contenus, et trois workflows :
   - `deploy.yml` (« Publier le site ») : lint, types, tests, build, puis publication par
     `npx wrangler deploy` à chaque push sur `main`, chaque lundi (0 h 15 heure de Paris, pour les
     articles programmés) et à la main ; dernière exécution réussie le 20 octobre 2026 ;
-  - `pages.yml` : publie sur l'ancienne adresse GitHub Pages une page qui renvoie vers keurkado.com.
+  - `pages.yml` : publie sur l'ancienne adresse GitHub Pages une page qui renvoie vers keurkado.com ;
+  - `pinterest.yml` (« Publier les épingles Pinterest ») : chaque jour à 4 h 17 UTC, au plus 5 épingles
+    du manifeste (`config/pinterest.json`), jamais deux du même Top le même jour, dans le tableau de sa
+    rubrique, puis enregistre `data/pinterest-etat.json` sur `main` (les 21 épingles programmées à la
+    main y sont notées). Ne publie rien tant que la clé du compte n'existe pas (avertissement seulement).
 - **Console** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
 - **Secrets** : `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID`, réglés dans les secrets
-  Actions du dépôt, jamais dans le code. Variable sans secret : `PINTEREST_VERIFY`.
+  Actions du dépôt, jamais dans le code. Variable sans secret : `PINTEREST_VERIFY`. Pinterest :
+  `PINTEREST_APP_ID`, `PINTEREST_APP_SECRET` (application « TOA CORP publication », la même que
+  Keur Déco, accès standard) et `PINTEREST_REFRESH_TOKEN` (clé du compte Keur Kado, environ 60 jours),
+  pas encore créés au 23 octobre 2026 ; procédure dans `docs/PINTEREST.md`.
 
 ## Hébergement web (GitHub Pages / Cloudflare Pages)
 

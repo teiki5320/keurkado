@@ -1,0 +1,62 @@
+# Publication automatique des épingles Pinterest, même système que Keur Déco (docs/PINTEREST.md).
+# Tant que la clé du compte Pinterest (secrets PINTEREST_*) n'existe pas, rien n'est publié :
+# le passage affiche seulement un avertissement et la liste des épingles qui partiraient.
+name: Publier les épingles Pinterest
+
+on:
+  # Chaque jour à 4 h 17 UTC (6 h 17 à Paris en été, 5 h 17 en hiver), pour un résultat avant le point de 7 h.
+  # GitHub peut retarder les tâches programmées : le lancement réel peut avoir lieu plus tard.
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      a_blanc:
+        description: 'Mode à blanc (affiche sans publier)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: pinterest
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Le script n'utilise que les modules de Node : pas besoin de npm ci.
+      - name: Publier
+        id: publier
+        env:
+          PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
+          PINTEREST_MAX: ${{ vars.PINTEREST_MAX }}
+        run: node scripts/pinterest-publier.mjs ${{ inputs.a_blanc && '--a-blanc' || '' }}
+      # Pinterest renvoie un nouveau refresh token à chaque passage ; l'ancien reste valable environ 60 jours.
+      # Un seul ticket ouvert à la fois (pas un par jour) pour rappeler de refaire la clé avant l'échéance.
+      - name: Rappel de renouvellement de la clé (un seul ticket ouvert)
+        if: always() && steps.publier.outputs.nouveau_refresh_token == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          titre="Pinterest : refaire la clé du compte avant son échéance"
+          if [ -n "$(gh issue list --state open --search "in:title \"$titre\"" --json number --jq '.[].number')" ]; then exit 0; fi
+          gh issue create --title "$titre" --body "La clé Pinterest (secret PINTEREST_REFRESH_TOKEN) a été créée pour environ 60 jours. Avant l'échéance, refaites-la sur le Mac : npm run pinterest:auth puis npm run pinterest:secrets (docs/PINTEREST.md). Fermez ensuite ce ticket."
+      - name: Enregistrer le fichier d'état sur main
+        if: always()
+        run: |
+          git config user.name "pinterest-bot"
+          git config user.email "pinterest-bot@users.noreply.github.com"
+          git add data/pinterest-etat.json
+          if git diff --cached --quiet; then echo "Aucune épingle publiée."; exit 0; fi
+          git commit -m "Pinterest : épingles publiées le $(TZ=Europe/Paris date +%F)"
+          for i in 1 2 3 4; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 5)); done
+          exit 1

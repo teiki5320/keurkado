@@ -1,0 +1,160 @@
+// Fonctions communes aux scripts Pinterest (publication automatique, connexion du compte, envoi des secrets).
+// Même système que Keur Déco (dépôt keurdeco) ; documentation : docs/PINTEREST.md.
+import { existsSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+export const RACINE = resolve(import.meta.dirname, '..');
+
+/** Hôte de l'API (l'application « TOA CORP publication » a l'accès standard : production). */
+export function hoteApi(env = process.env) {
+  return env.PINTEREST_SANDBOX === '1' ? 'https://api-sandbox.pinterest.com' : 'https://api.pinterest.com';
+}
+
+/** Point d'accès OAuth (échange de code et renouvellement). */
+export const URL_JETON = 'https://api.pinterest.com/v5/oauth/token';
+
+/** Page d'autorisation Pinterest. */
+export const URL_AUTORISATION = 'https://www.pinterest.com/oauth/';
+
+/** Droits demandés : lire le compte et les tableaux, créer des épingles. */
+export const PORTEES = ['user_accounts:read', 'boards:read', 'boards:write', 'pins:read', 'pins:write'];
+
+/** Charge un fichier .env simple (CLE=valeur) sans écraser les variables déjà définies. */
+export function chargerEnv(fichier = resolve(RACINE, '.env')) {
+  if (!existsSync(fichier)) return;
+  for (const ligne of readFileSync(fichier, 'utf8').split('\n')) {
+    const m = ligne.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+    if (m && process.env[m[1]] === undefined) process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
+  }
+}
+
+export function lireJson(chemin, defaut) {
+  return existsSync(chemin) ? JSON.parse(readFileSync(chemin, 'utf8')) : defaut;
+}
+
+/** Réglages du site : config/pinterest.json. */
+export function lireConfig() {
+  return lireJson(resolve(RACINE, 'config/pinterest.json'), { tableaux: {} });
+}
+
+/** Date du jour à Paris (AAAA-MM-JJ). */
+export function aujourdhuiParis(date = new Date()) {
+  return new Intl.DateTimeFormat('fr-CA', { timeZone: 'Europe/Paris' }).format(date);
+}
+
+function basique(appId, secret) {
+  return `Basic ${Buffer.from(`${appId}:${secret}`).toString('base64')}`;
+}
+
+/** Appel au point d'accès de jeton (code d'autorisation ou renouvellement). */
+export async function demanderJeton(parametres, { appId, secret }) {
+  const rep = await fetch(URL_JETON, {
+    method: 'POST',
+    headers: { Authorization: basique(appId, secret), 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(parametres).toString(),
+  });
+  const corps = await rep.json().catch(() => ({}));
+  // Le corps d'une erreur ne contient pas de jeton ; celui d'une réussite n'est jamais affiché.
+  if (!rep.ok) throw new Error(`Jeton Pinterest refusé (${rep.status}) : ${corps.message ?? corps.error ?? 'raison inconnue'}`);
+  return corps;
+}
+
+/** Nouveau jeton d'accès à partir du refresh token. */
+export function renouvelerJeton({ appId, secret, refreshToken }) {
+  return demanderJeton({ grant_type: 'refresh_token', refresh_token: refreshToken }, { appId, secret });
+}
+
+/** Appel à l'API v5 (JSON). */
+export async function api(chemin, { jeton, methode = 'GET', corps, env = process.env } = {}) {
+  const rep = await fetch(`${hoteApi(env)}/v5${chemin}`, {
+    method: methode,
+    headers: { Authorization: `Bearer ${jeton}`, 'Content-Type': 'application/json' },
+    body: corps ? JSON.stringify(corps) : undefined,
+  });
+  const texte = await rep.text();
+  let donnees;
+  try {
+    donnees = texte ? JSON.parse(texte) : {};
+  } catch {
+    donnees = { brut: texte };
+  }
+  if (!rep.ok) throw new Error(`API Pinterest ${methode} ${chemin} : ${rep.status} ${JSON.stringify(donnees)}`);
+  return donnees;
+}
+
+/** Tous les tableaux du compte connecté (pagination comprise). */
+export async function listerTableaux(jeton, env = process.env) {
+  const tableaux = [];
+  let signet = '';
+  do {
+    const page = await api(`/boards?page_size=100${signet ? `&bookmark=${encodeURIComponent(signet)}` : ''}`, { jeton, env });
+    tableaux.push(...(page.items ?? []));
+    signet = page.bookmark ?? '';
+  } while (signet);
+  return tableaux;
+}
+
+/** Nom de tableau comparable (casse, accents, apostrophes et espaces ignorés). */
+export const nomComparable = (s) =>
+  String(s ?? '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[’'`]/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+
+/**
+ * Identifiant Pinterest de chaque tableau de la config : le board_id écrit dans config/pinterest.json,
+ * sinon celui du tableau du compte qui porte exactement ce nom. Renvoie { cle: board_id | null }.
+ */
+export function relierTableaux(config, tableauxDuCompte) {
+  const parNom = new Map(tableauxDuCompte.map((t) => [nomComparable(t.name), t.id]));
+  return Object.fromEntries(Object.entries(config.tableaux ?? {}).map(([cle, t]) => [cle, t.board_id || parNom.get(nomComparable(t.nom)) || null]));
+}
+
+/** Identifiant de tableau d'une épingle, ou celui du tableau « general » (ou du tableau de repli de la config). */
+export function tableauPour(cle, ids, config = {}) {
+  return ids[cle] || ids[config.tableau_par_defaut ?? 'general'] || null;
+}
+
+/** Corps de la requête POST /v5/pins pour une entrée du manifeste. */
+export function corpsEpingle(entree, boardId) {
+  return {
+    board_id: boardId,
+    title: entree.titre.slice(0, 100),
+    description: entree.description.slice(0, 500),
+    link: entree.lien,
+    alt_text: entree.alt?.slice(0, 500),
+    media_source: { source_type: 'image_url', url: entree.image },
+  };
+}
+
+/** Liste des épingles d'un manifeste ({ epingles: [...] } ou tableau simple). */
+export function epinglesDu(manifeste) {
+  const liste = Array.isArray(manifeste) ? manifeste : (manifeste?.epingles ?? []);
+  return liste.map((e) => ({ ...e, slug: e.slug ?? e.id, numero: e.numero ?? 1 }));
+}
+
+/**
+ * Choisit les épingles à publier :
+ * - pas encore publiées (d'après le fichier d'état) et dont la page est en ligne (publie_le ≤ aujourd'hui) ;
+ * - au plus `max` par exécution ;
+ * - jamais deux épingles de la même page le même jour (ni dans l'exécution, ni avec une publication déjà faite aujourd'hui) ;
+ * - d'abord la 1re épingle de chaque page (les pages les plus récentes en premier), puis la 2e, etc.
+ */
+export function choisirEpingles(manifeste, etat, { max = 5, aujourdhui = aujourdhuiParis() } = {}) {
+  const publiees = new Set((etat.publiees ?? []).map((p) => p.id));
+  const slugsDuJour = new Set((etat.publiees ?? []).filter((p) => p.publie_le === aujourdhui).map((p) => p.slug));
+  const candidates = epinglesDu(manifeste)
+    .filter((e) => !publiees.has(e.id) && (e.publie_le ?? '') <= aujourdhui)
+    .sort((a, b) => a.numero - b.numero || (b.publie_le ?? '').localeCompare(a.publie_le ?? '') || a.id.localeCompare(b.id));
+  const choix = [];
+  for (const e of candidates) {
+    if (choix.length >= max) break;
+    if (slugsDuJour.has(e.slug)) continue;
+    slugsDuJour.add(e.slug);
+    choix.push(e);
+  }
+  return choix;
+}

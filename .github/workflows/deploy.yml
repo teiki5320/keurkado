@@ -6,6 +6,8 @@ name: Publier le site
 on:
   push:
     branches: [main]
+    # Le passage Pinterest du matin n'enregistre que son fichier d'état : pas besoin de republier le site.
+    paths-ignore: [data/pinterest-etat.json]
   workflow_dispatch:
   # Chaque lundi à 0 h 15 (heure de Paris en hiver, 1 h 15 en été).
   schedule:

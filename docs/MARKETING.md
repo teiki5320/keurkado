@@ -33,8 +33,10 @@ publications réelles, ou routine qui publie).
 - ✅ Référencement naturel : propriété `keurkado.com` dans Google Search Console, sitemap envoyé le
   20 octobre 2026 ; 12 articles Conseils, dont 4 publiés et 8 programmés jusqu'au 14 décembre,
   republiés chaque lundi.
-- ⬜ Pinterest : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest
-  (une par jour à partir du 21 octobre 2026) ; pas encore branché au Planning du Studio.
+- 🟡 Pinterest : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest
+  (une par jour à partir du 21 octobre 2026) ; pas encore branché au Planning du Studio. Publication
+  automatique par l'API (comme Keur Déco) en place depuis le 23 octobre 2026, en attente de la clé du
+  compte Keur Kado ; elle prendra les épingles des nouveaux Top 10 (les 21 actuels sont déjà programmés).
 - ⬜ TikTok, Instagram, YouTube : aucun compte Keur Kado.
 - ⬜ Newsletter : aucune.
 - ⬜ Mesure d'audience : aucune sur le site.
@@ -51,8 +53,9 @@ publications réelles, ou routine qui publie).
 
 ## Les 3 priorités
 
-- Pinterest Keur Kado : compte ouvert, domaine revendiqué et 21 épingles programmées ; reste à le
-  brancher au Planning du Studio, canal naturel des idées cadeaux avant Noël.
+- Pinterest Keur Kado : compte ouvert, domaine revendiqué et 21 épingles programmées ; créer la clé
+  du compte (`npm run pinterest:auth` puis `npm run pinterest:secrets`, voir `docs/PINTEREST.md`) pour
+  la publication automatique, canal naturel des idées cadeaux avant Noël.
 - AdSense : examen de keurkado.com demandé le 20 octobre 2026 ; créer les trois blocs « Keur Kado - top / rubrique / article »
   et renseigner leurs identifiants, pour que les annonces s'affichent.
 - Faire indexer par Google les 52 pages qui ne le sont pas encore (Top 10, pages occasion et

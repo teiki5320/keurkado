@@ -8,7 +8,7 @@
 //
 // Sorties (non versionnées, refaites à chaque build) :
 // - public/epingles/<slug>.jpg : les épingles, affichées aussi sur le site (page du Top, vignettes) ;
-// - public/epingles.json : manifeste (titre, description, lien, tableau) pour une future publication automatique ;
+// - public/epingles.json : manifeste (titre, description, lien, tableau), lu chaque matin par scripts/pinterest-publier.mjs ;
 // - public/epingles-pinterest.csv : import en lot dans Pinterest (« Créer des épingles en masse ») ;
 // - public/brand/keurkado-partage.jpg : image de partage par défaut (1200 × 630).
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
@@ -188,12 +188,15 @@ async function imagePartage(): Promise<Buffer> {
 
 export interface EntreeManifeste {
   id: string;
+  slug: string;
+  numero: number;
   gabarit: Gabarit;
   image: string;
   titre: string;
   description: string;
   alt: string;
   lien: string;
+  /** Clé du tableau dans config/pinterest.json (et dans TABLEAUX). */
   tableau: string;
   publie_le: string;
 }
@@ -205,13 +208,19 @@ export function descriptionEpingle(top: Top): string {
   return texte.length > 500 ? `${texte.slice(0, 499)}…` : texte;
 }
 
-/** Tableau Pinterest de chaque famille de rubrique (à créer sous ces noms, voir docs/PINTEREST.md). */
+/** Tableau Pinterest de chaque famille de rubrique (mêmes clés et noms que config/pinterest.json, voir docs/PINTEREST.md). */
 export const TABLEAUX: Record<string, string> = {
   occasion: "Idées cadeaux africains par occasion",
   pour: "Cadeaux africains pour elle, lui et les enfants",
   budget: "Cadeaux africains petits prix",
   univers: "Wax, bijoux et beauté afro",
   page: "Cadeaux à envoyer au pays",
+};
+
+/** Clé du tableau d'un Top : famille de sa rubrique (avant le « / »), « occasion » par défaut. */
+export const tableauDuTop = (top: Pick<Top, "rubrique">): string => {
+  const famille = top.rubrique.split("/")[0];
+  return famille in TABLEAUX ? famille : "occasion";
 };
 
 /** Fichier d'import en lot pour Pinterest : colonnes du modèle Pinterest, une épingle programmée par jour. */
@@ -221,7 +230,7 @@ export function csvPinterest(entrees: EntreeManifeste[]): string {
   entrees.forEach((e, i) => {
     const date = new Date(Date.now() + (i + 1) * 86_400_000);
     date.setUTCHours(17, 0, 0, 0); // 18 h ou 19 h à Paris : un bon créneau sur Pinterest
-    lignes.push([e.titre, e.image, e.tableau, "", e.description, e.lien, date.toISOString().slice(0, 19), "cadeaux africains, idées cadeaux, wax"].map(cellule).join(","));
+    lignes.push([e.titre, e.image, TABLEAUX[e.tableau] ?? e.tableau, "", e.description, e.lien, date.toISOString().slice(0, 19), "cadeaux africains, idées cadeaux, wax"].map(cellule).join(","));
   });
   return lignes.join("\n") + "\n";
 }
@@ -235,18 +244,20 @@ async function main() {
     const gabarit = gabaritPour(i);
     writeFileSync(resolve(SORTIE, `${top.slug}.jpg`), await composerEpingle(top, gabarit));
     manifeste.push({
-      id: top.slug,
+      id: `${top.slug}-1`,
+      slug: top.slug,
+      numero: 1,
       gabarit,
       image: `${SITE_URL}/epingles/${top.slug}.jpg`,
       titre: top.titre,
       description: descriptionEpingle(top),
       alt: `${top.titre} : ${top.accroche}. Épingle Keur Kado, perles de bois sur fond sable.`,
       lien: `${SITE_URL}/top/${top.slug}/`,
-      tableau: TABLEAUX[top.rubrique.split("/")[0]] ?? TABLEAUX.occasion,
+      tableau: tableauDuTop(top),
       publie_le: top.date,
     });
   }
-  writeFileSync(resolve(RACINE, "public/epingles.json"), JSON.stringify(manifeste, null, 2) + "\n");
+  writeFileSync(resolve(RACINE, "public/epingles.json"), JSON.stringify({ site: "Keur Kado", epingles: manifeste }, null, 2) + "\n");
   writeFileSync(resolve(RACINE, "public/epingles-pinterest.csv"), csvPinterest(manifeste));
   writeFileSync(resolve(RACINE, "public/brand/keurkado-partage.jpg"), await imagePartage());
   console.log(`${manifeste.length} épingles Pinterest générées dans public/epingles/ (+ manifeste, CSV et image de partage).`);

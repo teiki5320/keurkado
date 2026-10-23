@@ -9,7 +9,10 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
-    "visuels-marque": "tsx scripts/visuels-marque.mts"
+    "visuels-marque": "tsx scripts/visuels-marque.mts",
+    "pinterest:auth": "node scripts/pinterest-auth.mjs",
+    "pinterest:secrets": "node scripts/pinterest-secrets.mjs",
+    "pinterest:publier": "node scripts/pinterest-publier.mjs"
   },
   "engines": {
     "node": ">=20.9.0"

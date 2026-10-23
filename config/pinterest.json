@@ -1,0 +1,17 @@
+{
+  "_aide": "Réglages de la publication Pinterest (scripts/pinterest-publier.mjs, docs/PINTEREST.md). Mêmes clés et noms que TABLEAUX dans scripts/epingles.mts. board_id vide : le script prend le tableau du compte qui porte exactement ce nom.",
+  "site": "Keur Kado",
+  "site_url": "https://keurkado.com/",
+  "depot": "teiki5320/keurkado",
+  "compte_pinterest": "Keur Kado",
+  "max_par_execution": 5,
+  "manifeste": "epingles.json",
+  "tableau_par_defaut": "occasion",
+  "tableaux": {
+    "occasion": { "nom": "Idées cadeaux africains par occasion", "board_id": "" },
+    "pour": { "nom": "Cadeaux africains pour elle, lui et les enfants", "board_id": "" },
+    "budget": { "nom": "Cadeaux africains petits prix", "board_id": "" },
+    "univers": { "nom": "Wax, bijoux et beauté afro", "board_id": "" },
+    "page": { "nom": "Cadeaux à envoyer au pays", "board_id": "" }
+  }
+}
