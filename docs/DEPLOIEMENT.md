@@ -3,7 +3,7 @@
 ## Cloudflare, Worker de fichiers statiques (keurkado.com), comme Keur Foot
 
 - Worker « keurkado » sans code serveur : il sert le dossier `out/` (configuration dans `wrangler.jsonc` : `assets.directory`, page 404, pas d'adresse workers.dev, domaines keurkado.com et www.keurkado.com en `custom_domain`).
-- `.github/workflows/deploy.yml` vérifie (lint, types, tests), construit (`out/`) et publie par `npx wrangler deploy` à chaque push sur `main`, chaque lundi et à la demande.
+- `.github/workflows/deploy.yml` vérifie (lint, types, tests), construit (`out/`) et publie par `npx wrangler deploy` à chaque push sur `main`, chaque lundi, mercredi et vendredi et à la demande.
 - Secrets GitHub (Settings › Secrets and variables › Actions › Secrets) : `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID`. Sans eux, la publication est sautée avec un avertissement.
 - Jeton Cloudflare : modèle « Modifier Cloudflare Workers », plus Zone › DNS › Modifier, limité à la zone keurkado.com.
 - Publication à la main depuis un Mac connecté à Cloudflare : `NEXT_PUBLIC_SITE_URL=https://keurkado.com npm run build`, puis `npx wrangler deploy`.

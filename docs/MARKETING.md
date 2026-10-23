@@ -32,7 +32,7 @@ publications réelles, ou routine qui publie).
 - ✅ Site en ligne sur `keurkado.com` depuis le 20 octobre 2026.
 - ✅ Référencement naturel : propriété `keurkado.com` dans Google Search Console, sitemap envoyé le
   20 octobre 2026 ; 12 articles Conseils, dont 4 publiés et 8 programmés jusqu'au 14 décembre,
-  republiés chaque lundi.
+  republiés chaque lundi, mercredi et vendredi.
 - 🟡 Pinterest : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest
   (une par jour à partir du 21 octobre 2026) ; pas encore branché au Planning du Studio. Publication
   automatique par l'API (comme Keur Déco) en place depuis le 23 octobre 2026, en attente de la clé du

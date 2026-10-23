@@ -17,7 +17,7 @@ uniquement des noms de variables et de consoles.
 - 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
 - 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 53 ASIN sur 95 cadeaux [à faire]
 - 📰 **Publicité** : 📰 AdSense (publicité web) — script et ads.txt en ligne [ok] → 🧱 Blocs d'annonces — pas encore créés [à faire] → 💶 Revenus — aucun constaté [pas encore]
-- 📝 **Contenu** : ✍️ Articles Conseils — 4 publiés, 8 programmés [ok] → ⚙️ GitHub Actions — republie chaque lundi [ok] → 🔍 Google — 9 pages indexées sur 61 [à faire]
+- 📝 **Contenu** : ✍️ Articles Conseils — 4 publiés, 8 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 9 pages indexées sur 61 [à faire]
 
 ## Vue d'ensemble
 
@@ -45,7 +45,7 @@ uniquement des noms de variables et de consoles.
 
 - **Rôle** : dépôt du code et des contenus, et trois workflows :
   - `deploy.yml` (« Publier le site ») : lint, types, tests, build, puis publication par
-    `npx wrangler deploy` à chaque push sur `main`, chaque lundi (0 h 15 heure de Paris, pour les
+    `npx wrangler deploy` à chaque push sur `main`, chaque lundi, mercredi et vendredi (0 h 15 heure de Paris, pour les
     articles programmés) et à la main ; dernière exécution réussie le 20 octobre 2026 ;
   - `pages.yml` : publie sur l'ancienne adresse GitHub Pages une page qui renvoie vers keurkado.com ;
   - `pinterest.yml` (« Publier les épingles Pinterest ») : chaque jour à 4 h 17 UTC, au plus 5 épingles

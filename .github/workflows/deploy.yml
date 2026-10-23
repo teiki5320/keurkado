@@ -1,5 +1,5 @@
 # Vérifie, construit et publie le site statique sur Cloudflare (Worker de fichiers statiques « keurkado », keurkado.com), comme Keur Foot.
-# Se lance à chaque push sur main, chaque lundi (articles « Conseils » programmés, calendrier à jour)
+# Se lance à chaque push sur main, chaque lundi, mercredi et vendredi (articles « Conseils » programmés, calendrier à jour)
 # et à la main (onglet Actions).
 name: Publier le site
 
@@ -9,9 +9,9 @@ on:
     # Le passage Pinterest du matin n'enregistre que son fichier d'état : pas besoin de republier le site.
     paths-ignore: [data/pinterest-etat.json]
   workflow_dispatch:
-  # Chaque lundi à 0 h 15 (heure de Paris en hiver, 1 h 15 en été).
+  # Chaque lundi, mercredi et vendredi à 0 h 15 (heure de Paris en hiver, 1 h 15 en été).
   schedule:
-    - cron: "15 23 * * 0"
+    - cron: "15 23 * * 0,2,4"
 
 permissions:
   contents: read
