@@ -1,6 +1,6 @@
 # PUBLICATION — état de la mise en ligne
 
-> Mis à jour le 21 octobre 2026, d'après le site en ligne, la Search Console et les exécutions GitHub Actions.
+> Mis à jour le 24 octobre 2026, d'après le site en ligne, la Search Console et les exécutions GitHub Actions.
 >
 > Aucun secret ici — uniquement des références.
 
@@ -30,16 +30,16 @@
 4. **Amazon Partenaires** : déclarer keurkado.com dans les sites du compte (à vérifier dans la console).
 5. **Publicité** : site ajouté dans AdSense, examen demandé le 20 octobre 2026 ; créer les blocs d'annonces et attendre la validation.
 6. **Indexation complète** : faire entrer dans Google les 52 pages encore absentes.
-7. ✅ **Pinterest** : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest (une par jour à partir du 21 octobre 2026). Publication automatique par l'API en place depuis le 23 octobre 2026, en attente de la clé du compte (`docs/PINTEREST.md`).
+7. ✅ **Pinterest** : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest (une par jour à partir du 21 octobre 2026). Publication automatique par l'API en place depuis le 23 octobre 2026, clé du compte créée le même jour (`docs/PINTEREST.md`).
 8. **Carte sur toakeur.com** : mettre à jour le lien de la carte Keur Kado (à vérifier).
 
 ## Web · Production
 
 | | |
 |---|---|
-| Adresse | **En ligne** sur https://keurkado.com (vérifié le 21 octobre 2026 : réponse 200) |
+| Adresse | **En ligne** sur https://keurkado.com (vérifié le 24 octobre 2026 : réponse 200) |
 | Hébergeur | Cloudflare, Worker de fichiers statiques `keurkado`, workflow `deploy.yml` |
-| Dernière publication | 20 octobre 2026 (16 h 30 UTC), publication réussie |
+| Dernière publication | 23 octobre 2026 (10 h 12 UTC), publication réussie |
 | Mise en ligne | 20 octobre 2026 |
 | Dépôt | https://github.com/teiki5320/keurkado |
 | Taille publiée | 61 adresses dans le sitemap |
@@ -64,7 +64,8 @@
 - **Pinterest** : compte Keur Kado créé, domaine revendiqué (balise publiée sur le site) ;
   21 épingles programmées dans Pinterest, une par jour à partir du 21 octobre 2026. Publication
   automatique (`.github/workflows/pinterest.yml`, chaque jour à 4 h 17 UTC, 5 épingles au plus) en
-  place depuis le 23 octobre 2026 ; rien ne part tant que les secrets `PINTEREST_*` n'existent pas.
+  place depuis le 23 octobre 2026 ; secrets `PINTEREST_*` créés le même jour, connexion au compte
+  réussie le 24 octobre 2026 (aucune épingle de plus à publier : les 21 sont déjà programmées).
 - **Mesure d'audience** : aucune (la page Confidentialité l'indique).
 - **Publicité** : script AdSense chargé, `https://keurkado.com/ads.txt` répond ; aucun bloc
   d'annonce créé ; examen du site demandé le 20 octobre 2026, aucune annonce affichée pour l'instant.
