@@ -52,7 +52,7 @@ export const PRODUITS_CUISINE: Produit[] = [
     budget: "20-50",
     voyage: true,
     recherche: "plateau service dore oriental",
-    amazonAsin: "B08V1J45Z4",
+    amazonAsin: "B07RQ7H3F8",
     rayon: "kitchen",
   },
   {

@@ -10,7 +10,7 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `jeu-awale-bois` | [B07KKF8YNT](https://www.amazon.fr/dp/B07KKF8YNT) | Awalé jeu africain 2 joueurs (4,5 ; 116 avis) |
 | `livre-recettes-africaines` | [2317022158](https://www.amazon.fr/dp/2317022158) | Goûts d'Afrique : recettes et rencontres (4,7 ; 155 avis) |
 | `kalimba` | [B07Q38FWFJ](https://www.amazon.fr/dp/B07Q38FWFJ) | Newlam Kalimba 17 touches (4,7 ; 14,3 k avis) |
-| `plateau-service-dore` | [B08V1J45Z4](https://www.amazon.fr/dp/B08V1J45Z4) | Plateau à thé Sidra 30 cm métal doré (4,1 ; 291 avis) |
+| `plateau-service-dore` | [B07RQ7H3F8](https://www.amazon.fr/dp/B07RQ7H3F8) | Plateau à thé Afet 31 cm métal doré, décor oriental (4,4 ; 199 avis ; relevé le 25 octobre 2026, remplace le plateau Sidra B08V1J45Z4 devenu indisponible) |
 | `huile-de-baobab` | [B086R1642L](https://www.amazon.fr/dp/B086R1642L) | Aroma Labs huile de baobab bio 50 mL (4,5 ; 172 avis) |
 | `panier-tresse-bolga` | [B0041CZMX8](https://www.amazon.fr/dp/B0041CZMX8) | Grand panier Bolga du Ghana, commerce équitable (4,6 ; 597 avis) — prix ~44 € : budget 50-100 → 20-50 |
 | `mortier-pilon-bois` | [B0972M8VRF](https://www.amazon.fr/dp/B0972M8VRF) | Samhita mortier et pilon en acacia (4,4 ; 926 avis) |
