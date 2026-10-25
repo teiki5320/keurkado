@@ -61,6 +61,9 @@
 - **Google Search Console** : propriété de domaine `keurkado.com`, sitemap envoyé et lu le
   20 octobre 2026, sans erreur. Au 21 octobre 2026 : 9 pages indexées sur 61, 52 pas encore
   (34 inconnues de Google, 18 détectées mais non explorées).
+- **Bing et autres moteurs (IndexNow)** : depuis le 25 octobre 2026, `node scripts/indexnow.mjs`
+  signale les pages du sitemap à Bing, DuckDuckGo, Ecosia et Yandex (clé publique servie à la
+  racine du site). Journal du référencement page par page : `docs/referencement.md`.
 - **Pinterest** : compte Keur Kado créé, domaine revendiqué (balise publiée sur le site) ;
   21 épingles programmées dans Pinterest, une par jour à partir du 21 octobre 2026. Publication
   automatique (`.github/workflows/pinterest.yml`, chaque jour à 4 h 17 UTC, 5 épingles au plus) en

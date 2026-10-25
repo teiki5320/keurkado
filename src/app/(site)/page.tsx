@@ -33,15 +33,25 @@ export default function HomePage() {
   const prochaine = prochaines[0];
   const nbOccasion = comptes("occasion");
   const conseils = getConseils().slice(0, 3);
-  const ld = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-    inLanguage: "fr",
-    publisher: { "@type": "Organization", name: "TOA KEUR", url: "https://toakeur.com" },
-  };
+  const ld = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteConfig.description,
+      inLanguage: "fr",
+      publisher: { "@type": "Organization", name: "TOA KEUR", url: "https://toakeur.com" },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/brand/keurkado-logo.png`,
+      parentOrganization: { "@type": "Organization", name: "TOA KEUR", url: "https://toakeur.com" },
+    },
+  ];
 
   return (
     <>

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/Section";
 import { Atelier } from "@/components/quiz/Atelier";
+import { siteConfig } from "@/lib/config";
 import { donneesAtelier } from "@/lib/data/atelier";
+import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -11,8 +13,13 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function QuizPage() {
+  const ld = breadcrumbLd([
+    { name: "Accueil", url: siteConfig.url },
+    { name: "Trouve le cadeau", url: `${siteConfig.url}/quiz` },
+  ]);
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(ld) }} />
       <PageHeader
         eyebrow="Trouve le cadeau"
         title="L'atelier de Tonton Kado"
