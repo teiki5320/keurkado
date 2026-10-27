@@ -17,7 +17,7 @@ uniquement des noms de variables et de consoles.
 - 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
 - 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 53 ASIN sur 95 cadeaux [à faire]
 - 📰 **Publicité** : 📰 AdSense (publicité web) — script et ads.txt en ligne [ok] → 🧱 Blocs d'annonces — pas encore créés [à faire] → 💶 Revenus — aucun constaté [pas encore]
-- 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 7 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 9 pages indexées sur 61 [à faire]
+- 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 7 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 61 pages indexées sur 62 au 27 octobre [ok]
 
 ## Vue d'ensemble
 
