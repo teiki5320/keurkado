@@ -28,7 +28,7 @@
 2. ✅ **Ancienne adresse** : teiki5320.github.io/keurkado renvoie vers keurkado.com.
 3. ✅ **Search Console** : propriété keurkado.com, sitemap envoyé le 20 octobre 2026.
 4. **Amazon Partenaires** : déclarer keurkado.com dans les sites du compte (à vérifier dans la console).
-5. **Publicité** : site ajouté dans AdSense, examen demandé le 20 octobre 2026 ; créer les blocs d'annonces et attendre la validation.
+5. **Publicité** : site ajouté dans AdSense, examen demandé le 20 octobre 2026, « En préparation » au 27 octobre 2026 ; créer les blocs d'annonces et attendre la validation.
 6. **Indexation complète** : faire entrer dans Google la dernière page encore absente (61 sur 62 au 27 octobre 2026).
 7. ✅ **Pinterest** : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest (une par jour à partir du 21 octobre 2026). Publication automatique par l'API en place depuis le 23 octobre 2026, clé du compte créée le même jour (`docs/PINTEREST.md`).
 8. **Carte sur toakeur.com** : mettre à jour le lien de la carte Keur Kado (à vérifier).
@@ -71,4 +71,6 @@
   réussie chaque jour du 24 au 27 octobre 2026 (aucune épingle de plus à publier : les 21 sont déjà programmées).
 - **Mesure d'audience** : aucune (la page Confidentialité l'indique).
 - **Publicité** : script AdSense chargé, `https://keurkado.com/ads.txt` répond ; aucun bloc
-  d'annonce créé ; examen du site demandé le 20 octobre 2026, aucune annonce affichée pour l'instant.
+  d'annonce créé ; examen du site demandé le 20 octobre 2026, « En préparation » dans la console AdSense, ni validé ni refusé (vérifié le 27 octobre 2026) ; la console y affiche
+  encore `ads.txt` « Introuvable » alors que le fichier répond (200) : elle ne l'a pas revérifié ; aucune
+  annonce affichée pour l'instant.
