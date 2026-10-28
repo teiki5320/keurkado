@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Guide } from "@/lib/guides";
 
 export function Section({ title, href, linkLabel = "Tout voir", children, id }: { title: string; href?: string; linkLabel?: string; children: React.ReactNode; id?: string }) {
   return (
@@ -39,7 +40,7 @@ export function Breadcrumb({ items }: { items: Array<{ name: string; href?: stri
                 {it.name}
               </Link>
             ) : (
-              <span aria-current="page" className="line-clamp-1 text-muted">
+              <span aria-current={i === items.length - 1 ? "page" : undefined} className="line-clamp-1 text-muted">
                 {it.name}
               </span>
             )}
@@ -51,6 +52,22 @@ export function Breadcrumb({ items }: { items: Array<{ name: string; href?: stri
 }
 
 /** Texte de présentation d'une page d'entrée (en bas de page), lu par les visiteurs comme par les moteurs de recherche. */
+/** Guide écrit pour une page : intertitres (h3) et paragraphes, dans le gabarit des textes de bas de page. */
+export function GuideTexte({ title, guide }: { title: string; guide: Guide }) {
+  return (
+    <EntryText title={title}>
+      {guide.parties.map((partie) => (
+        <div key={partie.titre} className="space-y-4">
+          <h3 className="pt-4 font-serif text-[24px] leading-tight font-semibold text-ink">{partie.titre}</h3>
+          {partie.paragraphes.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+      ))}
+    </EntryText>
+  );
+}
+
 export function EntryText({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="container-page mt-20 max-w-3xl">

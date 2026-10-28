@@ -41,7 +41,7 @@ export function Perle({ produit, index = 0, taille = 110, etiquette = true }: { 
       <span className={`perle ${essence(index)} absolute inset-0 grid place-items-center overflow-hidden`} style={{ borderWidth: Math.max(7, Math.round(taille / 12)) }}>
         {produit.image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={withBase(produit.image)} alt="" width={240} height={240} loading="lazy" className="size-full rounded-full object-cover" />
+          <img src={withBase(produit.image)} alt={`Illustration : ${produit.nom}`} width={240} height={240} loading="lazy" className="size-full rounded-full object-cover" />
         ) : (
           <IconeUnivers slug={produit.univers} aria-hidden className="text-bois-fonce" style={{ width: taille * 0.34, height: taille * 0.34 }} strokeWidth={1.6} />
         )}
@@ -61,7 +61,9 @@ export function Perle({ produit, index = 0, taille = 110, etiquette = true }: { 
  * description, destinataires, envoi et bouton Amazon. `children` reçoit le « pourquoi » d'un Top 10.
  * Utilisable côté serveur comme dans l'atelier (navigateur).
  */
-export function ProduitCard({ produit, rang, index = 0, children }: { produit: CarteProduit; rang?: number; index?: number; children?: React.ReactNode }) {
+export function ProduitCard({ produit, rang, index = 0, niveau = 3, children }: { produit: CarteProduit; rang?: number; index?: number; niveau?: 2 | 3; children?: React.ReactNode }) {
+  // Dans un Top 10, chaque cadeau est un intertitre de la page (h2) ; ailleurs il suit le titre d'une section (h3).
+  const Titre = niveau === 2 ? "h2" : "h3";
   return (
     <article className="carte-cadeau relative flex h-full flex-col items-center">
       <span className="relative z-10 mt-4">
@@ -72,7 +74,7 @@ export function ProduitCard({ produit, rang, index = 0, children }: { produit: C
       </span>
       <div className={`bulle flex w-full flex-1 flex-col items-center gap-2.5 rounded-[200px_200px_40px_40px/120px_120px_40px_40px] px-5 pb-6 text-center sm:px-7 ${produit.image ? "-mt-20 pt-24" : "-mt-12 pt-16"}`}>
         <p className="text-[11px] font-bold tracking-[0.18em] text-terre-texte uppercase">{produit.universNom}</p>
-        <h3 className="font-serif text-[26px] leading-[1.1] font-bold text-balance">{produit.nom}</h3>
+        <Titre className="font-serif text-[26px] leading-[1.1] font-bold text-balance">{produit.nom}</Titre>
         <div className="separateur" aria-hidden>
           <span />
         </div>

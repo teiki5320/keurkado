@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
   title: "Conseils cadeaux : fêtes, traditions et colis",
-  description: "Que offrir pour la Tabaski ou la Korité, comment choisir un wax, que mettre dans un colis pour l'Afrique : nos conseils pour bien offrir.",
+  description: "Qu'offrir pour la Tabaski ou la Korité, comment choisir un wax, que mettre dans un colis pour l'Afrique : nos conseils pour bien offrir.",
   path: "/conseils",
 });
 

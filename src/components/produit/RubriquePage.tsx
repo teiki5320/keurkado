@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Chips } from "@/components/layout/Chips";
-import { Breadcrumb, EntryText, PageHeader, Section } from "@/components/layout/Section";
+import { Breadcrumb, EntryText, GuideTexte, PageHeader, Section } from "@/components/layout/Section";
 import { siteConfig } from "@/lib/config";
 import { produitsDe, toCarte } from "@/lib/data/produits";
+import { guideDe } from "@/lib/guides";
 import { breadcrumbLd, itemListLd, jsonLd } from "@/lib/json-ld";
 import { FAMILLES, type Famille, type Rubrique } from "@/lib/taxonomie";
 import { topsDe } from "@/lib/tops";
@@ -20,6 +21,7 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
   const produits = produitsDe(famille, rubrique.slug).map(toCarte);
   const tops = topsDe(`${famille}/${rubrique.slug}`);
   const param = PARAM_QUIZ[famille];
+  const guide = guideDe(famille, rubrique.slug);
   const url = `${siteConfig.url}${path}`;
 
   const structuredData = [
@@ -35,7 +37,7 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(tops.length ? structuredData : structuredData.slice(0, 1)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(tops.length > 1 ? structuredData : structuredData.slice(0, 1)) }} />
       <Breadcrumb items={[{ name: "Accueil", href: "/" }, { name: f.nom }, { name: rubrique.nom }]} />
       <PageHeader eyebrow={f.nom} title={rubrique.titre} intro={rubrique.intro}>
         {param && (
@@ -59,11 +61,15 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
         <AdSlot placement="rubrique" />
       </div>
 
-      <EntryText title={`Bien choisir : ${rubrique.nom.toLowerCase()}`}>
-        {rubrique.texte.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-      </EntryText>
+      {guide ? (
+        <GuideTexte title={`Bien choisir : ${rubrique.nom.toLowerCase()}`} guide={guide} />
+      ) : (
+        <EntryText title={`Bien choisir : ${rubrique.nom.toLowerCase()}`}>
+          {rubrique.texte.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </EntryText>
+      )}
 
       <section className="container-page mt-16 space-y-8">
         <Chips famille={famille} actif={rubrique.slug} titre={`Toutes les idées ${f.nom.toLowerCase()}`} />

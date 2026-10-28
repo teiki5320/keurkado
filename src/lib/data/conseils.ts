@@ -3,7 +3,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { cache } from "react";
 import { marked } from "marked";
-import { withBase } from "@/lib/config";
+import { avecBarre, withBase } from "@/lib/config";
 import { anchorId, isPublished, parseConseil, relatedConseils, todayInParis, type Conseil } from "@/lib/conseils/article";
 
 const DIR = join(process.cwd(), "content", "conseils");
@@ -49,7 +49,7 @@ export function renderConseil(body: string): string {
     if (!/^(https?:|\/(?!\/)|#|mailto:)/i.test(href)) href = "#";
     const external = /^https?:/.test(href);
     const attrs = external ? ` target="_blank" rel="${/amazon\./.test(href) ? "sponsored nofollow " : ""}noopener noreferrer"` : "";
-    if (href.startsWith("/")) href = withBase(href);
+    if (href.startsWith("/")) href = withBase(avecBarre(href));
     return `<a href="${escapeAttr(href)}"${title ? ` title="${escapeAttr(title)}"` : ""}${attrs}>${inner}</a>`;
   };
   renderer.html = ({ text }) => escapeAttr(text);

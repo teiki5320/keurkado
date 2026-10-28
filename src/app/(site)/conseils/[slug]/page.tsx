@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,10 +13,17 @@ import { siteConfig, withBase } from "@/lib/config";
 import { getConseilBySlug, getConseils, getRelatedConseils, renderConseil } from "@/lib/data/conseils";
 import { getProduit, toCarte } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
-import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
+import { breadcrumbLd, jsonLd, organisationLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
+
+/** Image propre d'un article : celle de son en-tête, sinon celle générée par scripts/epingles.mts, sinon l'image du site. */
+function imageDuConseil(conseil: { slug: string; image?: string | null }): string {
+  if (conseil.image) return conseil.image;
+  const generee = `/epingles/conseils/${conseil.slug}.jpg`;
+  return existsSync(join(process.cwd(), "public", generee)) ? generee : "/brand/keurkado-partage.jpg";
+}
 
 export function generateStaticParams() {
   return getConseils().map((c) => ({ slug: c.slug }));
@@ -29,8 +38,9 @@ export async function generateMetadata({ params }: PageProps<"/conseils/[slug]">
     path: `/conseils/${conseil.slug}`,
     type: "article",
     publishedTime: conseil.date,
-    image: conseil.image,
+    image: imageDuConseil(conseil),
     imageAlt: `Illustration : ${conseil.title}`,
+    imageSize: conseil.image ? undefined : [1200, 630],
   });
 }
 
@@ -44,7 +54,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
   const related = getRelatedConseils(conseil);
   const sections = conseilSections(conseil.body);
   const [firstHalf, secondHalf] = splitAtMiddleSection(renderConseil(conseil.body));
-  const url = `${siteConfig.url}/conseils/${conseil.slug}`;
+  const url = `${siteConfig.url}/conseils/${conseil.slug}/`;
 
   const structuredData = [
     {
@@ -55,10 +65,10 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
       datePublished: conseil.date,
       dateModified: conseil.date,
       inLanguage: "fr",
-      image: `${siteConfig.url}${conseil.image ?? "/brand/keurkado-partage.jpg"}`,
-      author: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+      image: `${siteConfig.url}${imageDuConseil(conseil)}`,
+      author: organisationLd(),
       url,
-      publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url, logo: `${siteConfig.url}/brand/keurkado-logo.png` },
+      publisher: organisationLd(),
     },
     breadcrumbLd([
       { name: "Accueil", url: siteConfig.url },

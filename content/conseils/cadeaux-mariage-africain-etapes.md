@@ -1,5 +1,5 @@
 ---
-title: Que offrir pour un mariage africain ? Les étapes et les cadeaux
+title: Qu'offrir pour un mariage africain ? Étapes et cadeaux
 description: Dot, mariage religieux, civil ou coutumier, grande fête : les étapes d'un mariage africain et les cadeaux à offrir aux mariés et à leurs familles.
 date: 2026-12-07
 theme: traditions

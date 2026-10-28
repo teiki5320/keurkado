@@ -13,6 +13,8 @@ interface PageMetadataInput {
   path: string;
   image?: string | null;
   imageAlt?: string;
+  /** Largeur et hauteur de l'image propre (aperçus Facebook, WhatsApp, X). */
+  imageSize?: [number, number];
   type?: "website" | "article" ;
   publishedTime?: string;
   noindex?: boolean;
@@ -24,12 +26,14 @@ interface PageMetadataInput {
  * Métadonnées d'une page : titre, description, adresse canonique et aperçu de partage.
  * Next.js remplace entièrement le bloc openGraph du layout dès qu'une page en définit un : on le reconstruit ici.
  */
-export function pageMetadata({ title, description, path, image, imageAlt, type = "website", publishedTime, noindex, absoluteTitle }: PageMetadataInput): Metadata {
+export function pageMetadata({ title, description, path, image, imageAlt, imageSize, type = "website", publishedTime, noindex, absoluteTitle }: PageMetadataInput): Metadata {
   // Titre complet limité à ~60 caractères (au-delà, Google le coupe) : sans le suffixe s'il est trop long.
   const suffixed = `${title} | ${siteConfig.name}`;
   const absolute = absoluteTitle || suffixed.length > 60;
   const fullTitle = absolute ? title : suffixed;
-  const images = image ? [{ url: image, alt: imageAlt ?? title }] : DEFAULT_SHARE_IMAGES;
+  const images = image
+    ? [{ url: image, alt: imageAlt ?? title, ...(imageSize ? { width: imageSize[0], height: imageSize[1] } : {}) }]
+    : DEFAULT_SHARE_IMAGES;
   return {
     title: absolute ? { absolute: title } : title,
     description,

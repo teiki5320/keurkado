@@ -10,10 +10,14 @@
 // - public/epingles/<slug>.jpg : les épingles, affichées aussi sur le site (page du Top, vignettes) ;
 // - public/epingles.json : manifeste (titre, description, lien, tableau), lu chaque matin par scripts/pinterest-publier.mjs ;
 // - public/epingles-pinterest.csv : import en lot dans Pinterest (« Créer des épingles en masse ») ;
-// - public/brand/keurkado-partage.jpg : image de partage par défaut (1200 × 630).
-import { mkdirSync, rmSync, writeFileSync } from "node:fs";
+// - public/brand/keurkado-partage.jpg : image de partage par défaut (1200 × 630) ;
+// - public/epingles/vignettes/<slug>.webp : épingle réduite (400 px) pour les cartes des Top 10 ;
+// - public/epingles/partage/<slug>.jpg : image de partage paysage d'un Top 10 (1200 × 630, Facebook, WhatsApp, X) ;
+// - public/epingles/conseils/<slug>.jpg : image de partage et image Google d'un article Conseil (1200 × 630).
+import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import sharp, { type OverlayOptions } from "sharp";
+import { parseConseil } from "../src/lib/conseils/article";
 import { TOPS } from "../src/lib/tops";
 import { rubriqueDuTop } from "../src/lib/tops/rubrique";
 import type { Top } from "../src/lib/types";
@@ -186,6 +190,41 @@ async function imagePartage(): Promise<Buffer> {
     .toBuffer();
 }
 
+/** Fond des images de partage (1200 × 630) : sable, halos et cordon de perles. */
+async function fondPartage(): Promise<Buffer> {
+  return sharp(
+    svg(1200, 630, `<defs>${DEFS}</defs><rect width="1200" height="630" fill="${C.sable}"/><circle cx="150" cy="80" r="520" fill="url(#halo1)"/><circle cx="1100" cy="600" r="560" fill="url(#halo2)"/>${cordon(315).replace('width="1000"', 'width="1200"')}${perle(130, 315, 60, "ebene")}${perle(1070, 315, 60, "acacia")}`),
+  )
+    .png()
+    .toBuffer();
+}
+
+/** Image de partage paysage d'un Top 10 : l'épingle entière au centre, sur le fond de la marque. */
+async function partageTop(epingle: Buffer): Promise<Buffer> {
+  const image = await sharp(epingle).resize({ height: 570 }).toBuffer();
+  const t = await taille(image);
+  return sharp(await fondPartage())
+    .composite([{ input: image, left: Math.round((1200 - t.l) / 2), top: 30 }])
+    .jpeg({ quality: 84, mozjpeg: true })
+    .toBuffer();
+}
+
+/** Image d'un article Conseil : l'illustration du premier produit cité et le logo, dans une bulle crème. */
+async function partageConseil(produit: string): Promise<Buffer> {
+  const bulleCreme = await sharp(svg(1200, 630, `<defs>${DEFS}</defs>${bulle(90, 45, 1020, 540, 60)}`)).png().toBuffer();
+  const illustration = await sharp(resolve(RACINE, `public/produits/${produit}.webp`)).resize(420, 420).png().toBuffer();
+  const logo = await sharp(LOGO).trim({ threshold: 10 }).resize({ width: 420, height: 400, fit: "inside" }).png().toBuffer();
+  const l = await taille(logo);
+  return sharp(await fondPartage())
+    .composite([
+      { input: bulleCreme, left: 0, top: 0 },
+      { input: illustration, left: 150, top: 105 },
+      { input: logo, left: 630 + Math.round((420 - l.l) / 2), top: Math.round((630 - l.h) / 2) },
+    ])
+    .jpeg({ quality: 84, mozjpeg: true })
+    .toBuffer();
+}
+
 export interface EntreeManifeste {
   id: string;
   slug: string;
@@ -239,10 +278,14 @@ async function main() {
   rmSync(SORTIE, { recursive: true, force: true });
   mkdirSync(SORTIE, { recursive: true });
   mkdirSync(resolve(RACINE, "public/brand"), { recursive: true });
+  for (const dossier of ["vignettes", "partage", "conseils"]) mkdirSync(resolve(SORTIE, dossier), { recursive: true });
   const manifeste: EntreeManifeste[] = [];
   for (const [i, top] of TOPS.entries()) {
     const gabarit = gabaritPour(i);
-    writeFileSync(resolve(SORTIE, `${top.slug}.jpg`), await composerEpingle(top, gabarit));
+    const epingle = await composerEpingle(top, gabarit);
+    writeFileSync(resolve(SORTIE, `${top.slug}.jpg`), epingle);
+    writeFileSync(resolve(SORTIE, `vignettes/${top.slug}.webp`), await sharp(epingle).resize({ width: 400 }).webp({ quality: 78 }).toBuffer());
+    writeFileSync(resolve(SORTIE, `partage/${top.slug}.jpg`), await partageTop(epingle));
     manifeste.push({
       id: `${top.slug}-1`,
       slug: top.slug,
@@ -260,6 +303,13 @@ async function main() {
   writeFileSync(resolve(RACINE, "public/epingles.json"), JSON.stringify({ site: "Keur Kado", epingles: manifeste }, null, 2) + "\n");
   writeFileSync(resolve(RACINE, "public/epingles-pinterest.csv"), csvPinterest(manifeste));
   writeFileSync(resolve(RACINE, "public/brand/keurkado-partage.jpg"), await imagePartage());
+  // Une image par article Conseil (programmés compris), à partir du premier produit cité qui a une illustration.
+  const dossierConseils = resolve(RACINE, "content/conseils");
+  for (const f of readdirSync(dossierConseils).filter((n) => n.endsWith(".md"))) {
+    const c = parseConseil(f.replace(/\.md$/, ""), readFileSync(resolve(dossierConseils, f), "utf8"));
+    const produit = c.produits.find((p) => { try { readFileSync(resolve(RACINE, `public/produits/${p}.webp`)); return true; } catch { return false; } });
+    if (produit) writeFileSync(resolve(SORTIE, `conseils/${c.slug}.jpg`), await partageConseil(produit));
+  }
   console.log(`${manifeste.length} épingles Pinterest générées dans public/epingles/ (+ manifeste, CSV et image de partage).`);
 }
 

@@ -70,7 +70,7 @@ const top: Top = {
     "Pour un colis à envoyer au pays, le « Hochet en bois pour bébé », léger et solide. Pour gâter la maman autant que le bébé, l'« Écharpe de portage en wax ». Pour un cadeau commun entre sœurs ou tantes, les « Créoles en or 18 carats ».",
   faq: [
     {
-      question: "Que offrir pour un baptême africain ?",
+      question: "Qu'offrir pour un baptême africain ?",
       reponse:
         "Pour le bébé, une gourmette gravée, un tapis d'éveil, une poupée de chiffon ou un imagier dans une langue africaine sont de très beaux cadeaux. Pour la maman, on offre souvent des pagnes, des bijoux comme des joncs dorés ou des soins naturels. Le mieux est souvent d'associer un cadeau pour chacun.",
     },

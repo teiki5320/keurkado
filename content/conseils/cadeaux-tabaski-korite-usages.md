@@ -1,5 +1,5 @@
 ---
-title: Que offrir pour la Tabaski et la Korité ? Les usages à connaître
+title: Qu'offrir pour la Tabaski et la Korité ? Les usages
 description: Tabaski et Korité : qui offre quoi à qui, tenues neuves et tissus, dates lunaires et envoi d'un cadeau au pays quand on ne peut pas rentrer.
 date: 2026-10-17
 theme: traditions

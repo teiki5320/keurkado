@@ -16,8 +16,8 @@
 | | 🌐 Site |
 |---|---|
 | État | [ok] En ligne, réponse 200 |
-| Hébergement | [ok] Worker de fichiers statiques Cloudflare « keurkado » |
-| Domaine | [ok] keurkado.com, www sert les mêmes pages |
+| Hébergement | [ok] Worker Cloudflare « keurkado » (fichiers statiques et redirections 301) |
+| Domaine | [ok] keurkado.com ; http et www redirigent en 301 depuis le 28 octobre 2026 |
 | SSL | [ok] Certificat Cloudflare, HSTS actif |
 | Indexation | [ok] 61 / 62 pages indexées par Google (27 octobre 2026) |
 | Mesure d'audience | [pas encore] Aucune mesure sur le site |
@@ -38,7 +38,7 @@
 | | |
 |---|---|
 | Adresse | **En ligne** sur https://keurkado.com (vérifié le 28 octobre 2026 : réponse 200) |
-| Hébergeur | Cloudflare, Worker de fichiers statiques `keurkado`, workflow `deploy.yml` |
+| Hébergeur | Cloudflare, Worker `keurkado` (fichiers statiques et script de redirections), workflow `deploy.yml` |
 | Dernière publication | 28 octobre 2026 (2 h 20 UTC, republication programmée du mercredi), publication réussie |
 | Mise en ligne | 20 octobre 2026 |
 | Dépôt | https://github.com/teiki5320/keurkado |
@@ -48,7 +48,8 @@
 ## Domaine & SSL
 
 - **Domaine** : `keurkado.com` (adresse canonique), enregistré le 20 octobre 2026, échéance le
-  20 octobre 2027 ; `www.keurkado.com` sert les mêmes pages avec l'adresse canonique sans www.
+  20 octobre 2027 ; `www.keurkado.com` redirige en 301 vers keurkado.com depuis le 28 octobre 2026
+  (du 20 au 28 octobre, il servait les mêmes pages avec l'adresse canonique sans www).
 - **Registraire et DNS** : Cloudflare.
 - **SSL** : certificat fourni et renouvelé par Cloudflare (valide jusqu'au 18 janvier 2027) ;
   HSTS activé dans `public/_headers`.
@@ -70,7 +71,7 @@
   place depuis le 23 octobre 2026 ; secrets `PINTEREST_*` créés le même jour, connexion au compte
   réussie chaque jour du 24 au 28 octobre 2026 (aucune épingle de plus à publier : les 21 sont déjà programmées).
 - **Mesure d'audience** : aucune (la page Confidentialité l'indique).
-- **Publicité** : script AdSense chargé, `https://keurkado.com/ads.txt` répond ; aucun bloc
+- **Publicité** : script AdSense chargé après l'affichage de la page (depuis le 28 octobre 2026), `https://keurkado.com/ads.txt` répond ; aucun bloc
   d'annonce créé ; examen du site demandé le 20 octobre 2026, « En préparation » dans la console AdSense, ni validé ni refusé (vérifié le 28 octobre 2026) ; la console y affiche
   encore `ads.txt` « Introuvable » alors que le fichier répond (200) : elle ne l'a pas revérifié ; aucune
   annonce affichée pour l'instant.

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/layout/Section";
+import { GuideTexte, PageHeader } from "@/components/layout/Section";
 import { Atelier } from "@/components/quiz/Atelier";
 import { siteConfig } from "@/lib/config";
 import { donneesAtelier } from "@/lib/data/atelier";
+import { GUIDE_QUIZ } from "@/lib/guides";
 import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -28,6 +29,7 @@ export default function QuizPage() {
       <section className="container-page max-w-4xl">
         <Atelier {...donneesAtelier()} mode="quiz" />
       </section>
+      <GuideTexte title="Comment marche le quiz de Tonton Kado" guide={GUIDE_QUIZ} />
     </>
   );
 }

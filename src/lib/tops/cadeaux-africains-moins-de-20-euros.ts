@@ -75,7 +75,7 @@ const top: Top = {
         "Les bijoux légers comme les boucles d'oreilles ou le pendentif carte d'Afrique, le savon noir, un turban en wax, un coffret d'épices ou un recueil de contes sont de très bons choix. Ils sont utiles, faciles à offrir et ont une vraie histoire. Vérifiez le prix sur Amazon.fr au moment de l'achat, car il peut varier.",
     },
     {
-      question: "Que offrir à un collègue d'origine africaine pour un petit budget ?",
+      question: "Qu'offrir à un collègue d'origine africaine pour un petit budget ?",
       reponse:
         "Restez sur un cadeau original mais pas trop personnel : du thé vert pour l'ataya, des épices ou des fleurs d'hibiscus pour le bissap. Ces idées font découvrir un peu de culture sans risque de faire un impair. Un petit mot accompagne très bien ce genre de cadeau.",
     },

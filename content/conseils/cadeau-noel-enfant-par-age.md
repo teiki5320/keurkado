@@ -1,5 +1,5 @@
 ---
-title: Cadeau de Noël africain pour un enfant : nos conseils par âge
+title: Cadeau de Noël africain pour un enfant : conseils par âge
 description: Bébé, maternelle, primaire ou préado : nos idées de cadeaux de Noël africains pour chaque âge, entre poupées, contes, jeux et instruments.
 date: 2026-11-09
 theme: choisir

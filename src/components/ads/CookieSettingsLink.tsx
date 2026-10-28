@@ -18,14 +18,14 @@ declare global {
 export function CookieSettingsLink({ className = "" }: { className?: string }) {
   if (!ADSENSE_CLIENT) {
     return (
-      <Link href="/confidentialite#cookies" className={className}>
+      <Link href="/confidentialite/#cookies" className={className}>
         Cookies
       </Link>
     );
   }
   return (
     <a
-      href="/confidentialite#cookies"
+      href="/confidentialite/#cookies"
       className={className}
       onClick={(e) => {
         // Bandeau de Google non chargé (bloqueur de publicité, hors Europe…) : le lien mène à la politique de confidentialité.

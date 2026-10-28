@@ -70,7 +70,7 @@ const top: Top = {
     "Pour un colis à envoyer au pays, le « Tapis de prière » ou la « Théière en inox pour le thé à la menthe », qui voyagent bien. Pour un petit budget qui fait de l'effet le jour de la fête, le « Lot de bracelets joncs dorés ».",
   faq: [
     {
-      question: "Que offrir pour la Tabaski ?",
+      question: "Qu'offrir pour la Tabaski ?",
       reponse:
         "Le cadeau le plus traditionnel est un tissu, souvent du bazin, ou une tenue de fête prête à porter. On offre aussi des bijoux, un parfum, un tapis de prière ou de beaux objets pour recevoir, comme une théière ou un plateau. Pour les enfants, une tenue neuve est le cadeau le plus attendu.",
     },

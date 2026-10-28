@@ -33,7 +33,7 @@ export const OCCASIONS = [
     slug: "korite",
     nom: "Korité",
     titre: "Idées cadeaux pour la Korité",
-    description: "Que offrir pour la Korité (Aïd el-Fitr) ? Tenues, parfums, coffrets, cadeaux pour enfants et douceurs pour fêter la fin du ramadan.",
+    description: "Qu'offrir pour la Korité (Aïd el-Fitr) ? Tenues, parfums, coffrets, cadeaux pour enfants et douceurs pour fêter la fin du ramadan.",
     intro: "La Korité marque la fin du ramadan : on se pardonne, on se rend visite et on fait plaisir. Des idées pour toute la famille, petits et grands.",
     texte: [
       "La Korité (Aïd el-Fitr) clôt le mois de ramadan. Le matin, on se rend à la prière en habits neufs, puis on passe la journée en visites, à demander pardon et à partager. C'est aussi un jour où les enfants reçoivent cadeaux et petites pièces.",

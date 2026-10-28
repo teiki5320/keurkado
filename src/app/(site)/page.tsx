@@ -13,13 +13,13 @@ import { donneesAtelier } from "@/lib/data/atelier";
 import { getConseils } from "@/lib/data/conseils";
 import { comptes } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
-import { jsonLd } from "@/lib/json-ld";
+import { jsonLd, organisationLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { BUDGETS, DESTINATAIRES, OCCASIONS, SITES_FRERES, UNIVERS, UNIVERS_FRERES } from "@/lib/taxonomie";
 import { TOPS } from "@/lib/tops";
 
 export const metadata: Metadata = pageMetadata({
-  title: `${siteConfig.name} — Idées cadeaux africains pour toutes les occasions`,
+  title: `${siteConfig.name} — Idées cadeaux africains pour chaque occasion`,
   description: siteConfig.description,
   path: "/",
   absoluteTitle: true,
@@ -38,19 +38,12 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: siteConfig.name,
-      url: siteConfig.url,
+      url: `${siteConfig.url}/`,
       description: siteConfig.description,
       inLanguage: "fr",
-      publisher: { "@type": "Organization", name: "TOA KEUR", url: "https://toakeur.com" },
+      publisher: { "@id": `${siteConfig.url}/#organisation` },
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-      logo: `${siteConfig.url}/brand/keurkado-logo.png`,
-      parentOrganization: { "@type": "Organization", name: "TOA KEUR", url: "https://toakeur.com" },
-    },
+    { "@context": "https://schema.org", ...organisationLd() },
   ];
 
   return (

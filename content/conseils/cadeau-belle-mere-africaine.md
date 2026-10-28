@@ -1,6 +1,6 @@
 ---
-title: Que offrir à une belle-mère africaine ?
-description: Que offrir à sa belle-mère quand elle est sénégalaise, ivoirienne ou camerounaise ? Nos conseils pour un cadeau respectueux, beau et bien pensé.
+title: Qu'offrir à une belle-mère africaine ?
+description: Qu'offrir à sa belle-mère quand elle est sénégalaise, ivoirienne ou camerounaise ? Nos conseils pour un cadeau respectueux, beau et bien pensé.
 date: 2026-10-26
 theme: choisir
 resume: Avec une belle-mère, le cadeau dit d'abord le respect que vous portez à sa famille. Misez sur ce qui l'honore et lui sert vraiment : un bel objet pour recevoir, un tissu ou un accessoire élégant, des soins de qualité. Renseignez-vous auprès de votre conjoint sur ses goûts et sur les usages de la famille, et soignez la manière d'offrir autant que le cadeau.

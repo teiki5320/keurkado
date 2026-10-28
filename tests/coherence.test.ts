@@ -10,6 +10,7 @@ import { FETES } from "../src/lib/calendrier";
 import { PRODUITS } from "../src/lib/catalogue";
 import { internalLinks, parseConseil } from "../src/lib/conseils/article";
 import { porte } from "../src/lib/data/produits";
+import { GUIDE_QUIZ, GUIDE_TOPS, guideDe, motsDuGuide } from "../src/lib/guides";
 import { BUDGETS, DESTINATAIRES, FAMILLES, OCCASIONS, UNIVERS, UNIVERS_FRERES, type Famille } from "../src/lib/taxonomie";
 import { TOPS } from "../src/lib/tops";
 
@@ -99,6 +100,28 @@ test("conseils : en-tête complet, produits existants, liens internes valides", 
     for (const s of c.produits) assert.ok(produits.has(s), `${c.slug} : produit inconnu ${s}`);
     for (const l of internalLinks(c.body)) assert.ok(ADRESSES.has(l.replace(/\/$/, "") || "/"), `${c.slug} : lien vers une page inexistante ${l}`);
   }
+});
+
+test("guides : chaque rubrique a son propre texte (300 mots ou plus), sans doublon d'intertitre", () => {
+  const intertitres = new Set<string>();
+  for (const [famille, f] of Object.entries(FAMILLES) as Array<[Famille, (typeof FAMILLES)[Famille]]>) {
+    for (const r of f.liste) {
+      if (famille === "univers" && UNIVERS_FRERES.includes(r.slug as never)) continue;
+      const g = guideDe(famille, r.slug);
+      assert.ok(g, `${f.chemin}/${r.slug} : guide manquant`);
+      assert.ok(motsDuGuide(g) >= 300, `${f.chemin}/${r.slug} : guide de ${motsDuGuide(g)} mots`);
+      for (const p of g.parties) {
+        assert.ok(!intertitres.has(p.titre), `intertitre en double : ${p.titre}`);
+        intertitres.add(p.titre);
+      }
+    }
+  }
+  assert.ok(motsDuGuide(GUIDE_QUIZ) >= 180 && motsDuGuide(GUIDE_TOPS) >= 180, "textes du quiz ou des Top 10 trop courts");
+});
+
+test("titres pour Google : 60 caractères au plus", () => {
+  for (const t of TOPS) assert.ok(t.titre.length <= 60, `Top ${t.slug} : ${t.titre.length} caractères`);
+  for (const c of conseils) assert.ok(c.title.length <= 60, `Conseil ${c.slug} : ${c.title.length} caractères`);
 });
 
 test("calendrier : dates valides, dans l'ordre, liens existants", () => {

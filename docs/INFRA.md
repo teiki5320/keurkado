@@ -8,7 +8,7 @@ uniquement des noms de variables et de consoles.
 - **Plateforme** : site web d'idées cadeaux, en français, sur ordinateur et mobile
 - **Stack** : Next.js 16 en export statique, React 19, Tailwind CSS 4
 - **Backend** : aucun — site statique, sans base ni compte
-- **Distribution** : Worker de fichiers statiques Cloudflare, publié par GitHub Actions
+- **Distribution** : Worker Cloudflare (fichiers statiques et petit script de redirections), publié par GitHub Actions
 - **Site** : keurkado.com (62 adresses dans le sitemap)
 - **IA et outils** : 95 illustrations créées par IA (OpenArt), épingles Pinterest générées au build
 
@@ -62,9 +62,11 @@ uniquement des noms de variables et de consoles.
 
 ## Hébergement web (GitHub Pages / Cloudflare Pages)
 
-- **Fournisseur** : Cloudflare, Worker de fichiers statiques « keurkado » sans code serveur
-  (comme Keur Foot), configuré dans `wrangler.jsonc` : sert `out/`, page 404, pas d'adresse
-  `workers.dev` ni d'aperçus publics, domaines `keurkado.com` et `www.keurkado.com`.
+- **Fournisseur** : Cloudflare, Worker « keurkado » (comme Keur Foot), configuré dans `wrangler.jsonc` :
+  sert `out/`, page 404, pas d'adresse `workers.dev` ni d'aperçus publics, domaines `keurkado.com` et
+  `www.keurkado.com`. Depuis le 28 octobre 2026, un petit script (`worker/index.ts`, testé dans
+  `tests/worker.test.ts`) passe avant les fichiers : http, www et les adresses sans barre finale sont
+  redirigés en 301 vers `https://keurkado.com/…/` (avant, ils répondaient 200 ou 307).
 - **Ne pas utiliser** `wrangler pages …` : la commande convertit le projet en application OpenNext.
 - **En-têtes** : `public/_headers` (politique de sécurité limitée au site et aux domaines Google
   nécessaires à AdSense, HSTS, cache des images) ; redirections : `public/_redirects`.
@@ -75,8 +77,8 @@ uniquement des noms de variables et de consoles.
 
 ## Nom de domaine
 
-- **Domaine** : `keurkado.com`, enregistré le 20 octobre 2026 ; `www.keurkado.com` sert les mêmes
-  pages, avec l'adresse canonique sans www.
+- **Domaine** : `keurkado.com`, enregistré le 20 octobre 2026 ; `www.keurkado.com` redirige en 301
+  vers keurkado.com depuis le 28 octobre 2026 (du 20 au 28 octobre, il servait les mêmes pages).
 - **Registraire et DNS** : Cloudflare (Cloudflare Registrar, serveurs de noms Cloudflare).
   Échéance : 20 octobre 2027.
 - **Adresse de contact** : `keurkado@toakeur.com`, affichée sur le site
@@ -96,7 +98,8 @@ uniquement des noms de variables et de consoles.
 
 ## AdSense (publicité web)
 
-- **Rôle** : script AdSense et balise `google-adsense-account` chargés dans `src/app/layout.tsx`
+- **Rôle** : balise `google-adsense-account` dans `src/app/layout.tsx` ; script AdSense chargé après
+  l'affichage de la page par `src/components/ads/AdsenseScript.tsx` (depuis le 28 octobre 2026)
   (même identifiant d'éditeur que Keurbook, `ADSENSE_CLIENT` dans `src/lib/config.ts`) ;
   `public/ads.txt` est publié et répond.
 - **Emplacements prévus** (composant `AdSlot`) : 2 dans un Top 10, 1 en bas des pages occasion,

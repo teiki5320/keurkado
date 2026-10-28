@@ -70,7 +70,7 @@ const top: Top = {
     "Pour un tout-petit, l'Imagier bilingue en langue africaine ou le Recueil de contes africains illustré, à lire ensemble le soir. Pour un colis à envoyer au pays, le Puzzle carte d'Afrique en bois et le Jeu d'awalé en bois voyagent sans souci. Pour faire sensation, la Poupée noire aux cheveux crépus, en vérifiant l'âge indiqué sur la fiche Amazon.",
   faq: [
     {
-      question: "Que offrir à un enfant d'origine africaine ?",
+      question: "Qu'offrir à un enfant d'origine africaine ?",
       reponse:
         "Une poupée noire, un imagier bilingue en langue africaine, un recueil de contes africains ou un puzzle de la carte d'Afrique sont des cadeaux qui comptent. Ils l'aident à se reconnaître et à connaître ses racines. Pour les plus grands, un awalé ou une kalimba font aussi très plaisir.",
     },

@@ -1,5 +1,5 @@
 ---
-title: Que offrir pour la Saint-Valentin quand on aime l'Afrique ?
+title: Qu'offrir pour la Saint-Valentin quand on aime l'Afrique ?
 description: Bijoux, parfum, soins au karité, wax ou moments à partager : nos idées de cadeaux africains pour la Saint-Valentin, pour elle comme pour lui.
 date: 2026-12-14
 theme: choisir

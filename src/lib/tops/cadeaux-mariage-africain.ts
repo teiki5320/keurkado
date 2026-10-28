@@ -70,12 +70,12 @@ const top: Top = {
     "Pour la famille proche, le « Coupon de tissu wax 6 yards » ou, à plusieurs, les « Créoles en or 18 carats ». Entre amis ou collègues, choisissez un objet pour le foyer, comme le « Plateau de service doré ».",
   faq: [
     {
-      question: "Que offrir pour un mariage africain ?",
+      question: "Qu'offrir pour un mariage africain ?",
       reponse:
         "Les pagnes et les tissus, les bijoux pour la mariée et les objets pour le foyer sont les cadeaux les plus appréciés. La famille proche offre souvent des pagnes ou des bijoux en or, tandis que les amis choisissent de la déco ou de la vaisselle. Une enveloppe est aussi très courante, seule ou avec un petit cadeau.",
     },
     {
-      question: "Que offrir pour une dot ?",
+      question: "Qu'offrir pour une dot ?",
       reponse:
         "Les présents de la dot dépendent beaucoup du pays, de l'ethnie et des familles, et ils sont souvent fixés à l'avance. On y trouve fréquemment des pagnes, des bijoux et des objets pour le foyer. Le plus sûr est de demander à un aîné de la famille ce qui est attendu.",
     },

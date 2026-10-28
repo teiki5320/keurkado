@@ -1,12 +1,17 @@
-// Publication de keurkado.com sur Cloudflare (Worker de fichiers statiques, sans code serveur), comme Keur Foot.
+// Publication de keurkado.com sur Cloudflare : Worker de fichiers statiques, comme Keur Foot, avec un petit
+// script (worker/index.ts) qui redirige en 301 http, www et les adresses sans barre finale vers la bonne adresse.
 // Le site est construit dans out/ par `npm run build`, puis publié par `npx wrangler deploy`
 // (à la main ou par .github/workflows/deploy.yml). En-têtes et redirections : public/_headers et public/_redirects.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "keurkado",
   "compatibility_date": "2026-09-26",
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
+    // Le script passe avant les fichiers : il redirige, puis confie la requête aux fichiers statiques.
+    "run_worker_first": true,
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },

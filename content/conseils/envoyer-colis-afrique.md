@@ -1,5 +1,5 @@
 ---
-title: Envoyer un colis en Afrique : ce qui voyage bien, ce qui est interdit
+title: Colis pour l'Afrique : ce qui passe, ce qui est interdit
 description: Envoyer un colis en Afrique depuis la France : quels cadeaux choisir, ce qu'il faut éviter, comment emballer, quel mode d'envoi et quand expédier.
 date: 2026-10-17
 theme: envoyer
@@ -50,7 +50,7 @@ Plusieurs solutions existent, chacune avec ses avantages. Le choix dépend surto
 
 C'est l'erreur la plus fréquente : envoyer trop tard. Avant la Korité, la Tabaski ou Noël, les volumes explosent et les délais habituels ne tiennent plus. Le dédouanement peut aussi ajouter plusieurs jours à l'arrivée.
 
-Le bon réflexe est de compter à rebours : partez de la date de la fête, retirez le délai annoncé par le transporteur, puis ajoutez une marge confortable. Pour un envoi par bateau, cela signifie s'organiser des semaines, voire des mois, à l'avance. Notre [calendrier des fêtes](/calendrier) indique pour chaque occasion le moment où il faut commander et expédier. Pour la Tabaski et la Korité, dont les dates suivent la lune, relisez aussi nos conseils dans [Que offrir pour la Tabaski et la Korité ?](/conseils/cadeaux-tabaski-korite-usages).
+Le bon réflexe est de compter à rebours : partez de la date de la fête, retirez le délai annoncé par le transporteur, puis ajoutez une marge confortable. Pour un envoi par bateau, cela signifie s'organiser des semaines, voire des mois, à l'avance. Notre [calendrier des fêtes](/calendrier) indique pour chaque occasion le moment où il faut commander et expédier. Pour la Tabaski et la Korité, dont les dates suivent la lune, relisez aussi nos conseils dans [Qu'offrir pour la Tabaski et la Korité ?](/conseils/cadeaux-tabaski-korite-usages).
 
 ## La douane : déclarer et se renseigner
 

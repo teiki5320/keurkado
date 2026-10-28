@@ -2,7 +2,7 @@
 
 Site en français d'**idées cadeaux africains pour la diaspora africaine en France** : par occasion (Tabaski, Korité, Noël, mariage, baptême…), par destinataire, par budget et par univers (wax, bijoux, beauté afro, déco, jeux), avec un quiz « Trouve le cadeau », des Top 10, une rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien : les boutons « Voir sur Amazon » mènent à Amazon.fr (programme Partenaires, tag `keurkadofr-21`).
 
-- **Site** : https://keurkado.com — Worker de fichiers statiques Cloudflare « keurkado » (`wrangler.jsonc`), comme Keur Foot. Voir `docs/DEPLOIEMENT.md`.
+- **Site** : https://keurkado.com — Worker Cloudflare « keurkado » (`wrangler.jsonc`), comme Keur Foot : fichiers statiques de `out/` et petit script `worker/index.ts` qui redirige en 301 http, www et les adresses sans barre finale. Voir `docs/DEPLOIEMENT.md`.
 - **Dépôt** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
 - **Base technique** : reprise de [Keurbook](https://github.com/teiki5320/keurbook) ; épingles Pinterest à la manière de Keur Déco.
 
@@ -54,7 +54,7 @@ Règles de rédaction : [`docs/REDACTION.md`](docs/REDACTION.md). Pinterest : [`
 
 ## Publicité et cookies
 
-Même fonctionnement que Keurbook : code AdSense (même identifiant d'éditeur, `public/ads.txt`) et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. Examen du site par AdSense demandé le 20 octobre 2026 (« En préparation » dans la console au 28 octobre 2026) : aucune annonce affichée pour l'instant, et les blocs d'annonces restent à créer (voir `docs/DEPLOIEMENT.md`).
+Même fonctionnement que Keurbook : code AdSense (même identifiant d'éditeur, `public/ads.txt`), chargé après l'affichage de la page (`src/components/ads/AdsenseScript.tsx`), et bandeau de consentement de Google, lien « Gérer mes cookies » dans le pied de page. Examen du site par AdSense demandé le 20 octobre 2026 (« En préparation » dans la console au 28 octobre 2026) : aucune annonce affichée pour l'instant, et les blocs d'annonces restent à créer (voir `docs/DEPLOIEMENT.md`).
 
 ## Logo
 

@@ -14,6 +14,16 @@ export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/
 /** Chemin interne (« /epingles/x.jpg ») préfixé du sous-dossier du site. */
 export const withBase = (path: string) => (path.startsWith("/") && !path.startsWith("//") ? `${BASE_PATH}${path}` : path);
 
+/**
+ * Chemin interne avec la barre finale (« /top » → « /top/ », « /quiz?pour=maman » → « /quiz/?pour=maman ») :
+ * le site sert ses pages avec la barre, un lien sans elle coûte une redirection. Fichiers (« /ads.txt ») inchangés.
+ */
+export function avecBarre(chemin: string): string {
+  const [, page, suite] = chemin.match(/^([^?#]*)(.*)$/) ?? ["", chemin, ""];
+  if (!page.startsWith("/") || page.endsWith("/") || /\.[a-z0-9]+$/i.test(page)) return chemin;
+  return `${page}/${suite}`;
+}
+
 export const siteConfig = {
   name: process.env.NEXT_PUBLIC_SITE_NAME || "Keur Kado",
   tagline: "Les idées cadeaux africains",

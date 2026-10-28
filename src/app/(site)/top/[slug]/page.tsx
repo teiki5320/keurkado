@@ -9,7 +9,7 @@ import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig, withBase } from "@/lib/config";
 import { getProduit, toCarte } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
-import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
+import { breadcrumbLd, jsonLd, organisationLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { getTop, TOPS } from "@/lib/tops";
 import { rubriqueDuTop } from "@/lib/tops/rubrique";
@@ -29,8 +29,9 @@ export async function generateMetadata({ params }: PageProps<"/top/[slug]">): Pr
     path: `/top/${top.slug}`,
     type: "article",
     publishedTime: top.date,
-    image: `/epingles/${top.slug}.jpg`,
+    image: `/epingles/partage/${top.slug}.jpg`,
     imageAlt: `Épingle : ${top.titre}`,
+    imageSize: [1200, 630],
   });
 }
 
@@ -60,15 +61,15 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
       inLanguage: "fr",
       image,
       url,
-      author: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
-      publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url, logo: `${siteConfig.url}/brand/keurkado-logo.png` },
+      author: organisationLd(),
+      publisher: organisationLd(),
     },
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: top.titre,
       numberOfItems: items.length,
-      itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.carte.nom })),
+      itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.carte.nom, url: `${url}#cadeau-${i + 1}` })),
     },
     {
       "@context": "https://schema.org",
@@ -130,7 +131,7 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
                 const rang = m * 5 + j + 1;
                 return (
                   <li key={it.carte.slug} id={`cadeau-${rang}`} className="scroll-mt-24">
-                    <ProduitCard produit={it.carte} rang={rang}>
+                    <ProduitCard produit={it.carte} rang={rang} niveau={2}>
                       <p className="mt-1 font-serif text-[19px] leading-[1.45] font-medium text-pretty italic">
                         <span className="sr-only">Pourquoi on l&apos;aime : </span>« {it.pourquoi} »
                       </p>

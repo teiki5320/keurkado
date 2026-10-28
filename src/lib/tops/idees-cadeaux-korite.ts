@@ -70,7 +70,7 @@ const top: Top = {
     "Pour un petit cadeau à glisser dans un colis pour le pays, le « Chapelet tasbih 99 perles » ou les « Fleurs d'hibiscus séchées pour le bissap », légers et solides. Pour faire honneur à une maman le jour des visites, le « Grand boubou brodé pour femme ».",
   faq: [
     {
-      question: "Que offrir pour la Korité ?",
+      question: "Qu'offrir pour la Korité ?",
       reponse:
         "Les tenues neuves restent le grand classique : ensemble boubou pour les hommes, grand boubou ou robe en wax pour les femmes, petite tenue de fête pour les enfants. On offre aussi des parfums, de l'encens, un chapelet ou de quoi bien recevoir les invités. L'important est de faire plaisir et de partager.",
     },
@@ -80,7 +80,7 @@ const top: Top = {
         "La Korité (Aïd el-Fitr) marque la fin du ramadan, tandis que la Tabaski (Aïd el-Kébir) a lieu un peu plus de deux mois plus tard et commémore le sacrifice d'Abraham. Ce sont les deux grandes fêtes musulmanes de l'année. Leurs dates suivent le calendrier lunaire : consultez notre calendrier des fêtes.",
     },
     {
-      question: "Que offrir aux enfants pour la Korité ?",
+      question: "Qu'offrir aux enfants pour la Korité ?",
       reponse:
         "Une tenue neuve est le cadeau le plus attendu, car les enfants aiment être beaux pour aller saluer la famille et les voisins. Vous pouvez y ajouter un jouet ou un livre, comme une poupée noire ou un puzzle de la carte d'Afrique. Vérifiez l'âge minimum indiqué sur la fiche Amazon.",
     },

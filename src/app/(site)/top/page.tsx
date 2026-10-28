@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { PageHeader, Section } from "@/components/layout/Section";
+import { GuideTexte, PageHeader, Section } from "@/components/layout/Section";
 import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig } from "@/lib/config";
+import { GUIDE_TOPS } from "@/lib/guides";
 import { itemListLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { TOPS } from "@/lib/tops";
@@ -28,6 +29,7 @@ export default function TopsPage() {
       <Section title={`${TOPS.length} sélections`}>
         <TopGrid tops={TOPS} />
       </Section>
+      <GuideTexte title="Comment nous composons nos Top 10" guide={GUIDE_TOPS} />
     </>
   );
 }

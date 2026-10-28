@@ -1,5 +1,5 @@
 ---
-title: Que offrir pour un baptême africain ? Les usages selon les pays
+title: Qu'offrir pour un baptême africain ? Usages par pays
 description: Baptême, ngente, outdooring ou sortie de l'enfant : comprendre les usages selon les pays et choisir un cadeau pour le bébé et pour la maman.
 date: 2026-11-16
 theme: traditions
