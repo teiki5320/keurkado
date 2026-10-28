@@ -18,7 +18,7 @@ publications réelles, ou routine qui publie).
 - [fait] **Aujourd'hui** : affiliation Amazon Partenaires (tag `keurkadofr-21`) ; le site ne vend rien.
 - [en cours] **Publicité AdSense** : script et ads.txt en ligne, examen du site demandé le 20 octobre 2026, « En préparation » dans la console AdSense, ni validé ni refusé (vérifié le 28 octobre 2026), blocs d'annonces à créer.
 - **Liens Amazon directs** : 58 cadeaux sur 98 mènent à leur fiche au 28 octobre 2026 (3 bijoux, des figurines et un recueil de proverbes ajoutés ce jour-là) ; les 40 autres gardent une recherche faute d’article fidèle et bien noté.
-- [fait] **Mise en avant (28 octobre 2026)** : Top 10 de la prochaine fête sous le compte à rebours de l'accueil, Top 10 et trois idées sous chaque fête du calendrier, un encadré de 1 ou 2 cadeaux dans chaque conseil, bouton Amazon juste après la description des cartes, plus aucun renvoi vers Keurbook ni Keur Cook.
+- [fait] **Mise en avant (28 octobre 2026)** : Top 10 de la prochaine fête sous le compte à rebours de l'accueil (depuis le 28 octobre au soir : 8 cadeaux illustrés, chacun mène à sa place dans le Top 10, sans lien Amazon sur l'accueil), Top 10 et trois idées sous chaque fête du calendrier, un encadré de 1 ou 2 cadeaux dans chaque conseil, bouton Amazon juste après la description des cartes, plus aucun renvoi vers Keurbook ni Keur Cook.
 - **Saison des fêtes** : Noël et colis de fin d'année, période où l'affiliation rapporte le plus.
 - **Partenariats** : mises en avant payées par des créateurs ou boutiques africaines, une fois l'audience mesurée.
 

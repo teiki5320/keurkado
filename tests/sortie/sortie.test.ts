@@ -90,6 +90,16 @@ describe("Site construit (out/)", () => {
     assert.match(html, /<meta name="msvalidate.01" content="[0-9A-F]{32}"/);
   });
 
+  it("l'accueil montre au moins 4 cadeaux illustrés menant au Top 10, sans lien Amazon", () => {
+    const html = readFileSync(join(out, "index.html"), "utf8");
+    const bloc = html.match(/<section[^>]*data-bloc="cadeaux-a-voir"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(bloc, "bloc des cadeaux à voir absent de l'accueil");
+    const liens = [...bloc.matchAll(/href="(\/top\/[a-z0-9-]+\/?#cadeau-\d+)"/g)].map((m) => m[1]);
+    assert.ok(liens.length >= 4, `${liens.length} cadeaux seulement`);
+    assert.ok((bloc.match(/<img /g) ?? []).length >= 4, "chaque cadeau a son illustration");
+    assert.doesNotMatch(html, /<a [^>]*href="https?:\/\/[^"]*amazon\./i, "aucun lien Amazon sur l'accueil");
+  });
+
   it("le sitemap liste toutes les pages, et seulement elles, avec une date", () => {
     const xml = readFileSync(join(out, "sitemap.xml"), "utf8");
     const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);

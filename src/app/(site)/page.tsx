@@ -33,10 +33,15 @@ export default function HomePage() {
   const prochaine = prochaines[0];
   // Top 10 de la prochaine fête qui en a un (Noël, Saint-Valentin…), mis en avant juste sous le compte à rebours.
   const topFete = prochaines.map(topDeLaFete).find(Boolean) ?? TOPS[0];
-  const perlesFete = topFete.items.slice(0, 3).flatMap((it) => {
-    const p = getProduit(it.produit);
-    return p ? [toCarte(p, "top")] : [];
-  });
+  // Ses cadeaux disponibles, avec leur rang dans la liste (même numérotation que la page du Top 10, pour l'ancre #cadeau-N).
+  const cadeauxFete = topFete.items
+    .flatMap((it) => {
+      const p = getProduit(it.produit);
+      return p ? [toCarte(p, "top")] : [];
+    })
+    .map((carte, i) => ({ carte, rang: i + 1 }))
+    .filter((c) => c.carte.image)
+    .slice(0, 8);
   const nbOccasion = comptes("occasion");
   const conseils = getConseils().slice(0, 3);
   const ld = [
@@ -78,22 +83,39 @@ export default function HomePage() {
             <Compteur date={prochaine.date} className="font-bold text-bois-fonce" />
           </p>
         )}
-        {/* Le Top 10 de la prochaine fête : trois perles et un lien vers la liste (pas de bouton Amazon sur l'accueil). */}
-        <Link
-          href={`/top/${topFete.slug}`}
-          className="carte-cadeau bulle mx-auto mt-6 flex max-w-2xl flex-col items-center gap-4 rounded-[40px_40px_40px_8px] px-5 py-5 text-center hover:text-ink sm:flex-row sm:text-left"
+        {/* Le Top 10 de la prochaine fête : 8 cadeaux illustrés, chacun mène à sa place dans la liste (aucun lien Amazon sur l'accueil). */}
+        <section
+          aria-labelledby="accueil-fete"
+          data-bloc="cadeaux-a-voir"
+          className="carte-cadeau bulle mx-auto mt-6 max-w-3xl rounded-[40px_40px_40px_8px] px-4 py-5 text-center sm:px-7"
         >
-          <span aria-hidden className="flex shrink-0 gap-3 pt-3">
-            {perlesFete.map((p, i) => (
-              <Perle key={p.slug} produit={p} index={i} taille={64} etiquette={false} />
+          <p className="eyebrow">Top 10 de la prochaine fête</p>
+          <h2 id="accueil-fete" className="mt-1 font-serif text-[24px] leading-tight font-semibold text-balance sm:text-[28px]">
+            <Link href={`/top/${topFete.slug}`} className="hover:text-terre-texte">
+              {topFete.titre}
+            </Link>
+          </h2>
+          <ul className="mt-5 grid grid-cols-4 gap-x-1.5 gap-y-4 sm:grid-cols-8 sm:gap-x-3">
+            {cadeauxFete.map(({ carte, rang }, i) => (
+              <li key={carte.slug} className="pt-4">
+                <Link href={`/top/${topFete.slug}#cadeau-${rang}`} className="group flex flex-col items-center hover:text-ink">
+                  <span aria-hidden>
+                    <Perle produit={carte} index={i} taille={62} etiquette={false} prioritaire={i < 4} />
+                  </span>
+                  <span className="mt-2.5 line-clamp-3 text-[12px] leading-tight font-semibold group-hover:text-terre-texte sm:text-[13px]">{carte.nom}</span>
+                </Link>
+              </li>
             ))}
-          </span>
-          <span className="min-w-0">
-            <span className="eyebrow block">Top 10 de la prochaine fête</span>
-            <span className="mt-1 block font-serif text-[24px] leading-tight font-semibold">{topFete.titre}</span>
-            <span className="mt-1 block text-[14px] font-bold text-terre-texte">Voir les 10 idées →</span>
-          </span>
-        </Link>
+          </ul>
+          <p className="mt-5 flex flex-wrap justify-center gap-2">
+            <Link href={`/top/${topFete.slug}`} className="tag">
+              Voir les 10 idées →
+            </Link>
+            <Link href="/top" className="tag">
+              Tous les Top 10 →
+            </Link>
+          </p>
+        </section>
         <div className="mt-8">
           <Atelier {...donneesAtelier()} mode="accueil" />
         </div>

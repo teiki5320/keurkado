@@ -23,7 +23,7 @@ npm run test:sortie  # après npm run build : contrôle du HTML de chaque page (
 
 | Page | Adresse |
 | --- | --- |
-| Accueil | `/` |
+| Accueil (en haut : 8 cadeaux illustrés du Top 10 de la prochaine fête, liens internes seulement) | `/` |
 | Quiz « Trouve le cadeau » (occasion → personne → budget) | `/quiz` (`?occasion=…&pour=…&budget=…&voyage=1`) |
 | Par occasion, destinataire, budget, univers | `/occasion/<slug>`, `/pour/<slug>`, `/budget/<slug>`, `/univers/<slug>` |
 | Livres et cuisine (rubriques comme les autres, avec leurs produits ; plus aucun renvoi vers un autre site du groupe depuis le 28 octobre 2026) | `/univers/livres`, `/univers/cuisine` |
