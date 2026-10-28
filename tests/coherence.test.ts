@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { FETES } from "../src/lib/calendrier";
 import { PRODUITS } from "../src/lib/catalogue";
-import { internalLinks, parseConseil } from "../src/lib/conseils/article";
+import { encadresDuCorps, internalLinks, parseConseil, partiesProchesDeLaPub } from "../src/lib/conseils/article";
 import { porte } from "../src/lib/data/produits";
 import { GUIDE_ENVOYER, GUIDE_QUIZ, GUIDE_TOPS, guideDe, motsDuGuide } from "../src/lib/guides";
 import { BUDGETS, DESTINATAIRES, FAMILLES, OCCASIONS, UNIVERS, type Famille } from "../src/lib/taxonomie";
@@ -129,5 +129,18 @@ test("calendrier : dates valides, dans l'ordre, liens existants", () => {
     assert.ok(!Number.isNaN(Date.parse(f.date)), `${f.slug} : date invalide`);
     if (i > 0) assert.ok(FETES[i - 1].date <= f.date, `${f.slug} : fêtes pas dans l'ordre`);
     if (f.lien) assert.ok(ADRESSES.has(f.lien.href), `${f.slug} : lien vers une page inexistante ${f.lien.href}`);
+  }
+});
+
+test("conseils : un encadré de 1 ou 2 cadeaux dans le texte, cités par l'article, loin de l'annonce du milieu", () => {
+  for (const c of conseils) {
+    const encadres = encadresDuCorps(c.body);
+    assert.equal(encadres.length, 1, `${c.slug} : ${encadres.length} encadré(s) produit (il en faut un)`);
+    const interdites = partiesProchesDeLaPub(c.body);
+    for (const e of encadres) {
+      assert.ok(e.produits.length >= 1 && e.produits.length <= 2, `${c.slug} : ${e.produits.length} produits dans l'encadré`);
+      for (const s of e.produits) assert.ok(c.produits.includes(s), `${c.slug} : ${s} n'est pas dans la liste « produits » de l'article`);
+      assert.ok(!interdites.includes(e.partie), `${c.slug} : encadré dans la partie ${e.partie}, voisine de l'annonce du milieu`);
+    }
   }
 });

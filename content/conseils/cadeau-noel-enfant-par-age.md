@@ -18,6 +18,8 @@ Pour les autres enfants, c'est une belle ouverture sur le monde. Un jeu d'awalé
 
 Chez les tout-petits, le cadeau doit d'abord être doux, solide et adapté à leur âge. Un tapis d'éveil aux animaux de la savane accompagne les premiers mois, quand bébé découvre les couleurs et les formes allongé sur le dos. Une poupée de chiffon noire, un doudou lion ou un hochet en bois deviennent vite des compagnons de tous les jours.
 
+{{produits: tapis-eveil-savane, poupee-chiffon-noire}}
+
 Pour les tout-petits, vérifiez toujours l'âge minimum indiqué par le fabricant et les mentions de sécurité sur l'emballage : petites pièces, cordons, matières. Préférez des objets faciles à laver, qui supportent d'être mâchouillés et traînés partout.
 
 Un imagier bilingue, en français et dans une langue africaine, est aussi un très joli cadeau dès cet âge. Les parents s'en servent pour nommer les objets du quotidien, et c'est une façon douce de transmettre la langue de la famille.

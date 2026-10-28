@@ -24,6 +24,8 @@ Les rôles qui suivent sont ceux que l'on retrouve dans de nombreux foyers, mais
 - **Les parents** sont honorés en priorité. Les enfants adultes participent souvent à l'achat du mouton, ou offrent une belle tenue, un chapelet, un tapis de prière, un service pour recevoir les invités.
 - **La belle-famille** ne doit pas être oubliée. Une attention pour la belle-mère, un tissu, un parfum ou un bel objet pour la maison, est un geste remarqué, qui dit le respect que l'on porte à la famille de son conjoint.
 
+{{produits: chapelet-tasbih, brule-encens-bakhoor}}
+
 ## Tenues neuves et tissus : le cœur des cadeaux
 
 S'il fallait ne retenir qu'une chose, ce serait celle-ci : pour la Tabaski comme pour la Korité, on se fait beau. Le grand boubou en bazin brodé, brillant et amidonné, est la tenue reine des jours de fête au Sénégal et au Mali. Le wax, plus coloré et plus quotidien, habille volontiers les enfants et les tenues de visite.

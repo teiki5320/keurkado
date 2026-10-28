@@ -21,6 +21,8 @@ Pour chaque nom, notez une idée et un ordre de grandeur. Tout le monde n'attend
 - **Les ados et les jeunes adultes**, cousins et cousines, aiment ce qui se porte et se montre : accessoires pour les cheveux, bonnet en satin, durag, petits bijoux.
 - **Les adultes** de la famille élargie seront touchés par une attention simple : un produit de soin, un accessoire, un livre.
 
+{{produits: chapelet-tasbih, bonnet-satin-cheveux}}
+
 N'oubliez pas les personnes âgées qui ne sont pas de la famille proche mais qui comptent : la grand-mère d'un voisin, un ancien du quartier. Un chapelet, un foulard ou une simple visite avec un petit paquet leur fera honneur. Et si vous rentrez avec votre conjoint ou vos enfants nés en France, associez-les au choix des cadeaux : c'est une belle façon de leur faire connaître chaque membre de la famille avant même d'arriver.
 
 ## Utile ou symbolique ?

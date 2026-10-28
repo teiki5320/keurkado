@@ -6,13 +6,13 @@ import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { ConseilGrid } from "@/components/conseils/ConseilCard";
 import { Section } from "@/components/layout/Section";
-import { ProduitGrid } from "@/components/produit/ProduitCard";
+import { EncadreProduits, ProduitGrid } from "@/components/produit/ProduitCard";
 import { TopGrid } from "@/components/produit/TopCard";
-import { conseilSections, splitAtMiddleSection } from "@/lib/conseils/article";
+import { conseilSections, decouperEncadres, encadresDuCorps, splitAtMiddleSection } from "@/lib/conseils/article";
 import { CONSEIL_CATEGORIES } from "@/lib/conseils/categories";
 import { siteConfig, withBase } from "@/lib/config";
 import { getConseilBySlug, getConseils, getRelatedConseils, renderConseil } from "@/lib/data/conseils";
-import { getProduit, toCarte } from "@/lib/data/produits";
+import { getProduit, toCarte, type CarteProduit } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
 import { breadcrumbLd, jsonLd, organisationLd } from "@/lib/json-ld";
 import { croisesEnBoucle } from "@/lib/liens";
@@ -50,10 +50,13 @@ export async function generateMetadata({ params }: PageProps<"/conseils/[slug]">
 export default async function ConseilPage({ params }: PageProps<"/conseils/[slug]">) {
   const conseil = getConseilBySlug((await params).slug);
   if (!conseil) notFound();
-  const cites = conseil.produits.flatMap((s) => {
+  const carte = (s: string) => {
     const p = getProduit(s);
     return p ? [toCarte(p, "conseil")] : [];
-  });
+  };
+  // Les cadeaux déjà montrés dans un encadré du texte ne reviennent pas dans la grille de fin.
+  const dansLeTexte = new Set(encadresDuCorps(conseil.body).flatMap((e) => e.produits));
+  const cites = conseil.produits.filter((s) => !dansLeTexte.has(s)).flatMap(carte);
   const related = getRelatedConseils(conseil);
   // « Nos Top 10 » : 2 sélections, à tour de rôle d'un conseil à l'autre.
   const topsLies = croisesEnBoucle(TOPS, getConseils().findIndex((c) => c.slug === conseil.slug), 2);
@@ -125,12 +128,14 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
             </ol>
           </nav>
         )}
-        <div className="prose-text mt-8" dangerouslySetInnerHTML={{ __html: firstHalf }} />
+        <div className="mt-8">
+          <Corps html={firstHalf} carte={carte} />
+        </div>
         {secondHalf && (
           <>
-            {/* Publicité : au milieu du texte, entre deux parties. */}
+            {/* Publicité : au milieu du texte, entre deux parties (les encadrés produits n'en sont jamais voisins). */}
             <AdSlot placement="article" />
-            <div className="prose-text" dangerouslySetInnerHTML={{ __html: secondHalf }} />
+            <Corps html={secondHalf} carte={carte} />
           </>
         )}
       </article>
@@ -158,5 +163,12 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
         <AdSlot placement="article" />
       </div>
     </>
+  );
+}
+
+/** Texte de l'article, avec ses encadrés produits (« {{produits: …}} ») à l'endroit où les cadeaux sont cités. */
+function Corps({ html, carte }: { html: string; carte: (slug: string) => CarteProduit[] }) {
+  return decouperEncadres(html).map((m, i) =>
+    "html" in m ? <div key={i} className="prose-text" dangerouslySetInnerHTML={{ __html: m.html }} /> : <EncadreProduits key={i} produits={m.produits.flatMap(carte)} />,
   );
 }

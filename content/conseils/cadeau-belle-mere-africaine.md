@@ -21,6 +21,8 @@ Avant tout, interrogez votre conjoint. Il ou elle connaît les goûts de sa mèr
 
 Pour une femme qui aime recevoir, les objets de la maison sont souvent très appréciés. Un plateau de service doré, une belle nappe, un panier tressé pour présenter les fruits ou le pain : ce sont des cadeaux qui servent à chaque visite et qui rappellent la personne qui les a offerts. Si elle parfume sa maison pour les grandes occasions, un brûle-encens pour le bakhoor ou le thiouraye lui fera honneur.
 
+{{produits: plateau-service-dore, brule-encens-bakhoor}}
+
 Les tissus et les accessoires restent des valeurs sûres. Un beau coupon de wax ou de bazin lui permettra de faire coudre la tenue de son choix chez son tailleur. Si vous ne connaissez pas encore bien ses goûts, un foulard de tête ou un turban en wax est plus facile à choisir. Nos conseils pour [bien choisir un tissu wax](/conseils/bien-choisir-wax) vous aideront à vous y retrouver entre les qualités et les motifs.
 
 Les bijoux, enfin, sont un classique. Un lot de bracelets joncs dorés se porte avec toutes les tenues de fête et convient à presque tous les styles. Pour un cadeau plus important, comme un anniversaire marquant, un bijou en or peut se garder toute une vie, mais mieux vaut en parler avec votre conjoint avant : dans certaines familles, ce type de présent a une signification particulière.

@@ -23,6 +23,8 @@ Enfin, tenez compte de l'occasion. On n'offre pas le même bijou pour un anniver
 - **Les perles** sont au cœur de nombreuses traditions, des perles de verre du Ghana aux grands colliers colorés d'Afrique de l'Est. Un collier plastron en perles est spectaculaire pour une fête, tandis qu'un simple bracelet se porte tous les jours.
 - **Les bijoux dorés**, joncs, créoles ou parures, accompagnent les grandes tenues de fête dans de nombreuses familles d'Afrique de l'Ouest. On les associe aux mariages, à la Tabaski, aux baptêmes.
 
+{{produits: boucles-oreilles-carte-afrique, collier-pendentif-carte-afrique}}
+
 Découvrez toutes ces familles dans notre univers [bijoux](/univers/bijoux).
 
 ## Pour une femme : style et occasion

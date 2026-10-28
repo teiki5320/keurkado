@@ -22,6 +22,8 @@ Une fois la liste prête, commandez sans attendre. Les produits artisanaux et ce
 
 Privilégiez les cadeaux qui voyagent bien : légers, solides, peu sensibles à la chaleur. Les textiles, les accessoires en wax, les bijoux simples, les livres et les petits jouets sont parfaits. Un recueil de contes africains illustré, un doudou lion, un kalimba ou un bonnet en satin tiennent peu de place et font beaucoup d'effet. Pour les adultes, des boucles d'oreilles, un pendentif carte d'Afrique ou un chapelet sont des présents faciles à glisser.
 
+{{produits: recueil-contes-africains-illustre, peluche-lion}}
+
 Évitez les liquides, les parfums, l'électronique avec batterie, le fragile et tout ce qui est périssable. Notre article [Envoyer un colis en Afrique : ce qui voyage bien, ce qui est interdit](/conseils/envoyer-colis-afrique) détaille ces précautions, et notre sélection de [cadeaux à envoyer au pays](/top/cadeaux-a-envoyer-au-pays) réunit des idées pensées pour le voyage.
 
 ## Mi-novembre : emballer et préparer les papiers

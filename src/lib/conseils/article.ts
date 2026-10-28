@@ -96,3 +96,43 @@ export function splitAtMiddleSection(html: string): [string, string] {
   const cut = starts[Math.floor(starts.length / 2)];
   return [html.slice(0, cut), html.slice(cut)];
 }
+
+/**
+ * Encadré produit dans le texte d'un article : une ligne « {{produits: slug-a, slug-b}} » (1 ou 2 produits),
+ * placée juste après le paragraphe qui les cite. marked la rend en paragraphe, que la page remplace par l'encadré.
+ */
+const ENCADRE_MD = /^\{\{produits: ([a-z0-9, -]+)\}\}$/gm;
+const ENCADRE_HTML = /<p>\{\{produits: ([a-z0-9, -]+)\}\}<\/p>\n?/g;
+const slugsDe = (liste: string) => liste.split(",").map((s) => s.trim()).filter(Boolean);
+
+/** Encadrés du corps Markdown : leurs produits et le nombre de parties (h2) qui les précèdent (0 = introduction). */
+export function encadresDuCorps(body: string): Array<{ produits: string[]; partie: number }> {
+  return [...body.matchAll(ENCADRE_MD)].map((m) => ({
+    produits: slugsDe(m[1]),
+    partie: (body.slice(0, m.index).match(/^##\s/gm) ?? []).length,
+  }));
+}
+
+/**
+ * Parties de l'article où un encadré est interdit, car trop près de l'annonce du milieu
+ * (celle qui précède la coupure et celle qui la suit). Rien d'interdit sans annonce au milieu.
+ */
+export function partiesProchesDeLaPub(body: string): number[] {
+  const h2 = (body.match(/^##\s/gm) ?? []).length;
+  if (h2 < 3) return [];
+  const coupure = Math.floor(h2 / 2);
+  return [coupure, coupure + 1];
+}
+
+/** Découpe le HTML d'un article autour de ses encadrés produits : morceaux de texte et listes de produits, dans l'ordre. */
+export function decouperEncadres(html: string): Array<{ html: string } | { produits: string[] }> {
+  const morceaux: Array<{ html: string } | { produits: string[] }> = [];
+  let debut = 0;
+  for (const m of html.matchAll(ENCADRE_HTML)) {
+    morceaux.push({ html: html.slice(debut, m.index) });
+    morceaux.push({ produits: slugsDe(m[1]) });
+    debut = m.index + m[0].length;
+  }
+  morceaux.push({ html: html.slice(debut) });
+  return morceaux.filter((m) => !("html" in m) || m.html.trim() !== "");
+}

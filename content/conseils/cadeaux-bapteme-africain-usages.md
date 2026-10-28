@@ -53,6 +53,8 @@ Enfin, respectez les usages religieux de la famille. Dans une famille musulmane,
 
 Vivre en France et rater le baptême d'un neveu ou d'une nièce au pays, c'est fréquent. Votre attention peut voyager quand même. Choisissez des cadeaux légers, solides et peu encombrants : une gourmette, un doudou, un livre, un coupon de tissu. Envoyez-les suffisamment tôt, ou confiez-les à un proche qui fait le voyage.
 
+{{produits: gourmette-naissance-argent, peluche-lion}}
+
 Pour la cérémonie du nom, qui a lieu peu après la naissance, il est souvent difficile de faire arriver un colis à temps. Ce n'est pas grave : un cadeau envoyé un peu plus tard, accompagné d'un appel le jour de la fête, sera tout aussi apprécié. Notre page [Envoyer au pays](/envoyer-au-pays) vous donne des conseils pour préparer votre envoi.
 
 Et pour trouver d'autres idées, parcourez nos [cadeaux de baptême africain](/occasion/bapteme). L'arrivée d'un enfant est un bonheur partagé : quel que soit votre cadeau, c'est la joie d'accueillir ce nouveau membre de la famille qu'il célèbre.

@@ -15,7 +15,9 @@ Le bon cadeau à envoyer tient en trois mots : léger, solide, plat. Le prix d'u
 
 Les textiles sont les champions du voyage. Un coupon de wax, un foulard de tête, une chemise ou un boubou se plient, ne cassent pas et font toujours plaisir. Viennent ensuite les petits bijoux simples, un chapelet, un bracelet en cauris, les livres pour enfants, les jouets en bois comme un puzzle, les accessoires pour cheveux comme un bonnet en satin. Tous ces objets ont un bon rapport entre le plaisir qu'ils procurent et la place qu'ils occupent.
 
-Si votre budget est serré, une série de petits cadeaux bien choisis vaut mieux qu'un seul objet lourd : vous ferez plus d'heureux. Notre sélection [à moins de 20 euros](/budget/moins-de-20) regorge d'idées de ce genre.
+{{produits: bonnet-satin-cheveux, recueil-contes-africains-illustre}}
+
+Si votre budget est serré, une série de petits cadeaux bien choisis vaut mieux qu'un seul objet lourd : vous ferez plus d'heureux. Notre sélection [à moins de 20 euros](/budget/moins-de-20) regorge d'idées de ce genre. Et notre [top des cadeaux à envoyer au pays](/top/cadeaux-a-envoyer-au-pays) réunit dix idées choisies pour supporter le voyage.
 
 ## Ce qu'il vaut mieux éviter
 

@@ -20,6 +20,8 @@ Retrouvez toutes nos idées sur notre page [Saint-Valentin](/occasion/saint-vale
 
 Les bijoux restent les cadeaux de Saint-Valentin par excellence. Des boucles d'oreilles ou un pendentif en forme de carte d'Afrique disent à la fois l'amour et l'attachement aux racines. Un collier de perles colorées, des bracelets joncs dorés ou des créoles en or, pour une occasion plus marquante, feront aussi leur effet. Découvrez tous nos modèles dans notre univers [bijoux](/univers/bijoux).
 
+{{produits: collier-pendentif-carte-afrique, boucles-oreilles-carte-afrique}}
+
 Les perles de taille, appelées bine-bine au Sénégal, sont un cadeau plus intime, qui appartient à l'univers de la séduction dans plusieurs pays d'Afrique de l'Ouest. Elles se réservent naturellement à une relation où l'on se sent à l'aise avec ce type de présent.
 
 Les soins sont une autre belle idée. Un coffret au karité, une huile de baobab ou un soin pour les cheveux invitent à prendre du temps pour soi. Si votre compagne porte volontiers le wax, une robe, un turban ou une pochette de soirée pour votre dîner en amoureux compléteront joliment la soirée.

@@ -4,7 +4,7 @@ description: Dot, mariage religieux, civil ou coutumier, grande fête : les éta
 date: 2026-12-07
 theme: traditions
 resume: Dans beaucoup de familles, le mariage se déroule en plusieurs étapes, de la demande à la grande fête, et chacune a ses usages. Les familles proches offrent souvent des tissus, de la vaisselle, des bijoux pour la mariée ; les amis et collègues privilégient un bel objet pour le foyer ou une participation commune. Renseignez-vous auprès des mariés ou de leurs proches sur ce qui se fait chez eux.
-produits: plateau-service-dore, creoles-or-18-carats, parure-bijoux-dores-mariee, panier-tresse-bolga, brule-encens-bakhoor, mortier-pilon-bois, statuette-couple-africain, coupon-bazin-riche
+produits: plateau-service-dore, creoles-or-18-carats, parure-bijoux-dores-mariee, panier-tresse-bolga, brule-encens-bakhoor, mortier-pilon-bois, statuette-couple-africain, coupon-bazin-riche, pochette-soiree-wax, noeud-papillon-wax
 ---
 Un mariage africain ne se résume pas toujours à une seule journée. Dans beaucoup de familles, c'est une succession d'étapes, parfois étalées sur plusieurs semaines ou plusieurs mois, entre la France et le pays. On vous invite à la dot d'une cousine, à la fête d'un ami d'enfance, au mariage à la mairie d'un collègue : à chaque fois, la même question revient. Que faut-il offrir, et à qui ? Voici les principales étapes et les cadeaux qui les accompagnent.
 
@@ -52,6 +52,8 @@ Retrouvez nos idées pour chaque budget dans le [top des cadeaux de mariage afri
 Dans beaucoup de mariages, les invités se coordonnent autour d'un même tissu choisi par les mariés ou par la famille : on parle souvent d'« aso ebi » au Nigeria, et d'uniforme ou de tissu de la fête ailleurs. Porter ce tissu, c'est montrer son attachement aux mariés. Si on vous le propose, achetez-le tôt et prévoyez le temps de faire coudre votre tenue chez le tailleur.
 
 Pour bien choisir un tissu, que ce soit pour vous ou pour offrir, nos conseils pour [bien choisir un tissu wax](/conseils/bien-choisir-wax) vous seront utiles. Et pour compléter la tenue, une pochette de soirée ou un nœud papillon en wax font souvent sensation.
+
+{{produits: pochette-soiree-wax, noeud-papillon-wax}}
 
 ## Si le mariage a lieu au pays
 

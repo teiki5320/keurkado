@@ -26,6 +26,8 @@ L'**imprimé fantaisie**, parfois appelé « fancy », est imprimé directement,
 
 Le test le plus simple consiste à regarder l'envers du tissu, ou les photos de l'envers si vous achetez en ligne. Si la description du produit reste floue, méfiez-vous : un vendeur de vrai wax le précise en général.
 
+{{produits: coupon-tissu-wax-6-yards}}
+
 ## Combien de tissu offrir ?
 
 La mesure classique est la pièce de **6 yards**, soit environ 5,5 mètres. C'est la longueur que l'on offre traditionnellement pour les fêtes : elle permet le plus souvent de faire coudre une tenue complète pour un adulte, selon le modèle choisi. Certaines boutiques vendent aussi des demi-pièces de 3 yards, environ 2,75 mètres, suffisantes pour une jupe, une chemise ou une tenue d'enfant.

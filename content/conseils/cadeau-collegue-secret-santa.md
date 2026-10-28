@@ -26,6 +26,8 @@ Les cadeaux gourmands plaisent presque toujours et ne restent pas au fond d'un t
 - **Les fleurs d'hibiscus séchées** permettent de préparer le bissap, boisson rouge très populaire en Afrique de l'Ouest, que l'on boit frais. C'est une jolie découverte pour qui ne connaît pas.
 - **Un coffret d'épices africaines** fera le bonheur d'un collègue qui aime cuisiner.
 
+{{produits: the-vert-gunpowder, fleurs-hibiscus-bissap}}
+
 Si vous connaissez un peu mieux la personne, un livre de recettes africaines est un cadeau plus généreux, qui invite au voyage. Vérifiez simplement qu'il n'y a pas d'allergie ou de régime particulier si vous offrez quelque chose à consommer, et lisez bien les ingrédients.
 
 ## Les petits soins neutres
