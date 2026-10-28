@@ -10,12 +10,12 @@ uniquement des noms de variables et de consoles.
 - **Backend** : aucun — site statique, sans base ni compte
 - **Distribution** : Worker Cloudflare (fichiers statiques et petit script de redirections), publié par GitHub Actions
 - **Site** : keurkado.com (62 adresses dans le sitemap)
-- **IA et outils** : 95 illustrations créées par IA (OpenArt), épingles Pinterest générées au build
+- **IA et outils** : 98 illustrations créées par IA (OpenArt), épingles Pinterest générées au build
 
 ## Parcours
 
 - 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
-- 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 53 ASIN sur 95 cadeaux [à faire]
+- 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 56 ASIN sur 98 cadeaux [à faire]
 - 📰 **Publicité** : 📰 AdSense (publicité web) — script et ads.txt en ligne [ok] → 🧱 Blocs d'annonces — pas encore créés [à faire] → 💶 Revenus — aucun constaté [pas encore]
 - 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 7 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 61 pages indexées sur 62 au 27 octobre [ok]
 
@@ -27,13 +27,13 @@ uniquement des noms de variables et de consoles.
   rubrique Conseils et un calendrier des fêtes africaines. Le site ne vend rien.
 - **Stack** : Next.js 16 (App Router, export statique) + React 19 + Tailwind CSS 4, TypeScript,
   Marked pour les articles Markdown, sharp pour les épingles. Base technique reprise de Keurbook.
-- **Contenus** : catalogue de 95 cadeaux dans `src/lib/catalogue/` (7 univers), 21 Top 10 dans
+- **Contenus** : catalogue de 98 cadeaux dans `src/lib/catalogue/` (7 univers), 21 Top 10 dans
   `src/lib/tops/`, 12 articles Conseils dans `content/conseils/` (publiés à leur date),
   calendrier dans `src/lib/calendrier.ts`.
 - **Backend** : aucun. Site entièrement statique (dossier `out/`), sans base de données, sans
   compte, sans formulaire. Seuls cookies : ceux de Google AdSense, après accord dans le bandeau de
   consentement de Google.
-- **Images** : une illustration par cadeau (95), créée par IA avec OpenArt en octobre 2026 pendant
+- **Images** : une illustration par cadeau (98), créée par IA avec OpenArt en octobre 2026 pendant
   les séances de rédaction (aucun appel depuis le site) ; chaque carte porte la mention
   « Illustration IA : l'article vendu peut différer. ». Détail : `docs/IMAGES.md`.
 - **Particularités** : tests de cohérence des contenus dans `tests/` ; épingles Pinterest
@@ -88,7 +88,7 @@ uniquement des noms de variables et de consoles.
 ## Amazon Partenaires (affiliation)
 
 - **Rôle** : les boutons « Voir sur Amazon » mènent à Amazon.fr avec le tag `keurkadofr-21`
-  (construits par `src/lib/amazon.ts`, réglable par `NEXT_PUBLIC_AMAZON_TAG`). 53 cadeaux sur 95 ont
+  (construits par `src/lib/amazon.ts`, réglable par `NEXT_PUBLIC_AMAZON_TAG`). 56 cadeaux sur 98 ont
   un ASIN relevé à la main et mènent directement à leur fiche ; les autres ouvrent une recherche
   Amazon. Aucun prix saisi à la main (règle du programme).
 - **Contrôle** : la routine « Vérifier les liens Amazon » du Studio a contrôlé 40 liens le

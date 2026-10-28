@@ -17,7 +17,7 @@ publications réelles, ou routine qui publie).
 
 - [fait] **Aujourd'hui** : affiliation Amazon Partenaires (tag `keurkadofr-21`) ; le site ne vend rien.
 - [en cours] **Publicité AdSense** : script et ads.txt en ligne, examen du site demandé le 20 octobre 2026, « En préparation » dans la console AdSense, ni validé ni refusé (vérifié le 28 octobre 2026), blocs d'annonces à créer.
-- **Liens Amazon directs** : 53 cadeaux sur 95 mènent à leur fiche ; étendre les ASIN vérifiés aux autres.
+- **Liens Amazon directs** : 56 cadeaux sur 98 mènent à leur fiche (3 bijoux ajoutés le 28 octobre 2026) ; étendre les ASIN vérifiés aux autres.
 - **Saison des fêtes** : Noël et colis de fin d'année, période où l'affiliation rapporte le plus.
 - **Partenariats** : mises en avant payées par des créateurs ou boutiques africaines, une fois l'audience mesurée.
 
@@ -46,7 +46,7 @@ publications réelles, ou routine qui publie).
 
 - **Pages indexées par Google** : 61 sur 62 (relevé du Studio, 27 octobre 2026 ; 9 sur 61 au 21 octobre)
 - **Pages pas encore indexées** : 1, inconnue de Google (l'article « cadeau belle-mère africaine »)
-- **Liens Amazon directs** : 53 cadeaux sur 95
+- **Liens Amazon directs** : 56 cadeaux sur 98
 - **Articles Conseils** : 5 publiés, 7 programmés
 - **Visites** : à instrumenter
 - **Clics et revenus Amazon** : à vérifier dans la console
@@ -59,4 +59,4 @@ publications réelles, ou routine qui publie).
 - Faire indexer la dernière page manquante et suivre les positions dans Google (61 pages sur 62
   indexées au 27 octobre 2026).
 - Liens Amazon directs : relever les ASIN vérifiés des 42 cadeaux qui ouvrent encore une recherche
-  Amazon (53 sur 95 mènent à leur fiche), en commençant par ceux des Top 10 de Noël.
+  Amazon (56 sur 98 mènent à leur fiche), en commençant par ceux des Top 10 de Noël.

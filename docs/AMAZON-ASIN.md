@@ -61,3 +61,11 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `livre-histoire-afrique` | [2701198364](https://www.amazon.fr/dp/2701198364) | *L'Afrique ancienne, de l'Acacus au Zimbabwe*, F.-X. Fauvelle (dir.), Belin (4,6 ; 97 avis) — s'arrête au XVIIe siècle, description ajustée |
 
 Deuxième relevé (20 octobre 2026, 26 produits sans lien) : seuls les 4 articles ci-dessus ont été retenus. Écartés : foulard de tête (imprimé, pas du vrai wax), beau livre photo (6 avis), service à thé (7 avis, expédié du Royaume-Uni), kit durag (un seul en stock, kit de 11 pièces), poupée (cheveux bouclés et non crépus). Aucun article fidèle et noté pour le reste : tissus wax et bazin, vêtements et accessoires en wax, tabouret sculpté, carte murale en bois, coffret d'épices, puzzle carte d'Afrique, bracelet en cauris.
+
+Troisième relevé (28 octobre 2026) : trois nouveaux bijoux ajoutés au catalogue pour étoffer la rubrique bijoux, chacun avec son article vérifié (résultat non sponsorisé, en stock).
+
+| Produit (slug) | ASIN | Article choisi |
+| --- | --- | --- |
+| `collier-carte-afrique-adinkra` | [B0D86M47GF](https://www.amazon.fr/dp/B0D86M47GF) | EUEAVAN collier carte d'Afrique ajourée d'un symbole adinkra Gye Nyame, acier (4,9 ; 16 avis) |
+| `croix-agadez-argent` | [B076128WY4](https://www.amazon.fr/dp/B076128WY4) | Ascalido croix d'Agadez en argent massif 925, chaîne 55 cm et écrin (4,5 ; 7 avis ; peu de stock, à surveiller) |
+| `boucles-oreilles-bandeaux-motifs-africains` | [B0BS98MJRP](https://www.amazon.fr/dp/B0BS98MJRP) | Willbond 4 paires de boucles d'oreilles et 4 bandeaux à imprimés africains (4,4 ; 622 avis) |
