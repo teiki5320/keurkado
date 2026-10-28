@@ -49,7 +49,7 @@ Règles de rédaction : [`docs/REDACTION.md`](docs/REDACTION.md). Pinterest : [`
 
 - Liens construits par `src/lib/amazon.ts` avec le tag `keurkadofr-21` (`NEXT_PUBLIC_AMAZON_TAG` pour le changer). Le code de suivi se choisit selon l'emplacement du lien dans la table `CODES_SUIVI` (top, rubrique, conseil, quiz) ; pour l'instant, tous gardent `keurkadofr-21`.
 - Si `amazonAsin` est rempli (ASIN vérifié sur Amazon.fr), le bouton mène à la fiche ; sinon à une **recherche Amazon** (champ `recherche`, rayon `rayon`).
-- `amazonAsin` : relevé à la main sur Amazon.fr (produit non sponsorisé, bien noté, fidèle à la description et à la tranche de budget). 56 produits sur 98 en ont un au 28 octobre 2026 (53 sur 95 le 21 octobre) ; les autres mènent volontairement à une recherche.
+- `amazonAsin` : relevé à la main sur Amazon.fr (produit non sponsorisé, bien noté, fidèle à la description et à la tranche de budget). 58 produits sur 98 en ont un au 28 octobre 2026 au soir (56 le matin, 53 sur 95 le 21 octobre) ; les autres mènent volontairement à une recherche.
 - Disponibilité : `npm run verifier-produits -- --ecrire` (sur le Mac, avec Chrome ; `--lot 20` pour un petit lot) vérifie que chaque fiche Amazon a encore son bouton d'achat et l'inscrit dans `src/lib/catalogue/verifications.json` ; une fiche indisponible masque le produit jusqu'à son remplacement.
 - `priceCents` : **jamais saisi à la main** (règle du programme Partenaires : un prix affiché doit venir de l'API Amazon et être rafraîchi toutes les 24 h). Tant qu'il est vide, on affiche la tranche de budget ; la conversion en FCFA n'apparaît qu'avec un vrai prix.
 - Mention obligatoire dans le pied de page et les pages légales.

@@ -15,7 +15,7 @@ uniquement des noms de variables et de consoles.
 ## Parcours
 
 - 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build, contrôle du HTML, vérification en ligne [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
-- 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 56 ASIN sur 98 cadeaux [à faire]
+- 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 58 ASIN sur 98 cadeaux [à faire]
 - 📰 **Publicité** : 📰 AdSense (publicité web) — script et ads.txt en ligne [ok] → 🧱 Blocs d'annonces — pas encore créés [à faire] → 💶 Revenus — aucun constaté [pas encore]
 - 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 7 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 61 pages indexées sur 62 au 27 octobre [ok]
 
@@ -93,7 +93,7 @@ uniquement des noms de variables et de consoles.
 ## Amazon Partenaires (affiliation)
 
 - **Rôle** : les boutons « Voir sur Amazon » mènent à Amazon.fr avec le tag `keurkadofr-21`
-  (construits par `src/lib/amazon.ts`, réglable par `NEXT_PUBLIC_AMAZON_TAG`). 56 cadeaux sur 98 ont
+  (construits par `src/lib/amazon.ts`, réglable par `NEXT_PUBLIC_AMAZON_TAG`). 58 cadeaux sur 98 ont
   un ASIN relevé à la main et mènent directement à leur fiche ; les autres ouvrent une recherche
   Amazon. Aucun prix saisi à la main (règle du programme).
 - **Codes de suivi par emplacement** (depuis le 28 octobre 2026) : table unique `CODES_SUIVI` dans

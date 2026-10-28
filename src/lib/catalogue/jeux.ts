@@ -115,13 +115,14 @@ export const PRODUITS_JEUX: Produit[] = [
     slug: "figurines-animaux-savane",
     nom: "Figurines animaux de la savane",
     description:
-      "Un lot de figurines réalistes : lion, éléphant, girafe, zèbre et hippopotame. De quoi inventer des safaris sur le tapis du salon et apprendre le nom des animaux d'Afrique.",
+      "Un petit lot de figurines réalistes et solides : lion, éléphant, zèbre et singe. De quoi inventer des safaris sur le tapis du salon et apprendre le nom des animaux d'Afrique.",
     univers: "jeux-et-jouets",
     occasions: ["noel", "anniversaire", "tabaski", "korite"],
     pour: ["enfant"],
     budget: "moins-de-20",
     voyage: true,
     recherche: "figurines animaux savane afrique",
+    amazonAsin: "B0CTSYLS1T",
     rayon: "toys",
   },
   {

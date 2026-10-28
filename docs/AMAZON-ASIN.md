@@ -71,3 +71,12 @@ Troisième relevé (28 octobre 2026) : trois nouveaux bijoux ajoutés au catalog
 | `collier-carte-afrique-adinkra` | [B0D86M47GF](https://www.amazon.fr/dp/B0D86M47GF) | EUEAVAN collier carte d'Afrique ajourée d'un symbole adinkra Gye Nyame, acier (4,9 ; 16 avis) |
 | `croix-agadez-argent` | [B076128WY4](https://www.amazon.fr/dp/B076128WY4) | Ascalido croix d'Agadez en argent massif 925, chaîne 55 cm et écrin (4,5 ; 7 avis ; peu de stock, à surveiller) |
 | `boucles-oreilles-bandeaux-motifs-africains` | [B0BS98MJRP](https://www.amazon.fr/dp/B0BS98MJRP) | Willbond 4 paires de boucles d'oreilles et 4 bandeaux à imprimés africains (4,4 ; 622 avis) |
+
+Quatrième relevé (28 octobre 2026, priorité aux 30 recherches de la page Noël, puis au rayon wax et à l'art et déco) : 2 articles retenus, fiches ouvertes le jour même (bouton « Ajouter au panier », résultat non sponsorisé).
+
+| Produit (slug) | ASIN | Article choisi |
+| --- | --- | --- |
+| `figurines-animaux-savane` | [B0CTSYLS1T](https://www.amazon.fr/dp/B0CTSYLS1T) | Schleich Wild Life, set de démarrage Afrique 42721, 4 figurines (4,8 ; 298 avis ; vendu et expédié par Amazon) — description ajustée : lion, éléphant, zèbre et singe |
+| `recueil-proverbes-africains` | [2412057788](https://www.amazon.fr/dp/2412057788) | *Petit livre de – L'Afrique en 200 proverbes*, Virginie Ehonian, First (4,4 ; 132 avis ; vendu par Amazon) |
+
+Écartés ce jour-là (la recherche Amazon reste en place) : accessoires en wax (casquette, chouchous, cravate, nœud papillon, sac, trousse : imprimés « africains » en polyester ou sans avis), boucles d'oreilles en tissu wax (le modèle trouvé est un cabochon de verre, pas du tissu), affiches (art afro-américain générique), carte murale (en métal, pas en bois), puzzle de la carte d'Afrique (le puzzle Goki trouvé montre des animaux, pas les pays), masque, tableau, statuette de couple, nappe, sets de table, housse de coussin (pas de wax, ou trop peu d'avis), coffret d'épices (aucun coffret africain), livre de coloriage (2 avis), beau livre photo (indisponible ou 3 avis), album jeunesse (sans avis), poupée aux cheveux crépus (cheveux bouclés), durag avec brosse (aucun duo), bracelet en cauris (bracelets de cheville).

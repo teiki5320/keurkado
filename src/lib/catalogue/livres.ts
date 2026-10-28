@@ -93,6 +93,7 @@ export const PRODUITS_LIVRES: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "recueil proverbes africains",
+    amazonAsin: "2412057788",
     rayon: "stripbooks",
   },
 ];
