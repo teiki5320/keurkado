@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 idées cadeaux pour la Korité (Aïd el-Fitr) : boubous, chemise dashiki, parfum au oud, encens, chapelet et jeu de dames pour fêter la fin du ramadan.",
   date: "2026-10-17",
+  maj: "2026-10-28",
   rubrique: "occasion/korite",
   intro:
     "Dix idées cadeaux pour la Korité, la fête de la fin du ramadan : des tenues pour la prière du matin, des attentions qui parfument la maison et de quoi passer l'après-midi en famille. Nous les avons classées de la plus ancrée dans la tradition de ce jour à la plus originale. Notre n° 1, « Ensemble boubou homme 3 pièces », s'impose : on se rend à la prière de l'Aïd en habits neufs, et cet ensemble complet est prêt à porter. C'est notre classement, pas un palmarès officiel.",

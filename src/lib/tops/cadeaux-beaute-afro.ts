@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux beauté afro : coffret au karité, savon noir, bonnet et taie en satin, accessoires pour cheveux crépus et bouclés, pour elle et pour lui.",
   date: "2026-10-17",
+  maj: "2026-10-20",
   rubrique: "univers/beaute-afro",
   intro:
     "Dix cadeaux beauté afro pour nos peaux et nos cheveux, des soins hérités de nos mères, comme le karité et le savon noir, aux accessoires et appareils des routines capillaires. Nous les avons classés du cadeau qui plaît au plus grand nombre au plus pointu, pensé pour une routine déjà bien installée. Le Coffret de soins au karité arrive en tête : joliment présenté, il se donne tel quel et fait plaisir même si l'on connaît mal les habitudes de la personne. C'est notre classement, pas un palmarès officiel.",

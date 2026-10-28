@@ -42,6 +42,7 @@ Introduction, puis 4 à 6 parties « ## Titre ».
 ```
 
 - 900 à 1 400 mots. L'article paraît à sa date (heure de Paris) ; le site est republié chaque lundi, mercredi et vendredi (3 articles par semaine depuis le 23 octobre 2026).
+- Retouche notable d'un article déjà paru (titre, partie, produits) : ajouter ou mettre à jour `maj: AAAA-MM-JJ` dans l'en-tête ; même champ `maj` pour un Top 10 modifié. Google reçoit cette date comme date de modification (données structurées et plan du site).
 - Liens internes uniquement vers des pages qui existent (vérifié par `npm test`).
 
 ## Calendrier (`src/lib/calendrier.ts`)

@@ -2,6 +2,7 @@
 title: Qu'offrir pour la Tabaski et la Korité ? Les usages
 description: Tabaski et Korité : qui offre quoi à qui, tenues neuves et tissus, dates lunaires et envoi d'un cadeau au pays quand on ne peut pas rentrer.
 date: 2026-10-17
+maj: 2026-10-28
 theme: traditions
 resume: La Korité marque la fin du ramadan, la Tabaski commémore le sacrifice d'Abraham : ce sont les deux grandes fêtes de l'année pour de nombreuses familles musulmanes d'Afrique de l'Ouest. Les cadeaux tournent d'abord autour des tenues neuves, tissus, boubous et habits d'enfants. Comme les dates suivent le calendrier lunaire, prévoyez large, surtout si votre cadeau doit voyager.
 produits: coupon-bazin-riche, grand-boubou-bazin-homme, grand-boubou-brode-femme, coupon-tissu-wax-6-yards, ensemble-wax-enfant, robe-wax-fille, chapelet-tasbih, brule-encens-bakhoor

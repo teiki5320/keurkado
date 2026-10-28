@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 idées cadeaux pour la Tabaski (Aïd el-Kébir) : bazin, grand boubou, tenue d'enfant, théière à ataya, encens et bijoux pour toute la famille.",
   date: "2026-10-17",
+  maj: "2026-10-28",
   rubrique: "occasion/tabaski",
   intro:
     "Dix idées cadeaux pour la Tabaski : de quoi être beau le jour de la fête, bien recevoir la famille et gâter les petits comme les grands, en France ou au pays. Nous les avons classées du cadeau le plus traditionnel au plus original. Notre n° 1, « Coupon de bazin riche », s'impose : le bazin est le tissu roi de la Tabaski, et l'offrir laisse chacun choisir son modèle chez le tailleur. C'est notre classement, pas un palmarès officiel.",

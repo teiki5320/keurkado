@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux africains à moins de 20 € : bijoux, savon noir, wax, épices, thé et petits livres pour faire plaisir sans se ruiner.",
   date: "2026-10-17",
+  maj: "2026-10-28",
   rubrique: "budget/moins-de-20",
   intro:
     "Dix cadeaux africains à moins de 20 €, pour une collègue, un Secret Santa, une amie ou un colis envoyé au pays : bijoux, savon noir, karité, wax, thé, épices, chapelet et livre de contes. Nous les avons classés du cadeau qui convient à presque tout le monde au plus ciblé. Le Savon noir africain en pain arrive en tête : un soin du quotidien hérité de nos grands-mères, qui plaît aux femmes comme aux hommes. C'est notre classement, pas un palmarès officiel.",

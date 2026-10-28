@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 bijoux africains à offrir : boucles carte d'Afrique, perles, cauris, joncs dorés, créoles en or et montre en bois, pour elle et pour lui.",
   date: "2026-10-17",
+  maj: "2026-10-20",
   rubrique: "univers/bijoux",
   intro:
     "Dix bijoux africains à offrir, pour elle comme pour lui : carte d'Afrique, cauris, perles, joncs dorés, montre en bois, bijou de naissance et or 18 carats. Nous les avons classés du bijou qui se porte et s'offre le plus facilement au plus précieux, puis au plus intime. Les Boucles d'oreilles carte d'Afrique dorées arrivent en tête : légères, discrètes et chargées de sens, elles plaisent presque à coup sûr. C'est notre classement, pas un palmarès officiel.",

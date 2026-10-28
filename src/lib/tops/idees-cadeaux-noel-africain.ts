@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "Idées cadeaux de Noël africains pour toute la famille : wax, jeux, déco, livres et poupées pour glisser un peu d'Afrique sous le sapin.",
   date: "2026-10-17",
+  maj: "2026-10-20",
   rubrique: "occasion/noel",
   intro:
     "Dix cadeaux africains à glisser sous le sapin, pour toute la famille et tous les budgets : jeux, soins au karité, bijoux, livres, mode, poupées et musique. Nous les avons classés du cadeau qui plaît au plus grand nombre au plus original. Le jeu d'awalé en bois arrive en tête : grands-parents, parents et enfants peuvent tous y jouer ensemble, pendant les longues après-midi des vacances. C'est notre classement, pas un palmarès officiel.",

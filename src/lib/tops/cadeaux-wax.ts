@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux en wax à offrir : foulard de tête, robe, chemise, coupon de tissu, sacs et accessoires colorés, pour elle et pour lui, à tous les budgets.",
   date: "2026-10-17",
+  maj: "2026-10-20",
   rubrique: "univers/wax-et-mode",
   intro:
     "Dix cadeaux en wax, pour elle comme pour lui : foulard et turban, sacs, coupon de tissu, vêtements et accessoires. Notre critère de classement est la facilité à offrir : en tête, les cadeaux qui conviennent au plus grand nombre sans question de taille, en fin de liste les plus ciblés. Le Foulard de tête en wax arrive donc n° 1 : petit prix, aucune taille à deviner, et chacune le noue à sa façon. C'est notre classement, pas un palmarès officiel.",

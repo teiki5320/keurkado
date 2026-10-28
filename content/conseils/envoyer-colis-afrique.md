@@ -2,6 +2,7 @@
 title: Colis pour l'Afrique : ce qui passe, ce qui est interdit
 description: Envoyer un colis en Afrique depuis la France : quels cadeaux choisir, ce qu'il faut éviter, comment emballer, quel mode d'envoi et quand expédier.
 date: 2026-10-17
+maj: 2026-10-28
 theme: envoyer
 resume: Les cadeaux qui voyagent le mieux sont légers, solides et peu sensibles à la chaleur : tissus, vêtements, bijoux simples, livres, jouets en bois. Évitez les liquides, les parfums, le fragile et le périssable. Choisissez ensuite le mode d'envoi selon le délai et le budget, déclarez honnêtement le contenu et renseignez-vous auprès du transporteur sur les règles du pays de destination.
 produits: coupon-tissu-wax-6-yards, foulard-de-tete-wax, chemise-wax-homme, chapelet-tasbih, bracelet-cauris, puzzle-carte-afrique-bois, recueil-contes-africains-illustre, bonnet-satin-cheveux

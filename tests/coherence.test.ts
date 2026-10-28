@@ -73,6 +73,7 @@ test("Top 10 : 10 produits existants, de la bonne rubrique, sans doublon", () =>
     assert.ok(t.description.length >= 70 && t.description.length <= 160, `description de ${t.slug} : ${t.description.length} caractères`);
     assert.ok(t.accroche.length <= 45, `accroche trop longue : ${t.slug}`);
     assert.match(t.date, /^\d{4}-\d{2}-\d{2}$/);
+    if (t.maj) assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(t.maj) && t.maj >= t.date, `${t.slug} : date de modification invalide`);
     assert.equal(t.items.length, 10, `${t.slug} : ${t.items.length} produits`);
     assert.equal(new Set(t.items.map((i) => i.produit)).size, 10, `${t.slug} : produit en double`);
     assert.ok(t.conseils.length >= 2 && t.faq.length >= 3, `${t.slug} : conseils ou FAQ incomplets`);
@@ -96,6 +97,7 @@ test("conseils : en-tête complet, produits existants, liens internes valides", 
   for (const c of conseils) {
     assert.ok(c.title && c.resume && c.body, `${c.slug} : en-tête incomplet`);
     assert.match(c.date, /^\d{4}-\d{2}-\d{2}$/, `${c.slug} : date invalide`);
+    if (c.maj) assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(c.maj) && c.maj >= c.date, `${c.slug} : date de modification invalide`);
     assert.ok(c.description.length >= 70 && c.description.length <= 160, `${c.slug} : description de ${c.description.length} caractères`);
     for (const s of c.produits) assert.ok(produits.has(s), `${c.slug} : produit inconnu ${s}`);
     for (const l of internalLinks(c.body)) assert.ok(ADRESSES.has(l.replace(/\/$/, "") || "/"), `${c.slug} : lien vers une page inexistante ${l}`);

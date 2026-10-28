@@ -48,6 +48,8 @@ export interface Top {
   description: string;
   /** Date de mise en ligne (AAAA-MM-JJ). */
   date: string;
+  /** Dernière modification notable (AAAA-MM-JJ), si elle est postérieure à la mise en ligne. */
+  maj?: string;
   /** Page de rattachement, pour le fil d'Ariane et les liens « Voir aussi » (« occasion/tabaski »). */
   rubrique: string;
   /**

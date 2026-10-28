@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux africains pour enfant : poupées noires, livres jeunesse, puzzle d'Afrique, awalé, djembé et kalimba pour grandir fier de ses racines.",
   date: "2026-10-17",
+  maj: "2026-10-28",
   rubrique: "pour/enfant",
   intro:
     "Dix cadeaux africains pour aider un enfant à se reconnaître dans ses jouets et ses livres, et à grandir fier de ses racines : livres, poupée, jeux en bois, accessoires pour les cheveux et instruments de musique. Nous les avons classés selon l'âge, du cadeau qui convient aux plus petits à celui qui demande le plus d'autonomie. L'Imagier bilingue en langue africaine ouvre donc la liste : il accompagne les premiers mots et transmet la langue des grands-parents. C'est notre classement, pas un palmarès officiel.",

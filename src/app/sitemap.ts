@@ -23,8 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
   // Les pages qui listent les nouveautés changent quand un article ou un Top 10 paraît.
   const plusRecent = (...dates: string[]) => dates.reduce((a, b) => (a > b ? a : b));
-  const dernierConseil = plusRecent(MISE_A_JOUR, ...conseils.map((c) => c.date));
-  const dernierTop = plusRecent(MISE_A_JOUR, ...TOPS.map((t) => t.date));
+  const dernierConseil = plusRecent(MISE_A_JOUR, ...conseils.map((c) => c.maj ?? c.date));
+  const dernierTop = plusRecent(MISE_A_JOUR, ...TOPS.map((t) => t.maj ?? t.date));
   return [
     page("", 1, "weekly", plusRecent(dernierConseil, dernierTop)),
     page("/quiz", 0.9),
@@ -33,8 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/calendrier", 0.8, "weekly"),
     page("/conseils", 0.7, "weekly", dernierConseil),
     ...Object.values(FAMILLES).flatMap((f) => f.liste.map((r) => page(`${f.chemin}/${r.slug}`, 0.7))),
-    ...TOPS.map((t) => page(`/top/${t.slug}`, 0.9, "monthly", t.date)),
-    ...conseils.map((c) => page(`/conseils/${c.slug}`, 0.6, "monthly", c.date)),
+    ...TOPS.map((t) => page(`/top/${t.slug}`, 0.9, "monthly", t.maj ?? t.date)),
+    ...conseils.map((c) => page(`/conseils/${c.slug}`, 0.6, "monthly", c.maj ?? c.date)),
     ...["/mentions-legales", "/confidentialite", "/conditions"].map((p) => page(p, 0.2, "yearly", LEGAL)),
   ];
 }

@@ -9,6 +9,8 @@ export interface Conseil {
   description: string;
   /** Date de publication (AAAA-MM-JJ, de préférence un lundi) : l'article n'apparaît qu'à partir de ce jour. */
   date: string;
+  /** Dernière modification notable (AAAA-MM-JJ, champ « maj » de l'en-tête), si elle est postérieure à la publication. */
+  maj?: string;
   theme: ConseilCategory;
   /** Réponse courte affichée en haut de l'article. */
   resume: string;
@@ -40,6 +42,7 @@ export function parseConseil(slug: string, raw: string): Conseil {
     title: meta.title ?? "",
     description: meta.description ?? "",
     date: meta.date ?? "",
+    ...(meta.maj ? { maj: meta.maj } : {}),
     theme,
     resume: meta.resume ?? "",
     produits: list(meta.produits),

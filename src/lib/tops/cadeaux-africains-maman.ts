@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux africains pour une maman : foulard en wax, grand boubou, bijou en or, huile de baobab et beaux objets pour recevoir, à offrir ou à envoyer.",
   date: "2026-10-17",
+  maj: "2026-10-20",
   rubrique: "pour/maman",
   intro:
     "Dix cadeaux africains pour honorer une maman : tenue et bijoux pour les grandes fêtes, objets pour recevoir, soins naturels et déco tressée. Nous les avons classés du cadeau qu'on offre traditionnellement à une maman au plus inattendu. Le foulard de tête en wax arrive en tête : chaque maman en porte, chacune le noue à sa façon, et on n'en a jamais trop. C'est notre classement, pas un palmarès officiel.",

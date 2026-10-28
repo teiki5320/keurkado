@@ -63,7 +63,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
       headline: conseil.title,
       description: conseil.description,
       datePublished: conseil.date,
-      dateModified: conseil.date,
+      dateModified: conseil.maj ?? conseil.date,
       inLanguage: "fr",
       image: `${siteConfig.url}${imageDuConseil(conseil)}`,
       author: organisationLd(),

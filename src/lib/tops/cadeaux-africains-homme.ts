@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux africains pour un homme : chemise dashiki, parfum au oud, montre en bois, soins de la barbe, déco et jeux pour un mari, un frère ou un ami.",
   date: "2026-10-17",
+  maj: "2026-10-20",
   rubrique: "pour/homme",
   intro:
     "Dix cadeaux africains pour un mari, un frère, un fils ou un ami, élégants ou pratiques, qui lui rappellent le pays. Nous les avons classés du cadeau qu'il utilisera le plus souvent au plus original. La montre en bois pour homme arrive en tête : il la portera chaque jour, et elle change des montres en métal qu'il a peut-être depuis des années. C'est notre classement, pas un palmarès officiel.",

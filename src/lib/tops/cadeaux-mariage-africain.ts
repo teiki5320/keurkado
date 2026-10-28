@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux de mariage africain : pagnes en wax, bijoux pour la mariée, déco, vaisselle et objets pour le foyer des jeunes mariés.",
   date: "2026-10-17",
+  maj: "2026-10-28",
   rubrique: "occasion/mariage",
   intro:
     "Dix cadeaux pour honorer les mariés : des pagnes et des bijoux pour la cérémonie, des objets beaux et utiles pour leur futur foyer, du petit budget au cadeau commun. Nous les avons classés du cadeau le plus ancré dans la tradition au plus moderne. Notre n° 1, « Coupon de tissu wax 6 yards », s'impose : les pagnes comptent parmi les présents les plus offerts, notamment au moment de la dot. C'est notre classement, pas un palmarès officiel.",

@@ -6,6 +6,7 @@ const top: Top = {
   description:
     "10 cadeaux pour un baptême africain : gourmette, écharpe de portage en wax, tapis d'éveil, jouets doux et soins pour le bébé et la jeune maman.",
   date: "2026-10-17",
+  maj: "2026-10-28",
   rubrique: "occasion/bapteme",
   intro:
     "Dix cadeaux pour le baptême, ou cérémonie du nom : des attentions pour le bébé qui reçoit son prénom, et pour la jeune maman qui sort à peine de l'accouchement. Nous les avons classés du cadeau de baptême le plus classique au plus original. Notre n° 1, « Gourmette de naissance en argent », est le classique par excellence : gravée au prénom de l'enfant, elle se garde bien après qu'il a grandi. C'est notre classement, pas un palmarès officiel.",

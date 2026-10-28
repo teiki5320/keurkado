@@ -57,7 +57,7 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
       headline: top.titre,
       description: top.description,
       datePublished: top.date,
-      dateModified: top.date,
+      dateModified: top.maj ?? top.date,
       inLanguage: "fr",
       // Image paysage (1200 × 630) et épingle portrait : Google choisit selon l'affichage.
       image: [`${siteConfig.url}/epingles/partage/${top.slug}.jpg`, image],
