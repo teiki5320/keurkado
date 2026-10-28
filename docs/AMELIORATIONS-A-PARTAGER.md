@@ -80,7 +80,7 @@
 ### 8. Adresse canonique, titre et description réglés sur chaque page
 - **Ce qui est fait** : une seule fonction produit pour chaque page :
   - l'adresse canonique ;
-  - le titre, sans le suffixe « | Keur Kado » s'il dépasse 60 caractères ;
+  - le titre, sans le suffixe « | Keur Kado » s'il dépasse 60 caractères, et coupé proprement en fin de mot s'il dépasse encore (depuis le 28 octobre 2026) ;
   - la description, coupée proprement à 155 caractères ;
   - les aperçus de partage.
 - **À quoi ça sert** : des titres non coupés dans Google, et une adresse officielle par page.
@@ -128,10 +128,10 @@
 - **État** : fait et vérifié
 
 ### 13. IndexNow pour Bing et les autres moteurs
-- **Ce qui est fait** : un script lit le plan du site en ligne et envoie toutes les adresses à IndexNow. La clé publique est servie à la racine du site.
+- **Ce qui est fait** : un script lit le plan du site en ligne et envoie toutes les adresses à IndexNow. La clé publique est servie à la racine du site. Depuis le 28 octobre 2026, GitHub le lance tout seul après chaque publication réussie sur main et chaque lundi (`.github/workflows/indexnow.yml`).
 - **À quoi ça sert** : Bing, DuckDuckGo, Ecosia et Yandex voient les pages nouvelles ou modifiées sans attendre leur passage.
 - **Comment savoir si un autre site en a besoin** : chercher un fichier `scripts/indexnow.*`. Le lancer doit répondre 200 ou 202.
-- **Où regarder** : `scripts/indexnow.mjs`, `public/<clé>.txt`
+- **Où regarder** : `scripts/indexnow.mjs`, `.github/workflows/indexnow.yml`, `public/<clé>.txt`
 - **État** : fait et vérifié (réponse 200 le 28 octobre 2026)
 
 ### 14. Balises de vérification des services dans le layout
@@ -240,7 +240,7 @@
 - **Ce qui est fait** : une fonction fabrique tous les liens Amazon.
   - Elle ajoute toujours l'identifiant partenaire.
   - Elle mène à la fiche du produit si son identifiant Amazon (ASIN) a été vérifié, sinon à une recherche Amazon.
-  - Les liens portent `rel="sponsored nofollow noopener noreferrer"` et s'ouvrent dans un nouvel onglet.
+  - Les liens portent `rel="sponsored nofollow noopener"` (sans `noreferrer` depuis le 28 octobre 2026, pour qu'Amazon voie la provenance) et s'ouvrent dans un nouvel onglet.
 - **À quoi ça sert** : aucun lien sans identifiant (donc sans commission), et des liens d'affiliation déclarés à Google comme sponsorisés.
 - **Comment savoir si un autre site en a besoin** : chercher `amazon.` dans le code. Les liens écrits à la main à plusieurs endroits, ou sans `rel="sponsored"`, sont à reprendre.
 - **Où regarder** : `src/lib/amazon.ts`
@@ -249,11 +249,11 @@
 ### 26. Mentions d'affiliation près des liens
 - **Ce qui est fait** :
   - une ligne « Lien partenaire Amazon… » sous chaque bouton ;
-  - une phrase « nous touchons une petite commission » avant chaque liste de produits ;
+  - (la phrase « nous touchons une petite commission » avant chaque liste de produits a été retirée le 28 octobre 2026 : la ligne sous chaque bouton suffit) ;
   - la mention officielle du programme dans le pied de page, les mentions légales et les conditions.
 - **À quoi ça sert** : respecter l'obligation d'informer le lecteur. Les règles exactes d'Amazon et de la loi française sont à vérifier.
 - **Comment savoir si un autre site en a besoin** : ouvrir une page avec des liens Amazon et voir si une mention est visible près des boutons, pas seulement en bas de page.
-- **Où regarder** : `src/lib/amazon.ts`, `src/components/produit/ProduitCard.tsx` (`MentionAffiliation`), `src/components/layout/Footer.tsx`
+- **Où regarder** : `src/lib/amazon.ts`, `src/components/produit/ProduitCard.tsx`, `src/components/layout/Footer.tsx`
 - **État** : fait et vérifié
 
 ### 27. Aucun prix saisi à la main, illustrations signalées
@@ -448,7 +448,7 @@ Rien de particulier : Keur Kado n'a pas d'application.
 6. **Aucune annonce affichée pour l'instant.** Les blocs AdSense seront à créer après l'acceptation : pas de revenu publicitaire en attendant.
 7. **42 produits sur 98 mènent à une recherche Amazon**, faute de produit assez fidèle trouvé. La commission sur ces liens de recherche est à vérifier.
 8. **Questions fréquentes (FAQPage) sans affichage enrichi.** Google réserve maintenant cet affichage à certains sites (à vérifier). Le balisage ne coûte rien, mais n'apporte peut-être plus rien.
-9. **Une date de mise à jour à changer à la main.** La date des rubriques, du quiz et des pages fixes (`MISE_A_JOUR` dans `src/app/sitemap.ts`) n'avance que si on la modifie. Elle peut donc mentir si on l'oublie.
+9. ~~**Une date de mise à jour à changer à la main.**~~ Réglé le 28 octobre 2026 : la date des rubriques, du quiz et des pages fixes du sitemap est celle du dernier commit de leurs fichiers source (`src/app/sitemap.ts`, historique complet récupéré par `deploy.yml`).
 10. **Clé Pinterest à refaire environ tous les 60 jours,** à la main, sur le Mac. Un ticket GitHub le rappelle.
-11. **Pas de test sur les pages construites.** Les tests vérifient les données, pas le HTML final : un JSON-LD invalide ou une balise manquante ne serait pas détecté automatiquement.
+11. ~~**Pas de test sur les pages construites.**~~ Réglé le 28 octobre 2026 : `tests/sortie/sortie.test.ts` (`npm run test:sortie`) contrôle le HTML de chaque page avant la publication (un seul h1, description, titre, canonique, JSON-LD, liens Amazon, images réduites, sitemap).
 12. **Demandes d'indexation Google limitées.** La Search Console n'accepte que quelques demandes par jour (quota atteint après une seule le 28 octobre). Il faut compter sur le plan du site et la patience, sur tous les sites.

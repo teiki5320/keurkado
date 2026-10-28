@@ -14,7 +14,7 @@ uniquement des noms de variables et de consoles.
 
 ## Parcours
 
-- 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
+- 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build, contrôle du HTML, vérification en ligne [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
 - 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 56 ASIN sur 98 cadeaux [à faire]
 - 📰 **Publicité** : 📰 AdSense (publicité web) — script et ads.txt en ligne [ok] → 🧱 Blocs d'annonces — pas encore créés [à faire] → 💶 Revenus — aucun constaté [pas encore]
 - 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 7 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 61 pages indexées sur 62 au 27 octobre [ok]
@@ -36,17 +36,21 @@ uniquement des noms de variables et de consoles.
 - **Images** : une illustration par cadeau (98), créée par IA avec OpenArt en octobre 2026 pendant
   les séances de rédaction (aucun appel depuis le site) ; chaque carte porte la mention
   « Illustration IA : l'article vendu peut différer. ». Détail : `docs/IMAGES.md`.
-- **Particularités** : tests de cohérence des contenus dans `tests/` ; épingles Pinterest
+- **Particularités** : tests de cohérence des contenus dans `tests/`, contrôle du HTML construit dans `tests/sortie/` ; épingles Pinterest
   (une par Top 10), manifeste `/epingles.json` et fichier d'import `/epingles-pinterest.csv`
   générés à chaque build par `scripts/epingles.mts` ; publication automatique par l'API Pinterest
   (même système que Keur Déco) depuis le 23 octobre 2026, clé du compte créée le même jour ; voir GitHub ci-dessous.
 
 ## GitHub
 
-- **Rôle** : dépôt du code et des contenus, et trois workflows :
-  - `deploy.yml` (« Publier le site ») : lint, types, tests, build, puis publication par
-    `npx wrangler deploy` à chaque push sur `main`, chaque lundi, mercredi et vendredi (0 h 15 heure de Paris, pour les
+- **Rôle** : dépôt du code et des contenus, et quatre workflows :
+  - `deploy.yml` (« Publier le site ») : lint, types, tests, build, contrôle du HTML construit
+    (`npm run test:sortie`), puis publication par `npx wrangler deploy` ; depuis le 28 octobre 2026, elle échoue
+    s'il manque un secret Cloudflare et vérifie pendant 3 minutes au plus que https://keurkado.com/version.txt
+    sert la nouvelle version ; historique git complet (date des pages fixes du sitemap). Se lance à chaque push sur `main`, chaque lundi, mercredi et vendredi (0 h 15 heure de Paris, pour les
     articles programmés) et à la main ; dernière exécution réussie le 28 octobre 2026 (republication programmée du mercredi, 2 h 20 UTC) ;
+  - `indexnow.yml` (« IndexNow ») : depuis le 28 octobre 2026, signale les pages du sitemap à Bing et aux
+    autres moteurs après chaque publication réussie sur `main`, chaque lundi à 2 h UTC et à la main ;
   - `pages.yml` : publie sur l'ancienne adresse GitHub Pages une page qui renvoie vers keurkado.com ;
   - `pinterest.yml` (« Publier les épingles Pinterest ») : chaque jour à 4 h 17 UTC, au plus 5 épingles
     du manifeste (`config/pinterest.json`), jamais deux du même Top le même jour, dans le tableau de sa
@@ -55,7 +59,7 @@ uniquement des noms de variables et de consoles.
     Pinterest et n'ont rien publié, les 21 épingles actuelles étant déjà programmées à la main.
 - **Console** : https://github.com/teiki5320/keurkado (branche `main` uniquement).
 - **Secrets** : `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID`, réglés dans les secrets
-  Actions du dépôt, jamais dans le code. Variable sans secret : `PINTEREST_VERIFY`. Pinterest :
+  Actions du dépôt, jamais dans le code ; sans eux, la publication échoue (en rouge). Variable sans secret : `PINTEREST_VERIFY`. Pinterest :
   `PINTEREST_APP_ID`, `PINTEREST_APP_SECRET` (application « TOA CORP publication », la même que
   Keur Déco, accès standard) et `PINTEREST_REFRESH_TOKEN` (clé du compte Keur Kado, environ 60 jours),
   créés le 23 octobre 2026, clé à refaire vers mi-décembre 2026 ; procédure dans `docs/PINTEREST.md`.
@@ -69,7 +73,8 @@ uniquement des noms de variables et de consoles.
   redirigés en 301 vers `https://keurkado.com/…/` (avant, ils répondaient 200 ou 307).
 - **Ne pas utiliser** `wrangler pages …` : la commande convertit le projet en application OpenNext.
 - **En-têtes** : `public/_headers` (politique de sécurité limitée au site et aux domaines Google
-  nécessaires à AdSense, HSTS, cache des images) ; redirections : `public/_redirects`.
+  nécessaires à AdSense, HSTS, cache des images ; `X-Robots-Tag: noindex` sur les fichiers .txt internes de
+  Next.js depuis le 28 octobre 2026, sauf `ads.txt`, `robots.txt` et la clé IndexNow) ; redirections : `public/_redirects`.
 - **Ancienne adresse** : `teiki5320.github.io/keurkado` (GitHub Pages) ne sert plus qu'une page de
   redirection vers la même page sur keurkado.com, depuis le 20 octobre 2026.
 - **Console** : tableau de bord Cloudflare, rubrique Workers & Pages → `keurkado`.

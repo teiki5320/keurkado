@@ -1,5 +1,6 @@
 // Signale toutes les pages du site à Bing, Yandex, Seznam… via IndexNow.
-// Usage : node scripts/indexnow.mjs (lancé à la demande, par exemple après une publication).
+// Usage : node scripts/indexnow.mjs (lancé par .github/workflows/indexnow.yml après chaque publication sur main,
+// chaque lundi, et à la demande).
 // La clé est publique par conception : elle est servie à la racine du site (public/<clé>.txt).
 const SITE = "https://keurkado.com";
 const CLE = "ad7c52fd83b9796d7b77e4dc39b452d0";

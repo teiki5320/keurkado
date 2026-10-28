@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
+    "test:sortie": "tsx --test tests/sortie/*.test.ts",
     "visuels-marque": "tsx scripts/visuels-marque.mts",
     "pinterest:auth": "node scripts/pinterest-auth.mjs",
     "pinterest:secrets": "node scripts/pinterest-secrets.mjs",

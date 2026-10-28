@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Breadcrumb, EntryText, GuideTexte, PageHeader, Section } from "@/components/layout/Section";
-import { MentionAffiliation, ProduitGrid, ProduitListe } from "@/components/produit/ProduitCard";
+import { ProduitGrid, ProduitListe } from "@/components/produit/ProduitCard";
 import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig } from "@/lib/config";
 import { produitsVoyage, toCarte } from "@/lib/data/produits";
@@ -68,7 +68,6 @@ export default function EnvoyerPage() {
       {parUnivers.map(({ u, liste }, i) => (
         <div key={u.slug}>
           <Section title={u.nom} href={`/univers/${u.slug}`} linkLabel="Tout l'univers">
-            {i === 0 && <MentionAffiliation />}
             <ProduitGrid produits={liste.slice(0, 6)} />
             {liste.length > 6 && (
               <div className="mt-8">

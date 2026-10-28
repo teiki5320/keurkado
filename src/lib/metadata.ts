@@ -6,6 +6,17 @@ export const DEFAULT_SHARE_IMAGES: Array<{ url: string; width: number; height: n
   { url: "/brand/keurkado-partage.jpg", width: 1200, height: 630, alt: "Keur Kado, les idées cadeaux africains" },
 ];
 
+/** Longueur maximale d'un titre de page (balise title), suffixe « | Keur Kado » compris. */
+export const TITRE_MAX = 60;
+
+/** Coupe un texte trop long au dernier mot entier et ajoute « … » (au plus `max` caractères), comme Keur Déco. */
+export function couperTexte(texte: string, max: number): string {
+  if (texte.length <= max) return texte;
+  const coupe = texte.slice(0, max - 1);
+  const espace = coupe.lastIndexOf(" ");
+  return `${(espace > max / 2 ? coupe.slice(0, espace) : coupe).replace(/[\s,;:.!?«»–—-]+$/, "")}…`;
+}
+
 interface PageMetadataInput {
   title: string;
   description: string;
@@ -27,15 +38,16 @@ interface PageMetadataInput {
  * Next.js remplace entièrement le bloc openGraph du layout dès qu'une page en définit un : on le reconstruit ici.
  */
 export function pageMetadata({ title, description, path, image, imageAlt, imageSize, type = "website", publishedTime, noindex, absoluteTitle }: PageMetadataInput): Metadata {
-  // Titre complet limité à ~60 caractères (au-delà, Google le coupe) : sans le suffixe s'il est trop long.
+  // Titre complet limité à 60 caractères (au-delà, Google le coupe) : sans le suffixe s'il est trop long,
+  // et coupé proprement en fin de mot s'il dépasse encore.
   const suffixed = `${title} | ${siteConfig.name}`;
-  const absolute = absoluteTitle || suffixed.length > 60;
-  const fullTitle = absolute ? title : suffixed;
+  const absolute = absoluteTitle || suffixed.length > TITRE_MAX;
+  const fullTitle = absolute ? couperTexte(title, TITRE_MAX) : suffixed;
   const images = image
     ? [{ url: image, alt: imageAlt ?? title, ...(imageSize ? { width: imageSize[0], height: imageSize[1] } : {}) }]
     : DEFAULT_SHARE_IMAGES;
   return {
-    title: absolute ? { absolute: title } : title,
+    title: absolute ? { absolute: fullTitle } : title,
     description,
     alternates: { canonical: path },
     openGraph: {

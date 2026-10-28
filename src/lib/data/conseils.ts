@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { cache } from "react";
 import { marked } from "marked";
+import { AMAZON_REL } from "@/lib/amazon";
 import { avecBarre, withBase } from "@/lib/config";
 import { anchorId, isPublished, parseConseil, relatedConseils, todayInParis, type Conseil } from "@/lib/conseils/article";
 
@@ -48,7 +49,8 @@ export function renderConseil(body: string): string {
     // Seuls les liens web, internes, ancres et e-mails sont acceptés (pas de « javascript: » ni de « //autre-site »).
     if (!/^(https?:|\/(?!\/)|#|mailto:)/i.test(href)) href = "#";
     const external = /^https?:/.test(href);
-    const attrs = external ? ` target="_blank" rel="${/amazon\./.test(href) ? "sponsored nofollow " : ""}noopener noreferrer"` : "";
+    // Amazon : mêmes attributs que les boutons (AMAZON_REL) ; autres sites : ni page d'origine ni accès à notre onglet.
+    const attrs = external ? ` target="_blank" rel="${/amazon\./.test(href) ? AMAZON_REL : "noopener noreferrer"}"` : "";
     if (href.startsWith("/")) href = withBase(avecBarre(href));
     return `<a href="${escapeAttr(href)}"${title ? ` title="${escapeAttr(title)}"` : ""}${attrs}>${inner}</a>`;
   };

@@ -13,8 +13,11 @@ export function amazonUrl(produit: Pick<Produit, "amazonAsin" | "recherche" | "r
   return `https://www.amazon.fr/s?k=${encodeURIComponent(produit.recherche)}${rayon}&tag=${AMAZON_TAG}`;
 }
 
-/** Attributs d'un lien Amazon : nouvel onglet, lien sponsorisé (obligatoire pour Google). */
-export const AMAZON_REL = "sponsored nofollow noopener noreferrer";
+/**
+ * Attributs d'un lien Amazon : lien sponsorisé (obligatoire pour Google), nouvel onglet sans accès à notre page.
+ * Pas de « noreferrer » : Amazon doit voir que le visiteur vient de keurkado.com.
+ */
+export const AMAZON_REL = "sponsored nofollow noopener";
 
 /** Ligne discrète sous chaque bouton « Voir sur Amazon » (même modèle que keurcook.com). */
 export const AMAZON_LIEN_PARTENAIRE = "Lien partenaire Amazon. Prix, disponibilité et vendeur sont indiqués sur Amazon.";

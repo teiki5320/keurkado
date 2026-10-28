@@ -3,13 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { AdSlot } from "@/components/ads/AdSlot";
+import { ConseilGrid } from "@/components/conseils/ConseilCard";
 import { Breadcrumb, Section } from "@/components/layout/Section";
-import { MentionAffiliation, ProduitCard } from "@/components/produit/ProduitCard";
+import { ProduitCard } from "@/components/produit/ProduitCard";
 import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig, withBase } from "@/lib/config";
+import { getConseils } from "@/lib/data/conseils";
 import { getProduit, toCarte } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
 import { breadcrumbLd, jsonLd, organisationLd } from "@/lib/json-ld";
+import { croisesEnBoucle, suivantsEnBoucle } from "@/lib/liens";
 import { pageMetadata } from "@/lib/metadata";
 import { getTop, TOPS } from "@/lib/tops";
 import { rubriqueDuTop } from "@/lib/tops/rubrique";
@@ -48,7 +51,9 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
   const pinterest = `https://www.pinterest.fr/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(image)}&description=${encodeURIComponent(`${top.titre} — ${top.description}`)}`;
   // « Voir aussi » : les 3 sélections qui suivent dans l'ordre de la liste (on repart du début après la dernière), comme Keurbook.
   const i = TOPS.findIndex((t) => t.slug === top.slug);
-  const voirAussi = [1, 2, 3].map((k) => TOPS[(i + k) % TOPS.length]);
+  const voirAussi = suivantsEnBoucle(TOPS, TOPS[i], 3);
+  // « À lire aussi » : 2 conseils, à tour de rôle d'un Top 10 à l'autre (chaque conseil reçoit au moins 3 liens).
+  const conseilsLies = croisesEnBoucle(getConseils(), i, 2);
 
   const structuredData = [
     {
@@ -135,11 +140,6 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
                 <AdSlot placement="top" />
               </div>
             )}
-            {m === 0 && (
-              <div className="container-page mt-10">
-                <MentionAffiliation />
-              </div>
-            )}
             <ol start={m * 5 + 1} className="container-page mt-10 grid gap-x-6 gap-y-10 md:grid-cols-2">
               {moitie.map((it, j) => {
                 const rang = m * 5 + j + 1;
@@ -201,6 +201,12 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
       <Section title="Voir aussi" href="/top" linkLabel="Tous les Top 10">
         <TopGrid tops={voirAussi} />
       </Section>
+
+      {conseilsLies.length > 0 && (
+        <Section title="À lire aussi" href="/conseils" linkLabel="Tous les conseils">
+          <ConseilGrid conseils={conseilsLies} />
+        </Section>
+      )}
 
       {/* Publicité : en fin de page, loin des boutons Amazon. */}
       <div className="container-page">

@@ -16,6 +16,7 @@ npm run epingles   # épingles Pinterest et image de partage (public/epingles/),
 npm run dev        # http://localhost:3000
 npm run build      # épingles + site statique dans out/
 npm test           # cohérence des contenus
+npm run test:sortie  # après npm run build : contrôle du HTML de chaque page (aussi avant chaque publication)
 ```
 
 ## Pages

@@ -20,3 +20,18 @@
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 /brand/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Fichiers .txt créés par Next.js pour chaque page (navigation interne, « index.txt », « __next.….txt ») :
+# utiles au navigateur, pas à Google (version.txt, repère de publication, aussi).
+# Les .txt publics n'ont pas cet en-tête (règles « ! » ci-dessous) : ads.txt (AdSense), robots.txt et la clé IndexNow.
+/*.txt
+  X-Robots-Tag: noindex
+
+/ads.txt
+  ! X-Robots-Tag
+
+/robots.txt
+  ! X-Robots-Tag
+
+/ad7c52fd83b9796d7b77e4dc39b452d0.txt
+  ! X-Robots-Tag

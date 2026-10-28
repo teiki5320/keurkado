@@ -144,8 +144,3 @@ export function ProduitListe({ produits }: { produits: CarteProduit[] }) {
     </ul>
   );
 }
-
-/** Mention d'affiliation, au plus près des liens Amazon. */
-export function MentionAffiliation() {
-  return <p className="mb-6 text-[13px] text-muted">Liens Amazon : nous touchons une petite commission sur vos achats, sans surcoût pour vous.</p>;
-}

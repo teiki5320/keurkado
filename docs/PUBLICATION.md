@@ -58,12 +58,15 @@
 
 ## Visibilité
 
-- **Sitemap** : https://keurkado.com/sitemap.xml répond (62 adresses) ; `robots.txt` répond.
+- **Sitemap** : https://keurkado.com/sitemap.xml répond (62 adresses) ; `robots.txt` répond. Depuis le
+  28 octobre 2026, la date des rubriques, du quiz et des pages fixes est celle du dernier commit de leurs
+  fichiers (plus de date à changer à la main) ; Top 10 et conseils gardent leur champ « maj ».
 - **Google Search Console** : propriété de domaine `keurkado.com`, sitemap envoyé et lu le
   20 octobre 2026, sans erreur, relu le 23 octobre. Au 27 octobre 2026 (relevé du Studio) : 61 pages
   indexées sur 62, 1 pas encore (inconnue de Google) ; il n'y en avait que 9 sur 61 au 21 octobre.
 - **Bing et autres moteurs (IndexNow)** : depuis le 25 octobre 2026, `node scripts/indexnow.mjs`
-  signale les pages du sitemap à Bing, DuckDuckGo, Ecosia et Yandex (clé publique servie à la
+  (lancé par GitHub depuis le 28 octobre 2026 : `.github/workflows/indexnow.yml`, après chaque publication
+  réussie sur main et chaque lundi) signale les pages du sitemap à Bing, DuckDuckGo, Ecosia et Yandex (clé publique servie à la
   racine du site). Bing Webmaster Tools : site ajouté le 28 octobre 2026, vérifié par la balise
   `msvalidate.01` du layout, sitemap envoyé le même jour. Journal du référencement page par page :
   `docs/referencement.md`.

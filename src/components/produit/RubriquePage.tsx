@@ -8,7 +8,7 @@ import { guideDe } from "@/lib/guides";
 import { breadcrumbLd, itemListLd, jsonLd } from "@/lib/json-ld";
 import { FAMILLES, type Famille, type Rubrique } from "@/lib/taxonomie";
 import { topsDe } from "@/lib/tops";
-import { MentionAffiliation, ProduitGrid, ProduitListe } from "./ProduitCard";
+import { ProduitGrid, ProduitListe } from "./ProduitCard";
 
 /** Cartes complètes en haut d'une rubrique ; les autres idées suivent en liste courte (moins de texte répété d'une page à l'autre). */
 const CARTES_MAX = 18;
@@ -61,7 +61,6 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
       )}
 
       <Section title={`${produits.length} idées cadeaux`}>
-        <MentionAffiliation />
         {cartes.length > 0 && <ProduitGrid produits={cartes} prioritaire={tops.length === 0} />}
         {autres.length > 0 && (
           <>

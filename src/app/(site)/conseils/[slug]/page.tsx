@@ -6,7 +6,8 @@ import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { ConseilGrid } from "@/components/conseils/ConseilCard";
 import { Section } from "@/components/layout/Section";
-import { MentionAffiliation, ProduitGrid } from "@/components/produit/ProduitCard";
+import { ProduitGrid } from "@/components/produit/ProduitCard";
+import { TopGrid } from "@/components/produit/TopCard";
 import { conseilSections, splitAtMiddleSection } from "@/lib/conseils/article";
 import { CONSEIL_CATEGORIES } from "@/lib/conseils/categories";
 import { siteConfig, withBase } from "@/lib/config";
@@ -14,7 +15,9 @@ import { getConseilBySlug, getConseils, getRelatedConseils, renderConseil } from
 import { getProduit, toCarte } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
 import { breadcrumbLd, jsonLd, organisationLd } from "@/lib/json-ld";
+import { croisesEnBoucle } from "@/lib/liens";
 import { pageMetadata } from "@/lib/metadata";
+import { TOPS } from "@/lib/tops";
 
 export const dynamicParams = false;
 
@@ -52,6 +55,8 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
     return p ? [toCarte(p)] : [];
   });
   const related = getRelatedConseils(conseil);
+  // « Nos Top 10 » : 2 sélections, à tour de rôle d'un conseil à l'autre.
+  const topsLies = croisesEnBoucle(TOPS, getConseils().findIndex((c) => c.slug === conseil.slug), 2);
   const sections = conseilSections(conseil.body);
   const [firstHalf, secondHalf] = splitAtMiddleSection(renderConseil(conseil.body));
   const url = `${siteConfig.url}/conseils/${conseil.slug}/`;
@@ -132,7 +137,6 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
 
       {cites.length > 0 && (
         <Section title="Les cadeaux de cet article">
-          <MentionAffiliation />
           <ProduitGrid produits={cites} />
         </Section>
       )}
@@ -140,6 +144,12 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
       {related.length > 0 && (
         <Section title="À lire aussi" href="/conseils" linkLabel="Tous les conseils">
           <ConseilGrid conseils={related} />
+        </Section>
+      )}
+
+      {topsLies.length > 0 && (
+        <Section title="Nos Top 10 à lire aussi" href="/top" linkLabel="Tous les Top 10">
+          <TopGrid tops={topsLies} />
         </Section>
       )}
 

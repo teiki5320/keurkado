@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Chips } from "@/components/layout/Chips";
 import { Breadcrumb, GuideTexte, PageHeader, Section } from "@/components/layout/Section";
-import { MentionAffiliation, ProduitGrid } from "@/components/produit/ProduitCard";
+import { ProduitGrid } from "@/components/produit/ProduitCard";
 import { RubriquePage } from "@/components/produit/RubriquePage";
 import { produitsDe, toCarte } from "@/lib/data/produits";
 import { GUIDES_FRERES } from "@/lib/guides";
@@ -57,7 +57,6 @@ function PasserelleFrere({ rubrique, cle }: { rubrique: Rubrique; cle: keyof typ
       </section>
       {produits.length > 0 && (
         <Section title="Quelques idées à offrir">
-          <MentionAffiliation />
           <ProduitGrid produits={produits} />
         </Section>
       )}
