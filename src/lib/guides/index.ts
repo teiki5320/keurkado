@@ -7,11 +7,10 @@ import { GUIDES_UNIVERS } from "./univers";
 
 export type { Guide } from "./types";
 export { GUIDE_ENVOYER, GUIDE_QUIZ, GUIDE_TOPS } from "./pages";
-export { GUIDES_FRERES } from "./univers";
 
 const GUIDES: Record<Famille, Guides> = { occasion: GUIDES_OCCASION, pour: GUIDES_POUR, budget: GUIDES_BUDGET, univers: GUIDES_UNIVERS };
 
-/** Guide propre à une rubrique, s'il existe (les univers « livres » et « cuisine » renvoient aux sites frères). */
+/** Guide propre à une rubrique, s'il existe. */
 export function guideDe(famille: Famille, slug: string): Guide | undefined {
   return GUIDES[famille][slug];
 }

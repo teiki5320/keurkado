@@ -57,3 +57,25 @@ test("couperTexte : 60 caractères au plus, coupé en fin de mot", () => {
 test("liens Amazon : sponsorisés, sans « noreferrer » (Amazon voit la provenance)", () => {
   assert.equal(AMAZON_REL, "sponsored nofollow noopener");
 });
+
+/**
+ * Règle de Jean : aucun site du groupe ne renvoie vers un autre (Keurbook, Keur Cook, Keur Déco…).
+ * Seule exception : toakeur.com, la vitrine du groupe (pied de page, données structurées, adresse de contact).
+ */
+const AUTRES_SITES =
+  /\/\/(www\.)?((keurbook|keur-?cook|keur-?deco|keur-?foot|kultiled|optiled|solelis|alohash|kultiva|palabre|erea)\.(com|fr|app|net|org)|[a-z0-9-]+\.toakeur\.com|teiki5320\.github\.io\/(?!keurkado))/i;
+
+function fichiersDe(dossier: string): string[] {
+  return readdirSync(dossier, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? fichiersDe(join(dossier, e.name)) : /\.(tsx?|md|mdx|json)$/.test(e.name) ? [join(dossier, e.name)] : [],
+  );
+}
+
+test("aucun lien vers les autres sites de Jean (toakeur.com seul autorisé)", () => {
+  for (const f of [...fichiersDe(join(process.cwd(), "src")), ...fichiersDe(join(process.cwd(), "content"))]) {
+    const texte = readFileSync(f, "utf8");
+    const m = texte.match(AUTRES_SITES);
+    assert.equal(m, null, `${f} : lien vers un autre site du groupe (${m?.[0]})`);
+    assert.doesNotMatch(texte, /sites? frères?/i, `${f} : renvoi vers un « site frère »`);
+  }
+});

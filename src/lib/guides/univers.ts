@@ -2,7 +2,6 @@ import type { Guides } from "./types";
 
 /**
  * Guides d'achat des univers (/univers/<slug>) : matières, bien choisir, entretien, pour qui, quoi éviter.
- * Pas de guide pour « livres » et « cuisine », qui renvoient vers les sites frères.
  */
 export const GUIDES_UNIVERS: Guides = {
   "wax-et-mode": {
@@ -157,32 +156,32 @@ export const GUIDES_UNIVERS: Guides = {
       },
     ],
   },
-};
-
-/**
- * Univers « livres » et « cuisine » : courts guides des pages passerelles vers les sites frères
- * (Keurbook et Keur Cook), qui ont chacun leurs propres conseils détaillés.
- */
-export const GUIDES_FRERES: Guides = {
   livres: {
     parties: [
       {
         titre: "Offrir un livre d'auteur africain",
         paragraphes: [
           "Un livre se garde, se prête et se relit : c'est l'un des cadeaux qui durent le plus longtemps. Pour qu'il touche juste, partez de la personne plutôt que du livre. Une grande lectrice de romans n'attend pas la même chose qu'un papa curieux d'histoire ou qu'un enfant qui commence à lire seul.",
-          "Les auteurs d'Afrique et de la diaspora écrivent dans tous les genres : romans, poésie, bandes dessinées, albums jeunesse, essais, récits de voyage. Il y a forcément un livre qui parle à la personne que vous voulez gâter, en français ou dans une autre langue.",
+          "Les auteurs d'Afrique et de la diaspora écrivent dans tous les genres : contes, poésie, bandes dessinées, albums jeunesse, essais, livres d'histoire. Il y a forcément un livre qui parle à la personne que vous voulez gâter, en français ou dans une autre langue.",
         ],
       },
       {
         titre: "Livre jeunesse : des héros qui leur ressemblent",
         paragraphes: [
           "Pour un enfant de la diaspora, un album dont le héros lui ressemble compte beaucoup : il s'y reconnaît, en parle et le relit. Choisissez selon l'âge, et préférez un livre que vous pourrez lire avec lui le soir.",
+          "Pour les tout-petits, un imagier bilingue en wolof, en bambara ou en lingala fait entendre la langue des grands-parents ; à partir de six ans, un recueil de contes illustré se lit à voix haute, une histoire par soir.",
         ],
       },
       {
-        titre: "Nos conseils de lecture sur Keurbook",
+        titre: "Histoire, proverbes, beaux livres : pour les grands",
         paragraphes: [
-          "Keurbook, notre site frère, présente les livres un par un, avec un résumé, une fiche sur l'auteur et des sélections par âge et par thème. C'est le meilleur endroit pour trouver le bon titre. Ici, vous trouverez aussi quelques idées de livres à glisser dans un colis : un livre est léger, solide et voyage très bien.",
+          "Un livre d'histoire de l'Afrique fait un très beau cadeau pour un papa, un oncle ou un ado curieux : il raconte les royaumes, les villes et les routes du commerce que l'école passe souvent sous silence. Un recueil de proverbes se feuillette au hasard et se cite à table ; un beau livre photo se pose sur la table du salon et se regarde en famille.",
+        ],
+      },
+      {
+        titre: "Un livre dans le colis pour le pays",
+        paragraphes: [
+          "Un livre est léger, solide et ne craint ni la chaleur ni les secousses du voyage : c'est l'un des meilleurs cadeaux à glisser dans un colis ou une valise. Écrivez quelques mots sur la première page, avec la date : le livre devient un souvenir.",
         ],
       },
     ],
@@ -200,12 +199,14 @@ export const GUIDES_FRERES: Guides = {
         titre: "Ustensiles et service : du solide",
         paragraphes: [
           "Mortier et pilon, théière pour l'ataya, plateau de service : choisissez des objets solides et faciles à entretenir, qui serviront longtemps. Vérifiez sur la fiche Amazon la taille, la matière et le mode d'entretien avant de commander.",
+          "Un mortier en bois dur ne se met pas au lave-vaisselle : un rinçage à l'eau chaude et un séchage à l'air suffisent. Une théière en inox supporte le feu direct, ce qui compte pour préparer l'ataya dans les règles, en trois services.",
         ],
       },
       {
-        titre: "Toutes nos recettes sur Keur Cook",
+        titre: "Thé, épices et bissap : les cadeaux qui se partagent",
         paragraphes: [
-          "Keur Cook, notre site frère, rassemble les recettes de la cuisine africaine pas à pas, avec les ingrédients et les ustensiles pour les réussir. Si vous offrez un ustensile, glissez-y une recette de Keur Cook : le cadeau sera tout de suite utile.",
+          "Un paquet de thé vert gunpowder, des fleurs d'hibiscus pour le bissap ou un coffret d'épices sont de petits cadeaux qui se partagent : on les ouvre tout de suite et on les goûte ensemble. Ils complètent très bien une théière ou un livre de recettes pour composer un coffret.",
+          "Pour un colis vers le pays, préférez les produits secs et bien fermés, et vérifiez la date limite sur l'emballage : le thé et les fleurs séchées voyagent bien, les sauces et les huiles beaucoup moins. Pour le Ramadan ou la Tabaski, un plateau doré garni de verres à thé et d'un paquet de gunpowder fait un cadeau de maison très apprécié, à offrir en main propre.",
         ],
       },
     ],

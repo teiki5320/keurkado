@@ -26,7 +26,7 @@ npm run test:sortie  # après npm run build : contrôle du HTML de chaque page (
 | Accueil | `/` |
 | Quiz « Trouve le cadeau » (occasion → personne → budget) | `/quiz` (`?occasion=…&pour=…&budget=…&voyage=1`) |
 | Par occasion, destinataire, budget, univers | `/occasion/<slug>`, `/pour/<slug>`, `/budget/<slug>`, `/univers/<slug>` |
-| Livres et cuisine (renvoi vers Keurbook et Keur Cook) | `/univers/livres`, `/univers/cuisine` |
+| Livres et cuisine (rubriques comme les autres, avec leurs produits ; plus aucun renvoi vers un autre site du groupe depuis le 28 octobre 2026) | `/univers/livres`, `/univers/cuisine` |
 | Cadeaux à envoyer au pays | `/envoyer-au-pays` |
 | Top 10 (+ épingle Pinterest) | `/top`, `/top/<slug>` |
 | Conseils | `/conseils`, `/conseils/<slug>` |

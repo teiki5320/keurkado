@@ -19,7 +19,7 @@ export function amazonUrl(produit: Pick<Produit, "amazonAsin" | "recherche" | "r
  */
 export const AMAZON_REL = "sponsored nofollow noopener";
 
-/** Ligne discrète sous chaque bouton « Voir sur Amazon » (même modèle que keurcook.com). */
+/** Ligne discrète sous chaque bouton « Voir sur Amazon » (même modèle sur tous les sites du groupe). */
 export const AMAZON_LIEN_PARTENAIRE = "Lien partenaire Amazon. Prix, disponibilité et vendeur sont indiqués sur Amazon.";
 
 /** Sous la ligne précédente, quand la carte montre une illustration générée par IA. */

@@ -15,7 +15,7 @@ import { comptes } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
 import { jsonLd, organisationLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
-import { BUDGETS, DESTINATAIRES, OCCASIONS, SITES_FRERES, UNIVERS, UNIVERS_FRERES } from "@/lib/taxonomie";
+import { BUDGETS, DESTINATAIRES, OCCASIONS, UNIVERS } from "@/lib/taxonomie";
 import { TOPS } from "@/lib/tops";
 
 export const metadata: Metadata = pageMetadata({
@@ -133,20 +133,16 @@ export default function HomePage() {
         <div className="relative">
           <span aria-hidden className="cordon absolute inset-x-0 top-[42px] hidden lg:block" />
           <ul className="relative grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 lg:grid-cols-7">
-            {UNIVERS.map((u, i) => {
-              const frere = UNIVERS_FRERES.includes(u.slug) ? SITES_FRERES[u.slug as keyof typeof SITES_FRERES] : null;
-              return (
-                <li key={u.slug}>
-                  <Link href={`/univers/${u.slug}`} className="carte-cadeau group flex flex-col items-center text-center hover:text-ink">
-                    <span className={`perle ${essence(i)} grid size-[84px] place-items-center border-[8px]`}>
-                      <IconeUnivers slug={u.slug} aria-hidden className="size-8 text-bois-fonce" strokeWidth={1.6} />
-                    </span>
-                    <span className="mt-3 font-serif text-[20px] leading-tight font-semibold group-hover:text-terre-texte">{u.nom}</span>
-                    {frere && <span className="font-serif text-[15px] text-muted italic">avec {frere.nom}</span>}
-                  </Link>
-                </li>
-              );
-            })}
+            {UNIVERS.map((u, i) => (
+              <li key={u.slug}>
+                <Link href={`/univers/${u.slug}`} className="carte-cadeau group flex flex-col items-center text-center hover:text-ink">
+                  <span className={`perle ${essence(i)} grid size-[84px] place-items-center border-[8px]`}>
+                    <IconeUnivers slug={u.slug} aria-hidden className="size-8 text-bois-fonce" strokeWidth={1.6} />
+                  </span>
+                  <span className="mt-3 font-serif text-[20px] leading-tight font-semibold group-hover:text-terre-texte">{u.nom}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </Section>
@@ -203,8 +199,8 @@ export default function HomePage() {
         </p>
         <p>
           Nous ne vendons rien nous-mêmes : chaque idée renvoie vers Amazon.fr, où vous pouvez comparer les modèles et les prix. Nos sélections sont choisies
-          pour leur intérêt, pas pour leur commission. Pour les livres, rendez-vous sur <a href="https://keurbook.com">Keurbook</a> ; pour la cuisine, sur{" "}
-          <a href="https://keurcook.com">Keur Cook</a>.
+          pour leur intérêt, pas pour leur commission. Les <Link href="/univers/livres">livres</Link> et les cadeaux de{" "}
+          <Link href="/univers/cuisine">cuisine</Link> ont aussi leur rubrique.
         </p>
       </EntryText>
     </>

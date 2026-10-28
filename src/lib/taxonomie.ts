@@ -118,7 +118,6 @@ export const OCCASIONS = [
     ],
   },
 ] as const satisfies readonly Rubrique[];
-
 export const DESTINATAIRES = [
   {
     slug: "maman",
@@ -198,7 +197,6 @@ export const DESTINATAIRES = [
     ],
   },
 ] as const satisfies readonly Rubrique[];
-
 /** Tranches de prix : bornes en euros, la borne haute exclue (null = pas de limite). */
 export const BUDGETS = [
   {
@@ -255,7 +253,7 @@ export const BUDGETS = [
   },
 ] as const satisfies ReadonlyArray<Rubrique & { min: number; max: number | null }>;
 
-/** Univers. « livres » et « cuisine » renvoient vers les sites frères Keurbook et Keur Cook. */
+/** Univers. */
 export const UNIVERS = [
   {
     slug: "wax-et-mode",
@@ -298,7 +296,7 @@ export const UNIVERS = [
     intro: "Pour une maison qui raconte d'où l'on vient : paniers, coussins, affiches et objets d'art.",
     texte: [
       "Paniers tressés, coussins en wax ou en bogolan, affiches d'artistes africains, statuettes, bougies parfumées : la déco africaine se glisse dans tous les intérieurs et fait un cadeau qui dure.",
-      "Pour encore plus d'idées d'aménagement, rendez-vous sur Keur Déco, notre site frère consacré à la déco africaine.",
+      "Pour un cadeau réussi, pensez à la pièce où l'objet ira vivre : un panier pour l'entrée, un coussin pour le salon, une suspension pour la chambre. Les objets en fibres tressées et en bois sont légers et solides, parfaits pour un colis.",
     ],
   },
   {
@@ -316,39 +314,31 @@ export const UNIVERS = [
     slug: "livres",
     nom: "Livres",
     titre: "Livres africains à offrir",
-    description: "Offrir un livre d'auteur africain : romans, BD, livres jeunesse. Toutes nos idées de lecture sont sur Keurbook, notre site frère.",
-    intro: "Un livre, c'est un cadeau qui reste. Pour les livres d'auteurs africains, nous avons un site entier : Keurbook.",
+    description: "Livres africains à offrir : contes illustrés, imagiers bilingues, histoire de l'Afrique, proverbes et beaux livres pour tous les âges.",
+    intro: "Un livre, c'est un cadeau qui reste : contes, imagiers, histoire et proverbes d'Afrique, pour les petits comme pour les grands.",
     texte: [
-      "Romans, BD, livres pour enfants, essais : les auteurs d'Afrique et de sa diaspora écrivent des livres magnifiques, à offrir à tous les âges.",
-      "Keurbook, notre site frère, présente des centaines de livres avec un résumé, une fiche auteur et des conseils de lecture.",
+      "Contes illustrés, imagiers bilingues, livres d'histoire, recueils de proverbes, beaux livres photo : les livres sur l'Afrique se lisent à tout âge et se relisent longtemps.",
+      "Un livre est léger, solide et ne craint ni la chaleur ni les secousses : c'est l'un des meilleurs cadeaux à glisser dans un colis pour le pays.",
     ],
   },
   {
     slug: "cuisine",
     nom: "Cuisine",
     titre: "Cadeaux pour les amoureux de cuisine africaine",
-    description: "Cadeaux pour les gourmands : livres de recettes africaines, ustensiles, épices. Toutes nos recettes sont sur Keur Cook, notre site frère.",
-    intro: "Thiéboudienne, mafé, poulet yassa… Pour les gourmands et les cuisiniers, rendez-vous sur Keur Cook.",
+    description: "Cadeaux pour les gourmands : livre de recettes africaines, théière pour l'ataya, mortier et pilon, épices, bissap et service à thé.",
+    intro: "Thiéboudienne, mafé, poulet yassa, thé à la menthe : des cadeaux pour ceux qui cuisinent et ceux qui reçoivent.",
     texte: [
       "Un livre de recettes, des épices, un bel ustensile : les cadeaux gourmands font toujours plaisir, surtout quand ils rappellent les plats de la maison.",
-      "Keur Cook, notre site frère, rassemble les recettes de la cuisine africaine pas à pas, avec les ustensiles et les ingrédients pour les réussir.",
+      "Pour ceux qui reçoivent, un plateau doré ou un service à thé accompagnent l'ataya des grandes occasions ; pour ceux qui cuisinent, un mortier en bois ou une théière solide serviront des années.",
     ],
   },
 ] as const satisfies readonly Rubrique[];
-
-/** Sites frères vers lesquels renvoient les univers « livres » et « cuisine ». */
-export const SITES_FRERES = {
-  livres: { nom: "Keurbook", url: "https://keurbook.com", accroche: "Les livres des auteurs d'Afrique subsaharienne" },
-  cuisine: { nom: "Keur Cook", url: "https://keurcook.com", accroche: "La cuisine africaine pas à pas" },
-} as const;
 
 export type OccasionSlug = (typeof OCCASIONS)[number]["slug"];
 export type DestinataireSlug = (typeof DESTINATAIRES)[number]["slug"];
 export type BudgetSlug = (typeof BUDGETS)[number]["slug"];
 export type UniversSlug = (typeof UNIVERS)[number]["slug"];
 
-/** Univers dont la page renvoie vers un site frère (pas de catalogue propre). */
-export const UNIVERS_FRERES: readonly UniversSlug[] = ["livres", "cuisine"];
 
 /** Les quatre familles, dans l'ordre des adresses du site. */
 export const FAMILLES = {

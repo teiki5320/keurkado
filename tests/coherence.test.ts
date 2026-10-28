@@ -11,7 +11,7 @@ import { PRODUITS } from "../src/lib/catalogue";
 import { internalLinks, parseConseil } from "../src/lib/conseils/article";
 import { porte } from "../src/lib/data/produits";
 import { GUIDE_ENVOYER, GUIDE_QUIZ, GUIDE_TOPS, guideDe, motsDuGuide } from "../src/lib/guides";
-import { BUDGETS, DESTINATAIRES, FAMILLES, OCCASIONS, UNIVERS, UNIVERS_FRERES, type Famille } from "../src/lib/taxonomie";
+import { BUDGETS, DESTINATAIRES, FAMILLES, OCCASIONS, UNIVERS, type Famille } from "../src/lib/taxonomie";
 import { TOPS } from "../src/lib/tops";
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -57,7 +57,6 @@ test("rubriques : descriptions de bonne longueur et assez d'idées par page", ()
   }
   for (const [famille, f] of Object.entries(FAMILLES) as Array<[Famille, (typeof FAMILLES)[Famille]]>) {
     for (const r of f.liste) {
-      if (famille === "univers" && UNIVERS_FRERES.includes(r.slug as never)) continue;
       const n = PRODUITS.filter((p) => porte(p, famille, r.slug)).length;
       assert.ok(n >= 6, `${f.chemin}/${r.slug} : seulement ${n} idées`);
     }
@@ -108,7 +107,6 @@ test("guides : chaque rubrique a son propre texte (300 mots ou plus), sans doubl
   const intertitres = new Set<string>();
   for (const [famille, f] of Object.entries(FAMILLES) as Array<[Famille, (typeof FAMILLES)[Famille]]>) {
     for (const r of f.liste) {
-      if (famille === "univers" && UNIVERS_FRERES.includes(r.slug as never)) continue;
       const g = guideDe(famille, r.slug);
       assert.ok(g, `${f.chemin}/${r.slug} : guide manquant`);
       assert.ok(motsDuGuide(g) >= 300, `${f.chemin}/${r.slug} : guide de ${motsDuGuide(g)} mots`);

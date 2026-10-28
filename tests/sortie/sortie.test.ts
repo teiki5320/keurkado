@@ -62,6 +62,10 @@ describe("Site construit (out/)", () => {
         assert.match(m[0], /rel="sponsored nofollow noopener"/, `lien Amazon : ${m[0].slice(0, 120)}`);
       }
       assert.doesNotMatch(html, /petite commission sur vos achats/, "phrase d'affiliation retirée");
+      // Aucun lien vers les autres sites du groupe (seule la vitrine toakeur.com est autorisée).
+      for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
+        assert.doesNotMatch(m[1], /(keurbook|keur-?cook|keur-?deco|keur-?foot|kultiled|optiled|solelis|alohash|kultiva|palabre|erea)\.|[a-z0-9-]+\.toakeur\.com/i, `lien vers un autre site du groupe : ${m[1]}`);
+      }
       // Illustrations des cadeaux (480 px, version 320 px) ; les vignettes des cartes Top 10 font déjà 400 px.
       for (const m of html.matchAll(/<img [^>]*src="\/produits\/[^"]*"[^>]*>/g)) {
         assert.match(m[0], /srcSet="/, `image sans versions réduites : ${m[0].slice(0, 120)}`);
