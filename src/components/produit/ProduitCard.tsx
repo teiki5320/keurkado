@@ -1,5 +1,5 @@
 import { BookOpen, CookingPot, Gem, Palette, Puzzle, Shirt, Sparkles, type LucideProps } from "lucide-react";
-import { AMAZON_REL } from "@/lib/amazon";
+import { AMAZON_LIEN_PARTENAIRE, AMAZON_REL, ILLUSTRATION_IA } from "@/lib/amazon";
 import { withBase } from "@/lib/config";
 import type { CarteProduit } from "@/lib/data/produits";
 import { formatPrice } from "@/lib/format";
@@ -97,10 +97,11 @@ export function ProduitCard({ produit, rang, index = 0, niveau = 3, prioritaire 
           <span className="rounded-full border border-ink/35 px-3 py-1.5">{produit.voyage ? "Voyage bien dans un colis" : "À offrir en main propre"}</span>
         </div>
         <div className="mt-auto pt-3">
-          <a href={produit.url} target="_blank" rel={AMAZON_REL} className="btn-amazon px-7 py-3.5 text-[15px]">
-            Voir sur Amazon.fr
+          <a href={produit.url} target="_blank" rel={AMAZON_REL} aria-label={`Voir sur Amazon : ${produit.nom}`} className="btn-amazon px-7 py-3.5 text-[15px]">
+            Voir sur Amazon
           </a>
-          {produit.image && <p className="mt-2.5 text-[11px] leading-snug text-faint">Illustration créée par IA : l&apos;article vendu sur Amazon peut différer.</p>}
+          <p className="mt-2.5 text-[11px] leading-snug text-faint">{AMAZON_LIEN_PARTENAIRE}</p>
+          {produit.image && <p className="mt-1 text-[11px] leading-snug text-faint">{ILLUSTRATION_IA}</p>}
         </div>
       </div>
     </article>
@@ -132,9 +133,12 @@ export function ProduitListe({ produits }: { produits: CarteProduit[] }) {
               {p.universNom} · {p.prix ? formatPrice(p.prix) : p.budgetNom}
             </span>
           </span>
-          <a href={p.url} target="_blank" rel={AMAZON_REL} className="btn-amazon shrink-0 px-4 py-2 text-[13px]">
-            Amazon
-          </a>
+          <span className="flex shrink-0 flex-col items-end text-right">
+            <a href={p.url} target="_blank" rel={AMAZON_REL} aria-label={`Voir sur Amazon : ${p.nom}`} className="btn-amazon px-4 py-2 text-[13px]">
+              Voir sur Amazon
+            </a>
+            <span className="mt-1.5 max-w-[14rem] text-[11px] leading-snug text-faint">{AMAZON_LIEN_PARTENAIRE}</span>
+          </span>
         </li>
       ))}
     </ul>

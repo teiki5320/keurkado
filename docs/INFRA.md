@@ -35,7 +35,7 @@ uniquement des noms de variables et de consoles.
   consentement de Google.
 - **Images** : une illustration par cadeau (95), créée par IA avec OpenArt en octobre 2026 pendant
   les séances de rédaction (aucun appel depuis le site) ; chaque carte porte la mention
-  « Illustration créée par IA ». Détail : `docs/IMAGES.md`.
+  « Illustration IA : l'article vendu peut différer. ». Détail : `docs/IMAGES.md`.
 - **Particularités** : tests de cohérence des contenus dans `tests/` ; épingles Pinterest
   (une par Top 10), manifeste `/epingles.json` et fichier d'import `/epingles-pinterest.csv`
   générés à chaque build par `scripts/epingles.mts` ; publication automatique par l'API Pinterest

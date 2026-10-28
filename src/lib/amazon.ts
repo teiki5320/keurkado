@@ -16,6 +16,12 @@ export function amazonUrl(produit: Pick<Produit, "amazonAsin" | "recherche" | "r
 /** Attributs d'un lien Amazon : nouvel onglet, lien sponsorisé (obligatoire pour Google). */
 export const AMAZON_REL = "sponsored nofollow noopener noreferrer";
 
+/** Ligne discrète sous chaque bouton « Voir sur Amazon » (même modèle que keurcook.com). */
+export const AMAZON_LIEN_PARTENAIRE = "Lien partenaire Amazon. Prix, disponibilité et vendeur sont indiqués sur Amazon.";
+
+/** Sous la ligne précédente, quand la carte montre une illustration générée par IA. */
+export const ILLUSTRATION_IA = "Illustration IA : l'article vendu peut différer.";
+
 /** Mention obligatoire du programme Partenaires Amazon. */
 export const AMAZON_DISCLOSURE =
   "En tant que Partenaire Amazon, Keur Kado réalise un bénéfice sur les achats remplissant les conditions requises.";
