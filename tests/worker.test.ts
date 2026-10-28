@@ -17,6 +17,8 @@ test("une page sans barre finale la reçoit, en une seule redirection", () => {
   assert.equal(redirection("https://keurkado.com/quiz?occasion=noel"), "https://keurkado.com/quiz/?occasion=noel");
   assert.equal(redirection("http://www.keurkado.com/pour/maman"), "https://keurkado.com/pour/maman/");
   assert.equal(redirection("https://keurkado.com/cgv"), "https://keurkado.com/conditions/");
+  assert.equal(redirection("https://keurkado.com/top/index.html"), "https://keurkado.com/top/");
+  assert.equal(redirection("http://keurkado.com/index.html"), "https://keurkado.com/");
 });
 
 test("la bonne adresse et les fichiers ne sont pas redirigés", () => {

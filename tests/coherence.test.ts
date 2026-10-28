@@ -10,7 +10,7 @@ import { FETES } from "../src/lib/calendrier";
 import { PRODUITS } from "../src/lib/catalogue";
 import { internalLinks, parseConseil } from "../src/lib/conseils/article";
 import { porte } from "../src/lib/data/produits";
-import { GUIDE_QUIZ, GUIDE_TOPS, guideDe, motsDuGuide } from "../src/lib/guides";
+import { GUIDE_ENVOYER, GUIDE_QUIZ, GUIDE_TOPS, guideDe, motsDuGuide } from "../src/lib/guides";
 import { BUDGETS, DESTINATAIRES, FAMILLES, OCCASIONS, UNIVERS, UNIVERS_FRERES, type Famille } from "../src/lib/taxonomie";
 import { TOPS } from "../src/lib/tops";
 
@@ -116,7 +116,7 @@ test("guides : chaque rubrique a son propre texte (300 mots ou plus), sans doubl
       }
     }
   }
-  assert.ok(motsDuGuide(GUIDE_QUIZ) >= 180 && motsDuGuide(GUIDE_TOPS) >= 180, "textes du quiz ou des Top 10 trop courts");
+  assert.ok([GUIDE_QUIZ, GUIDE_TOPS, GUIDE_ENVOYER].every((g) => motsDuGuide(g) >= 180), "textes du quiz, des Top 10 ou de l'envoi au pays trop courts");
 });
 
 test("titres pour Google : 60 caractères au plus", () => {

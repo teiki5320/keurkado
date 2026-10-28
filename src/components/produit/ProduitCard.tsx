@@ -32,7 +32,7 @@ export const essence = (i: number) => ESSENCES[((i % 3) + 3) % 3];
 export const enFcfa = (cents: number) => (Math.round((cents / 100) * 655.957 / 100) * 100).toLocaleString("fr-FR");
 
 /** Perle de bois avec le pictogramme de l'univers et l'étiquette de budget suspendue dessous. */
-export function Perle({ produit, index = 0, taille = 110, etiquette = true }: { produit: CarteProduit; index?: number; taille?: number; etiquette?: boolean }) {
+export function Perle({ produit, index = 0, taille = 110, etiquette = true, prioritaire = false }: { produit: CarteProduit; index?: number; taille?: number; etiquette?: boolean; prioritaire?: boolean }) {
   return (
     <span className="relative inline-block shrink-0" style={{ width: taille, height: taille }}>
       {/* Attache de la perle au cordon. */}
@@ -41,7 +41,15 @@ export function Perle({ produit, index = 0, taille = 110, etiquette = true }: { 
       <span className={`perle ${essence(index)} absolute inset-0 grid place-items-center overflow-hidden`} style={{ borderWidth: Math.max(7, Math.round(taille / 12)) }}>
         {produit.image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={withBase(produit.image)} alt={`Illustration : ${produit.nom}`} width={240} height={240} loading="lazy" className="size-full rounded-full object-cover" />
+          <img
+            src={withBase(produit.image)}
+            srcSet={`${withBase(produit.image.replace("/produits/", "/produits/320/"))} 320w, ${withBase(produit.image)} 480w`}
+            sizes={`${taille}px`}
+            alt={`Illustration : ${produit.nom}`}
+            width={240}
+            height={240}
+            loading={prioritaire ? "eager" : "lazy"}
+            fetchPriority={prioritaire ? "high" : undefined} className="size-full rounded-full object-cover" />
         ) : (
           <IconeUnivers slug={produit.univers} aria-hidden className="text-bois-fonce" style={{ width: taille * 0.34, height: taille * 0.34 }} strokeWidth={1.6} />
         )}
@@ -61,13 +69,13 @@ export function Perle({ produit, index = 0, taille = 110, etiquette = true }: { 
  * description, destinataires, envoi et bouton Amazon. `children` reçoit le « pourquoi » d'un Top 10.
  * Utilisable côté serveur comme dans l'atelier (navigateur).
  */
-export function ProduitCard({ produit, rang, index = 0, niveau = 3, children }: { produit: CarteProduit; rang?: number; index?: number; niveau?: 2 | 3; children?: React.ReactNode }) {
+export function ProduitCard({ produit, rang, index = 0, niveau = 3, prioritaire = false, children }: { produit: CarteProduit; rang?: number; index?: number; niveau?: 2 | 3; prioritaire?: boolean; children?: React.ReactNode }) {
   // Dans un Top 10, chaque cadeau est un intertitre de la page (h2) ; ailleurs il suit le titre d'une section (h3).
   const Titre = niveau === 2 ? "h2" : "h3";
   return (
     <article className="carte-cadeau relative flex h-full flex-col items-center">
       <span className="relative z-10 mt-4">
-        <Perle produit={produit} index={index} taille={produit.image ? 150 : 104} etiquette={false} />
+        <Perle produit={produit} index={index} taille={produit.image ? 150 : 104} etiquette={false} prioritaire={prioritaire} />
         {rang && (
           <span className="perle-pleine absolute -top-1 -right-3 grid size-10 place-items-center text-[17px] font-extrabold text-creme">{rang}</span>
         )}
@@ -99,14 +107,41 @@ export function ProduitCard({ produit, rang, index = 0, niveau = 3, children }: 
   );
 }
 
-export function ProduitGrid({ produits }: { produits: CarteProduit[] }) {
+/** Grille de cartes ; `prioritaire` : la première image est chargée tout de suite (elle est en haut de la page). */
+export function ProduitGrid({ produits, prioritaire = false }: { produits: CarteProduit[]; prioritaire?: boolean }) {
   return (
     <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
       {produits.map((p, i) => (
         <li key={p.slug}>
-          <ProduitCard produit={p} index={i} />
+          <ProduitCard produit={p} index={i} prioritaire={prioritaire && i === 0} />
         </li>
       ))}
     </ul>
   );
+}
+
+/** Liste courte des autres idées d'une rubrique : nom, univers, budget et lien Amazon, sans la description (déjà sur d'autres pages). */
+export function ProduitListe({ produits }: { produits: CarteProduit[] }) {
+  return (
+    <ul className="grid gap-3 sm:grid-cols-2">
+      {produits.map((p) => (
+        <li key={p.slug} className="bulle flex items-center justify-between gap-4 rounded-[28px_28px_28px_6px] px-5 py-3">
+          <span className="min-w-0">
+            <span className="block font-serif text-[20px] leading-tight font-semibold">{p.nom}</span>
+            <span className="block text-[13px] text-muted">
+              {p.universNom} · {p.prix ? formatPrice(p.prix) : p.budgetNom}
+            </span>
+          </span>
+          <a href={p.url} target="_blank" rel={AMAZON_REL} className="btn-amazon shrink-0 px-4 py-2 text-[13px]">
+            Amazon
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Mention d'affiliation, au plus près des liens Amazon. */
+export function MentionAffiliation() {
+  return <p className="mb-6 text-[13px] text-muted">Liens Amazon : nous touchons une petite commission sur vos achats, sans surcoût pour vous.</p>;
 }

@@ -6,7 +6,7 @@ import type { Guide, Guides } from "./types";
 import { GUIDES_UNIVERS } from "./univers";
 
 export type { Guide } from "./types";
-export { GUIDE_QUIZ, GUIDE_TOPS } from "./pages";
+export { GUIDE_ENVOYER, GUIDE_QUIZ, GUIDE_TOPS } from "./pages";
 
 const GUIDES: Record<Famille, Guides> = { occasion: GUIDES_OCCASION, pour: GUIDES_POUR, budget: GUIDES_BUDGET, univers: GUIDES_UNIVERS };
 

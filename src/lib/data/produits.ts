@@ -79,6 +79,16 @@ export function produitsDe(famille: Famille, slug: string): Produit[] {
   return trierParBudget(PRODUITS.filter((p) => porte(p, famille, slug)));
 }
 
+/**
+ * Produits d'une rubrique, les plus propres à cette rubrique d'abord (étiquetés pour peu d'autres occasions
+ * ou destinataires), puis ceux qui ont un lien Amazon direct ; à égalité, du moins cher au plus cher.
+ * Ainsi « papa » et « fête des pères » ne commencent pas par les mêmes cadeaux.
+ */
+export function produitsParPertinence(famille: Famille, slug: string): Produit[] {
+  const etiquettes = (p: Produit) => (famille === "occasion" ? p.occasions.length : famille === "pour" ? p.pour.length : 1);
+  return [...produitsDe(famille, slug)].sort((a, b) => etiquettes(a) - etiquettes(b) || Number(!!b.amazonAsin) - Number(!!a.amazonAsin));
+}
+
 /** Produits qui voyagent bien (« Cadeaux à envoyer au pays »). */
 export function produitsVoyage(): Produit[] {
   return trierParBudget(PRODUITS.filter((p) => p.voyage));

@@ -5,6 +5,7 @@ import { Breadcrumb, PageHeader, Section } from "@/components/layout/Section";
 import { ProduitGrid } from "@/components/produit/ProduitCard";
 import { RubriquePage } from "@/components/produit/RubriquePage";
 import { produitsDe, toCarte } from "@/lib/data/produits";
+import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { FAMILLES, SITES_FRERES, trouver, UNIVERS_FRERES, type Rubrique, type UniversSlug } from "@/lib/taxonomie";
 
@@ -31,8 +32,13 @@ export default async function Page({ params }: PageProps<"/univers/[slug]">) {
 function PasserelleFrere({ rubrique, cle }: { rubrique: Rubrique; cle: keyof typeof SITES_FRERES }) {
   const site = SITES_FRERES[cle];
   const produits = produitsDe("univers", rubrique.slug).map(toCarte);
+  const ld = breadcrumbLd([
+    { name: "Accueil", url: "/" },
+    { name: rubrique.titre, url: `/univers/${rubrique.slug}` },
+  ]);
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(ld) }} />
       <Breadcrumb items={[{ name: "Accueil", href: "/" }, { name: "Par univers" }, { name: rubrique.nom }]} />
       <PageHeader eyebrow="Par univers" title={rubrique.titre} intro={rubrique.intro} />
       <section className="container-page">

@@ -142,7 +142,7 @@ export default function HomePage() {
                       <IconeUnivers slug={u.slug} aria-hidden className="size-8 text-bois-fonce" strokeWidth={1.6} />
                     </span>
                     <span className="mt-3 font-serif text-[20px] leading-tight font-semibold group-hover:text-terre-texte">{u.nom}</span>
-                    {frere && <span className="font-serif text-[14px] text-faint italic">avec {frere.nom}</span>}
+                    {frere && <span className="font-serif text-[15px] text-muted italic">avec {frere.nom}</span>}
                   </Link>
                 </li>
               );

@@ -48,3 +48,30 @@ export const GUIDE_TOPS: Guide = {
     },
   ],
 };
+
+/** Guide de la page /envoyer-au-pays : choisir un cadeau qui voyage, préparer le colis, penser à la personne qui reçoit. */
+export const GUIDE_ENVOYER: Guide = {
+  parties: [
+    {
+      titre: "Que mettre dans un colis pour l'Afrique ?",
+      paragraphes: [
+        "Avant de penser au carton, pensez au trajet : des mains qui le portent, des piles où il se retrouve coincé, parfois la chaleur d'un entrepôt. Un bon cadeau à envoyer se plie, se roule ou se glisse à plat, ne craint ni les chocs ni les fortes températures, et arrive tel qu'il est parti. Un tissu, un vêtement, un bijou simple, un livre ou un jeu en bois remplissent ces conditions sans rien retirer au plaisir d'offrir.",
+        "Posez-vous aussi une question simple : le cadeau gardera-t-il son charme s'il arrive avec du retard ? Un objet lié à une date perd de son sens une fois la fête passée ; un foulard se reçoit avec la même joie quelques jours plus tard.",
+      ],
+    },
+    {
+      titre: "Comment préparer un colis depuis la France",
+      paragraphes: [
+        "Le plus sûr est souvent de vous faire livrer vos achats chez vous, en France, avant de les expédier. Vous vérifiez ainsi la taille, la couleur et l'état de chaque article. Vous retirez les emballages superflus et réunissez le tout dans un seul envoi soigné, chaque cadeau bien calé.",
+        "Avant de fermer le carton, dressez la liste de son contenu, article par article, et gardez-en une copie. Elle vous aidera à remplir la déclaration avec une valeur honnête, celle que vous avez réellement payée. Pour les délais, les objets acceptés et la douane, renseignez-vous auprès du transporteur : il connaît les règles du pays de destination.",
+      ],
+    },
+    {
+      titre: "Quel cadeau envoyer à sa famille au pays ?",
+      paragraphes: [
+        "Un cadeau qui part si loin doit tomber juste : on ne l'échange pas facilement à l'arrivée. Pour un vêtement, demandez discrètement les tailles à un proche, ou choisissez une pièce qui s'adapte à toutes les silhouettes, comme un pagne ou un foulard. Pensez aussi au climat et aux habitudes de la personne : une tenue de fête servira pour un baptême ou un mariage, un tissu léger se portera tous les jours.",
+        "Le plus beau cadeau répond souvent à un vrai besoin. N'hésitez pas à poser la question franchement : des fournitures pour la rentrée des enfants, un livre attendu depuis longtemps, un accessoire pour les cheveux. Ceux qui reçoivent savent le mieux ce qui leur manque, et votre attention n'en sera que plus touchante.",
+      ],
+    },
+  ],
+};

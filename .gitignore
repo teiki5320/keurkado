@@ -60,3 +60,6 @@ next-env.d.ts
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# Illustrations des produits réduites, générées au build (scripts/epingles.mts)
+/public/produits/320/

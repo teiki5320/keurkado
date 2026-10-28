@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Breadcrumb, Section } from "@/components/layout/Section";
-import { ProduitCard } from "@/components/produit/ProduitCard";
+import { MentionAffiliation, ProduitCard } from "@/components/produit/ProduitCard";
 import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig, withBase } from "@/lib/config";
 import { getProduit, toCarte } from "@/lib/data/produits";
@@ -59,7 +59,8 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
       datePublished: top.date,
       dateModified: top.date,
       inLanguage: "fr",
-      image,
+      // Image paysage (1200 × 630) et épingle portrait : Google choisit selon l'affichage.
+      image: [`${siteConfig.url}/epingles/partage/${top.slug}.jpg`, image],
       url,
       author: organisationLd(),
       publisher: organisationLd(),
@@ -111,7 +112,15 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
           </div>
           <figure className="mx-auto w-48 md:w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={withBase(`/epingles/${top.slug}.jpg`)} alt={`Épingle Pinterest : ${top.titre}`} width={1000} height={1500} className="aspect-[2/3] w-full rounded-[110px_110px_18px_18px/70px_70px_18px_18px] border-[1.5px] border-ink shadow-[5px_6px_0_var(--color-ombre)] shadow-xl" />
+            <img
+              src={withBase(`/epingles/vignettes/${top.slug}-700.webp`)}
+              srcSet={`${withBase(`/epingles/vignettes/${top.slug}.webp`)} 400w, ${withBase(`/epingles/vignettes/${top.slug}-700.webp`)} 700w`}
+              sizes="(min-width: 768px) 360px, 192px"
+              alt={`Épingle Pinterest : ${top.titre}`}
+              width={1000}
+              height={1500}
+              fetchPriority="high"
+              className="aspect-[2/3] w-full rounded-[110px_110px_18px_18px/70px_70px_18px_18px] border-[1.5px] border-ink shadow-[5px_6px_0_var(--color-ombre)] shadow-xl" />
             <a href={pinterest} target="_blank" rel="noopener noreferrer" className="btn mt-3 w-full bg-[#bd081c] py-2.5 text-sm text-white hover:bg-ink">
               Épingler sur Pinterest
             </a>
@@ -124,6 +133,11 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
             {m === 1 && (
               <div className="container-page">
                 <AdSlot placement="top" />
+              </div>
+            )}
+            {m === 0 && (
+              <div className="container-page mt-10">
+                <MentionAffiliation />
               </div>
             )}
             <ol start={m * 5 + 1} className="container-page mt-10 grid gap-x-6 gap-y-10 md:grid-cols-2">

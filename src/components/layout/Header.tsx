@@ -29,7 +29,7 @@ export function Header() {
     <>
       <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur-md">
         <div className="container-page flex items-center gap-4 border-b border-ink/25 py-3.5">
-          <Link href="/" onClick={close} aria-label={`${siteConfig.name}, accueil`} className="min-w-0 hover:text-ink">
+          <Link href="/" onClick={close} title={`${siteConfig.name}, accueil`} className="min-w-0 hover:text-ink">
             <Logo />
           </Link>
           <nav aria-label="Menu principal" className="ml-auto hidden items-center gap-6 text-[14px] font-bold lg:flex">

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
-import { Breadcrumb, EntryText, PageHeader, Section } from "@/components/layout/Section";
-import { ProduitGrid } from "@/components/produit/ProduitCard";
+import { Breadcrumb, EntryText, GuideTexte, PageHeader, Section } from "@/components/layout/Section";
+import { MentionAffiliation, ProduitGrid, ProduitListe } from "@/components/produit/ProduitCard";
 import { TopGrid } from "@/components/produit/TopCard";
 import { siteConfig } from "@/lib/config";
 import { produitsVoyage, toCarte } from "@/lib/data/produits";
+import { GUIDE_ENVOYER } from "@/lib/guides";
 import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { UNIVERS } from "@/lib/taxonomie";
@@ -60,14 +61,20 @@ export default function EnvoyerPage() {
 
       {tops.length > 0 && (
         <Section title="Notre sélection">
-          <TopGrid tops={tops} />
+          <TopGrid tops={tops} prioritaire />
         </Section>
       )}
 
       {parUnivers.map(({ u, liste }, i) => (
         <div key={u.slug}>
           <Section title={u.nom} href={`/univers/${u.slug}`} linkLabel="Tout l'univers">
-            <ProduitGrid produits={liste} />
+            {i === 0 && <MentionAffiliation />}
+            <ProduitGrid produits={liste.slice(0, 6)} />
+            {liste.length > 6 && (
+              <div className="mt-8">
+                <ProduitListe produits={liste.slice(6)} />
+              </div>
+            )}
           </Section>
           {i === 1 && (
             <div className="container-page">
@@ -76,6 +83,8 @@ export default function EnvoyerPage() {
           )}
         </div>
       ))}
+
+      <GuideTexte title="Choisir et préparer un colis pour le pays" guide={GUIDE_ENVOYER} />
 
       <EntryText title="Bien préparer son colis">
         <p>

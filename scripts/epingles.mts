@@ -13,6 +13,7 @@
 // - public/brand/keurkado-partage.jpg : image de partage par défaut (1200 × 630) ;
 // - public/epingles/vignettes/<slug>.webp : épingle réduite (400 px) pour les cartes des Top 10 ;
 // - public/epingles/partage/<slug>.jpg : image de partage paysage d'un Top 10 (1200 × 630, Facebook, WhatsApp, X) ;
+// - public/produits/320/<slug>.webp : illustrations des produits réduites à 320 px (cartes) ;
 // - public/epingles/conseils/<slug>.jpg : image de partage et image Google d'un article Conseil (1200 × 630).
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -285,6 +286,7 @@ async function main() {
     const epingle = await composerEpingle(top, gabarit);
     writeFileSync(resolve(SORTIE, `${top.slug}.jpg`), epingle);
     writeFileSync(resolve(SORTIE, `vignettes/${top.slug}.webp`), await sharp(epingle).resize({ width: 400 }).webp({ quality: 78 }).toBuffer());
+    writeFileSync(resolve(SORTIE, `vignettes/${top.slug}-700.webp`), await sharp(epingle).resize({ width: 700 }).webp({ quality: 78 }).toBuffer());
     writeFileSync(resolve(SORTIE, `partage/${top.slug}.jpg`), await partageTop(epingle));
     manifeste.push({
       id: `${top.slug}-1`,
@@ -303,6 +305,12 @@ async function main() {
   writeFileSync(resolve(RACINE, "public/epingles.json"), JSON.stringify({ site: "Keur Kado", epingles: manifeste }, null, 2) + "\n");
   writeFileSync(resolve(RACINE, "public/epingles-pinterest.csv"), csvPinterest(manifeste));
   writeFileSync(resolve(RACINE, "public/brand/keurkado-partage.jpg"), await imagePartage());
+  // Illustrations des produits réduites à 320 px pour les perles des cartes (affichées en 150 px).
+  const produits = resolve(RACINE, "public/produits");
+  mkdirSync(resolve(produits, "320"), { recursive: true });
+  for (const f of readdirSync(produits).filter((n) => n.endsWith(".webp"))) {
+    writeFileSync(resolve(produits, `320/${f}`), await sharp(resolve(produits, f)).resize(320, 320).webp({ quality: 78 }).toBuffer());
+  }
   // Une image par article Conseil (programmés compris), à partir du premier produit cité qui a une illustration.
   const dossierConseils = resolve(RACINE, "content/conseils");
   for (const f of readdirSync(dossierConseils).filter((n) => n.endsWith(".md"))) {

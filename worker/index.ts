@@ -20,6 +20,11 @@ export function redirection(adresse: string): string | null {
     url.port = "";
     changee = true;
   }
+  // « /top/index.html » → « /top/ » (le fichier de la page, servi sous son adresse propre).
+  if (url.pathname.endsWith("/index.html")) {
+    url.pathname = url.pathname.slice(0, -"index.html".length);
+    return url.toString();
+  }
   const deplacee = DEPLACEES[url.pathname];
   if (deplacee) {
     url.pathname = deplacee;

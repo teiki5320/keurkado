@@ -3,12 +3,15 @@ import { AdSlot } from "@/components/ads/AdSlot";
 import { Chips } from "@/components/layout/Chips";
 import { Breadcrumb, EntryText, GuideTexte, PageHeader, Section } from "@/components/layout/Section";
 import { siteConfig } from "@/lib/config";
-import { produitsDe, toCarte } from "@/lib/data/produits";
+import { produitsParPertinence, toCarte } from "@/lib/data/produits";
 import { guideDe } from "@/lib/guides";
 import { breadcrumbLd, itemListLd, jsonLd } from "@/lib/json-ld";
 import { FAMILLES, type Famille, type Rubrique } from "@/lib/taxonomie";
 import { topsDe } from "@/lib/tops";
-import { ProduitGrid } from "./ProduitCard";
+import { MentionAffiliation, ProduitGrid, ProduitListe } from "./ProduitCard";
+
+/** Cartes complètes en haut d'une rubrique ; les autres idées suivent en liste courte (moins de texte répété d'une page à l'autre). */
+const CARTES_MAX = 18;
 import { TopGrid } from "./TopCard";
 
 /** Paramètre du quiz correspondant à chaque famille (lien « Affiner avec le quiz »). */
@@ -18,7 +21,9 @@ const PARAM_QUIZ: Partial<Record<Famille, string>> = { occasion: "occasion", pou
 export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique: Rubrique }) {
   const f = FAMILLES[famille];
   const path = `${f.chemin}/${rubrique.slug}`;
-  const produits = produitsDe(famille, rubrique.slug).map(toCarte);
+  const produits = produitsParPertinence(famille, rubrique.slug).map(toCarte);
+  const cartes = produits.slice(0, CARTES_MAX);
+  const autres = produits.slice(CARTES_MAX);
   const tops = topsDe(`${famille}/${rubrique.slug}`);
   const param = PARAM_QUIZ[famille];
   const guide = guideDe(famille, rubrique.slug);
@@ -49,12 +54,19 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
 
       {tops.length > 0 && (
         <Section title={tops.length > 1 ? "Nos sélections" : "Notre sélection"}>
-          <TopGrid tops={tops} />
+          <TopGrid tops={tops} prioritaire />
         </Section>
       )}
 
       <Section title={`${produits.length} idées cadeaux`}>
-        <ProduitGrid produits={produits} />
+        <MentionAffiliation />
+        <ProduitGrid produits={cartes} prioritaire={tops.length === 0} />
+        {autres.length > 0 && (
+          <>
+            <h3 className="mt-14 mb-5 font-serif text-[26px] leading-tight font-semibold">Encore {autres.length} idées</h3>
+            <ProduitListe produits={autres} />
+          </>
+        )}
       </Section>
 
       <div className="container-page">
