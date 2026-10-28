@@ -23,10 +23,9 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
   const path = `${f.chemin}/${rubrique.slug}`;
   const tops = topsDe(`${famille}/${rubrique.slug}`);
   const produits = produitsParPertinence(famille, rubrique.slug).map((p) => toCarte(p, "rubrique"));
-  // Les cadeaux déjà présentés dans un Top 10 de la rubrique (avec leur « pourquoi ») passent en liste courte.
-  const dansUnTop = new Set(tops.flatMap((t) => t.items.map((it) => it.produit)));
-  const cartes = produits.filter((p) => !dansUnTop.has(p.slug)).slice(0, CARTES_MAX);
-  const autres = produits.filter((p) => !cartes.includes(p));
+  // Grandes cartes : les cadeaux à fiche Amazon directe d'abord (y compris ceux des Top 10), les recherches ensuite.
+  const cartes = produits.slice(0, CARTES_MAX);
+  const autres = produits.slice(CARTES_MAX);
   const param = PARAM_QUIZ[famille];
   const guide = guideDe(famille, rubrique.slug);
   const url = `${siteConfig.url}${path}`;

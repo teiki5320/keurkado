@@ -81,18 +81,18 @@ export function produitsDe(famille: Famille, slug: string): Produit[] {
 }
 
 /**
- * Produits d'une rubrique, les plus propres à cette rubrique d'abord (étiquetés pour peu d'autres occasions
- * ou destinataires), puis ceux qui ont un lien Amazon direct ; à égalité, du moins cher au plus cher.
- * Ainsi « papa » et « fête des pères » ne commencent pas par les mêmes cadeaux.
+ * Produits d'une rubrique : d'abord ceux qui ont un lien Amazon direct (fiche vérifiée), puis les plus propres
+ * à cette rubrique (étiquetés pour peu d'autres occasions ou destinataires) ; à égalité, du moins cher au plus cher.
+ * Ainsi les grandes cartes du haut mènent d'abord à une fiche, et « papa » ne commence pas comme « fête des pères ».
  */
 export function produitsParPertinence(famille: Famille, slug: string): Produit[] {
   const etiquettes = (p: Produit) => (famille === "occasion" ? p.occasions.length : famille === "pour" ? p.pour.length : 1);
-  return [...produitsDe(famille, slug)].sort((a, b) => etiquettes(a) - etiquettes(b) || Number(!!b.amazonAsin) - Number(!!a.amazonAsin));
+  return [...produitsDe(famille, slug)].sort((a, b) => Number(!!b.amazonAsin) - Number(!!a.amazonAsin) || etiquettes(a) - etiquettes(b));
 }
 
-/** Produits qui voyagent bien (« Cadeaux à envoyer au pays »). */
+/** Produits qui voyagent bien (« Cadeaux à envoyer au pays ») : lien Amazon direct d'abord, puis du moins cher au plus cher. */
 export function produitsVoyage(): Produit[] {
-  return trierParBudget(PRODUITS.filter((p) => p.voyage));
+  return [...trierParBudget(PRODUITS.filter((p) => p.voyage))].sort((a, b) => Number(!!b.amazonAsin) - Number(!!a.amazonAsin));
 }
 
 const RANG_BUDGET = new Map<string, number>(BUDGETS.map((b, i) => [b.slug, i]));

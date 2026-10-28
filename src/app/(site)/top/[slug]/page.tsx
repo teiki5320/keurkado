@@ -115,21 +115,10 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
               </ol>
             </nav>
           </div>
-          <figure className="mx-auto w-48 md:w-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={withBase(`/epingles/vignettes/${top.slug}-700.webp`)}
-              srcSet={`${withBase(`/epingles/vignettes/${top.slug}.webp`)} 400w, ${withBase(`/epingles/vignettes/${top.slug}-700.webp`)} 700w`}
-              sizes="(min-width: 768px) 360px, 192px"
-              alt={`Épingle Pinterest : ${top.titre}`}
-              width={1000}
-              height={1500}
-              fetchPriority="high"
-              className="aspect-[2/3] w-full rounded-[110px_110px_18px_18px/70px_70px_18px_18px] border-[1.5px] border-ink shadow-[5px_6px_0_var(--color-ombre)] shadow-xl" />
-            <a href={pinterest} target="_blank" rel="noopener noreferrer" className="btn mt-3 w-full bg-[#bd081c] py-2.5 text-sm text-white hover:bg-ink">
-              Épingler sur Pinterest
-            </a>
-          </figure>
+          {/* Sur ordinateur, l'épingle à côté du titre ; sur téléphone, elle passe sous la liste (le 1er cadeau arrive plus vite). */}
+          <div className="hidden md:block">
+            <Epingle slug={top.slug} titre={top.titre} pinterest={pinterest} />
+          </div>
         </header>
 
         {[items.slice(0, 5), items.slice(5)].map((moitie, m) => (
@@ -156,6 +145,10 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
             </ol>
           </Fragment>
         ))}
+
+        <div className="container-page mt-12 md:hidden">
+          <Epingle slug={top.slug} titre={top.titre} pinterest={pinterest} />
+        </div>
 
         <section className="container-page mt-14 max-w-3xl" aria-labelledby="commencer">
           <h2 id="commencer" className="section-title">Par où commencer</h2>
@@ -213,5 +206,29 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
         <AdSlot placement="top" />
       </div>
     </>
+  );
+}
+
+/**
+ * L'épingle Pinterest du Top 10 et le bouton « Épingler ». Chargement différé : des deux exemplaires
+ * (ordinateur, téléphone), seul celui qui est affiché se télécharge.
+ */
+function Epingle({ slug, titre, pinterest }: { slug: string; titre: string; pinterest: string }) {
+  return (
+    <figure className="mx-auto w-48 md:w-full">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={withBase(`/epingles/vignettes/${slug}-700.webp`)}
+        srcSet={`${withBase(`/epingles/vignettes/${slug}.webp`)} 400w, ${withBase(`/epingles/vignettes/${slug}-700.webp`)} 700w`}
+        sizes="(min-width: 768px) 360px, 192px"
+        alt={`Épingle Pinterest : ${titre}`}
+        width={1000}
+        height={1500}
+        loading="lazy"
+        className="aspect-[2/3] w-full rounded-[110px_110px_18px_18px/70px_70px_18px_18px] border-[1.5px] border-ink shadow-[5px_6px_0_var(--color-ombre)] shadow-xl" />
+      <a href={pinterest} target="_blank" rel="noopener noreferrer" className="btn mt-3 w-full bg-[#bd081c] py-2.5 text-sm text-white hover:bg-ink">
+        Épingler sur Pinterest
+      </a>
+    </figure>
   );
 }

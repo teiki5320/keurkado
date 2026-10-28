@@ -66,7 +66,7 @@ export function Perle({ produit, index = 0, taille = 110, etiquette = true, prio
 
 /**
  * Carte d'un cadeau, en arche sous sa perle (la fiche « détail » du design) : univers, nom, budget,
- * description, destinataires, envoi et bouton Amazon. `children` reçoit le « pourquoi » d'un Top 10.
+ * description, bouton Amazon, puis destinataires et envoi. `children` reçoit le « pourquoi » d'un Top 10 (sous le bouton).
  * Utilisable côté serveur comme dans l'atelier (navigateur).
  */
 export function ProduitCard({ produit, rang, index = 0, niveau = 3, prioritaire = false, children }: { produit: CarteProduit; rang?: number; index?: number; niveau?: 2 | 3; prioritaire?: boolean; children?: React.ReactNode }) {
@@ -91,17 +91,18 @@ export function ProduitCard({ produit, rang, index = 0, niveau = 3, prioritaire 
           {produit.prix && <span className="ml-1.5 text-[12.5px] font-semibold text-faint">≈ {enFcfa(produit.prix)} FCFA</span>}
         </p>
         <p className="text-[15px] leading-relaxed text-muted">{produit.description}</p>
-        {children}
-        <div className="flex flex-wrap justify-center gap-2 text-[12px] font-semibold">
-          <span className="rounded-full border border-ink/35 px-3 py-1.5">Pour {produit.pourNoms}</span>
-          <span className="rounded-full border border-ink/35 px-3 py-1.5">{produit.voyage ? "Voyage bien dans un colis" : "À offrir en main propre"}</span>
-        </div>
-        <div className="mt-auto pt-3">
+        {/* Le bouton suit directement la description : sur téléphone, il arrive sans avoir à faire défiler tout le « pourquoi ». */}
+        <div className="pt-1">
           <a href={produit.url} target="_blank" rel={AMAZON_REL} aria-label={`Voir sur Amazon : ${produit.nom}`} className="btn-amazon px-7 py-3.5 text-[15px]">
             Voir sur Amazon
           </a>
           <p className="mt-2.5 text-[11px] leading-snug text-faint">{AMAZON_LIEN_PARTENAIRE}</p>
           {produit.image && <p className="mt-1 text-[11px] leading-snug text-faint">{ILLUSTRATION_IA}</p>}
+        </div>
+        {children}
+        <div className="mt-auto flex flex-wrap justify-center gap-2 pt-1 text-[12px] font-semibold">
+          <span className="rounded-full border border-ink/35 px-3 py-1.5">Pour {produit.pourNoms}</span>
+          <span className="rounded-full border border-ink/35 px-3 py-1.5">{produit.voyage ? "Voyage bien dans un colis" : "À offrir en main propre"}</span>
         </div>
       </div>
     </article>
@@ -142,5 +143,35 @@ export function ProduitListe({ produits }: { produits: CarteProduit[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+/**
+ * Encadré de 1 ou 2 cadeaux au fil d'un article, juste après le paragraphe qui les cite (loin des annonces) :
+ * perle, nom, budget, bouton « Voir sur Amazon » et ligne « Lien partenaire ».
+ */
+export function EncadreProduits({ produits }: { produits: CarteProduit[] }) {
+  if (produits.length === 0) return null;
+  return (
+    <aside aria-label="Les cadeaux cités" className="my-8">
+      <ul className={`grid gap-4 ${produits.length > 1 ? "sm:grid-cols-2" : ""}`}>
+        {produits.map((p, i) => (
+          <li key={p.slug} className="bulle flex items-center gap-4 rounded-[32px_32px_32px_8px] px-4 pt-6 pb-4">
+            <Perle produit={p} index={i} taille={72} etiquette={false} />
+            <div className="min-w-0">
+              <p className="font-serif text-[19px] leading-tight font-semibold">{p.nom}</p>
+              <p className="mt-0.5 text-[13px] text-muted">
+                {p.universNom} · {p.prix ? formatPrice(p.prix) : p.budgetNom}
+              </p>
+              <a href={p.url} target="_blank" rel={AMAZON_REL} aria-label={`Voir sur Amazon : ${p.nom}`} className="btn-amazon mt-2.5 px-4 py-2 text-[13px]">
+                Voir sur Amazon
+              </a>
+              <p className="mt-1.5 text-[11px] leading-snug text-faint">{AMAZON_LIEN_PARTENAIRE}</p>
+              {p.image && <p className="mt-0.5 text-[11px] leading-snug text-faint">{ILLUSTRATION_IA}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </aside>
   );
 }
