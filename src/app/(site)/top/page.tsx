@@ -27,7 +27,7 @@ export default function TopsPage() {
         intro="Dix cadeaux choisis pour chaque occasion, chaque personne et chaque budget, avec nos conseils pour bien choisir. Chaque sélection a son épingle Pinterest, à garder de côté."
       />
       <Section title={`${TOPS.length} sélections`}>
-        <TopGrid tops={TOPS} />
+        <TopGrid tops={TOPS} prioritaire />
       </Section>
       <GuideTexte title="Comment nous composons nos Top 10" guide={GUIDE_TOPS} />
     </>

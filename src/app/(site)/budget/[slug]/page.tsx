@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/budget/[slug]">): Promise<Metadata> {
   const r = trouver("budget", (await params).slug);
   if (!r) return {};
-  return pageMetadata({ title: r.titre, description: r.description, path: `/budget/${r.slug}` });
+  return pageMetadata({ title: r.titre, description: r.description, path: `/budget/${r.slug}`, image: `/epingles/rubriques/budget-${r.slug}.jpg`, imageAlt: r.titre, imageSize: [1200, 630] });
 }
 
 export default async function Page({ params }: PageProps<"/budget/[slug]">) {

@@ -21,10 +21,12 @@ const PARAM_QUIZ: Partial<Record<Famille, string>> = { occasion: "occasion", pou
 export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique: Rubrique }) {
   const f = FAMILLES[famille];
   const path = `${f.chemin}/${rubrique.slug}`;
-  const produits = produitsParPertinence(famille, rubrique.slug).map(toCarte);
-  const cartes = produits.slice(0, CARTES_MAX);
-  const autres = produits.slice(CARTES_MAX);
   const tops = topsDe(`${famille}/${rubrique.slug}`);
+  const produits = produitsParPertinence(famille, rubrique.slug).map(toCarte);
+  // Les cadeaux déjà présentés dans un Top 10 de la rubrique (avec leur « pourquoi ») passent en liste courte.
+  const dansUnTop = new Set(tops.flatMap((t) => t.items.map((it) => it.produit)));
+  const cartes = produits.filter((p) => !dansUnTop.has(p.slug)).slice(0, CARTES_MAX);
+  const autres = produits.filter((p) => !cartes.includes(p));
   const param = PARAM_QUIZ[famille];
   const guide = guideDe(famille, rubrique.slug);
   const url = `${siteConfig.url}${path}`;
@@ -60,10 +62,12 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
 
       <Section title={`${produits.length} idées cadeaux`}>
         <MentionAffiliation />
-        <ProduitGrid produits={cartes} prioritaire={tops.length === 0} />
+        {cartes.length > 0 && <ProduitGrid produits={cartes} prioritaire={tops.length === 0} />}
         {autres.length > 0 && (
           <>
-            <h3 className="mt-14 mb-5 font-serif text-[26px] leading-tight font-semibold">Encore {autres.length} idées</h3>
+            <h3 className="mt-14 mb-5 font-serif text-[26px] leading-tight font-semibold">
+              {cartes.length > 0 ? `Encore ${autres.length} idées` : "Toutes les idées"}
+            </h3>
             <ProduitListe produits={autres} />
           </>
         )}

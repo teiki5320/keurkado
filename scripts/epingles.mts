@@ -14,11 +14,13 @@
 // - public/epingles/vignettes/<slug>.webp : épingle réduite (400 px) pour les cartes des Top 10 ;
 // - public/epingles/partage/<slug>.jpg : image de partage paysage d'un Top 10 (1200 × 630, Facebook, WhatsApp, X) ;
 // - public/produits/320/<slug>.webp : illustrations des produits réduites à 320 px (cartes) ;
+// - public/epingles/rubriques/<famille>-<slug>.jpg : image de partage d'une rubrique (1200 × 630) ;
 // - public/epingles/conseils/<slug>.jpg : image de partage et image Google d'un article Conseil (1200 × 630).
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import sharp, { type OverlayOptions } from "sharp";
 import { parseConseil } from "../src/lib/conseils/article";
+import { FAMILLES } from "../src/lib/taxonomie";
 import { TOPS } from "../src/lib/tops";
 import { rubriqueDuTop } from "../src/lib/tops/rubrique";
 import type { Top } from "../src/lib/types";
@@ -226,6 +228,27 @@ async function partageConseil(produit: string): Promise<Buffer> {
     .toBuffer();
 }
 
+/** Image de partage d'une rubrique (1200 × 630) : son titre dans une bulle crème, avec le paquet cadeau du logo. */
+async function partageRubrique(famille: string, titre: string): Promise<Buffer> {
+  const bulleCreme = await sharp(svg(1200, 630, `<defs>${DEFS}</defs>${bulle(90, 45, 1020, 540, 60)}`)).png().toBuffer();
+  const embleme = await sharp(EMBLEME).resize({ width: 190, height: 150, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();
+  const sur = await textePng(famille.toUpperCase(), { police: "texte", couleur: C.terreTexte, largeur: 860, hauteurMax: 50, tailleMax: 30, tailleMin: 22 });
+  const tit = await textePng(titre, { police: "titre", couleur: C.encre, largeur: 860, hauteurMax: 230, tailleMax: 78, tailleMin: 50 });
+  const url = await textePng("keurkado.com", { police: "texte", couleur: C.boisFonce, largeur: 860, hauteurMax: 50, tailleMax: 30, tailleMin: 22 });
+  const [ts, tt, tu] = [await taille(sur), await taille(tit), await taille(url)];
+  const haut = 105 + 150 + 18;
+  return sharp(await fondPartage())
+    .composite([
+      { input: bulleCreme, left: 0, top: 0 },
+      { input: embleme, left: 505, top: 95 },
+      { input: sur, left: Math.round((1200 - ts.l) / 2), top: haut },
+      { input: tit, left: Math.round((1200 - tt.l) / 2), top: haut + ts.h + 14 },
+      { input: url, left: Math.round((1200 - tu.l) / 2), top: Math.min(535, haut + ts.h + tt.h + 46) },
+    ])
+    .jpeg({ quality: 84, mozjpeg: true })
+    .toBuffer();
+}
+
 export interface EntreeManifeste {
   id: string;
   slug: string;
@@ -279,7 +302,7 @@ async function main() {
   rmSync(SORTIE, { recursive: true, force: true });
   mkdirSync(SORTIE, { recursive: true });
   mkdirSync(resolve(RACINE, "public/brand"), { recursive: true });
-  for (const dossier of ["vignettes", "partage", "conseils"]) mkdirSync(resolve(SORTIE, dossier), { recursive: true });
+  for (const dossier of ["vignettes", "partage", "conseils", "rubriques"]) mkdirSync(resolve(SORTIE, dossier), { recursive: true });
   const manifeste: EntreeManifeste[] = [];
   for (const [i, top] of TOPS.entries()) {
     const gabarit = gabaritPour(i);
@@ -305,6 +328,10 @@ async function main() {
   writeFileSync(resolve(RACINE, "public/epingles.json"), JSON.stringify({ site: "Keur Kado", epingles: manifeste }, null, 2) + "\n");
   writeFileSync(resolve(RACINE, "public/epingles-pinterest.csv"), csvPinterest(manifeste));
   writeFileSync(resolve(RACINE, "public/brand/keurkado-partage.jpg"), await imagePartage());
+  // Une image de partage par rubrique (occasion, destinataire, budget, univers).
+  for (const [cle, f] of Object.entries(FAMILLES)) {
+    for (const r of f.liste) writeFileSync(resolve(SORTIE, `rubriques/${cle}-${r.slug}.jpg`), await partageRubrique(f.nom, r.titre));
+  }
   // Illustrations des produits réduites à 320 px pour les perles des cartes (affichées en 150 px).
   const produits = resolve(RACINE, "public/produits");
   mkdirSync(resolve(produits, "320"), { recursive: true });

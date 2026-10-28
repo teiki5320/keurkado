@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/pour/[slug]">): Promise<Metadata> {
   const r = trouver("pour", (await params).slug);
   if (!r) return {};
-  return pageMetadata({ title: r.titre, description: r.description, path: `/pour/${r.slug}` });
+  return pageMetadata({ title: r.titre, description: r.description, path: `/pour/${r.slug}`, image: `/epingles/rubriques/pour-${r.slug}.jpg`, imageAlt: r.titre, imageSize: [1200, 630] });
 }
 
 export default async function Page({ params }: PageProps<"/pour/[slug]">) {

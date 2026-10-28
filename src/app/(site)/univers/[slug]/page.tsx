@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Chips } from "@/components/layout/Chips";
-import { Breadcrumb, PageHeader, Section } from "@/components/layout/Section";
-import { ProduitGrid } from "@/components/produit/ProduitCard";
+import { Breadcrumb, GuideTexte, PageHeader, Section } from "@/components/layout/Section";
+import { MentionAffiliation, ProduitGrid } from "@/components/produit/ProduitCard";
 import { RubriquePage } from "@/components/produit/RubriquePage";
 import { produitsDe, toCarte } from "@/lib/data/produits";
+import { GUIDES_FRERES } from "@/lib/guides";
 import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
 import { FAMILLES, SITES_FRERES, trouver, UNIVERS_FRERES, type Rubrique, type UniversSlug } from "@/lib/taxonomie";
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/univers/[slug]">): Promise<Metadata> {
   const r = trouver("univers", (await params).slug);
   if (!r) return {};
-  return pageMetadata({ title: r.titre, description: r.description, path: `/univers/${r.slug}` });
+  return pageMetadata({ title: r.titre, description: r.description, path: `/univers/${r.slug}`, image: `/epingles/rubriques/univers-${r.slug}.jpg`, imageAlt: r.titre, imageSize: [1200, 630] });
 }
 
 export default async function Page({ params }: PageProps<"/univers/[slug]">) {
@@ -56,9 +57,11 @@ function PasserelleFrere({ rubrique, cle }: { rubrique: Rubrique; cle: keyof typ
       </section>
       {produits.length > 0 && (
         <Section title="Quelques idées à offrir">
+          <MentionAffiliation />
           <ProduitGrid produits={produits} />
         </Section>
       )}
+      {GUIDES_FRERES[rubrique.slug] && <GuideTexte title={`Bien choisir : ${rubrique.nom.toLowerCase()}`} guide={GUIDES_FRERES[rubrique.slug]} />}
       <section className="container-page mt-16">
         <Chips famille="univers" actif={rubrique.slug} titre="Tous les univers" />
       </section>

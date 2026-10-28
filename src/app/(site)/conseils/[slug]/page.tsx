@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { ConseilGrid } from "@/components/conseils/ConseilCard";
 import { Section } from "@/components/layout/Section";
-import { ProduitGrid } from "@/components/produit/ProduitCard";
+import { MentionAffiliation, ProduitGrid } from "@/components/produit/ProduitCard";
 import { conseilSections, splitAtMiddleSection } from "@/lib/conseils/article";
 import { CONSEIL_CATEGORIES } from "@/lib/conseils/categories";
 import { siteConfig, withBase } from "@/lib/config";
@@ -132,6 +132,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
 
       {cites.length > 0 && (
         <Section title="Les cadeaux de cet article">
+          <MentionAffiliation />
           <ProduitGrid produits={cites} />
         </Section>
       )}

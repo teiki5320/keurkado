@@ -158,3 +158,56 @@ export const GUIDES_UNIVERS: Guides = {
     ],
   },
 };
+
+/**
+ * Univers « livres » et « cuisine » : courts guides des pages passerelles vers les sites frères
+ * (Keurbook et Keur Cook), qui ont chacun leurs propres conseils détaillés.
+ */
+export const GUIDES_FRERES: Guides = {
+  livres: {
+    parties: [
+      {
+        titre: "Offrir un livre d'auteur africain",
+        paragraphes: [
+          "Un livre se garde, se prête et se relit : c'est l'un des cadeaux qui durent le plus longtemps. Pour qu'il touche juste, partez de la personne plutôt que du livre. Une grande lectrice de romans n'attend pas la même chose qu'un papa curieux d'histoire ou qu'un enfant qui commence à lire seul.",
+          "Les auteurs d'Afrique et de la diaspora écrivent dans tous les genres : romans, poésie, bandes dessinées, albums jeunesse, essais, récits de voyage. Il y a forcément un livre qui parle à la personne que vous voulez gâter, en français ou dans une autre langue.",
+        ],
+      },
+      {
+        titre: "Livre jeunesse : des héros qui leur ressemblent",
+        paragraphes: [
+          "Pour un enfant de la diaspora, un album dont le héros lui ressemble compte beaucoup : il s'y reconnaît, en parle et le relit. Choisissez selon l'âge, et préférez un livre que vous pourrez lire avec lui le soir.",
+        ],
+      },
+      {
+        titre: "Nos conseils de lecture sur Keurbook",
+        paragraphes: [
+          "Keurbook, notre site frère, présente les livres un par un, avec un résumé, une fiche sur l'auteur et des sélections par âge et par thème. C'est le meilleur endroit pour trouver le bon titre. Ici, vous trouverez aussi quelques idées de livres à glisser dans un colis : un livre est léger, solide et voyage très bien.",
+        ],
+      },
+    ],
+  },
+  cuisine: {
+    parties: [
+      {
+        titre: "Un cadeau pour les amoureux de cuisine africaine",
+        paragraphes: [
+          "Les cadeaux gourmands ont un pouvoir particulier : ils rappellent la cuisine de la maison, les repas de fête et les odeurs de l'enfance. Un livre de recettes, un bel ustensile ou un service pour recevoir font plaisir à ceux qui cuisinent comme à ceux qui aiment simplement bien manger.",
+          "Pensez à la personne : celle qui cuisine tous les jours appréciera un ustensile solide, celle qui reçoit souvent un joli plateau ou un service à thé, et celle qui veut apprendre un livre de recettes expliquées pas à pas.",
+        ],
+      },
+      {
+        titre: "Ustensiles et service : du solide",
+        paragraphes: [
+          "Mortier et pilon, théière pour l'ataya, plateau de service : choisissez des objets solides et faciles à entretenir, qui serviront longtemps. Vérifiez sur la fiche Amazon la taille, la matière et le mode d'entretien avant de commander.",
+        ],
+      },
+      {
+        titre: "Toutes nos recettes sur Keur Cook",
+        paragraphes: [
+          "Keur Cook, notre site frère, rassemble les recettes de la cuisine africaine pas à pas, avec les ingrédients et les ustensiles pour les réussir. Si vous offrez un ustensile, glissez-y une recette de Keur Cook : le cadeau sera tout de suite utile.",
+        ],
+      },
+    ],
+  },
+};
