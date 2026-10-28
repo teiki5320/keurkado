@@ -22,7 +22,7 @@ export function RubriquePage({ famille, rubrique }: { famille: Famille; rubrique
   const f = FAMILLES[famille];
   const path = `${f.chemin}/${rubrique.slug}`;
   const tops = topsDe(`${famille}/${rubrique.slug}`);
-  const produits = produitsParPertinence(famille, rubrique.slug).map(toCarte);
+  const produits = produitsParPertinence(famille, rubrique.slug).map((p) => toCarte(p, "rubrique"));
   // Les cadeaux déjà présentés dans un Top 10 de la rubrique (avec leur « pourquoi ») passent en liste courte.
   const dansUnTop = new Set(tops.flatMap((t) => t.items.map((it) => it.produit)));
   const cartes = produits.filter((p) => !dansUnTop.has(p.slug)).slice(0, CARTES_MAX);

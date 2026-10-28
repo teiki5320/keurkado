@@ -8,6 +8,9 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 import { describe, it } from "node:test";
+import { CODES_SUIVI } from "../../src/lib/amazon";
+
+const CODES = new Set<string>(Object.values(CODES_SUIVI));
 
 const out = join(import.meta.dirname, "..", "..", "out");
 const SITE = "https://keurkado.com";
@@ -60,6 +63,8 @@ describe("Site construit (out/)", () => {
       for (const m of ld) assert.doesNotThrow(() => JSON.parse(m[1]), "JSON-LD illisible");
       for (const m of html.matchAll(/<a [^>]*href="https:\/\/www\.amazon\.fr[^"]*"[^>]*>/g)) {
         assert.match(m[0], /rel="sponsored nofollow noopener"/, `lien Amazon : ${m[0].slice(0, 120)}`);
+        const tag = decoder(m[0].match(/href="([^"]*)"/)?.[1] ?? "").match(/[?&]tag=([^&]+)/)?.[1];
+        assert.ok(tag && CODES.has(tag), `lien Amazon sans code de suivi de la table : ${m[0].slice(0, 120)}`);
       }
       assert.doesNotMatch(html, /petite commission sur vos achats/, "phrase d'affiliation retirée");
       // Aucun lien vers les autres sites du groupe (seule la vitrine toakeur.com est autorisée).

@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { amazonUrl } from "@/lib/amazon";
+import { amazonUrl, type Emplacement } from "@/lib/amazon";
 import { PRODUITS } from "@/lib/catalogue";
 import { BUDGETS, DESTINATAIRES, FAMILLES, UNIVERS, type Famille } from "@/lib/taxonomie";
 import type { Produit } from "@/lib/types";
@@ -41,7 +41,8 @@ export function getProduit(slug: string): Produit | undefined {
   return PAR_SLUG.get(slug);
 }
 
-export function toCarte(p: Produit): CarteProduit {
+/** Carte d'un produit ; `emplacement` choisit le code de suivi Amazon du lien (top, rubrique, conseil, quiz). */
+export function toCarte(p: Produit, emplacement: Emplacement): CarteProduit {
   return {
     slug: p.slug,
     nom: p.nom,
@@ -54,7 +55,7 @@ export function toCarte(p: Produit): CarteProduit {
     pour: [...p.pour],
     pourNoms: p.pour.map((x) => POUR_NOM.get(x) ?? x).join(", "),
     voyage: p.voyage,
-    url: amazonUrl(p),
+    url: amazonUrl(p, emplacement),
     prix: p.priceCents ?? null,
     image: existsSync(join(DOSSIER_IMAGES, `${p.slug}.webp`)) ? `/produits/${p.slug}.webp` : null,
   };

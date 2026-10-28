@@ -27,7 +27,7 @@ const REGLES = [
 ];
 
 export default function EnvoyerPage() {
-  const produits = produitsVoyage().map(toCarte);
+  const produits = produitsVoyage().map((p) => toCarte(p, "rubrique"));
   const tops = topsDe("page/envoyer-au-pays");
   const parUnivers = UNIVERS.map((u) => ({ u, liste: produits.filter((p) => p.univers === u.slug) })).filter((g) => g.liste.length > 0);
   const ld = breadcrumbLd([

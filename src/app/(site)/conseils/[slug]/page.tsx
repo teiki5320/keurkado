@@ -52,7 +52,7 @@ export default async function ConseilPage({ params }: PageProps<"/conseils/[slug
   if (!conseil) notFound();
   const cites = conseil.produits.flatMap((s) => {
     const p = getProduit(s);
-    return p ? [toCarte(p)] : [];
+    return p ? [toCarte(p, "conseil")] : [];
   });
   const related = getRelatedConseils(conseil);
   // « Nos Top 10 » : 2 sélections, à tour de rôle d'un conseil à l'autre.

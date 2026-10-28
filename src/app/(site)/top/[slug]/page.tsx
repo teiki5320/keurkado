@@ -44,7 +44,7 @@ export default async function TopPage({ params }: PageProps<"/top/[slug]">) {
   const rubrique = rubriqueDuTop(top.rubrique);
   const items = top.items.flatMap((it) => {
     const p = getProduit(it.produit);
-    return p ? [{ carte: toCarte(p), pourquoi: it.pourquoi }] : [];
+    return p ? [{ carte: toCarte(p, "top"), pourquoi: it.pourquoi }] : [];
   });
   const url = `${siteConfig.url}/top/${top.slug}/`;
   const image = `${siteConfig.url}/epingles/${top.slug}.jpg`;

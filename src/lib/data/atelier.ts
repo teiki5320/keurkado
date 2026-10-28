@@ -28,7 +28,7 @@ export function donneesAtelier() {
     };
   });
   return {
-    produits: getProduits().map(toCarte),
+    produits: getProduits().map((p) => toCarte(p, "quiz")),
     options,
     fetes,
     tops: TOPS.slice(0, 6).map(({ slug, titre }) => ({ slug, titre })),

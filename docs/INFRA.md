@@ -96,6 +96,10 @@ uniquement des noms de variables et de consoles.
   (construits par `src/lib/amazon.ts`, réglable par `NEXT_PUBLIC_AMAZON_TAG`). 56 cadeaux sur 98 ont
   un ASIN relevé à la main et mènent directement à leur fiche ; les autres ouvrent une recherche
   Amazon. Aucun prix saisi à la main (règle du programme).
+- **Codes de suivi par emplacement** (depuis le 28 octobre 2026) : table unique `CODES_SUIVI` dans
+  `src/lib/amazon.ts` (top, rubrique, conseil, quiz). Tous les emplacements utilisent encore
+  `keurkadofr-21` ; quand Jean aura créé un code par emplacement dans la console, il suffira de
+  le remplacer dans cette table.
 - **Contrôle** : la routine « Vérifier les liens Amazon » du Studio a contrôlé 40 liens le
   21 octobre 2026, tous valides.
 - **Site déclaré** : keurkado.com dans la liste des sites du compte — à vérifier dans la console.

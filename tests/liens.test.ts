@@ -6,7 +6,8 @@ import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
-import { AMAZON_REL } from "../src/lib/amazon";
+import { AMAZON_REL, AMAZON_TAG, amazonUrl, CODES_SUIVI, type Emplacement } from "../src/lib/amazon";
+import { PRODUITS } from "../src/lib/catalogue";
 import { parseConseil, relatedConseils } from "../src/lib/conseils/article";
 import { croisesEnBoucle, suivantsEnBoucle } from "../src/lib/liens";
 import { couperTexte } from "../src/lib/metadata";
@@ -77,5 +78,19 @@ test("aucun lien vers les autres sites de Jean (toakeur.com seul autorisé)", ()
     const m = texte.match(AUTRES_SITES);
     assert.equal(m, null, `${f} : lien vers un autre site du groupe (${m?.[0]})`);
     assert.doesNotMatch(texte, /sites? frères?/i, `${f} : renvoi vers un « site frère »`);
+  }
+});
+
+test("codes de suivi Amazon : chaque lien porte un code de la table CODES_SUIVI", () => {
+  const codes = new Set<string>(Object.values(CODES_SUIVI));
+  // Pour l'instant, tous les emplacements gardent le code actuel du site.
+  assert.deepEqual([...codes], [AMAZON_TAG]);
+  for (const code of codes) assert.match(code, /^[a-z0-9]+-21$/, `code de suivi mal formé : ${code}`);
+  for (const p of PRODUITS) {
+    for (const e of Object.keys(CODES_SUIVI) as Emplacement[]) {
+      const tag = new URL(amazonUrl(p, e)).searchParams.get("tag");
+      assert.ok(tag && codes.has(tag), `${p.slug} (${e}) : code de suivi ${tag} hors de la table`);
+      assert.equal(tag, CODES_SUIVI[e]);
+    }
   }
 });
