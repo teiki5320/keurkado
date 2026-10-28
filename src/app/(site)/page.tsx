@@ -3,15 +3,15 @@ import Link from "next/link";
 import { Compteur } from "@/components/calendrier/Compteur";
 import { ConseilGrid } from "@/components/conseils/ConseilCard";
 import { EntryText, Section } from "@/components/layout/Section";
-import { essence, IconeUnivers } from "@/components/produit/ProduitCard";
+import { essence, IconeUnivers, Perle } from "@/components/produit/ProduitCard";
 import { TopGrid } from "@/components/produit/TopCard";
 import { Atelier } from "@/components/quiz/Atelier";
-import { fetesAVenir } from "@/lib/calendrier";
+import { fetesAVenir, topDeLaFete } from "@/lib/calendrier";
 import { siteConfig } from "@/lib/config";
 import { todayInParis } from "@/lib/conseils/article";
 import { donneesAtelier } from "@/lib/data/atelier";
 import { getConseils } from "@/lib/data/conseils";
-import { comptes } from "@/lib/data/produits";
+import { comptes, getProduit, toCarte } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
 import { jsonLd, organisationLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
@@ -31,6 +31,12 @@ const COINS = ["rounded-[40px_40px_40px_6px]", "rounded-[40px_40px_6px_40px]", "
 export default function HomePage() {
   const prochaines = fetesAVenir(todayInParis()).slice(0, 3);
   const prochaine = prochaines[0];
+  // Top 10 de la prochaine fête qui en a un (Noël, Saint-Valentin…), mis en avant juste sous le compte à rebours.
+  const topFete = prochaines.map(topDeLaFete).find(Boolean) ?? TOPS[0];
+  const perlesFete = topFete.items.slice(0, 3).flatMap((it) => {
+    const p = getProduit(it.produit);
+    return p ? [toCarte(p, "top")] : [];
+  });
   const nbOccasion = comptes("occasion");
   const conseils = getConseils().slice(0, 3);
   const ld = [
@@ -72,12 +78,35 @@ export default function HomePage() {
             <Compteur date={prochaine.date} className="font-bold text-bois-fonce" />
           </p>
         )}
+        {/* Le Top 10 de la prochaine fête : trois perles et un lien vers la liste (pas de bouton Amazon sur l'accueil). */}
+        <Link
+          href={`/top/${topFete.slug}`}
+          className="carte-cadeau bulle mx-auto mt-6 flex max-w-2xl flex-col items-center gap-4 rounded-[40px_40px_40px_8px] px-5 py-5 text-center hover:text-ink sm:flex-row sm:text-left"
+        >
+          <span aria-hidden className="flex shrink-0 gap-3 pt-3">
+            {perlesFete.map((p, i) => (
+              <Perle key={p.slug} produit={p} index={i} taille={64} etiquette={false} />
+            ))}
+          </span>
+          <span className="min-w-0">
+            <span className="eyebrow block">Top 10 de la prochaine fête</span>
+            <span className="mt-1 block font-serif text-[24px] leading-tight font-semibold">{topFete.titre}</span>
+            <span className="mt-1 block text-[14px] font-bold text-terre-texte">Voir les 10 idées →</span>
+          </span>
+        </Link>
         <div className="mt-8">
           <Atelier {...donneesAtelier()} mode="accueil" />
         </div>
       </section>
 
-      {/* 2. Par occasion */}
+      {/* 2. Top 10 (remontés juste sous l'atelier) */}
+      {TOPS.length > 0 && (
+        <Section title="Nos Top 10" href="/top" linkLabel="Tous les Top 10">
+          <TopGrid tops={TOPS.slice(0, 8)} />
+        </Section>
+      )}
+
+      {/* 3. Par occasion */}
       <Section title="Par occasion" id="occasions">
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {OCCASIONS.map((o, i) => (
@@ -93,13 +122,6 @@ export default function HomePage() {
           ))}
         </ul>
       </Section>
-
-      {/* 3. Top 10 */}
-      {TOPS.length > 0 && (
-        <Section title="Nos Top 10" href="/top" linkLabel="Tous les Top 10">
-          <TopGrid tops={TOPS.slice(0, 8)} />
-        </Section>
-      )}
 
       {/* 4. Pour qui ? */}
       <Section title="Pour qui ?" id="pour">

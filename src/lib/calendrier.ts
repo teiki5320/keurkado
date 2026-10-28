@@ -1,4 +1,5 @@
-import type { Fete } from "./types";
+import { topsDe } from "./tops";
+import type { Fete, Top } from "./types";
 
 /**
  * Calendrier des fêtes africaines et des jours où l'on offre, d'octobre 2026 à fin 2027.
@@ -130,4 +131,10 @@ export function fetesAVenir(aujourdhui: string): Fete[] {
 /** Nombre de jours entre deux dates AAAA-MM-JJ. */
 export function joursEntre(de: string, a: string): number {
   return Math.round((Date.parse(`${a}T00:00:00Z`) - Date.parse(`${de}T00:00:00Z`)) / 86_400_000);
+}
+
+/** Top 10 de la fête, quand son lien mène à une occasion qui en a un (Noël → « 10 idées cadeaux de Noël… »). */
+export function topDeLaFete(f: Fete): Top | undefined {
+  const occasion = f.lien?.href.match(/^\/occasion\/([a-z0-9-]+)$/)?.[1];
+  return occasion ? topsDe(`occasion/${occasion}`)[0] : undefined;
 }

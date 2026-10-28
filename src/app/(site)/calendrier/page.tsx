@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Compteur } from "@/components/calendrier/Compteur";
 import { Breadcrumb, EntryText, PageHeader } from "@/components/layout/Section";
-import { FETES, fetesAVenir } from "@/lib/calendrier";
+import { FETES, fetesAVenir, topDeLaFete } from "@/lib/calendrier";
 import { siteConfig } from "@/lib/config";
 import { todayInParis } from "@/lib/conseils/article";
+import { getProduit } from "@/lib/data/produits";
 import { formatDate } from "@/lib/format";
 import { breadcrumbLd, jsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/metadata";
@@ -69,6 +70,7 @@ export default function CalendrierPage() {
                         {f.lien.label} →
                       </Link>
                     )}
+                    <TopDeLaFete fete={f} />
                   </div>
                 </li>
               ))}
@@ -88,5 +90,32 @@ export default function CalendrierPage() {
         </p>
       </EntryText>
     </>
+  );
+}
+
+/** Sous une fête : son Top 10 et trois idées de la liste (liens vers le Top, sans bouton Amazon). */
+function TopDeLaFete({ fete }: { fete: (typeof FETES)[number] }) {
+  const top = topDeLaFete(fete);
+  if (!top) return null;
+  const idees = top.items.slice(0, 3).flatMap((it, i) => {
+    const p = getProduit(it.produit);
+    return p ? [{ nom: p.nom, href: `/top/${top.slug}#cadeau-${i + 1}` }] : [];
+  });
+  return (
+    <div className="mt-3 border-t border-ink/15 pt-3 text-[14px]">
+      <Link href={`/top/${top.slug}`} className="font-bold text-ink underline underline-offset-2 hover:text-terre-texte">
+        Top 10 : {top.titre}
+      </Link>
+      <ul className="mt-1.5 space-y-1 text-muted">
+        {idees.map((idee) => (
+          <li key={idee.href}>
+            <Link href={idee.href} className="inline-flex min-h-6 items-center hover:text-terre-texte">
+              <span aria-hidden className="mr-1.5 text-bois">●</span>
+              {idee.nom}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
