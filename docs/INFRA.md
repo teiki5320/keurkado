@@ -100,8 +100,12 @@ uniquement des noms de variables et de consoles.
   `src/lib/amazon.ts` (top, rubrique, conseil, quiz). Tous les emplacements utilisent encore
   `keurkadofr-21` ; quand Jean aura créé un code par emplacement dans la console, il suffira de
   le remplacer dans cette table.
-- **Contrôle** : la routine « Vérifier les liens Amazon » du Studio a contrôlé 40 liens le
-  21 octobre 2026, tous valides.
+- **Contrôle** : `npm run verifier-produits -- --ecrire` (à lancer sur le Mac, par lots avec
+  `--lot 20`) ouvre chaque fiche Amazon dans Chrome et note la date et l'état dans
+  `src/lib/catalogue/verifications.json` ; un produit sans bouton d'achat est masqué du site
+  jusqu'à son remplacement. Passage complet le 28 octobre 2026 : 55 fiches disponibles, une
+  indisponible (eau de parfum au oud, remplacée le jour même). La routine « Vérifier les liens
+  Amazon » du Studio avait contrôlé 40 liens le 21 octobre 2026, tous valides.
 - **Site déclaré** : keurkado.com dans la liste des sites du compte — à vérifier dans la console.
 - **Console** : https://partenaires.amazon.fr (compte Amazon Partenaires créé le 18 octobre 2026).
 

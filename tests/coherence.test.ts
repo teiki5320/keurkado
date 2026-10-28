@@ -7,7 +7,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
 import { FETES } from "../src/lib/calendrier";
-import { PRODUITS } from "../src/lib/catalogue";
+import { estIndisponible, PRODUITS, TOUS_LES_PRODUITS, VERIFICATIONS_PRODUITS } from "../src/lib/catalogue";
 import { encadresDuCorps, internalLinks, parseConseil, partiesProchesDeLaPub } from "../src/lib/conseils/article";
 import { porte } from "../src/lib/data/produits";
 import { GUIDE_ENVOYER, GUIDE_QUIZ, GUIDE_TOPS, guideDe, motsDuGuide } from "../src/lib/guides";
@@ -143,4 +143,14 @@ test("conseils : un encadré de 1 ou 2 cadeaux dans le texte, cités par l'artic
       assert.ok(!interdites.includes(e.partie), `${c.slug} : encadré dans la partie ${e.partie}, voisine de l'annonce du milieu`);
     }
   }
+});
+
+test("vérifications Amazon : relevé bien formé, aucun produit indisponible affiché", () => {
+  for (const [slug, v] of Object.entries(VERIFICATIONS_PRODUITS)) {
+    assert.ok(TOUS_LES_PRODUITS.some((p) => p.slug === slug), `verifications.json : produit inconnu ${slug}`);
+    assert.match(v.asin, /^[A-Z0-9]{10}$/, `${slug} : ASIN invalide`);
+    assert.match(v.verifieLe, /^\d{4}-\d{2}-\d{2}$/, `${slug} : date invalide`);
+    assert.ok(["disponible", "indisponible"].includes(v.statut), `${slug} : statut ${v.statut}`);
+  }
+  for (const p of PRODUITS) assert.ok(!estIndisponible(p), `${p.slug} : affiché alors que sa fiche Amazon est indisponible`);
 });

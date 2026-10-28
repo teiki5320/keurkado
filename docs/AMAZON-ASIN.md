@@ -2,6 +2,8 @@
 
 Relevés à la main sur Amazon.fr le 20 octobre 2026 : résultat non sponsorisé, bien noté, fidèle à la description et à la tranche de budget. Notes et nombres d'avis au jour du relevé. À revérifier de temps en temps (produit indisponible, remplacé…).
 
+Vérification de disponibilité : `npm run verifier-produits -- --ecrire` (sur le Mac, Chrome) ouvre chaque fiche et inscrit la date et l'état dans `src/lib/catalogue/verifications.json`. Une fiche sans bouton d'achat passe « indisponible » : le produit n'est plus affiché jusqu'à ce qu'on lui trouve un équivalent vérifié (nouvel ASIN noté ici, avec la date et la raison du choix).
+
 Les autres produits du catalogue mènent à une recherche Amazon (aucun article assez fidèle trouvé : vrai wax en coton, bazin, toiles peintes à la main, statuettes, etc.).
 
 | Produit (slug) | ASIN | Article choisi |
@@ -15,7 +17,7 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `panier-tresse-bolga` | [B0041CZMX8](https://www.amazon.fr/dp/B0041CZMX8) | Grand panier Bolga du Ghana, commerce équitable (4,6 ; 597 avis) — prix ~44 € : budget 50-100 → 20-50 |
 | `mortier-pilon-bois` | [B0972M8VRF](https://www.amazon.fr/dp/B0972M8VRF) | Samhita mortier et pilon en acacia (4,4 ; 926 avis) |
 | `paniers-muraux-decoratifs` | [B0BW6S6MCL](https://www.amazon.fr/dp/B0BW6S6MCL) | GFYWZ lot de 3 paniers muraux tressés (4,7 ; 25 avis) |
-| `eau-de-parfum-oud-homme` | [B09FTPLYK3](https://www.amazon.fr/dp/B09FTPLYK3) | Franck Olivier Oud Touch, eau de parfum (4,3 ; 325 avis) |
+| `eau-de-parfum-oud-homme` | [B077PXC5YD](https://www.amazon.fr/dp/B077PXC5YD) | Mauboussin Pour Lui Cristal Oud, eau de parfum homme 100 mL (4,2 ; 2,3 k avis ; expédié par Amazon ; relevé le 28 octobre 2026, remplace le Franck Olivier Oud Touch B09FTPLYK3 devenu indisponible : plus de bouton d'achat) |
 | `montre-bois-homme` | [B0DXV954KS](https://www.amazon.fr/dp/B0DXV954KS) | Bobo Bird montre chronographe en bois (4,5 ; 39 avis) |
 | `kit-entretien-barbe` | [B08GYDSD72](https://www.amazon.fr/dp/B08GYDSD72) | Oukzon coffret barbe 10 en 1 (4,6 ; 7 k avis) |
 | `theiere-inox-ataya` | [B09GYRZQRM](https://www.amazon.fr/dp/B09GYRZQRM) | Ibili théière arabe Yadida 1 L inox (4,3 ; 101 avis) |

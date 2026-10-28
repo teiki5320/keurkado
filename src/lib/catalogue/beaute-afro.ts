@@ -193,7 +193,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "20-50",
     voyage: false,
     recherche: "eau de parfum oud homme",
-    amazonAsin: "B09FTPLYK3",
+    amazonAsin: "B077PXC5YD",
     rayon: "beauty",
   },
   {
