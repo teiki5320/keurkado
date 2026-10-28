@@ -33,7 +33,8 @@ publications réelles, ou routine qui publie).
 - ✅ Référencement naturel : propriété `keurkado.com` dans Google Search Console, sitemap envoyé le
   20 octobre 2026 ; 12 articles Conseils, dont 5 publiés et 7 programmés jusqu'au 14 décembre,
   republiés chaque lundi, mercredi et vendredi. Depuis le 25 octobre 2026, pages signalées aussi à
-  Bing et aux autres moteurs par IndexNow (`scripts/indexnow.mjs`).
+  Bing et aux autres moteurs par IndexNow (`scripts/indexnow.mjs`) ; site ajouté à Bing Webmaster Tools
+  le 28 octobre 2026 (balise `msvalidate.01`), sitemap envoyé le même jour.
 - ✅ Pinterest : compte Keur Kado créé, domaine revendiqué, 21 épingles programmées dans Pinterest
   (une par jour à partir du 21 octobre 2026) ; pas branché au Planning du Studio. Publication
   automatique par l'API (comme Keur Déco) en place depuis le 23 octobre 2026, clé du compte créée le

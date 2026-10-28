@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     ...(ADSENSE_CLIENT && { "google-adsense-account": ADSENSE_CLIENT }),
     // Revendication du domaine sur Pinterest (variable PINTEREST_VERIFY, voir docs/PINTEREST.md).
     ...(process.env.NEXT_PUBLIC_PINTEREST_VERIFY && { "p:domain_verify": process.env.NEXT_PUBLIC_PINTEREST_VERIFY }),
+    // Vérification du site dans Bing Webmaster Tools (code public, affiché dans la page).
+    "msvalidate.01": "8BA824DE3FC8A5F0EC901A67D71AB314",
   },
 };
 

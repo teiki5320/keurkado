@@ -64,7 +64,9 @@
   indexées sur 62, 1 pas encore (inconnue de Google) ; il n'y en avait que 9 sur 61 au 21 octobre.
 - **Bing et autres moteurs (IndexNow)** : depuis le 25 octobre 2026, `node scripts/indexnow.mjs`
   signale les pages du sitemap à Bing, DuckDuckGo, Ecosia et Yandex (clé publique servie à la
-  racine du site). Journal du référencement page par page : `docs/referencement.md`.
+  racine du site). Bing Webmaster Tools : site ajouté le 28 octobre 2026, vérifié par la balise
+  `msvalidate.01` du layout, sitemap envoyé le même jour. Journal du référencement page par page :
+  `docs/referencement.md`.
 - **Pinterest** : compte Keur Kado créé, domaine revendiqué (balise publiée sur le site) ;
   21 épingles programmées dans Pinterest, une par jour à partir du 21 octobre 2026. Publication
   automatique (`.github/workflows/pinterest.yml`, chaque jour à 4 h 17 UTC, 5 épingles au plus) en
