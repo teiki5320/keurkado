@@ -17,7 +17,7 @@ uniquement des noms de variables et de consoles.
 - 🌐 **Web** : 🐙 GitHub — main · publication au vert [ok] → ⚙️ GitHub Actions — lint, types, tests, build, contrôle du HTML, vérification en ligne [ok] → ☁️ Hébergement web — Worker Cloudflare « keurkado » [ok] → 🌍 keurkado.com — en ligne, réponse 200 [ok]
 - 🛒 **Affiliation** : 🎁 Fiche cadeau — bouton « Voir sur Amazon » [ok] → 🛒 Amazon Partenaires (affiliation) — tag keurkadofr-21 [ok] → 🔗 Liens directs — 58 ASIN sur 98 cadeaux [à faire]
 - 📰 **Publicité** : 📰 AdSense (publicité web) — script et ads.txt en ligne [ok] → 🧱 Blocs d'annonces — pas encore créés [à faire] → 💶 Revenus — aucun constaté [pas encore]
-- 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 7 programmés [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 61 pages indexées sur 62 au 27 octobre [ok]
+- 📝 **Contenu** : ✍️ Articles Conseils — 5 publiés, 19 programmés au 29 octobre [ok] → ⚙️ GitHub Actions — republie lun., mer., ven. [ok] → 🔍 Google — 61 pages indexées sur 62 au 27 octobre [ok]
 
 ## Vue d'ensemble
 
@@ -28,7 +28,7 @@ uniquement des noms de variables et de consoles.
 - **Stack** : Next.js 16 (App Router, export statique) + React 19 + Tailwind CSS 4, TypeScript,
   Marked pour les articles Markdown, sharp pour les épingles. Base technique reprise de Keurbook.
 - **Contenus** : catalogue de 98 cadeaux dans `src/lib/catalogue/` (7 univers), 21 Top 10 dans
-  `src/lib/tops/`, 12 articles Conseils dans `content/conseils/` (publiés à leur date),
+  `src/lib/tops/`, 24 articles Conseils dans `content/conseils/` (publiés à leur date),
   calendrier dans `src/lib/calendrier.ts`.
 - **Backend** : aucun. Site entièrement statique (dossier `out/`), sans base de données, sans
   compte, sans formulaire. Seuls cookies : ceux de Google AdSense, après accord dans le bandeau de

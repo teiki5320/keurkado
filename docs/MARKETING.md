@@ -32,8 +32,8 @@ publications réelles, ou routine qui publie).
 
 - ✅ Site en ligne sur `keurkado.com` depuis le 20 octobre 2026.
 - ✅ Référencement naturel : propriété `keurkado.com` dans Google Search Console, sitemap envoyé le
-  20 octobre 2026 ; 12 articles Conseils, dont 5 publiés et 7 programmés jusqu'au 14 décembre,
-  republiés chaque lundi, mercredi et vendredi. Depuis le 25 octobre 2026, pages signalées aussi à
+  20 octobre 2026 ; 24 articles Conseils au 29 octobre 2026, dont 5 publiés et 19 programmés jusqu'au 14 décembre
+  (12 ajoutés le 29 octobre, du 30 octobre au 9 décembre), republiés chaque lundi, mercredi et vendredi. Depuis le 25 octobre 2026, pages signalées aussi à
   Bing et aux autres moteurs par IndexNow (`scripts/indexnow.mjs`, lancé par GitHub après chaque
   publication et chaque lundi depuis le 28 octobre 2026) ; site ajouté à Bing Webmaster Tools
   le 28 octobre 2026 (balise `msvalidate.01`), sitemap envoyé le même jour.
@@ -50,7 +50,7 @@ publications réelles, ou routine qui publie).
 - **Pages indexées par Google** : 61 sur 62 (relevé du Studio, 27 octobre 2026 ; 9 sur 61 au 21 octobre)
 - **Pages pas encore indexées** : 1, inconnue de Google (l'article « cadeau belle-mère africaine »)
 - **Liens Amazon directs** : 58 cadeaux sur 98
-- **Articles Conseils** : 5 publiés, 7 programmés
+- **Articles Conseils** : 5 publiés, 19 programmés (au 29 octobre 2026)
 - **Visites** : à instrumenter
 - **Clics et revenus Amazon** : à vérifier dans la console
 - **Revenus AdSense** : aucun tant que les blocs d'annonces ne sont pas créés
