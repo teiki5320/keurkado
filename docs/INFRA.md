@@ -1,6 +1,6 @@
 # INFRA — fiche technique
 
-Mis à jour le 28 octobre 2026, d'après le code du dépôt et le site en ligne. Aucun secret ici :
+Mis à jour le 29 octobre 2026, d'après le code du dépôt et le site en ligne. Aucun secret ici :
 uniquement des noms de variables et de consoles.
 
 ## En bref
@@ -70,7 +70,8 @@ uniquement des noms de variables et de consoles.
   sert `out/`, page 404, pas d'adresse `workers.dev` ni d'aperçus publics, domaines `keurkado.com` et
   `www.keurkado.com`. Depuis le 28 octobre 2026, un petit script (`worker/index.ts`, testé dans
   `tests/worker.test.ts`) passe avant les fichiers : http, www et les adresses sans barre finale sont
-  redirigés en 301 vers `https://keurkado.com/…/` (avant, ils répondaient 200 ou 307).
+  redirigés en 301 vers la même page en https, sans www et avec barre finale (par exemple
+  https://keurkado.com/conseils/) ; avant, ils répondaient 200 ou 307.
 - **Ne pas utiliser** `wrangler pages …` : la commande convertit le projet en application OpenNext.
 - **En-têtes** : `public/_headers` (politique de sécurité limitée au site et aux domaines Google
   nécessaires à AdSense, HSTS, cache des images ; `X-Robots-Tag: noindex` sur les fichiers .txt internes de
@@ -106,7 +107,8 @@ uniquement des noms de variables et de consoles.
   jusqu'à son remplacement. Passage complet le 28 octobre 2026 : 55 fiches disponibles, une
   indisponible (eau de parfum au oud, remplacée le jour même). La routine « Vérifier les liens
   Amazon » du Studio avait contrôlé 40 liens le 21 octobre 2026, tous valides.
-- **Site déclaré** : keurkado.com déclaré dans Amazon Partenaires (toakeur-21), vérifié par Jean le 28/10/2026.
+- **Site déclaré** : keurkado.com déclaré dans le compte Amazon Partenaires de Jean, vérifié par Jean le
+  28/10/2026 ; les liens du site portent le code de suivi `keurkadofr-21` (98 liens sur l'accueil, vérifié le 29 octobre 2026).
 - **Console** : https://partenaires.amazon.fr (compte Amazon Partenaires créé le 18 octobre 2026).
 
 ## AdSense (publicité web)
