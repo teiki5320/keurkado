@@ -106,7 +106,7 @@ uniquement des noms de variables et de consoles.
   jusqu'à son remplacement. Passage complet le 28 octobre 2026 : 55 fiches disponibles, une
   indisponible (eau de parfum au oud, remplacée le jour même). La routine « Vérifier les liens
   Amazon » du Studio avait contrôlé 40 liens le 21 octobre 2026, tous valides.
-- **Site déclaré** : keurkado.com dans la liste des sites du compte — à vérifier dans la console.
+- **Site déclaré** : keurkado.com déclaré dans Amazon Partenaires (toakeur-21), vérifié par Jean le 28/10/2026.
 - **Console** : https://partenaires.amazon.fr (compte Amazon Partenaires créé le 18 octobre 2026).
 
 ## AdSense (publicité web)
