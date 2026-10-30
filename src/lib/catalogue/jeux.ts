@@ -150,7 +150,7 @@ export const PRODUITS_JEUX: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "hochet bois bebe naturel",
-    amazonAsin: "B07B6B6PGC",
+    amazonAsin: "B005HAW5VA",
     rayon: "toys",
   },
   {

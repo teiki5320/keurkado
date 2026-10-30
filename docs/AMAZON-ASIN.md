@@ -31,7 +31,7 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `creoles-or-18-carats` | [B07NNVY26G](https://www.amazon.fr/dp/B07NNVY26G) | Prins Jewels créoles or jaune 18 carats (4,2 ; 165 avis) |
 | `perles-de-taille` | [B09CGRQW3B](https://www.amazon.fr/dp/B09CGRQW3B) | 3 chaînes de taille en perles, waist beads (4,0 ; 162 avis) |
 | `coffret-soins-karite` | [B0CLVFMXSV](https://www.amazon.fr/dp/B0CLVFMXSV) | Evoluderm coffret Délice de karité (4,7 ; 63 avis) |
-| `beurre-de-karite-brut` | [B072MMS86H](https://www.amazon.fr/dp/B072MMS86H) | Pranaturals beurre de karité brut bio 300 mL (4,4 ; 12,1 k avis) |
+| `beurre-de-karite-brut` | [B004SMFLAK](https://www.amazon.fr/dp/B004SMFLAK) | Naissance beurre de karité brut bio non raffiné 250 g (4,4 ; 18,3 k avis ; relevé le 30 octobre 2026, remplace le Pranaturals 300 mL B072MMS86H, indisponible) |
 | `savon-noir-africain` | [B06WGSH8S8](https://www.amazon.fr/dp/B06WGSH8S8) | Dudu Osun lot de 3 savons noirs (4,4 ; 1,5 k avis) |
 | `bonnet-satin-cheveux` | [B0BX2GZ2G4](https://www.amazon.fr/dp/B0BX2GZ2G4) | Lot de 2 bonnets en satin pour la nuit (4,2 ; 3,4 k avis) |
 | `taie-oreiller-satin` | [B0BMWZBZF4](https://www.amazon.fr/dp/B0BMWZBZF4) | Vielit lot de 2 taies d'oreiller en satin 65x65 (4,4 ; 3 k avis) |
@@ -52,7 +52,7 @@ Les autres produits du catalogue mènent à une recherche Amazon (aucun article 
 | `tapis-eveil-savane` | [B0BHXCTT7G](https://www.amazon.fr/dp/B0BHXCTT7G) | Nuby tapis d'éveil réversible Safari 150x200 (4,3 ; 1,2 k avis) |
 | `poupee-chiffon-noire` | [B0D7LY6NX1](https://www.amazon.fr/dp/B0D7LY6NX1) | OUOZZZ poupée noire toute douce 25 cm (4,5 ; 787 avis) |
 | `peluche-lion` | [B0CTKLZDGT](https://www.amazon.fr/dp/B0CTKLZDGT) | Kaloo Les Amis, mini doudou lion (4,6 ; 236 avis) |
-| `hochet-bois-bebe` | [B07B6B6PGC](https://www.amazon.fr/dp/B07B6B6PGC) | Selecta Girali, hochet girafe en bois (4,4 ; 495 avis) |
+| `hochet-bois-bebe` | [B005HAW5VA](https://www.amazon.fr/dp/B005HAW5VA) | HABA hochet porte-bonheur en hêtre naturel, grelot (4,6 ; 356 avis ; vendu par Amazon ; relevé le 30 octobre 2026, remplace le Selecta Girali B07B6B6PGC, indisponible) |
 | `imagier-bilingue-langue-africaine` | [2958560600](https://www.amazon.fr/dp/2958560600) | Mon imagier bilingue, mes émotions, wolof-français (4,3 ; 10 avis) |
 | `peigne-afro-brosse-demelante` | [B0C1GBL9VK](https://www.amazon.fr/dp/B0C1GBL9VK) | Lot de 3 brosses démêlantes pour cheveux afro 3a à 4c (4,4 ; 922 avis) |
 | `serviette-microfibre-cheveux` | [B0D7HVMC5Q](https://www.amazon.fr/dp/B0D7HVMC5Q) | Freatech 2 grandes serviettes microfibre pour cheveux bouclés (4,6 ; 754 avis) |

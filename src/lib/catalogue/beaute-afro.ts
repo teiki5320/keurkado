@@ -12,7 +12,7 @@ export const PRODUITS_BEAUTE_AFRO: Produit[] = [
     budget: "moins-de-20",
     voyage: true,
     recherche: "beurre karite brut non raffine",
-    amazonAsin: "B072MMS86H",
+    amazonAsin: "B004SMFLAK",
     rayon: "beauty",
   },
   {
